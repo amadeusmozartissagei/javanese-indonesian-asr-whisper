@@ -1,0 +1,51 @@
+{
+  "exp": "E3",
+  "question": "Do the Javanese-accented Indonesian clips help? (~500 clips, 15 speakers)",
+  "jember": {
+    "split": "train",
+    "segment_mode": "concat25",
+    "upsample": 1
+  },
+  "curriculum": false,
+  "n_add_items": 90,
+  "add_hours": 0.53794,
+  "concentration": {
+    "n_groups": 15,
+    "top_group_share": 0.441796
+  },
+  "per_speaker_hours": {
+    "722682d5957b350e": 0.23766,
+    "c5f088380fc44d94": 0.0833567,
+    "10c5ebd7099fb11c": 0.0597667,
+    "3398883d5ec7167e": 0.0494767,
+    "7bb2aea3c3b6a424": 0.02706,
+    "cc2328af8622720e": 0.01706,
+    "70bddbf4b707e11c": 0.01607,
+    "4c136264d2470ff4": 0.0128567,
+    "593fa1884266e3c6": 0.00952667,
+    "bb961165f14f44b6": 0.00897667,
+    "45e17843702028be": 0.00625,
+    "1d5894377419894d": 0.00444667,
+    "bada46935347bb7e": 0.00327333,
+    "ec449ba2b8f3d5cb": 0.00125,
+    "ab278590addb646f": 0.00091
+  },
+  "seed": 20260902,
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888",
+  "policy": {
+    "cv_drop_downvoted": true,
+    "cv_dedup_sentences": true,
+    "cv_max_clips_per_speaker": 100,
+    "cv_keep_accent_jv_always": true,
+    "digit_policy": "drop",
+    "min_words": 2,
+    "target_s": 25.0,
+    "hard_cap_s": 29.0,
+    "join_sil_s": 0.3,
+    "item_gap_s": 0.5,
+    "shard_target_s": 600.0,
+    "sr": 16000,
+    "sec_per_step": 9.0,
+    "effective_batch": 16
+  }
+}

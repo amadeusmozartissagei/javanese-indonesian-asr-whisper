@@ -1,0 +1,133 @@
+{
+ "best": {
+  "config": "omniASR_LLM_3B_v2__jav_Latn__fp16",
+  "delta_vs_D": 0.025,
+  "lnp_delta_vs_D": 0.0088,
+  "wer": 0.2518
+ },
+ "checks": {
+  "failed": [],
+  "passed": 11,
+  "total": 11
+ },
+ "env": {
+  "batch_size": 4,
+  "disk_free_gib": 1119.2,
+  "dtype": "fp16",
+  "gpu": "Tesla T4, 15360 MiB, 7.5\nTesla T4, 15360 MiB, 7.5",
+  "n_dev": 372,
+  "run_id": "09-omniasr-zeroshot",
+  "run_mode": "full"
+ },
+ "files": {
+  "pred/omniASR_CTC_3B_v2__nolang__fp16.csv": "cc671cf83b248732",
+  "pred/omniASR_CTC_3B_v2__nolang__fp16.meta.json": "26606efdb76d986b",
+  "pred/omniASR_LLM_3B__jav_Latn__fp16.csv": "dae8e07cc194f12f",
+  "pred/omniASR_LLM_3B__jav_Latn__fp16.meta.json": "b49697ff9097cdfc",
+  "pred/omniASR_LLM_3B_v2__jav_Latn__fp16.csv": "160046b23efc1b06",
+  "pred/omniASR_LLM_3B_v2__jav_Latn__fp16.meta.json": "dca226aa665958cd",
+  "results.csv": "ccc64ce3fb87b15a"
+ },
+ "grid": {
+  "n_done": 3,
+  "n_planned": 3,
+  "skipped": {},
+  "total_h": 1.16
+ },
+ "projection": {
+  "omniASR_CTC_3B_v2__nolang__fp16": 0.38,
+  "omniASR_LLM_3B__jav_Latn__fp16": 2.43,
+  "omniASR_LLM_3B_v2__jav_Latn__fp16": 2.4
+ },
+ "results": {
+  "omniASR_CTC_3B_v2__nolang__fp16": {
+   "D": 3924,
+   "I": 133,
+   "S": 3934,
+   "audio_s": 9222.2,
+   "decode_s": 238.0,
+   "digit_tok_share": 0.0042,
+   "errors": [],
+   "hyp_ref_len_ratio": 0.783,
+   "init_s": 208.7,
+   "n": 372,
+   "n_clips": 372,
+   "n_empty": 0,
+   "n_err": 7991,
+   "n_fail": 0,
+   "n_ref": 17485,
+   "n_trunc": 0,
+   "peak_vram_gib": 9.07,
+   "rtf": 0.0258,
+   "torch": "2.8.0+cu128",
+   "wall_s": 471,
+   "wer": 0.457,
+   "wer_clean222": 0.4431,
+   "wer_ind": 0.3728,
+   "wer_javind": 0.4614,
+   "wer_lower_nopunct": 0.4348
+  },
+  "omniASR_LLM_3B__jav_Latn__fp16": {
+   "D": 575,
+   "I": 483,
+   "S": 3619,
+   "audio_s": 9222.2,
+   "decode_s": 1530.3,
+   "digit_tok_share": 0.0001,
+   "errors": [],
+   "hyp_ref_len_ratio": 0.995,
+   "init_s": 281.8,
+   "n": 372,
+   "n_clips": 372,
+   "n_empty": 0,
+   "n_err": 4677,
+   "n_fail": 0,
+   "n_ref": 17485,
+   "n_trunc": 0,
+   "peak_vram_gib": 11.5,
+   "rtf": 0.1659,
+   "torch": "2.8.0+cu128",
+   "wall_s": 1860,
+   "wer": 0.2675,
+   "wer_clean222": 0.2624,
+   "wer_ind": 0.2172,
+   "wer_javind": 0.2701,
+   "wer_lower_nopunct": 0.2362
+  },
+  "omniASR_LLM_3B_v2__jav_Latn__fp16": {
+   "D": 804,
+   "I": 288,
+   "S": 3310,
+   "audio_s": 9222.2,
+   "decode_s": 1513.4,
+   "digit_tok_share": 0.0061,
+   "errors": [],
+   "hyp_ref_len_ratio": 0.97,
+   "init_s": 299.9,
+   "n": 372,
+   "n_clips": 372,
+   "n_empty": 0,
+   "n_err": 4402,
+   "n_fail": 0,
+   "n_ref": 17485,
+   "n_trunc": 0,
+   "peak_vram_gib": 11.51,
+   "rtf": 0.1641,
+   "torch": "2.8.0+cu128",
+   "wall_s": 1837,
+   "wer": 0.2518,
+   "wer_clean222": 0.2528,
+   "wer_ind": 0.1893,
+   "wer_javind": 0.255,
+   "wer_lower_nopunct": 0.2203
+  }
+ },
+ "scorer": {
+  "self_test": true
+ },
+ "venv": {
+  "n_langs": 1672,
+  "probe": "torch 2.8.0+cu128 | cuda True | numpy 1.26.4 | fairseq2 0.6 | omnilingual_asr 0.2.0",
+  "setup_s": 131
+ }
+}

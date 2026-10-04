@@ -1,0 +1,56 @@
+{
+  "exp": "E1",
+  "question": "Does TTS Central Javanese help at all?",
+  "jember": {
+    "split": "train",
+    "segment_mode": "concat25",
+    "upsample": 1
+  },
+  "curriculum": false,
+  "n_add_items": 1368,
+  "add_hours": 7.94855,
+  "concentration": {
+    "n_groups": 92,
+    "top_group_share": 0.0139569
+  },
+  "per_speaker_hours": {
+    "recordings (5)": 0.110937,
+    "recordings (14)": 0.0976034,
+    "recordings (49)": 0.0976033,
+    "recordings (42)": 0.0974866,
+    "recordings (21)": 0.0973368,
+    "recordings (7)": 0.0968698,
+    "recordings (37)": 0.0967199,
+    "recordings (2)": 0.0964032,
+    "recordings (63)": 0.0954364,
+    "recordings (54)": 0.0948532,
+    "recordings (11)": 0.0945698,
+    "recordings (17)": 0.0944866,
+    "recordings (12)": 0.0942364,
+    "recordings (51)": 0.0937197,
+    "recordings (34)": 0.0928699,
+    "recordings (58)": 0.0928365,
+    "recordings (82)": 0.0926697,
+    "recordings (22)": 0.0924699,
+    "recordings (20)": 0.0923533,
+    "recordings (32)": 0.0923532
+  },
+  "seed": 20260902,
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888",
+  "policy": {
+    "cv_drop_downvoted": true,
+    "cv_dedup_sentences": true,
+    "cv_max_clips_per_speaker": 100,
+    "cv_keep_accent_jv_always": true,
+    "digit_policy": "drop",
+    "min_words": 2,
+    "target_s": 25.0,
+    "hard_cap_s": 29.0,
+    "join_sil_s": 0.3,
+    "item_gap_s": 0.5,
+    "shard_target_s": 600.0,
+    "sr": 16000,
+    "sec_per_step": 9.0,
+    "effective_batch": 16
+  }
+}

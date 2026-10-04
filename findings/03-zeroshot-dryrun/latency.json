@@ -1,0 +1,37 @@
+{
+ "whisper-base": {
+  "disk_mb": 294.8,
+  "load_s": 5.17,
+  "n_latency_clips": 40,
+  "sec_per_clip_bs1": 0.245,
+  "sec_per_clip_bs8": 0.1343
+ },
+ "whisper-large-v3-turbo": {
+  "disk_mb": 1622.4,
+  "load_s": 11.32,
+  "n_latency_clips": 40,
+  "sec_per_clip_bs1": 0.2501,
+  "sec_per_clip_bs8": 0.1968
+ },
+ "whisper-medium": {
+  "disk_mb": 3059.9,
+  "load_s": 15.92,
+  "n_latency_clips": 40,
+  "sec_per_clip_bs1": 0.4273,
+  "sec_per_clip_bs8": 0.4113
+ },
+ "whisper-small": {
+  "disk_mb": 971.4,
+  "load_s": 9.17,
+  "n_latency_clips": 40,
+  "sec_per_clip_bs1": 0.2681,
+  "sec_per_clip_bs8": 0.0988
+ },
+ "whisper-tiny": {
+  "disk_mb": 155.4,
+  "load_s": 5.72,
+  "n_latency_clips": 40,
+  "sec_per_clip_bs1": 0.3103,
+  "sec_per_clip_bs8": 0.1511
+ }
+}

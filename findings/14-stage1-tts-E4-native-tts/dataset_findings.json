@@ -1,0 +1,657 @@
+{
+ "_meta": {
+  "artifacts": [
+   "baseline_zeroshot.json",
+   "checkpoint_manifest.json",
+   "error_table_dev.csv",
+   "error_table_official_dev.csv",
+   "eval_final.json",
+   "keep_rules.json",
+   "official_curve.csv",
+   "predictions_dev.csv",
+   "predictions_official_dev.csv",
+   "results.csv",
+   "run-log.txt",
+   "train_log.csv"
+  ],
+  "complete": false,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [
+   "gate2"
+  ],
+  "notebook": "mozilla-javanese whisper fine-tune (core)",
+  "notebook_id": "14-stage1-tts",
+  "run_id": "14-stage1-tts-E4-native-tts",
+  "run_mode": "train"
+ },
+ "audio": {
+  "n_files_loaded": 299,
+  "preloaded": true,
+  "ram_gb": 2.871
+ },
+ "baseline": {
+  "decode_paths": {
+   "chunk": 44,
+   "chunk_windows": 88,
+   "short": 328
+  },
+  "gen_max_length": 225,
+  "jember": {
+   "folded_cosmetic_sub_pct": 2.53,
+   "folded_del_rate": 0.212,
+   "folded_ins_rate": 0.0481,
+   "folded_jv_to_id_sub_pct": 25.23,
+   "folded_len_ratio": 0.8361,
+   "folded_n_jv_sub": 2239,
+   "folded_n_jv_to_id": 565,
+   "folded_n_ref_tokens": 10391,
+   "folded_n_utts": 1097,
+   "folded_pct_hyp_with_digit": 2.19,
+   "folded_sub_rate": 0.4898,
+   "folded_wer": 0.7499,
+   "folded_wer_both": 0.4724,
+   "folded_wer_id": 0.6368,
+   "folded_wer_jv": 0.7882,
+   "folded_wer_unk": 0.8729,
+   "official_cosmetic_sub_pct": 6.25,
+   "official_del_rate": 0.2108,
+   "official_ins_rate": 0.0469,
+   "official_jv_to_id_sub_pct": 23.29,
+   "official_len_ratio": 0.8361,
+   "official_n_jv_sub": 2426,
+   "official_n_jv_to_id": 565,
+   "official_n_ref_tokens": 10391,
+   "official_n_utts": 1097,
+   "official_pct_hyp_with_digit": 2.19,
+   "official_sub_rate": 0.5237,
+   "official_wer": 0.7813,
+   "official_wer_both": 0.5066,
+   "official_wer_id": 0.6412,
+   "official_wer_jv": 0.8397,
+   "official_wer_unk": 0.8897
+  },
+  "lang": "jw",
+  "long_chunk_s": 28.0,
+  "long_mode": "chunk",
+  "long_overlap_s": 2.0,
+  "model": "openai/whisper-large-v3-turbo",
+  "n_dev": 1097,
+  "n_official": 372,
+  "no_repeat_ngram": 4,
+  "official": {
+   "folded_cosmetic_sub_pct": 10.99,
+   "folded_del_rate": 0.0607,
+   "folded_ins_rate": 0.0207,
+   "folded_jv_to_id_sub_pct": 33.06,
+   "folded_len_ratio": 0.9599,
+   "folded_n_jv_sub": 980,
+   "folded_n_jv_to_id": 324,
+   "folded_n_ref_tokens": 17473,
+   "folded_n_utts": 372,
+   "folded_pct_hyp_with_digit": 16.4,
+   "folded_sub_rate": 0.188,
+   "folded_wer": 0.2694,
+   "folded_wer_both": 0.1609,
+   "folded_wer_id": 0.1836,
+   "folded_wer_jv": 0.4366,
+   "folded_wer_unk": 0.4249,
+   "official_cosmetic_sub_pct": 11.04,
+   "official_del_rate": 0.0607,
+   "official_ins_rate": 0.0207,
+   "official_jv_to_id_sub_pct": 33.03,
+   "official_len_ratio": 0.9599,
+   "official_n_jv_sub": 981,
+   "official_n_jv_to_id": 324,
+   "official_n_ref_tokens": 17473,
+   "official_n_utts": 372,
+   "official_pct_hyp_with_digit": 16.4,
+   "official_sub_rate": 0.1881,
+   "official_wer": 0.2695,
+   "official_wer_both": 0.1609,
+   "official_wer_id": 0.1836,
+   "official_wer_jv": 0.437,
+   "official_wer_unk": 0.4253
+  },
+  "run_mode": "train"
+ },
+ "checkpoint": {
+  "base_model": "openai/whisper-large-v3-turbo",
+  "best_eval_wer": 0.2327,
+  "best_local_checkpoint": "/kaggle/temp/ckpt/14-stage1-tts-E4-native-tts/run/checkpoint-450",
+  "checkpoint_policy": "final",
+  "decode": {
+   "max_length": 225,
+   "no_repeat_ngram_size": 4,
+   "num_beams": 1
+  },
+  "effective_batch": 16,
+  "fallback_dir": null,
+  "global_step": 506,
+  "hf_branch": "main",
+  "hf_repo": "amozaurus/mozilla-jv-14-stage1-tts-E4-native-tts",
+  "hf_revision": "e892b99c36147ef13addc3ae1efe2ca239f2f63a",
+  "lang": "jw",
+  "learning_rate": 6e-06,
+  "n_files": 7,
+  "num_epochs": 1,
+  "optimizer": "adafactor",
+  "private": true,
+  "run_id": "14-stage1-tts-E4-native-tts",
+  "run_mode": "train",
+  "segment_mode": "native",
+  "shipped_step": 506,
+  "size_bytes": 3239526334,
+  "size_gb": 3.24,
+  "state_branch": "training-state",
+  "variant": "full"
+ },
+ "composition": {
+  "curriculum": false,
+  "extra_hours": 8.0234,
+  "jember_hours": 8.36266,
+  "mix_hours": 6.52751,
+  "n_extra_items": 1368,
+  "n_jember_items": 5541,
+  "n_mix_items": 1184,
+  "n_train_items": 8093,
+  "upsample": 1
+ },
+ "data": {
+  "dev_hours": 1.627,
+  "n_dev_segments": 1097,
+  "n_dev_subset": 299,
+  "n_lexicon_entries": 23805,
+  "n_official_dev": 372,
+  "n_train_segments": 5541,
+  "official_dev_available": true,
+  "train_hours": 8.363
+ },
+ "env": {
+  "audio_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build",
+  "checkpoint_policy": "final",
+  "device": "cuda",
+  "experiment": "E4",
+  "extra_mix": [
+   "E1"
+  ],
+  "hf_model": "openai/whisper-large-v3-turbo",
+  "is_baseline": false,
+  "lang": "jw",
+  "meta_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta",
+  "mix_root": "/kaggle/input/datasets/hamzapratama/jv-mix-16k/findings/06-mix-build",
+  "n_gpu": 1,
+  "nb04_baseline": "/kaggle/input/datasets/hamzapratama/nb04-baseline/upload-nb04-baseline",
+  "notebook": "14-stage1-tts",
+  "numpy": "2.0.2",
+  "odev_meta": "/kaggle/input/datasets/hamzapratama/indonesian-dev/indonesian_dev/metadata.tsv",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "resume_from_hf": false,
+  "run_id": "14-stage1-tts-E4-native-tts",
+  "run_mode": "train",
+  "run_note": "native-tts",
+  "seed": 20260829,
+  "segment_mode": "native",
+  "select_on": "official",
+  "torch": "2.10.0+cu128",
+  "train_variant": "full",
+  "transformers": "5.0.0",
+  "use_both_gpus": false
+ },
+ "eval_final": {
+  "decode_paths": {
+   "chunk": 44,
+   "chunk_windows": 88,
+   "short": 328
+  },
+  "jember": {
+   "folded_cosmetic_sub_pct": 4.12,
+   "folded_del_rate": 0.0953,
+   "folded_ins_rate": 0.0449,
+   "folded_jv_to_id_sub_pct": 12.5,
+   "folded_len_ratio": 0.9497,
+   "folded_n_jv_sub": 720,
+   "folded_n_jv_to_id": 90,
+   "folded_n_ref_tokens": 10391,
+   "folded_n_utts": 1097,
+   "folded_pct_hyp_with_digit": 0.55,
+   "folded_sub_rate": 0.2243,
+   "folded_wer": 0.3645,
+   "folded_wer_both": 0.2332,
+   "folded_wer_id": 0.2824,
+   "folded_wer_jv": 0.2655,
+   "folded_wer_unk": 0.5549,
+   "official_cosmetic_sub_pct": 29.7,
+   "official_del_rate": 0.0948,
+   "official_ins_rate": 0.0445,
+   "official_jv_to_id_sub_pct": 6.76,
+   "official_len_ratio": 0.9497,
+   "official_n_jv_sub": 1376,
+   "official_n_jv_to_id": 93,
+   "official_n_ref_tokens": 10391,
+   "official_n_utts": 1097,
+   "official_pct_hyp_with_digit": 0.55,
+   "official_sub_rate": 0.326,
+   "official_wer": 0.4652,
+   "official_wer_both": 0.2726,
+   "official_wer_id": 0.2863,
+   "official_wer_jv": 0.4341,
+   "official_wer_unk": 0.6783
+  },
+  "official": {
+   "folded_cosmetic_sub_pct": 7.58,
+   "folded_del_rate": 0.0236,
+   "folded_ins_rate": 0.0383,
+   "folded_jv_to_id_sub_pct": 18.06,
+   "folded_len_ratio": 1.0147,
+   "folded_n_jv_sub": 504,
+   "folded_n_jv_to_id": 91,
+   "folded_n_ref_tokens": 17473,
+   "folded_n_utts": 372,
+   "folded_pct_hyp_with_digit": 0.27,
+   "folded_sub_rate": 0.1707,
+   "folded_wer": 0.2326,
+   "folded_wer_both": 0.1173,
+   "folded_wer_id": 0.1934,
+   "folded_wer_jv": 0.2023,
+   "folded_wer_unk": 0.409,
+   "official_cosmetic_sub_pct": 8.24,
+   "official_del_rate": 0.0235,
+   "official_ins_rate": 0.0382,
+   "official_jv_to_id_sub_pct": 17.64,
+   "official_len_ratio": 1.0147,
+   "official_n_jv_sub": 516,
+   "official_n_jv_to_id": 91,
+   "official_n_ref_tokens": 17473,
+   "official_n_utts": 372,
+   "official_pct_hyp_with_digit": 0.27,
+   "official_sub_rate": 0.1722,
+   "official_wer": 0.2339,
+   "official_wer_both": 0.1175,
+   "official_wer_id": 0.1934,
+   "official_wer_jv": 0.2065,
+   "official_wer_unk": 0.4136
+  },
+  "per_recording_wer_std": 0.2271
+ },
+ "extra_mix": {
+  "arms": [
+   "E1"
+  ],
+  "hours": {
+   "E1": 8.023
+  },
+  "n_items": {
+   "E1": 1368
+  }
+ },
+ "fingerprints": {
+  "baseline_zeroshot.json": "171112e303a1bc72",
+  "checkpoint_manifest.json": "94275d358661a994",
+  "error_table_dev.csv": "4ebfb0587fdb2539",
+  "error_table_official_dev.csv": "941474be4f72c925",
+  "eval_final.json": "df34dcd422941a0d",
+  "keep_rules.json": "6cf3a24351b95d80",
+  "official_curve.csv": "a9639478e7201a03",
+  "predictions_dev.csv": "4df2772165578c62",
+  "predictions_official_dev.csv": "8c6e74e2b70320bf",
+  "results.csv": "c118f9acecb55556",
+  "train_log.csv": "30ef7915f3934525"
+ },
+ "hub": {
+  "enabled": true,
+  "preflight": true,
+  "push_every_n_saves": 1000000000,
+  "repo": "amozaurus/mozilla-jv-14-stage1-tts-E4-native-tts",
+  "state_branch": "training-state",
+  "user": "amozaurus"
+ },
+ "items": {
+  "max_dur_s": 25.26,
+  "mean_dur_s": 10.193,
+  "median_dur_s": 7.0,
+  "n_cap_breaks": 0,
+  "n_dev_items": 1097,
+  "n_dev_subset_items": 299,
+  "n_gap_breaks": 0,
+  "n_over_29s": 0,
+  "n_train_items": 8093,
+  "segment_mode": "native",
+  "total_hours": 22.914
+ },
+ "keep_rules": {
+  "checkpoint_policy": "final",
+  "comparator": "04-whisper-core-full-concat25-1epoch",
+  "experiment": "E4",
+  "n_passed": 3,
+  "n_total": 3,
+  "paired": {
+   "vs_nb04": {
+    "delta": -0.0193,
+    "delta_hi": -0.0142,
+    "delta_lo": -0.0245,
+    "label": "official/vs-nb04",
+    "p_better": 1.0,
+    "proven": true,
+    "wer_a": 0.2532,
+    "wer_b": 0.2339
+   },
+   "vs_zeroshot": {
+    "delta": -0.0356,
+    "delta_hi": -0.0209,
+    "delta_lo": -0.0507,
+    "label": "official/zero-shot",
+    "p_better": 1.0,
+    "proven": true,
+    "wer_a": 0.2695,
+    "wer_b": 0.2339
+   }
+  },
+  "rules": [
+   {
+    "detail": "0.2532 -> 0.2339, CI [-0.0245, -0.0142]",
+    "passed": true,
+    "rule": "1. wer_total falls beyond the CI"
+   },
+   {
+    "detail": "0.2513 -> 0.2065",
+    "passed": true,
+    "rule": "2. wer_jv does not get worse"
+   },
+   {
+    "detail": "0.5265% -> 0.5208%  (92 -> 91 of 17473 tokens, noise band +-9.6)",
+    "passed": true,
+    "rule": "3. jv_to_id does not rise (per reference token)"
+   }
+  ],
+  "run_id": "14-stage1-tts-E4-native-tts",
+  "run_mode": "train",
+  "selected_on": "official",
+  "selection_failed": false,
+  "shipped_step": 506,
+  "verdict": "keep"
+ },
+ "mixture": {
+  "comparator_clips": 372,
+  "concentration": {
+   "n_groups": 283,
+   "top_group_share": 0.036409
+  },
+  "curriculum": false,
+  "experiment": "E4",
+  "mix_hours": 6.52751,
+  "n_mix_items": 1184,
+  "spec": "Does curated Common Voice repair the Indonesian regression?",
+  "upsample": 1
+ },
+ "model_setup": {
+  "decoder_start_token_id": 50258,
+  "label_prefix": [
+   "<|startoftranscript|>",
+   "<|jw|>",
+   "<|transcribe|>",
+   "<|notimestamps|>"
+  ],
+  "max_label_len": 448,
+  "n_mels": 128
+ },
+ "nb03_historical": {
+  "jv_to_id_sub_pct": 30.15,
+  "lang": "id_or_jw_tie",
+  "model": "whisper-large-v3-turbo",
+  "wer_folded_unguarded": 0.8719,
+  "wer_official_unguarded": 0.896
+ },
+ "official_curve": {
+  "best_step": 450,
+  "checkpoint_policy": "final",
+  "first_wer": 0.2741,
+  "last_wer": 0.2327,
+  "n_clips": 150,
+  "n_curve_clips": 150,
+  "n_other_clips": 222,
+  "rows": [
+   {
+    "epoch": 0.148,
+    "official_jv_to_id": 15.29,
+    "official_len_ratio": 1.0023,
+    "official_wer": 0.2741,
+    "official_wer_id": 0.2442,
+    "official_wer_jv": 0.2443,
+    "seconds": 0.0,
+    "step": 75
+   },
+   {
+    "epoch": 0.296,
+    "official_jv_to_id": 20.09,
+    "official_len_ratio": 1.0037,
+    "official_wer": 0.2423,
+    "official_wer_id": 0.2148,
+    "official_wer_jv": 0.226,
+    "seconds": 0.0,
+    "step": 150
+   },
+   {
+    "epoch": 0.445,
+    "official_jv_to_id": 18.86,
+    "official_len_ratio": 1.0121,
+    "official_wer": 0.2363,
+    "official_wer_id": 0.1878,
+    "official_wer_jv": 0.2251,
+    "seconds": 0.0,
+    "step": 225
+   },
+   {
+    "epoch": 0.593,
+    "official_jv_to_id": 16.67,
+    "official_len_ratio": 1.0136,
+    "official_wer": 0.2393,
+    "official_wer_id": 0.1996,
+    "official_wer_jv": 0.2051,
+    "seconds": 0.0,
+    "step": 300
+   },
+   {
+    "epoch": 0.741,
+    "official_jv_to_id": 18.3,
+    "official_len_ratio": 1.0124,
+    "official_wer": 0.2349,
+    "official_wer_id": 0.1811,
+    "official_wer_jv": 0.2147,
+    "seconds": 0.0,
+    "step": 375
+   },
+   {
+    "epoch": 0.889,
+    "official_jv_to_id": 19.72,
+    "official_len_ratio": 1.0196,
+    "official_wer": 0.2327,
+    "official_wer_id": 0.1849,
+    "official_wer_jv": 0.2024,
+    "seconds": 0.0,
+    "step": 450
+   }
+  ],
+  "shipped_step": 506,
+  "shipped_wer_curve_clips": 0.2352,
+  "shipped_wer_other_clips": 0.2331
+ },
+ "optim": {
+  "requested": "auto",
+  "used": "adafactor"
+ },
+ "projection": {
+  "comparator_and_final_eval_hours": 0.788,
+  "eval_hours": 0.675,
+  "n_evals": 6,
+  "n_steps": 506,
+  "peak_vram_gb": 7.03,
+  "sec_per_gen_clip": 0.8574,
+  "sec_per_microbatch": 2.209,
+  "total_hours": 2.83,
+  "train_hours": 1.366
+ },
+ "recipe": {
+  "effective_batch": 16,
+  "eval_every": 75,
+  "eval_subset_n": 300,
+  "gen_max_length": 225,
+  "grad_accum": 4,
+  "grad_checkpoint": true,
+  "learning_rate": 6e-06,
+  "long_chunk_s": 28.0,
+  "long_mode": "chunk",
+  "long_overlap_s": 2.0,
+  "max_train_hours": 10.0,
+  "no_repeat_ngram": 4,
+  "num_epochs": 1,
+  "official_eval_during_training": true,
+  "official_eval_n": 150,
+  "optim_request": "auto",
+  "pct_window_used": 34.0,
+  "per_device_batch": 4,
+  "spec_augment": true,
+  "steps_per_epoch": 506,
+  "total_steps_est": 506,
+  "warmup_ratio": 0.1
+ },
+ "scorer": {
+  "n_checks": 30,
+  "self_test_passed": true,
+  "version": "1.0"
+ },
+ "training": {
+  "best_checkpoint": "/kaggle/temp/ckpt/14-stage1-tts-E4-native-tts/run/checkpoint-450",
+  "best_eval_wer": 0.2327,
+  "checkpoint_policy": "final",
+  "early_stopped": false,
+  "epochs_done": 1.0,
+  "global_step": 506,
+  "n_eval_points": 6,
+  "optimizer": "adafactor",
+  "shipped_step": 506,
+  "wall_clock_hours": 2.223
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "jember target is text_folded of exactly the segments it covers",
+    "detail": "50 items verified against the manifest window",
+    "passed": true
+   },
+   {
+    "check": "mixture target is its clips' text_folded in order",
+    "detail": "50 items verified against the mix clip table",
+    "passed": true
+   },
+   {
+    "check": "extra-arm target is its clips' text_folded in order",
+    "detail": "200 items verified against the mix clip table",
+    "passed": true
+   },
+   {
+    "check": "every extra-arm item went into training, and only once",
+    "detail": "1368 manifest items, 1368 built, 1368 trained",
+    "passed": true
+   },
+   {
+    "check": "label prefix carried the <|jw|> token",
+    "detail": "['<|startoftranscript|>', '<|jw|>', '<|transcribe|>', '<|notimestamps|>']",
+    "passed": true
+   },
+   {
+    "check": "startoftranscript was trimmed from the labels",
+    "detail": "asserted in the collator on every batch",
+    "passed": true
+   },
+   {
+    "check": "the comparator was measured here, not taken from NB 03",
+    "detail": "zero-shot 0.7499 (folded) vs NB 03's unguarded 0.8719",
+    "passed": true
+   },
+   {
+    "check": "the official 372-clip layer was actually evaluated",
+    "detail": "372 clips",
+    "passed": true
+   },
+   {
+    "check": "clips over 30 s were chunked, not truncated",
+    "detail": "{'short': 328, 'chunk': 44, 'chunk_windows': 88}",
+    "passed": true
+   },
+   {
+    "check": "both Gate 2 passes used the same long-clip decode path",
+    "detail": "zero-shot {'chunk': 44, 'chunk_windows': 88} vs fine-tuned {'chunk': 44, 'chunk_windows': 88}",
+    "passed": true
+   },
+   {
+    "check": "no long-clip decode fell back mid-run",
+    "detail": "LONG_MODE=chunk, 0 fallbacks",
+    "passed": true
+   },
+   {
+    "check": "shipped weights are the final step, no selection",
+    "detail": "load_best_model_at_end=False, shipped step 506 of 506, epoch 1.000",
+    "passed": true
+   },
+   {
+    "check": "more than one eval point exists (a curve, not a single dot)",
+    "detail": "6 eval points",
+    "passed": true
+   },
+   {
+    "check": "the official layer has a curve, not just an endpoint",
+    "detail": "6 official measurements during training",
+    "passed": true
+   },
+   {
+    "check": "dev was native segments in every mode",
+    "detail": "segment_mode=native affects training only",
+    "passed": true
+   },
+   {
+    "check": "train and dev recordings stayed disjoint",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "shipped checkpoint pushed to a private HF repo with a revision",
+    "detail": "e892b99c36147ef13addc3ae1efe2ca239f2f63a",
+    "passed": true
+   },
+   {
+    "check": "official curve metric never failed",
+    "detail": "select_on=official, metric failures=False",
+    "passed": true
+   },
+   {
+    "check": "the mixture this arm claims is the mixture it trained on",
+    "detail": "1184 manifest items, 1184 trained",
+    "passed": true
+   },
+   {
+    "check": "a comparator was available to decide the rules against",
+    "detail": "372 clips",
+    "passed": true
+   },
+   {
+    "check": "no model weights anywhere in the download path",
+    "detail": "0 weight files",
+    "passed": true
+   },
+   {
+    "check": "total download stays small (weights live on HF)",
+    "detail": "0.7 MB across 13 files in /kaggle/working",
+    "passed": true
+   },
+   {
+    "check": "not a sanity run",
+    "detail": "RUN_MODE=train",
+    "passed": true
+   }
+  ],
+  "n_passed": 23,
+  "n_total": 23,
+  "sanity_run": false
+ }
+}

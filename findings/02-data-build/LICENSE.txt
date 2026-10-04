@@ -1,0 +1,24 @@
+This dataset is a derivative work of the Jember Javanese Spontaneous Speech
+Corpus and is licensed under the same terms as its source:
+
+    CC-BY-NC-SA-4.0
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+SOURCE
+    Jember Javanese Spontaneous Speech Corpus - CC-BY-NC-SA-4.0
+    https://mozilladatacollective.com/datasets/cmlgm5a94008kny07nz2intus
+
+NonCommercial: this derivative exists for research use in the Mozilla
+"Lost in Transcription" Indonesian-Javanese ASR track. ShareAlike: any
+further derivative must carry CC-BY-NC-SA-4.0 as well.
+
+`lexicon_v1.csv` additionally draws word types from two other corpora, both
+less restrictively licensed, so they do not change the terms above:
+    TTS Central Javanese - CC-BY-SA-4.0
+    Common Voice Scripted Speech 26.0, Indonesian - CC0-1.0
+
+NOT COVERED BY THE ABOVE: `scorer.py` is original code written for this
+project, not a derivative of the corpus, and is not licensed CC-BY-NC-SA.
+
+Attribution follows the Mozilla Data Collective catalog entry linked above.
+Provided as-is, without warranties, to the extent permitted by the licence.

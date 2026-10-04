@@ -1,0 +1,4 @@
+,wer,wer_lower_nopunct,wer_clean222,wer_javind,wer_ind,S,D,I,hyp_ref_len_ratio,n_empty,digit_tok_share,rtf,peak_vram_gib,init_s
+omniASR_LLM_3B__jav_Latn__fp16,0.2675,0.2362,0.2624,0.2701,0.2172,3619,575,483,0.995,0,0.0001,0.1659,11.5,281.8
+omniASR_LLM_3B_v2__jav_Latn__fp16,0.2518,0.2203,0.2528,0.255,0.1893,3310,804,288,0.97,0,0.0061,0.1641,11.51,299.9
+omniASR_CTC_3B_v2__nolang__fp16,0.457,0.4348,0.4431,0.4614,0.3728,3934,3924,133,0.783,0,0.0042,0.0258,9.07,208.7

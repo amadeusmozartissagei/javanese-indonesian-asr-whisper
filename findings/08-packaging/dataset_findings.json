@@ -1,0 +1,268 @@
+{
+ "_meta": {
+  "artifacts": [
+   "main.py",
+   "postprocess.py",
+   "run-log-main.txt",
+   "submission_dev.csv",
+   "dataset_findings.json"
+  ],
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "notebook_id": "08-packaging",
+  "run_id": "08-packaging"
+ },
+ "allbad": {
+  "exit_code": 1,
+  "wrote_csv": false
+ },
+ "checkpoint": {
+  "clean_up_tokenization_spaces": true,
+  "config_dtype": "float32",
+  "download_s": 58.1,
+  "feature_extractor_in": "processor_config.json:feature_extractor",
+  "feature_size": 128,
+  "files": [
+   "checkpoint_manifest.json",
+   "config.json",
+   "eval_final.json",
+   "generation_config.json",
+   "model.safetensors",
+   "processor_config.json",
+   "tokenizer.json",
+   "tokenizer_config.json"
+  ],
+  "fp16": true,
+  "fp16_exact": true,
+  "fp16_sha16": "f5a3b49295f4ed40",
+  "fp32_gb": 3.236,
+  "gen_forced_decoder_ids": null,
+  "gen_has_jw": true,
+  "gen_language": "jw",
+  "gen_max_length": 225,
+  "gen_no_repeat_ngram": 4,
+  "gen_task": "transcribe",
+  "matches_nb06": true,
+  "model_mel_bins": 128,
+  "n_files": 8,
+  "processor_config_keys": [
+   "feature_extractor",
+   "processor_class"
+  ],
+  "repo": "amozaurus/mozilla-jv-06-data-mixing-E4",
+  "revision": "c79347a54d8523f9876cfbf17bd7ea217d1db800",
+  "safetensors_sha16": "c58b0538dc4c2008",
+  "saved_by_transformers": "5.0.0",
+  "size_gb": 1.622,
+  "tokenizer_class": "WhisperTokenizer",
+  "tokenizer_special_keys": [
+   "extra_special_tokens"
+  ]
+ },
+ "edge": {
+  "chunked": 2,
+  "corrupt_words": 0,
+  "exit_code": 0,
+  "failed": 1,
+  "formats": {
+   "edge_35s.mp3": "MP3",
+   "edge_40s.mp3": "MP3",
+   "edge_noise.mp3": "MP3",
+   "edge_silence.mp3": "MP3",
+   "edge_veryshort.mp3": "MP3"
+  },
+  "n_clips": 6,
+  "n_rows": 6,
+  "windows": 4,
+  "words": {
+   "edge_35s": 66,
+   "edge_40s": 74,
+   "edge_corrupt": 0,
+   "edge_noise": 1,
+   "edge_silence": 1,
+   "edge_veryshort": 1
+  }
+ },
+ "env": {
+  "gpu": "Tesla T4",
+  "n_dev": 372,
+  "n_dev_used": 372,
+  "numpy": "2.0.2",
+  "pinned": true,
+  "python": "3.12.13",
+  "ship_fp16": true,
+  "torch": "2.10.0+cu128",
+  "transformers": "4.57.6"
+ },
+ "run": {
+  "exit_code": 0,
+  "import_s": 37.4,
+  "leak_names": 0,
+  "load_s": 1.1,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 15.7,
+  "s_per_clip": 0.4264,
+  "stderr_tail": "",
+  "wall_s": 197.1
+ },
+ "score": {
+  "delta": 4.1e-05,
+  "delta_clean": -3.2e-05,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 4038,
+  "n_ref_tokens": 17485,
+  "nb06_clean222": 0.2331,
+  "nb06_reference": 0.2309,
+  "paths_match_nb06": true,
+  "wer_clean222": 0.233068,
+  "wer_official_normalizer": 0.230941
+ },
+ "smoke": {
+  "cache_evicted": 16,
+  "exit_code": 0,
+  "fits_limit": true,
+  "import_s": 10.2,
+  "load_s": 1.6,
+  "nb06_wer": 0.2043,
+  "wall_s": 17.2,
+  "wer": 0.2043,
+  "within_margin": true
+ },
+ "source": {
+  "consts_match_nb06": true,
+  "main_lines": 354,
+  "main_sha16": "95f5e3c05a18ebc8",
+  "n_bad_logs": 0,
+  "n_print": 1
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "transformers cocok dengan container (<5)",
+    "detail": "4.57.6",
+    "passed": true
+   },
+   {
+    "check": "bobot yang dikemas = bobot yang diukur NB 06",
+    "detail": "c58b0538dc4c2008",
+    "passed": true
+   },
+   {
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "check": "konstanta decode main.py = NB 06",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 10 entri",
+    "passed": true
+   },
+   {
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "header CSV + satu baris per klip, urutan manifest",
+    "detail": "diassert di sel 8",
+    "passed": true
+   },
+   {
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "check": "jalur decode = NB 06 (328 pendek / 44 chunk / 88 jendela)",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "check": "WER lewat main.py = NB 06 (toleransi 0,005)",
+    "detail": "0.2309 vs 0.2309, selisih +0.0000",
+    "passed": true
+   },
+   {
+    "check": "222 klip bersih = NB 06 (toleransi 0,005)",
+    "detail": "0.2331 vs 0.2331",
+    "passed": true
+   },
+   {
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "15.7 menit",
+    "passed": true
+   },
+   {
+    "check": "smoke test muat di limit 1 menit",
+    "detail": "17.2 s (import 10.2, load 1.6)",
+    "passed": true
+   },
+   {
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   },
+   {
+    "check": "input aneh tidak menjatuhkan run",
+    "detail": "6/6 baris",
+    "passed": true
+   },
+   {
+    "check": "klip 35 s dan 40 s lewat jalur chunk",
+    "detail": "4 jendela",
+    "passed": true
+   },
+   {
+    "check": "klip rusak jadi '' dan dihitung gagal",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "run rusak total berhenti tanpa submission.csv",
+    "detail": "exit 1",
+    "passed": true
+   }
+  ],
+  "n_passed": 19,
+  "n_total": 19
+ },
+ "zip": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "model/checkpoint_manifest.json",
+   "model/config.json",
+   "model/eval_final.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json",
+   "postprocess.py"
+  ],
+  "main_at_root": true,
+  "n_entries": 10,
+  "path": "/kaggle/working/submission.zip",
+  "sha16": "bdc3408c82e194ba",
+  "size_gb": 1.619
+ }
+}

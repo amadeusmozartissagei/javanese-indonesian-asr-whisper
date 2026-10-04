@@ -1,0 +1,1800 @@
+output dir : /kaggle/working/findings/01-dataset-eda
+console log: /kaggle/working/findings/01-dataset-eda/run-log.txt  (restarts every time this cell runs)
+
+======================================================================
+KAGGLE INPUT - WHAT IS ACTUALLY ATTACHED
+======================================================================
+  datasets/
+      thoriqfarras/
+          common-voice-corpus/
+              id  [11 files]
+          jember-javanese-corpus/
+              Jember Javanese Spontaneous Speech Corpus  [1 files]
+          central-javanese-corpus/
+              RECORDING TTS/
+
+======================================================================
+DISCOVERY
+======================================================================
+Common Voice   dir : /kaggle/input/datasets/thoriqfarras/common-voice-corpus/id
+Jember         tsv : /kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/Jember Javanese Spontaneous Speech Corpus - 1-200.tsv
+Central JV TTS dir : /kaggle/input/datasets/thoriqfarras/central-javanese-corpus
+
+RESOLVED:
+  JEMBER_DS  = /kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus
+  JEMBER_TSV = /kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/Jember Javanese Spontaneous Speech Corpus - 1-200.tsv
+  CV_DIR     = /kaggle/input/datasets/thoriqfarras/common-voice-corpus/id
+  TTS_DS     = /kaggle/input/datasets/thoriqfarras/central-javanese-corpus
+
+all three datasets resolved - safe to run the rest.
+
+======================================================================
+TREE: JEMBER
+======================================================================
+/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus
+  mp3 audio/  (208 entries)
+      1.mp3  [6493.1 KB]
+      10.mp3  [318.4 KB]
+      100.mp3  [1105.2 KB]
+      101.mp3  [1451.7 KB]
+      102.mp3  [1103.9 KB]
+      103.mp3  [1890.5 KB]
+      104.mp3  [1980.5 KB]
+      105.mp3  [4351.3 KB]
+      ... +200 more files  {'.mp3': 208}
+  Jember Javanese Spontaneous Speech Corpus - 1-200.tsv  [538.3 KB]
+
+======================================================================
+TREE: CENTRAL-JAVANESE-TTS
+======================================================================
+/kaggle/input/datasets/thoriqfarras/central-javanese-corpus
+  RECORDING TTS/  (92 entries)
+      recordings (1)/  (51 entries)
+          01d4b070a059737d5dcac1edc0c0bce8.webm  [44.6 KB]
+          04c85eac1221d4cf52ab5ac65e2d321d.webm  [57.8 KB]
+          0def0bdb2e8d4ab32c5170a32abdb9d7.webm  [176.7 KB]
+          115b6270cadedc8f8ca499830265e5ed.webm  [135.2 KB]
+          1e0ad45d3d56b9102361f81ff2dc143f.webm  [69.2 KB]
+          234becc7e3eeabc244426cecbfdf4a53.webm  [111.6 KB]
+          287409c127532622015ce56d7dcc4464.webm  [80.5 KB]
+          32ad2ffb0fa82b5514d4a9a1ce130f53.webm  [98.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (10)/  (51 entries)
+          03456153d28d5a3f84be6bc9fee13947.webm  [72.0 KB]
+          0372d8fb94447b3b4e97f29c65fe4bb0.webm  [61.6 KB]
+          03afa6c1a1707d789ea14abe19986b2b.webm  [80.5 KB]
+          05b8b2c48355a9a82c598f752a47696a.webm  [88.0 KB]
+          0a8fb5e91003573e91f9b224188e9908.webm  [77.6 KB]
+          0ab77f66656de661bf18ec78f9c6cb7f.webm  [48.4 KB]
+          0b62184690ba01bd5793f88cea48f401.webm  [103.1 KB]
+          0e7256e26ddbcf4e93fadd47f3355f12.webm  [105.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (11)/  (52 entries)
+          recordings (3)/  (51 entries)
+          035b39265f542bd192b42bde6ac09aa9.webm  [110.7 KB]
+          0ca3a36f41dbfd8d19e46c405f1fe03d.webm  [83.3 KB]
+          11e896dd409f51829af78ee44a9b92ff.webm  [118.2 KB]
+          1241e749a31cca2d41d2a032305c2787.webm  [168.2 KB]
+          19d4d19d9d053fc2ad0e7d08430b5725.webm  [208.8 KB]
+          1fc1f7e7ce35ca29980bb76f0f36d6c0.webm  [147.5 KB]
+          20163eb4b26a139a74840d3d82b4777a.webm  [85.2 KB]
+          25400d76d7a0e34a2b6cb0b58cca9340.webm  [95.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (12)/  (51 entries)
+          021b4b379f779fb1530896521e0584ed.webm  [133.3 KB]
+          039cd07839fac7302de31d48096df5f3.webm  [127.6 KB]
+          104d4e5f354176e52b35621b58f2cc08.webm  [155.0 KB]
+          13071af0670c19c4f56d79f78e8b9654.webm  [128.6 KB]
+          198fbd32e91267066c823d4cdb3ea937.webm  [99.3 KB]
+          1d9983db268f2bfa6019b835e1c4c84a.webm  [85.2 KB]
+          2724497bc57bfd0a7e47f6a4a632a35b.webm  [110.7 KB]
+          29d17c545f23b4038296069717465230.webm  [102.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (13)/  (51 entries)
+          077c9688c794d4a57ed3e065385b7369.webm  [89.0 KB]
+          1c1bc9b6c7f1190a8fb45e87e6a6290a.webm  [105.9 KB]
+          21d9fe25d6c88fc76bdcde3670a73678.webm  [105.9 KB]
+          246663bceb85205a71842a86939c8c53.webm  [85.2 KB]
+          277ade4f81a393b23128224f46e08542.webm  [92.7 KB]
+          375c2353295e61ce380b28c4d006dd37.webm  [101.2 KB]
+          379d5d0b8964fc06b7817b31ff6103c4.webm  [118.2 KB]
+          388ae01111edcf409f5ba7839238e2f4.webm  [101.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (14)/  (51 entries)
+          02946dd3ad1d3a6acadb8287940d3d40.webm  [53.1 KB]
+          0558658b7dd872d345bce9e9d2c03408.webm  [140.8 KB]
+          0bdd308157e5a4e2494b6be6d9c2f9d9.webm  [70.1 KB]
+          111e64e4872527ea8608f98ca5bbaec4.webm  [120.1 KB]
+          19609b71491b48089d4568da7dc95c19.webm  [105.0 KB]
+          1a3232268363f67842fc9371740a60d4.webm  [109.7 KB]
+          1cb86e09f89376a35c2f7c90a90a3540.webm  [91.8 KB]
+          23563773a3e62679c670bcfbb34ae4c0.webm  [101.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (15)/  (51 entries)
+          005f1cdd05352c432630032cf89acd20.webm  [144.6 KB]
+          04389dd5cc696cd68903c77a893526db.webm  [76.7 KB]
+          0ccf4d4e9834a257dad5432879ec42fa.webm  [81.4 KB]
+          1189c738972c5faaf8ec4668d5316734.webm  [102.2 KB]
+          130746ee465e87186bada5e742142a37.webm  [83.3 KB]
+          177822938986af2ee903556b80385ef5.webm  [103.1 KB]
+          195629c8d56bef2bfbf93eb13d096e5a.webm  [98.4 KB]
+          21ee203966a4717fe0af4a842464903e.webm  [139.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (16)/  (51 entries)
+          0124d02b22d7902ee2603e1e0fca8a53.webm  [147.5 KB]
+          02478d9f2cb1f726cad63d4693b68ef0.webm  [67.3 KB]
+          045aa8b7ec44231b8e27fdaab62fecd2.webm  [99.3 KB]
+          0a6790332df47bc4a87a5c8489c9c7b1.webm  [117.3 KB]
+          0b6a1446b24ee0a60dcce75f87ec1511.webm  [137.1 KB]
+          12a4eb03747e6c31bb5df4e65527d32a.webm  [102.2 KB]
+          1a5d398b4945e7c4af67f268a27ec5d6.webm  [83.3 KB]
+          246544e4b9f879df414bbb71093fe9f9.webm  [144.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (17)/  (52 entries)
+          0ba7fac5685ef2716e2378b9aa0f7b7d.webm  [79.5 KB]
+          10c2cf2ebbb3425a4b9d0633113375b6.webm  [72.9 KB]
+          12cd520401864cedfe2f79ef2f7816f2.webm  [93.7 KB]
+          190e7ea8e157f83f1a83047fc1284b51.webm  [141.8 KB]
+          1a9df0b9cdb1edcf4478422753c865a3.webm  [80.5 KB]
+          1b690dd5f032c84eb33489a7dccf77ff.webm  [76.7 KB]
+          1e9076a9ca46ea04029115b26adbea0f.webm  [141.8 KB]
+          260c8b48bd09b3e26aecd3222e6a5a89.webm  [99.3 KB]
+          ... +44 more files  {'.webm': 51, '.tsv': 1}
+      recordings (18)/  (51 entries)
+          07320f2e6375d5b3b4d5a5cdf7edfcbf.webm  [101.2 KB]
+          105c01aad17a309134db71c7400ab680.webm  [94.6 KB]
+          129749a2bb429c22c00017d18c8197ae.webm  [85.2 KB]
+          15c1e4d71738d50aba4305b62ba0d098.webm  [123.9 KB]
+          1b95c3288ea6b3ff976a6fc3002522c9.webm  [104.1 KB]
+          1e3e794c47e6a794ea84237846466fec.webm  [91.8 KB]
+          30b2ce021a96ec13e0245e1d699fe5ef.webm  [83.3 KB]
+          326fca66600c04f5203c5643fc728d52.webm  [110.7 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (19)/  (51 entries)
+          0178eca6dc8f06291bc118ef1dcbe7e3.webm  [104.1 KB]
+          0fbdbbd4d17461984e6f6a98faf2d9f0.webm  [134.2 KB]
+          1010f569bc6bf73af3709ccedd6adf57.webm  [132.4 KB]
+          23532b285e92b2bf739187eed46fdbe7.webm  [71.0 KB]
+          2978f5e4412f58efc748a97b84a239fb.webm  [126.7 KB]
+          2a81e72c816665813ebdd1fa464811e5.webm  [123.9 KB]
+          2b2b71ed55a3a22dce2e2ddf548332b6.webm  [68.2 KB]
+          345c2086380513d44a5455992f775632.webm  [94.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (2)/  (51 entries)
+          0351a07dd6555b2da9e3eefc08adeecc.webm  [96.5 KB]
+          038193e980f30af07cd833d5042f1aad.webm  [183.3 KB]
+          03a07bea78284df0e8a4bd7b5f6e4eb6.webm  [156.9 KB]
+          04a53d947a43d98cefd71ffe4f3a2040.webm  [120.1 KB]
+          04f7303097ed8c933de48f33d87c0f5d.webm  [99.3 KB]
+          0abc7d58d6f4d73fc3a98a6a9d2022c5.webm  [103.1 KB]
+          0fa864216fefe7969a1f17fcbc48faaf.webm  [159.7 KB]
+          158cb73d8091737f570ab45f80b6a0ab.webm  [97.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (20)/  (51 entries)
+          03011c382cccd82b5cf7daefa471e330.webm  [112.5 KB]
+          039f82ebb4bd18a0f97e03d522a3b7c4.webm  [209.7 KB]
+          07ac1918d20fd30ead282313b48f8ceb.webm  [63.5 KB]
+          0e8652751cb462e489c26e4b1d1c8a0d.webm  [80.5 KB]
+          19b4e0c5735fd061ee6ae3e792e78720.webm  [110.7 KB]
+          1af8454559eba00b6e7bd381e88ff8ca.webm  [52.2 KB]
+          1b332b5386c0e8118215ac26b0857a80.webm  [73.9 KB]
+          1be87a384ec64977978d833ecb6a8931.webm  [61.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (21)/  (51 entries)
+          01438325253bcc2a1fa73842f3d2befb.webm  [122.9 KB]
+          042c5424d62c1ea3519e8d867eb234d1.webm  [142.7 KB]
+          0563f3d103c728263d0970256e682345.webm  [155.9 KB]
+          09586ea430b6ae33fdcffa4e73c1e51f.webm  [109.7 KB]
+          0ab9db5a18216417931d57f238ba14ac.webm  [60.7 KB]
+          0aca9f1cd1297fcaff657ee18b45c9ac.webm  [122.0 KB]
+          0eb85d62d79ebf2b8c64925ccbde487d.webm  [127.6 KB]
+          12a1d6326d5a289666ac1abb7eb7c30e.webm  [69.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (22)/  (51 entries)
+          0b9892166e4d0f8fc545e198371b0c71.webm  [88.0 KB]
+          0bcba26c4408ee2052c61f0c1c5024d5.webm  [54.1 KB]
+          1ec81cd4039dde68a6d132d7a7f32d69.webm  [125.8 KB]
+          20bf124b8c9a98b3f573d77065d85e99.webm  [53.1 KB]
+          2223737b2a4c9ece0cc35bf9fa11b35c.webm  [82.4 KB]
+          241332d02f19f6b41a13fdfd1188c33c.webm  [97.5 KB]
+          331340614479a4711de23b685858a7a7.webm  [62.6 KB]
+          35d8263e1911e1d26e4c0064a4b10589.webm  [113.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (23)/  (51 entries)
+          02909f73a99fb5976bf779ee8d621b41.webm  [42.7 KB]
+          046e4a3869d807694a919707812d9505.webm  [89.0 KB]
+          13017e38a36fef4d3aa5fc3eff9c346d.webm  [147.5 KB]
+          17a7f5a0fbe692c24ac9294c1a42c78f.webm  [128.6 KB]
+          1b05628abf14f25f2d8c170533a41c89.webm  [111.6 KB]
+          1b2d84a5c675eec102c22c5006e2e2c3.webm  [81.4 KB]
+          2a891305e37ad3b994948032b0135485.webm  [72.9 KB]
+          3dda13f27cd5bae13d118922b2c46988.webm  [71.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (24)/  (51 entries)
+          02d9ca9fc3a5673387118313f6e71396.webm  [87.1 KB]
+          057efffd9fa7c1fa5eedc2d21baf8af3.webm  [81.4 KB]
+          0a8bbbb590b83a7a22082e4332429eaf.webm  [56.9 KB]
+          0c24f7a0e14df821bdbf72a72c9785d4.webm  [106.9 KB]
+          104441d8003c74bd2ded3fb79b512b39.webm  [124.8 KB]
+          1702ef320f21411a35e4f33d9c78bbf5.webm  [69.2 KB]
+          1acb6d8a8744a5ac80668696761716a4.webm  [78.6 KB]
+          1c3b2b43c7f8de4dbb1163baac5e473c.webm  [98.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (25)/  (51 entries)
+          036e156d7ff5c1b3337baad5a36171e7.webm  [89.0 KB]
+          03c81b9c3027330cf37b2f6651dc9c5b.webm  [125.8 KB]
+          05714ec9ec1a3ce0c139d9c327651e71.webm  [122.0 KB]
+          0712a060662e7b6e552907330c5010b9.webm  [137.1 KB]
+          0a26fd34beb65feef52e6f70468e837c.webm  [122.9 KB]
+          0ccaad4f228ece5e1fee5c7cfd8f019c.webm  [77.6 KB]
+          1027f92d2ace94ccc995ed77604b36fe.webm  [136.1 KB]
+          11b5a77f0710124762eb33539e87af06.webm  [137.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (26)/  (21 entries)
+          0f556c0753453742138af28239c49937.webm  [66.3 KB]
+          238d885f0d3c4a82ffb3cdbcd1ee558e.webm  [52.2 KB]
+          271cb0b0739e41eb0dca6d36dc3dccad.webm  [106.9 KB]
+          2d816d2c110cfe9f695e9a647fffa31e.webm  [90.9 KB]
+          38e62b0b4f59d732c50cf82e1d4907cb.webm  [84.2 KB]
+          46cbf7ade8333af989b51390b8a0e858.webm  [67.3 KB]
+          4d471614be43ae789f5702d16cb5752d.webm  [96.5 KB]
+          50425f7b1f0638f74ef9c787619c9e57.webm  [150.3 KB]
+          ... +13 more files  {'.webm': 20, '.tsv': 1}
+      recordings (27)/  (51 entries)
+          0328cceae895fd68e905d07ff206a92c.webm  [89.9 KB]
+          0668e090ab92f945e50723db372d0fc1.webm  [84.2 KB]
+          085ecd111060e465c519f536691bdb21.webm  [80.5 KB]
+          098fc3c11b5024bf4f9456b600567884.webm  [56.9 KB]
+          09a4ce4c892069173fda857ab588f2b5.webm  [101.2 KB]
+          0cc061e2e090c4759deffcc7383ffac1.webm  [77.6 KB]
+          0f750bf83f6b780141977faaa431e758.webm  [75.8 KB]
+          1807c4089bcb7b4da9fa5bc17d5cb7b3.webm  [90.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (28)/  (51 entries)
+          01ac4225ce301ad69bbad789fb448b3c.webm  [116.3 KB]
+          0407c727c2cd200f43e7ca2c78b2bd3f.webm  [126.7 KB]
+          09575f179a1d98e73fb180911ddd8a6a.webm  [108.8 KB]
+          0bc7ab6d75bcfd20dd8b7ee09bb94118.webm  [109.7 KB]
+          0de1c785f6755c9b9b28f2b0036900ee.webm  [87.1 KB]
+          10609f88562c21a989849c1fc908c030.webm  [78.6 KB]
+          16e04c77d7a40ebb76516c8136089edb.webm  [82.4 KB]
+          22df6d025aab7c5a38f367f7ab304281.webm  [107.8 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (29)/  (51 entries)
+          005d563d7a30c7487b266b9fd57f982d.webm  [116.3 KB]
+          078a0d9f749c37b603dde0d9a6c84155.webm  [117.3 KB]
+          0946e65af490280496bcef6b98c6e7f8.webm  [176.7 KB]
+          138d14c24f316105a22824d76e88a6ff.webm  [67.3 KB]
+          18d25a04837987522477103184831e36.webm  [53.1 KB]
+          1a5f2c9c63485757ca921f262b3b088c.webm  [83.3 KB]
+          2018f69b748c167d438efc640a8bbdab.webm  [92.7 KB]
+          22273631bd6339e136063d7da7973657.webm  [116.3 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (3)/  (51 entries)
+          028678c58c764f775b89ccd8e19c2257.webm  [185.2 KB]
+          04e9423f83f87a6d06ffe53a9bae171f.webm  [33.3 KB]
+          1543fc20fe423639f7899863a83db59b.webm  [72.0 KB]
+          15aee3aa83af4c6822838b792f07437d.webm  [97.5 KB]
+          1e4e7bf287936eac971c2828e3e35787.webm  [101.2 KB]
+          1fcb106a7abf5fa35e237df203843ebf.webm  [82.4 KB]
+          22b061710a0620bf319d037caf53e937.webm  [66.3 KB]
+          2642b854a062dc45b1633b50c0118621.webm  [112.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (30)/  (51 entries)
+          004dd031cf7dfcb26029e20bd158dccd.webm  [144.6 KB]
+          02a1a30f18379e4a870f9cda96410cc6.webm  [118.2 KB]
+          056ed4c914c9565c0c8874196ae6d113.webm  [91.8 KB]
+          115d42a4c3db3b062d16f70f3472e662.webm  [84.2 KB]
+          18241ffda410ecd14dbc4af18e88fc4b.webm  [48.4 KB]
+          281d56685a1770c75cdcb86b4deaf39f.webm  [143.7 KB]
+          2c11a9e587c373b47a518ac627a938c8.webm  [105.9 KB]
+          348a2457696d0a6f88f9ab1a64088800.webm  [94.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (31)/  (51 entries)
+          041b830d2db35c5651f69307bf736c01.webm  [71.0 KB]
+          0438d3194e149d99df406639a0b84c73.webm  [74.8 KB]
+          0b94bc4ea1e6337154935042eae50070.webm  [91.8 KB]
+          0c754f76581350673202bf5de7ecb3fb.webm  [69.2 KB]
+          0dbf3fdf90b2f2997385156ead352921.webm  [83.3 KB]
+          1666663f9e1318612fe3aa3e00717b67.webm  [130.5 KB]
+          17a9505241d4d57a9de8cf41a75f5bab.webm  [105.0 KB]
+          17d3a2cdc5d213cb3bd4f48d11348564.webm  [54.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (32)/  (52 entries)
+          008c360b34fb687e5678465d0602326d.webm  [85.2 KB]
+          00a18ce6c702c5dbda66546104026590.webm  [77.6 KB]
+          02755c58b90f8719d5e6154a2f5ad38e.webm  [89.9 KB]
+          07f6b93b2e30a2f4cfa1ea4064b5892c.webm  [108.8 KB]
+          0b29c5c1b82f39f652189c3cb1065703.webm  [123.9 KB]
+          1fe6e18ee3d277b3b1f9c41c5b6ead8a.webm  [92.7 KB]
+          24bb041485cd12dbadc6c1fc8ae68084.webm  [92.7 KB]
+          2c1465db75b43bc9def1738946288ffc.webm  [168.2 KB]
+          ... +44 more files  {'.webm': 51, '.tsv': 1}
+      recordings (33)/  (51 entries)
+          1c0983934caad392245d827b4efbf3c7.webm  [80.5 KB]
+          1d0c1a7d2e5881c716d2f2a750525640.webm  [31.4 KB]
+          23db42e1b700e0a6562466e7356ad2dc.webm  [135.2 KB]
+          276aa80eb18e5cf415e29ef929c75139.webm  [107.8 KB]
+          288ae4dd332d503e95bef9c0156ef114.webm  [85.2 KB]
+          2cafb373b3bb9c3305bac19247284450.webm  [122.0 KB]
+          308ccc053e274bd14cd2953715f2060d.webm  [92.7 KB]
+          41cc32143a95d5cb395900c82ee234f4.webm  [73.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (34)/  (51 entries)
+          0af4661a1a36a4ddbd36e93bd9e10f5e.webm  [92.7 KB]
+          0d6b2f6152067f41e7c0f8c35be3e2e4.webm  [37.1 KB]
+          0fd74eff1eb407dfb019fc8d7c276c36.webm  [57.8 KB]
+          118f5fbf548edcece3b8e66b3bbe6c46.webm  [104.1 KB]
+          16664c7c0ef2ccd4f361570c96a2dd8f.webm  [93.7 KB]
+          19074934b9b73911439cf52d6bf328b1.webm  [155.0 KB]
+          21504a2ca1e504aa1543e9632771af13.webm  [157.8 KB]
+          258d6716345e7386155c6d6fd3f7255f.webm  [97.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (35)/  (51 entries)
+          03fabcec7097e22e6f49e718f7deab1d.webm  [108.8 KB]
+          1019390fcf6489b5b46a11620892b4d3.webm  [82.4 KB]
+          143c58e2b434815a123af06118af697d.webm  [92.7 KB]
+          1700107f1f70f616e5a70613801d619d.webm  [111.6 KB]
+          18274feb1e786b443d33c25e56c4ec4c.webm  [147.5 KB]
+          1b9637445ce9c3adbe40771a72278662.webm  [124.8 KB]
+          1dc5a72d7852fcb27cbd82b3d62f77c1.webm  [92.7 KB]
+          28035207937db22eea79d4886d1db431.webm  [120.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (36)/  (51 entries)
+          00939ab90267dddde91d38e8fae29b32.webm  [58.8 KB]
+          04dd06147fa7261fc2bc44e1d4ef4608.webm  [81.4 KB]
+          056f771b4b95deb9426c535d469412c9.webm  [100.3 KB]
+          05b29352d9bf0d56f3c98f2e701eae00.webm  [71.0 KB]
+          0a20ab2c8728f157fa3a6ee2083bbb95.webm  [75.8 KB]
+          0a3814d0761aaa316f7b4d9de8c1bbfe.webm  [183.3 KB]
+          11fc0ab4e1dc98b339682f9459292161.webm  [71.0 KB]
+          14ec975bd3ae8a9b4224ebea9466edd6.webm  [94.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (37)/  (51 entries)
+          04fa224b085d353183544394b00248be.webm  [44.6 KB]
+          05e101de58839a91ba5c34a2518561cd.webm  [115.4 KB]
+          0df0b3a4d6b391d2caac610fa64541b0.webm  [143.7 KB]
+          11f4eac754dc5f5c652a3241dc496bab.webm  [78.6 KB]
+          146c9208ab632fa29cd73bf1eb95b67f.webm  [111.6 KB]
+          15efeb19013c28bd5347aa95dfef91af.webm  [208.8 KB]
+          1a5906a32c34de39ad05d0341cd86a44.webm  [52.2 KB]
+          1b6b11a52bdd3c30ab1276199f8ed3b9.webm  [65.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (38)/  (51 entries)
+          012ae7d2464d8470165849696ce58b18.webm  [89.9 KB]
+          01bed6a7a1a2f911d48a7a1c5780f513.webm  [77.6 KB]
+          08506729c686add9364e512921ba6311.webm  [62.6 KB]
+          0ae103cd0c40aeda0fb6f5720ee2e831.webm  [85.2 KB]
+          111ac633142957bfbabf9c4eeafdcaa2.webm  [32.4 KB]
+          12be485cc7a8cadeff9f0894a4dcb980.webm  [148.4 KB]
+          139df03fcbaea4c21c900175f48fc2cb.webm  [88.0 KB]
+          14bc0ce207f97d18b5b7ab88589ca80b.webm  [135.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (39)/  (51 entries)
+          02aaab069cd17aea87f2403bf845e049.webm  [66.3 KB]
+          03c99fdc46285b1fb0f4bab9d5b4ee0a.webm  [120.1 KB]
+          0455d6611ad6ae78d5425acb5bd8be44.webm  [117.3 KB]
+          0ca7a3574c09cc77c66dbf9893fb9c4f.webm  [205.0 KB]
+          1cc5fb291eb9fcdb9e58cf13707107d5.webm  [122.0 KB]
+          208d3dc05fee6dcd820e3e1625f2adb9.webm  [93.7 KB]
+          211a461a909dbaf0bfab8fb7e0f9d58e.webm  [97.5 KB]
+          266976cb6694358edbcd2e8ec2362304.webm  [82.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (4)/  (51 entries)
+          0032c0ac5f10811545e269e365468c80.webm  [117.3 KB]
+          0e6046ef5bdf8a80c30e8954be0db726.webm  [76.7 KB]
+          167808cf1ec68d7e3d7227a45a99a968.webm  [90.9 KB]
+          1a7e1987ad5bafc69e51d107fc458db2.webm  [69.2 KB]
+          1f00fbd9d4e54be9d0992ed35032c840.webm  [113.5 KB]
+          2d7857808729c917bdc26583f2c52520.webm  [184.2 KB]
+          39589a112b12a27d0524e6319bd2f456.webm  [103.1 KB]
+          39d32bec15778152371717b401d3d858.webm  [96.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (40)/  (51 entries)
+          0e37026e94d58ee1fd5b46d37feabd7f.webm  [62.6 KB]
+          102a8feec7cf3df59c42d0bc3f0466d9.webm  [132.4 KB]
+          12b5d6c515875fbc6cc9309aa09af6fd.webm  [93.7 KB]
+          14f0679714b17ef902b75c223dafbb25.webm  [88.0 KB]
+          1c187b652ee6ebe247606cdcf0ad8d5d.webm  [63.5 KB]
+          1f33bcf9383b3f4315aa6635702c8c01.webm  [103.1 KB]
+          210936f4dbdf1be8da687e5d6d4d789f.webm  [89.9 KB]
+          2387e37b10e9547fef17311c12e58f80.webm  [85.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (41)/  (51 entries)
+          001567536915b823a417e7bd33675002.webm  [90.9 KB]
+          02b79b2ab10c02fbb0091551280d42dc.webm  [124.8 KB]
+          034bf147a5f5e31ff9df023875b73f18.webm  [126.7 KB]
+          036265916cd348361be27fc046736b26.webm  [111.6 KB]
+          08c46eb2adbb40031b3510842c22c182.webm  [72.0 KB]
+          0ad9da5c773aa3e9bd90034ddbfacad6.webm  [128.6 KB]
+          0d80024247b4cba9ada6f472407c7751.webm  [46.5 KB]
+          0e9c612a02981ed8f4047e34546157e7.webm  [92.7 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (42)/  (51 entries)
+          0142879d9867d41e7562451931032901.webm  [111.6 KB]
+          0e8a49ebeeda3b0d2eba68b2c7e07330.webm  [110.7 KB]
+          0f1ee35796698ed7672ed6bc2de80c56.webm  [164.4 KB]
+          10be87b0201855e2320d0d5b906b2489.webm  [150.3 KB]
+          1361a44a0ae62be172591d674bf6a348.webm  [84.2 KB]
+          16442673dcaa6c124dc79e54ffab9835.webm  [47.5 KB]
+          177bc4941fcb745be6c6b2916a020c21.webm  [106.9 KB]
+          2eeacb028236cc3b9203a307c3fc165a.webm  [137.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (43)/  (51 entries)
+          0d1b2ba873748840645d51ead33fe9fe.webm  [106.9 KB]
+          100a0d15a88719e6a5c65b906455cea6.webm  [61.6 KB]
+          1641f0a36bd509503546fbfb6e9561a7.webm  [125.8 KB]
+          1c81d9ca727a961a87343bef99f4197d.webm  [122.9 KB]
+          1d0a89ca03f3b278c209c8a2d10993d8.webm  [87.1 KB]
+          229980075ff381530a347113eeadf712.webm  [78.6 KB]
+          26598ca59cedda58ce6fe65e8ef1877c.webm  [73.9 KB]
+          28af9d1a7ec37cc7731c9a771e6e21e9.webm  [72.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (44)/  (51 entries)
+          0375e649fa2a748d5f4eab43f3846ef4.webm  [55.0 KB]
+          089b6096b6326c70f0be0467056fcb10.webm  [71.0 KB]
+          09ed59a66b140e9078062f75d4947c13.webm  [65.4 KB]
+          14ce42614320f82cf2be6be1ddcddbed.webm  [84.2 KB]
+          1b45fe5fbe5665edd8ed976c0f3cbb29.webm  [57.8 KB]
+          1bc19d73198d6826c025ce5b9091383a.webm  [103.1 KB]
+          1f26ab5ea0c7660963ef8decb9a1b0a9.webm  [106.9 KB]
+          21e4d02b850721e4886703f024c5a461.webm  [72.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (45)/  (51 entries)
+          1afafbb7fe780b508965fc35a32d6588.webm  [77.6 KB]
+          1e621f98f0fbc2510bc5cad42972cb85.webm  [64.4 KB]
+          2d97c1c15432b157ceae44b1d377d0e6.webm  [89.9 KB]
+          30af2659e744cb7fe0bb20e68c545be1.webm  [72.9 KB]
+          329d007f3358c15370ed4f77ddfaada2.webm  [60.7 KB]
+          33282559bd528cbe1adb8f1101da03d1.webm  [135.2 KB]
+          42e0ca8a59c82729db73dc21d5de1f68.webm  [145.6 KB]
+          585c75ce1aa5c6fb279fe605c7024d42.webm  [55.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (46)/  (52 entries)
+          08c9d4e45ddce46002521007c55e8b97.webm  [72.9 KB]
+          104d6a0385e8148452f4d630870cadd0.webm  [58.8 KB]
+          107e622ecc34d7dd28890db2f13fabe6.webm  [60.7 KB]
+          1fa64efc4c119c2b6c840dd406876557.webm  [54.1 KB]
+          23b4dab7ec6589ba0ae4158f0bdf2973.webm  [95.6 KB]
+          2634465d0898db879dd4f486565001f9.webm  [55.9 KB]
+          274618d15454d8d395b11b7eeb956851.webm  [78.6 KB]
+          279b370cfb2a5c40987c773608b52193.webm  [139.0 KB]
+          ... +44 more files  {'.webm': 51, '.tsv': 1}
+      recordings (47)/  (42 entries)
+          070bddc306a3dd989140a1a21afa51e3.webm  [118.2 KB]
+          142e70d6137ffcf3abb741a4c0bcc8b1.webm  [54.1 KB]
+          162998b6fc4daeb42780374d573da170.webm  [172.9 KB]
+          1f2b4704d92a02a258c9b3f15e0fb7a7.webm  [105.9 KB]
+          1f81ec466cded118ba676bb77336af19.webm  [78.6 KB]
+          22b2573dbf4f39bf6d8485d9f1003f9a.webm  [109.7 KB]
+          2384319bde0b322d8ab20772d01961c8.webm  [55.9 KB]
+          25f0149c0a77d90c9af0b477164999f1.webm  [105.0 KB]
+          ... +34 more files  {'.webm': 41, '.tsv': 1}
+      recordings (48)/  (51 entries)
+          0061316da553dc4ab4102d7b6ed87b50.webm  [124.8 KB]
+          046d14181d219b5a0e2a3f205f55cc72.webm  [115.4 KB]
+          08445e9851e96d87395ba223aef286b9.webm  [104.1 KB]
+          099f64e125146b86696e700dda66a721.webm  [68.2 KB]
+          10f9af1e350c9168709d12d34cbabf10.webm  [90.9 KB]
+          1fc528e139183cf69751968b9093e17c.webm  [55.0 KB]
+          22758dbcf51c0583dce0d96bbcca6857.webm  [154.1 KB]
+          31bebf71e8d12d4bee673a2e7aa87f39.webm  [94.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (49)/  (51 entries)
+          02976975df8c4c6ff8e885ffff44a591.webm  [209.7 KB]
+          0681c4f470657d12aab7bd8bd56939ed.webm  [154.1 KB]
+          0c7cb0cb95ba4904506a43bb299f740c.webm  [38.0 KB]
+          1296e5ee5ace1705e0766f3cb88760a3.webm  [145.6 KB]
+          147ad0ff462ad40733e7253ba19934c7.webm  [152.2 KB]
+          1872907fef2892f2f37df8183b57a62e.webm  [113.5 KB]
+          23e38298d3efcd25a73f78026bb90b2d.webm  [36.1 KB]
+          29889b1d05f5fb07419d510afc7e2a8b.webm  [122.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (5)/  (51 entries)
+          02ce8a716656f7b9aab6776ff59fab8f.webm  [100.3 KB]
+          0437c21bc2dc1a2084a6bcb0f25f8fac.webm  [86.1 KB]
+          05f28b9ef3948c9b5ce139765eca8249.webm  [170.1 KB]
+          099d83d63da452fe2ff83cdb9ff3e651.webm  [132.4 KB]
+          0d5a4b3896fbf51e13bc50e1295de125.webm  [103.1 KB]
+          1548d7ecdf982499572236e98ca97cea.webm  [173.9 KB]
+          185b0e3d78ac8b6c0922355a25ce4c9f.webm  [93.7 KB]
+          26885f4aeec0ae26b51c8fa832871160.webm  [71.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (50)/  (51 entries)
+          0a1b8108d741219940a1a6fa1278eeeb.webm  [82.4 KB]
+          0e3e59f79f12988889efb69d6bd44aa2.webm  [114.4 KB]
+          1ab0b934fbd98faf7526c192740e0fcc.webm  [72.0 KB]
+          1c790ad806b962c3507f6f80b5ec6071.webm  [74.8 KB]
+          1fe0e4a97299a313d86e37fd3330ece4.webm  [55.9 KB]
+          2774bfe59444cf84390058dd41342191.webm  [83.3 KB]
+          2fe1dbe8785db678a675e397e893cb7e.webm  [129.5 KB]
+          32c3f20da51d9191fc8893da811995e4.webm  [60.7 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (51)/  (51 entries)
+          001b5f06725547f8cfa496e096d2c467.webm  [50.3 KB]
+          0489734d3cce6070ddeb2aef1429f776.webm  [72.9 KB]
+          189f936fed1c23d84cf5f3fd39cea3b3.webm  [130.5 KB]
+          1ec1aff62f3abbc02de6eae481c2eca3.webm  [96.5 KB]
+          1f8f3b71dca46e7ce8cbfc3fbcfe13ca.webm  [84.2 KB]
+          28c972de5dba301910c83fa11a77b3c1.webm  [96.5 KB]
+          294501d58e2e8d5374e4c8179dfbbdb4.webm  [143.7 KB]
+          2c69da03750cb3a3dd91b48ab66ec932.webm  [112.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (52)/  (51 entries)
+          02faa13e24644e6a171a71d270d55144.webm  [99.3 KB]
+          05e4affa130815cf696fb37a3b9572de.webm  [156.9 KB]
+          068c8bac0ff6bf2ad5e1c190bf8ae043.webm  [163.5 KB]
+          072292a9782aa44ad0c2338cc3f6f0d1.webm  [99.3 KB]
+          0a393f63dc1f0c68797f5cf19c890c35.webm  [61.6 KB]
+          0c281336491a59abfe1bcd2d806b8267.webm  [111.6 KB]
+          10ee27b69ec8dbf13862c39008f59081.webm  [105.0 KB]
+          15a7a3e3719524a7f5af72db3a1fd88b.webm  [67.3 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (53)/  (51 entries)
+          0626bffaf53c04dfc55529a339e283ca.webm  [78.6 KB]
+          0b371d4474db9f7ebb087529be5dbc98.webm  [86.1 KB]
+          0f4869c5e9cf7a17d99d8cb307329e33.webm  [163.5 KB]
+          18b77c4e92fdec3373aebcc03269a78e.webm  [133.3 KB]
+          1e130efa2ef4d3090f5f4bce01e8809a.webm  [93.7 KB]
+          2097bad5dcda8c4d5e3f611c53380338.webm  [94.6 KB]
+          2789659b600ef01668e926d095be4b30.webm  [50.3 KB]
+          28a03b38f3a0873eebd96b232e9fd8fd.webm  [97.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (54)/  (51 entries)
+          0026cd65a86d77257ae2ca34c048c673.webm  [41.8 KB]
+          03d46048063fa4248f5e0d0b643a7059.webm  [126.7 KB]
+          088f7d0e18cdcfd48383c2ec32c1d6c3.webm  [84.2 KB]
+          0a09956e522b257590e76a7935ea9ae2.webm  [110.7 KB]
+          0c97cea8d44ef630e37f7a77edf618b7.webm  [132.4 KB]
+          16bdc520048a9a793aaf0decd0f1e07a.webm  [89.0 KB]
+          1c791c4af7d899203c379a3e8c26398d.webm  [92.7 KB]
+          1e910fe3548cb6f2b55680bbc84d69ae.webm  [101.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (55)/  (51 entries)
+          015116b74f4ceb7edea196b3d9cdf13e.webm  [57.8 KB]
+          08838dbf61146ccdbd8f3a18210542e6.webm  [73.9 KB]
+          088e2d7af5d02215344df226a5ca7291.webm  [71.0 KB]
+          0b4ade424a684c6321caccdda19e3040.webm  [84.2 KB]
+          116282aaf9bfdf55513ea6e8a358dd32.webm  [63.5 KB]
+          14c89244b69474957106c0ba88ce6bd3.webm  [115.4 KB]
+          1cb3707ceb4198dbff15c15e050797aa.webm  [142.7 KB]
+          21419be9a7f49849623c57435f1e7cde.webm  [131.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (56)/  (51 entries)
+          0274c2df24dbdf8a3c403fd9490757e9.webm  [112.5 KB]
+          02eae78be46c3f3ef4b3cc645250dc26.webm  [134.2 KB]
+          13a1251132e83b0d3596d89079994c2c.webm  [61.6 KB]
+          13ec7bf2ec46edc5342e2077ae2d69d5.webm  [89.9 KB]
+          169cc386ac503dea48e1a3c1c02333fc.webm  [129.5 KB]
+          1c91e068dad7af46fd6b4e54b36cc666.webm  [89.0 KB]
+          234b320a78d6a8f653b1771969b91ce9.webm  [55.0 KB]
+          253b97d2c8cd21a188c3b4b25853e791.webm  [126.7 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (57)/  (51 entries)
+          01abb8625cfa910b723a7bd95ae2deac.webm  [57.8 KB]
+          025bdc3689ce85f22c9f3df5ea7415aa.webm  [114.4 KB]
+          04d70bd517b71c0ef41ad7af7e7aad6c.webm  [98.4 KB]
+          10054f9ea745da690242b8b2e3540a36.webm  [71.0 KB]
+          11950735206688fb863a28f0348a36c2.webm  [87.1 KB]
+          1228d200a6787bd348120b758475b3bb.webm  [46.5 KB]
+          145cb6bc09242a608ec4f80ea053f616.webm  [65.4 KB]
+          1a16be0c1597cd93a48247ed6b6994a9.webm  [96.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (58)/  (51 entries)
+          02a47774bcd8061fa9ac5cb0522ba360.webm  [112.5 KB]
+          0a9dd26febc4d86614fd559b60cda028.webm  [96.5 KB]
+          1102e564db408c742f0b1b33a12b741d.webm  [71.0 KB]
+          1395b0f19fd657169a2c8fa317dc1d36.webm  [155.9 KB]
+          1690604237ef86a34e1e0a4542be762b.webm  [86.1 KB]
+          1e9c6e9400ef2e149cf8a9c6fb850c96.webm  [98.4 KB]
+          286d713a4b54b27023cd5d5d1c2a65c8.webm  [55.0 KB]
+          287d059b0e9fbfc208d9b466bf0bd11e.webm  [62.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (59)/  (51 entries)
+          0acec4cc662aacc1ac9d2adb2ca344dd.webm  [75.8 KB]
+          0c1b636ae221319a4fba4aa5963858d6.webm  [132.4 KB]
+          0f3b7acc1ee37e14537c6ba88a055c66.webm  [191.8 KB]
+          14d878e494f959dd66ebdbfa3b019a24.webm  [98.4 KB]
+          1c93c45358cf7a579b3b041c77172673.webm  [83.3 KB]
+          201842493f43d420683eafb0f122e200.webm  [91.8 KB]
+          207b007f0ca666a16c4f963871debc12.webm  [108.8 KB]
+          224f811052aca58671a7583f5394481c.webm  [137.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (6)/  (51 entries)
+          07dda709d5f85a484682501cd52d892a.webm  [89.9 KB]
+          0e62088f3b8d3944f03adf367921d0a4.webm  [142.7 KB]
+          0fb5abe3352a889cfdcef868495ad5f7.webm  [153.1 KB]
+          0ffd875ddb55fb31e285f6e6f7e374d3.webm  [85.2 KB]
+          17873d810cde7da5545a3b1db473f1a9.webm  [110.7 KB]
+          20a165992787f79be83fd87e1db7eda4.webm  [88.0 KB]
+          227dbde4d86d24f41d322430a5b8f7bf.webm  [120.1 KB]
+          242236c3340e55bd2bf34a1a6f02f9ed.webm  [85.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (60)/  (51 entries)
+          0689a089c1b7f65923d3a86ea95d8dbb.webm  [74.8 KB]
+          17b0a794732f7d86c2568e7afef981df.webm  [95.6 KB]
+          18d080727c1efc39b4b52a83f464def4.webm  [64.4 KB]
+          19e9ea5eabb39c84d5b1adc76d266500.webm  [114.4 KB]
+          1b2079774c07145dcc2ad50d511933e0.webm  [118.2 KB]
+          24049b8ce2d684db0c25660f49e59516.webm  [86.1 KB]
+          27aa99cf86676d0d462ab030af900150.webm  [119.2 KB]
+          2c2b73780291acd180b22cba20da42be.webm  [71.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (61)/  (51 entries)
+          0784a3e2a6de7847ad2097abdfd9cec5.webm  [66.3 KB]
+          1442301e21e49fe6f29aebd024bd300f.webm  [65.4 KB]
+          166a469e1ceec2a825bae17cb60cf449.webm  [101.2 KB]
+          20c8f30d96a9a99219a3ef84b7fad788.webm  [136.1 KB]
+          2a160ca742b760c6e1395f65ad42cb54.webm  [92.7 KB]
+          320d15a1e07af5027cd8fc90a31fd1c8.webm  [107.8 KB]
+          37d94042d81c46edeb9958c1e215ceb0.webm  [67.3 KB]
+          471458255c9e8403689edc4bc2e7a146.webm  [94.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (62)/  (51 entries)
+          0352722fcd383dbf11017831a6fbd44b.webm  [73.9 KB]
+          05473de9f75c94bdece41561ffb35b9a.webm  [92.7 KB]
+          0836fbe7dd3934c884c22257b1b4e2ac.webm  [87.1 KB]
+          12c1d8dea1d6437f91fabefa1a2201d9.webm  [83.3 KB]
+          1440802e9b5bbf0e137b31ff6fdfabd1.webm  [103.1 KB]
+          1eda286412ff396aca42f3e1a3683f64.webm  [87.1 KB]
+          1fbe229c74117ae03fbbb63ec67fe392.webm  [59.7 KB]
+          217fbd9f67f2dc0a27933f32288d225f.webm  [129.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (63)/  (51 entries)
+          06df0482356ad5ed650d669e4c45bc05.webm  [78.6 KB]
+          08547c072ccb67b059ac7336c4f285b7.webm  [108.8 KB]
+          0a2eb3b4953dbb4af2d6cd166a15d790.webm  [100.3 KB]
+          14e13cdc8ff6df7ce4e1146212dfd859.webm  [110.7 KB]
+          18fe70938b44dcdd2c11a36b0241a465.webm  [118.2 KB]
+          1a122bba1a0e2b1559106a95e7456657.webm  [94.6 KB]
+          1a5aa89ca4d0ed952aa8ea67a033fc9b.webm  [81.4 KB]
+          2608edcd2bb18ce128047481d9bc4598.webm  [112.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (64)/  (52 entries)
+          00860646035ded96d87f42bd585be786.webm  [105.0 KB]
+          04465d479ce0b3792b8a8065632eed97.webm  [108.8 KB]
+          09c4c60ff7ff3c7c00dc3f3594c670fe.webm  [153.1 KB]
+          0c81265fa802f0dee47485fb81f90314.webm  [77.6 KB]
+          1fe959bb388c3eb1306bd28beee750ec.webm  [89.0 KB]
+          218574fcc59d1570fb9774c487c32549.webm  [122.9 KB]
+          2945645c741f7d2556ad0cfabf5533c2.webm  [134.2 KB]
+          32beef6e00e3297235abfd80d3ab2c3e.webm  [113.5 KB]
+          ... +44 more files  {'.webm': 51, '.tsv': 1}
+      recordings (65)/  (51 entries)
+          039bffa1ca201aa4cb975504f99e5496.webm  [116.3 KB]
+          2170a957b6567783e0588e7ea0391cb7.webm  [109.7 KB]
+          21ee29a39f8fe178b14e6e586f64dd0e.webm  [57.8 KB]
+          28790f1a068bfeed8850c0f61373056f.webm  [106.9 KB]
+          32636a51c284a59c85444b441ef10230.webm  [101.2 KB]
+          3766e4f37588643e2c95da5807c84e9b.webm  [104.1 KB]
+          3acd7ca1c6fe902e9da2d960ed89f972.webm  [110.7 KB]
+          4061c9b20f6cebee6ae525c5766f14de.webm  [104.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (66)/  (51 entries)
+          00ac682dcd0ec6b88bddee290ea73ae1.webm  [90.9 KB]
+          00c9680906316ae955e693d12cae2c4a.webm  [78.6 KB]
+          03b6786c60d3b9189408940e38ee9aa0.webm  [66.3 KB]
+          069e243395bc0b83386fb391be8fc781.webm  [139.9 KB]
+          08c34c446c080113c446cd04eb1a7d04.webm  [79.5 KB]
+          0fcd22f6083a8b1aa3825c504d7c85ad.webm  [153.1 KB]
+          126b732a1ed602f3eb7b5fbf31374bfc.webm  [114.4 KB]
+          23496e05784e00dbe6069a346689382a.webm  [68.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (67)/  (51 entries)
+          023ceaac7367a2e4a00c31108f915e93.webm  [76.7 KB]
+          0cc73ec9211d53a346585b4a8d33da2b.webm  [32.4 KB]
+          0d3bb17bddedb46f7e1dd067a86ac236.webm  [97.5 KB]
+          0f484253f87c4550859a0586fe983c33.webm  [97.5 KB]
+          11f537a4091b5d824a4e1f7f911d0f0d.webm  [87.1 KB]
+          16fd922d6f585c386747d61731880dbe.webm  [75.8 KB]
+          18a35ff385b251746ac0ddcf20c373f3.webm  [70.1 KB]
+          18f0d12b2f9c62db27f0ef58037c47a6.webm  [105.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (68)/  (51 entries)
+          09b8873bd55008f9cafbda11dc5b4701.webm  [111.6 KB]
+          1cefd629ed94557e371e4da339d9e25b.webm  [90.9 KB]
+          29d451a980893d550d5ed16250b0bdcc.webm  [102.2 KB]
+          2ba389c4c66097a8dd159416b0140ffc.webm  [117.3 KB]
+          3632d6f970931d7365773bf2554718e9.webm  [141.8 KB]
+          375f3897bec62590e19bc7dc0fc6daee.webm  [98.4 KB]
+          3fdd110d50ab052bec2c3e2d24d3a349.webm  [122.0 KB]
+          40280da27db8d8791b47b36185ec43a8.webm  [122.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (69)/  (51 entries)
+          004f859ca9e920c26e9d9078964bab11.webm  [110.7 KB]
+          00f2a148cdaf6508defff927d476812b.webm  [78.6 KB]
+          03c7331f08094716c4c1c5a53358568b.webm  [83.3 KB]
+          0a0e10092cd48742f5d10b00d91a74d3.webm  [85.2 KB]
+          0cdfbac4da289b5435705b57df13213e.webm  [77.6 KB]
+          0f7a3d10d7b6db5127136b26ea7ee342.webm  [103.1 KB]
+          1429962aa0d512c51bc3d337286c8929.webm  [114.4 KB]
+          192b519f7b147daf580318660d64f198.webm  [77.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (7)/  (51 entries)
+          03bbb629c089d043be9c789804c73427.webm  [43.7 KB]
+          06b9f300b07953f3f302b24fa0f0e458.webm  [153.1 KB]
+          079b33b6824a8a021f10a54c8703d06c.webm  [111.6 KB]
+          079e43c9c20c80382b8c624501499f5f.webm  [105.0 KB]
+          08343c48c62798bc72a05a9f86c74e22.webm  [166.3 KB]
+          08de3dfa72c6942e767c6d3ee37657ad.webm  [80.5 KB]
+          12b119a32d350b97e90026f4bcac2f74.webm  [96.5 KB]
+          167657ae429c94266bf5a1bfedaff1d5.webm  [135.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (70)/  (51 entries)
+          008cb9b58c2a89891cea4764f8833ae2.webm  [92.7 KB]
+          0728ed0fb401b82766d67938eeb42369.webm  [49.3 KB]
+          10fc0bd995360d0d4af1797909d4914e.webm  [128.6 KB]
+          126cf52c0789854f053f55a703f41406.webm  [97.5 KB]
+          126ebeee9ee1efd078ac8fc5e1886210.webm  [70.1 KB]
+          149465f9cdb65d8781cfd5749ad2a574.webm  [49.3 KB]
+          186212be13d9bc4c3a2304674b792b3c.webm  [94.6 KB]
+          1c6002c3c638b135cc858ad8f1e39e97.webm  [121.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (71)/  (51 entries)
+          002fd7972cfd14d05f095126167e2126.webm  [171.0 KB]
+          00a4626e31c0f84e734accdf7afa444e.webm  [75.8 KB]
+          01d0d7f3729e044c0c7b5483c2812a49.webm  [90.9 KB]
+          08dea21fc206a5cda10a9092e29397ef.webm  [51.2 KB]
+          0a882f7834de937f5d3ff01c06f139c7.webm  [119.2 KB]
+          1e00d70d0e5dc29e7d99d2d5bf6066c0.webm  [127.6 KB]
+          1edeef4166a993293519b560636c5bcf.webm  [83.3 KB]
+          1f47a893f2ef43d62daadc169d564711.webm  [77.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (72)/  (51 entries)
+          02cdbd6a18a3e7b0c9b35619dd6876b2.webm  [89.9 KB]
+          04822a6f0ec96c4476e88982ffcef80a.webm  [125.8 KB]
+          14849901ca2707096edfceae316ede77.webm  [125.8 KB]
+          17ce7f981f9cadc881e44229adf353f4.webm  [55.0 KB]
+          1ba04aeeb89457937c8c2ab2d148d3f3.webm  [71.0 KB]
+          1e7d1d9537e9167fbfffbfe84997dd94.webm  [151.2 KB]
+          2de805388fcbc0d8e4e80e5234d15b79.webm  [126.7 KB]
+          3083f70cc8b621b8ecfcbbb9a4c6fb28.webm  [69.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (73)/  (51 entries)
+          0081a4d67ed1e95ea6b723f44d61ebf8.webm  [84.2 KB]
+          06086cd79c62d3c1d7ce3c63984128d4.webm  [89.0 KB]
+          07ff3f0b388ae5006f696a3253c5d1dc.webm  [119.2 KB]
+          0988166424616b299927bdc103434205.webm  [63.5 KB]
+          14d6487e2ebb44461760f92f4f46dac9.webm  [107.8 KB]
+          192fd1725e638ea61179f64fa7d5ec6c.webm  [115.4 KB]
+          1cd015957d6d6e78950f3c9fa57cb881.webm  [82.4 KB]
+          1deeecfd70996db2f1702d1987ca0635.webm  [113.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (74)/  (51 entries)
+          072aa02cc83d5d0ea2e3faf9a712019a.webm  [104.1 KB]
+          084f065af85f03d1e4ab0189b39979c9.webm  [107.8 KB]
+          0f8312d05cf3b31bf5fecbd0231e9ef3.webm  [56.9 KB]
+          0fc9cfe53f3e1a698458c3a74e14dfe6.webm  [113.5 KB]
+          18ccae7fe3a402089d3fea6446f6278d.webm  [84.2 KB]
+          1b01f6b650253f9a9eea7dd61505b37b.webm  [75.8 KB]
+          1cc2796393836d9ecc714434e5c71a64.webm  [127.6 KB]
+          1f2e0988c2a7212279baa8342bb41673.webm  [98.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (75)/  (51 entries)
+          048e978ab1ad9ad5280a906aa9179e2e.webm  [71.0 KB]
+          04fb67c6ce32c4da067419453be73827.webm  [103.1 KB]
+          12017e3650a29c98c6e07c0df74262e0.webm  [83.3 KB]
+          158794c5886eb0f6bb3c7f532bf67266.webm  [77.6 KB]
+          15ca3abbf861e7609fa53f5b765c3208.webm  [83.3 KB]
+          20f2544c0294f5b131c8f11f69fe2436.webm  [110.7 KB]
+          28a78e6036bcb7c9a35980f98dfdeaf3.webm  [92.7 KB]
+          2b492baf0d91cfff4607a4a8d160235a.webm  [111.6 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (76)/  (51 entries)
+          0612122af377b65b80b3d6ff9ad62b24.webm  [183.3 KB]
+          10e754026fbc0fc4c7bc4a37d1dc33d6.webm  [119.2 KB]
+          13c01f9ede32870763fa87c0441f88cf.webm  [125.8 KB]
+          1478d1a32862739199ae85b68881043c.webm  [132.4 KB]
+          1bfee3cc2712a1bdea8d8a4eab97e73c.webm  [86.1 KB]
+          1fd04bdbd1e9c159b167498f4b8bfb9c.webm  [62.6 KB]
+          270940a6eb939dd2af35d71810d703d4.webm  [108.8 KB]
+          278b426d2c9321fe0bfee87ab5b184c1.webm  [106.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (77)/  (51 entries)
+          0195a7fca7ec281385d6a0de45268c40.webm  [68.2 KB]
+          06db2ff8b8388a96222b2cb85aa9793c.webm  [74.8 KB]
+          0997af3a10ca76c031a07fca70ffeaf7.webm  [86.1 KB]
+          0b7d41503ce4fd2e14dd99299866a192.webm  [98.4 KB]
+          0e4dde1e8191e44d9b698650f7f910ca.webm  [77.6 KB]
+          12e81dab7eba3344105b20abceb8d336.webm  [99.3 KB]
+          198426eb4f977d8cfe426df30d849494.webm  [118.2 KB]
+          1ad293d39e6ae9ee728836fd0ea15492.webm  [155.0 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (78)/  (51 entries)
+          045c7e7922a2b6ed9edc58dda85efb77.webm  [72.0 KB]
+          0502915274268a4196122f5b157f41c0.webm  [113.5 KB]
+          0ac77410153ae34d2293e3108fa918bc.webm  [68.2 KB]
+          0f98a4a6b1172fb6c814ee8adf7b9b5b.webm  [139.0 KB]
+          1000d46525a6e71833ec1fec5e4fa1d7.webm  [47.5 KB]
+          143d2ccb9f79e810c6a4e6c468f5001d.webm  [107.8 KB]
+          248c515748db9061293683a501a29d23.webm  [63.5 KB]
+          2807bad748f0fc264df4e71964ebfd3a.webm  [130.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (79)/  (51 entries)
+          01d5c0d35e2812a95204e1454e05bd41.webm  [119.2 KB]
+          072c49ed311dd29964b4b1210f3fea50.webm  [62.6 KB]
+          0afbcaa232316e4487b16203eb5c92a5.webm  [45.6 KB]
+          0ba32fad89fb76b4b44ca3f48a409b41.webm  [60.7 KB]
+          0c9719a00ed81e7955e87d56eeff2967.webm  [114.4 KB]
+          0db2534b8b566c1c309e8caa05b3ce88.webm  [46.5 KB]
+          129ffdf75d37bcf3588d48c86596fcc3.webm  [42.7 KB]
+          1b1caf766dac7a610684e42d39a572fa.webm  [112.5 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (8)/  (51 entries)
+          037c9a950ea3f437f476e49a5112a599.webm  [84.2 KB]
+          12c7996cb7614d1ee7b34063fdc93f67.webm  [105.0 KB]
+          137b29cc508850d467d1e3a4d9bdcd42.webm  [99.3 KB]
+          144ddc199fa98ab8b8acbd09030bc334.webm  [93.7 KB]
+          1e387c8d563d88985f6911e9b22046cb.webm  [104.1 KB]
+          34c534c27f64a476baaecb4f42d04067.webm  [121.0 KB]
+          403ea948d45cfd1b24f1246567b07c71.webm  [113.5 KB]
+          46728963c1b2b188bca9f0c64ab00ae5.webm  [99.3 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (80)/  (51 entries)
+          08b10af40d55286776dec51ea248678f.webm  [126.7 KB]
+          0a1c4e681d7cc9d25bb7bebe6c477068.webm  [77.6 KB]
+          0b615c206bb66936670262018d40a63a.webm  [79.5 KB]
+          14ac47ac5f26d5b89985d07641d4bd93.webm  [82.4 KB]
+          14ac9494c02dbf95538baa5dfbc7e1bb.webm  [66.3 KB]
+          15a1f088c91aa48c39845425128b9a36.webm  [71.0 KB]
+          1a54357bb7f14561104edfc2ffc5ecca.webm  [170.1 KB]
+          1bf2bc5f5771e8a42d070f1094aaa6e9.webm  [68.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (81)/  (51 entries)
+          02143ec046de3d70101d1e52a9156c49.webm  [92.7 KB]
+          05741dbb1dd745c346a6fc02ea65855f.webm  [107.8 KB]
+          0a2b26c8e7f0cadc84694ca3b0a09f73.webm  [87.1 KB]
+          170bfec6df5170aa268fadf45ab5bb51.webm  [57.8 KB]
+          1740f97829f5f485dfb683e95a608dfc.webm  [172.0 KB]
+          1efa344fc28645420fe0793229686c73.webm  [94.6 KB]
+          2b789567568dd568d194be62b7ef62a5.webm  [134.2 KB]
+          31e248988ad6b26e19ad5bcda01b987f.webm  [109.7 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (82)/  (51 entries)
+          0f56d18e8987135fa51d5189f107b70d.webm  [81.4 KB]
+          112cf2cfa1896539d03eacff1fb362b9.webm  [89.0 KB]
+          1389139137c35a2b9d059aafc79ccc24.webm  [96.5 KB]
+          17bcb19dac4a5cfce6389f237245a7fc.webm  [93.7 KB]
+          17cb7b551d2479e2b3a3d1b8581ee538.webm  [162.5 KB]
+          1b035f1c28fb46422677b6d8a6b3da89.webm  [110.7 KB]
+          1e30e6235970ee51d68e38ae89b43475.webm  [90.9 KB]
+          22e49989cb51f63d83ff473bdbd1415a.webm  [52.2 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (83)/  (51 entries)
+          0011c4983beb5c18e587c011c54c7e6d.webm  [76.7 KB]
+          009a75db294a9c542a30bac7abaf0338.webm  [69.2 KB]
+          04d546234baaf16f97ccae0cd5be0068.webm  [84.2 KB]
+          08c091ec435ffd19797d4fa76c97eb5a.webm  [101.2 KB]
+          0dacdd035c5f1dfe2e614a8e83ce2c0f.webm  [79.5 KB]
+          14e30d25247aacc5e514e266733b0a72.webm  [96.5 KB]
+          16786fdb8ac66639a8ca2c37e2fede6b.webm  [61.6 KB]
+          1ed2a45d65620dc739c5420031ac4fbe.webm  [116.3 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (84)/  (51 entries)
+          01e375cf32c84b3bfbcdc2dcf1394fff.webm  [77.6 KB]
+          142cf35b94e26dc58f6baa21be842cf0.webm  [66.3 KB]
+          1bcac403c03ac9c138fe0a363ccd4b7f.webm  [120.1 KB]
+          1cc9143d6aee372f8487c3ae476c70d5.webm  [92.7 KB]
+          201ce3b08308de310e53194d87c11ad9.webm  [79.5 KB]
+          23f59fe9be4be4dc66057b71a247ee01.webm  [102.2 KB]
+          244bad2ad476901405186de7aadb269e.webm  [98.4 KB]
+          2cea271badaf2da1841198ca928b1af6.webm  [114.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (85)/  (51 entries)
+          03fbe2789acd2196fb8ed1e4ecb0e954.webm  [89.0 KB]
+          1002494f15b3ff975560b48eb02a2d2a.webm  [95.6 KB]
+          111482942384560c3a1b8752996a333e.webm  [106.9 KB]
+          1d88b41cb1a1a93cc79e6e3e0b47728f.webm  [124.8 KB]
+          20c19b888a7bfcd6ee98a8391e91ea55.webm  [138.0 KB]
+          27942529472ae1685dee4e80e2f7a821.webm  [134.2 KB]
+          30bded14120ae9db9ff9f716e7489d52.webm  [76.7 KB]
+          397677301a43d8e8473d1ad1bbd4d1a0.webm  [81.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (86)/  (52 entries)
+          034a5b25e991c56924cd181dc76f72bc.webm  [125.8 KB]
+          07169afa654c2660d4d0cc29e52e7460.webm  [97.5 KB]
+          0d6597354e8c5a9b1c99f33574aab7cb.webm  [51.2 KB]
+          10b3cf9106d06e4e7ba46160b8875049.webm  [76.7 KB]
+          142d5af7341899712fc2c2e223bd17b2.webm  [91.8 KB]
+          17e1e1ea8b23c0598014d91c66c45256.webm  [144.6 KB]
+          1d8246b31cc2dd55021ff69c21cae117.webm  [110.7 KB]
+          241bd4e33ef973606e51ed45db2b2326.webm  [76.7 KB]
+          ... +44 more files  {'.webm': 51, '.tsv': 1}
+      recordings (87)/  (52 entries)
+          0368056309c756093b1e108f3ec730ff.webm  [119.2 KB]
+          0658333b5b8b8c97786110bf6fd63068.webm  [66.3 KB]
+          12ea861e03c94708fea6e695a9430cf1.webm  [127.6 KB]
+          140ee5d4285496a8072811cc571415f0.webm  [121.0 KB]
+          1469880617198e6d4ae8eb76ac7c1c9d.webm  [108.8 KB]
+          1dfc88f1f65f5d3c6e5945e555eae1d4.webm  [55.0 KB]
+          1fe6c18a01b988e5acf8111610b846df.webm  [58.8 KB]
+          217ea4b98637fd17c39ed0ab67bb1dcd.webm  [93.7 KB]
+          ... +44 more files  {'.webm': 51, '.tsv': 1}
+      recordings (88)/  (51 entries)
+          026e72332551ca618624f7bd3d53916e.webm  [112.5 KB]
+          035ecd6d3770f552bccdcc26fb368196.webm  [80.5 KB]
+          063bd3c4f70871b9df3ea6cea40623c0.webm  [89.0 KB]
+          0d306f8970231698663703dc4aa9f319.webm  [106.9 KB]
+          0f322b73edb7799fb342ab24d9ae7ba3.webm  [61.6 KB]
+          1824cbda382e533361e2a602a62fc754.webm  [117.3 KB]
+          1918526c3cc91011c8139ca632fa3b11.webm  [87.1 KB]
+          1afba6f8174e9525fac4f1e6a8650b03.webm  [86.1 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (89)/  (51 entries)
+          03219e00f0561730768846d91e85e76a.webm  [79.5 KB]
+          0577e1a1c84765ba224fbc7530af62c5.webm  [32.4 KB]
+          08010ab268b1c87cf3157813f7ffcd8f.webm  [72.9 KB]
+          0bb33449f60171b204449282b2a2d973.webm  [66.3 KB]
+          0e3cf89a2ad7bfd013def8797d2129fb.webm  [89.9 KB]
+          17442892920fae2d9f0f614021af5a30.webm  [108.8 KB]
+          195951a519e84c6c6e01fac8ed756190.webm  [87.1 KB]
+          19d37992c34e83469eb901889ffb0f3d.webm  [48.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (9)/  (51 entries)
+          098c4330153658b3c49e177790f4f0f4.webm  [137.1 KB]
+          0dc96a573a041089f92e37748bbe3fb9.webm  [90.9 KB]
+          114c1d500a3be4ac3406d7a3eb6d7e66.webm  [101.2 KB]
+          116592f8da4224c93d1494a718e1bd9d.webm  [136.1 KB]
+          1a23fb7bbee5338bbab082f3df79cb09.webm  [98.4 KB]
+          216f88417ed06d899d72de5a1cd2bc8a.webm  [70.1 KB]
+          24cd2fc34f677c75ec1025841765ae89.webm  [67.3 KB]
+          2ef116becffb43a167218b7e6bdd00df.webm  [81.4 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (90)/  (51 entries)
+          020c7174dcaf6aa6fab312e080a72f9b.webm  [65.4 KB]
+          0b499664dcdb610657cc2669ddaf34ae.webm  [101.2 KB]
+          0c8b8b8f1b77219a65fb8c59414a921e.webm  [136.1 KB]
+          10112a2db3726dfe6c4152a44c32673e.webm  [62.6 KB]
+          17aed69cf4be486a7035bee18abc0474.webm  [39.9 KB]
+          17e6925455381944fc7c8eda2ed98fd5.webm  [68.2 KB]
+          19314fd78c030caa709819572691906a.webm  [108.8 KB]
+          1fd1abc05757a9aad78a3399a4618d1d.webm  [105.9 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (91)/  (51 entries)
+          053cea33fbaa016e956c658b843799a4.webm  [54.1 KB]
+          0e2d05b61c15c502d438ece46d341532.webm  [59.7 KB]
+          0ea922b3dd70291bf29bb849d9910f98.webm  [65.4 KB]
+          14fce0c97a6dac9beb6ec5466ae6000d.webm  [79.5 KB]
+          1815494ddbb54ae1f7be829229fef8c3.webm  [101.2 KB]
+          21b86b78e293cdc86ace5cd6584533fe.webm  [66.3 KB]
+          2313f2e4cc0701bec62718d4eafb9d51.webm  [43.7 KB]
+          278e4fe1d6d9d430236a5e00c44c6cad.webm  [108.8 KB]
+          ... +43 more files  {'.webm': 50, '.tsv': 1}
+      recordings (92)/  (33 entries)
+          0059728a87616a0cca2b0a15bec1a6df.webm  [90.9 KB]
+          07cc8e73951ef685f07088a65361e397.webm  [65.4 KB]
+          1063ec67b2cf693b89cb6d29a9b53e7a.webm  [90.9 KB]
+          2b4e86990a220fc72bd4ef021f9a4b13.webm  [66.3 KB]
+          2c8af92c0ff223bf87559022841d6b33.webm  [138.0 KB]
+          2eacbf2dc83b6edc4da847e18fd16583.webm  [120.1 KB]
+          30a82e16b0b0286a8296d782d465e3ae.webm  [80.5 KB]
+          3cda59e1b1d98541fabd6ac58889bce6.webm  [81.4 KB]
+          ... +25 more files  {'.webm': 32, '.tsv': 1}
+
+======================================================================
+TREE: COMMON-VOICE
+======================================================================
+/kaggle/input/datasets/thoriqfarras/common-voice-corpus
+  id/  (12 entries)
+      clips/  (2377 entries)
+          common_voice_id_19051299.mp3  [43.9 KB]
+          common_voice_id_19051301.mp3  [30.8 KB]
+          common_voice_id_19051302.mp3  [33.6 KB]
+          common_voice_id_19051303.mp3  [36.8 KB]
+          common_voice_id_19051304.mp3  [24.6 KB]
+          common_voice_id_19051308.mp3  [22.4 KB]
+          common_voice_id_19051309.mp3  [22.7 KB]
+          common_voice_id_19051310.mp3  [24.2 KB]
+          ... +2369 more files  {'.mp3': 2377}
+      README.md  [6.3 KB]
+      clip_durations.tsv  [2019.0 KB]
+      dev.tsv  [1027.2 KB]
+      invalidated.tsv  [824.4 KB]
+      other.tsv  [7868.3 KB]
+      reported.tsv  [46.9 KB]
+      test.tsv  [1044.3 KB]
+      train.tsv  [1536.9 KB]
+      ... +3 more files  {'.md': 1, '.tsv': 10}
+probe backends -> mutagen: True | soundfile: True | librosa: True
+ffprobe: /usr/bin/ffprobe
+
+======================================================================
+JEMBER - FILE INVENTORY
+======================================================================
+tabular: ['Jember Javanese Spontaneous Speech Corpus - 1-200.tsv']
+audio  : 208 files, exts: Counter({'.mp3': 208})
+other  : [] (+0)
+
+>>> ANY file above that is not the TSV or mp3 may carry SPEAKER METADATA - check it.
+
+loading: Jember Javanese Spontaneous Speech Corpus - 1-200.tsv
+shape: (6679, 4) | columns: ['Audio file name', 'start', 'end', 'text']
+
+--- first 5 rows ---
+  Audio file name    start      end                                               text
+0               1  0:00:00  0:00:03                     Oke. Bismillahirrahmanirrahim.
+1               1  0:00:03  0:00:05                     Langsung ae ya, aja suwi-suwi.
+2               1  0:00:05  0:00:07                                   Soale aku sibuk.
+3               1  0:00:07  0:00:10  Nèngdi tempat wisata alam populer nèng Indonesia?
+4               1  0:00:10  0:00:11                                          Akèh sih.
+
+--- last 3 rows ---
+     Audio file name    start      end                                               text
+6676             208  0:04:41  0:04:44               Utawa uwong ya wong anyar, ngonokan.
+6677             208  0:04:44  0:04:45                                  Dadi ya, ya kuwi.
+6678             208  0:04:45  0:04:52  Dadine luwih, apa ya, luwih kaya bernilai, ngono.
+
+======================================================================
+JEMBER - SEGMENT DURATION DISTRIBUTION
+======================================================================
+jember_segments -> {"n": 6679, "total_h": 9.974, "mean_s": 5.38, "min_s": -30.0, "p01": 1.0, "p25": 3.0, "median": 5.0, "p75": 7.0, "p95": 12.0, "p99": 16.0, "max_s": 29.0, "n_over_30s": 0, "n_under_1s": 41, "n_nonpositive": 41}
+
+======================================================================
+JEMBER - TIMING INTEGRITY
+======================================================================
+unparseable timestamps : 0
+segments with dur <= 0 : 41
+
+--- ALL non-positive-duration rows (these must be dropped or fixed) ---
+     Audio file name    start      end  dur_s                                                                                                     text
+89                 1  0:05:52  0:05:52    0.0                                                                                                  Polusi.
+190                1  0:12:40  0:12:40    0.0                                                                                                Individu.
+232                2  0:01:15  0:01:15    0.0                                                                                          Akèh macême ya.
+288                2  0:04:15  0:04:15    0.0                                                                                                    Ha'a.
+292                2  0:04:22  0:04:22    0.0                                                                                             Ya, lebih...
+377                2  0:08:53  0:08:53    0.0                                                                                                     Apa?
+397                2  0:09:38  0:09:38    0.0                                                                                                    Ha'a.
+408                2  0:10:10  0:10:10    0.0                                                                                                    Ha'a.
+422                2  0:10:57  0:10:57    0.0                                                                                         Apa lèk ngarani?
+437                2  0:11:26  0:11:26    0.0                                                                                                    Ha'a.
+444                2  0:11:41  0:11:41    0.0                                                                                                    Ha'a.
+467                2  0:13:13  0:13:13    0.0                                                                                                    He'e.
+493                2  0:14:32  0:14:32    0.0                                                                                                    He'e.
+503                2  0:15:05  0:15:05    0.0                                                                                                    He'e.
+827               24  0:00:19  0:00:19    0.0                                                                                       Těrus ndèk kampus.
+874               24  0:03:21  0:03:21    0.0                                                                                                     E...
+956               24  0:08:20  0:08:20    0.0                                                                                               Wis ngono.
+1223              30  0:00:12  0:00:12    0.0                                                                                                    Isuk.
+1232              30  0:00:33  0:00:33    0.0                                                                                   Apa manèh akhir pekan.
+1253              30  0:02:00  0:02:00    0.0                                                                                                  Jarang.
+1835              42  0:04:52  0:04:52    0.0                                                                                                   Ngono.
+1876              42  0:07:36  0:07:36    0.0                                                                                     Dadine i aku krungu.
+1929              43  0:01:08  0:01:08    0.0                                                                                     berkebutuhan khusus.
+2091              44  0:05:56  0:05:56    0.0                                                                                         Masa kaya ngono?
+2118              45  0:00:43  0:00:43    0.0                                                                                         Bisane ya nggak.
+2268              47  0:02:13  0:02:13    0.0                                                                                                   Ngono.
+2694              58  0:00:13  0:00:13    0.0                                                                                               Soale apa?
+2727              63  0:00:40  0:00:10  -30.0                         Jênêngku Rilo nama panggilane, nèk nama lengkape Muhammad Rilo Nuryadi Suryanto.
+2931              65  0:18:05  0:18:05    0.0                                                                                               Karna apa?
+3259              91  0:00:44  0:00:44    0.0                                                                                                 Iku sih.
+3716             105  0:00:05  0:00:05    0.0                                                                                                   He'em.
+3728             105  0:01:08  0:01:08    0.0                                                                                                   ngono?
+4244             114  0:03:21  0:03:21    0.0                                                                                                 Iku sih.
+4498             128  0:00:48  0:00:48    0.0                                                                                         Ngono-ngono iku.
+4695             139  0:01:38  0:01:30   -8.0                                                                                      Seru bangêt pokoke.
+5282             174  0:01:33  0:01:31   -2.0  Ora ngobrol, ora ngobrol linguistik, ora ngobrol apa, sing perkara biasae tak omongke pas kuliah ngono.
+5811             187  0:01:46  0:01:46    0.0                                                                                                     Iku.
+6117             197  0:03:00  0:03:00    0.0                                                                                                   He'eh.
+6133             198  0:00:16  0:00:16    0.0                                                                                                   He'em.
+6403             204  0:02:55  0:02:55    0.0                                                                                          Gak ènèk ngono.
+6435             204  0:06:29  0:06:29    0.0                                                                                                    Sapa?
+
+files containing overlapping segments: 1
+   file=63 n_overlaps=3 worst=-6.00s
+
+inter-segment gap (s): median=0.00 p95=0.00 max=36.00 | negative(overlap)=3
+
+======================================================================
+JEMBER - SEGMENTS PER AUDIO FILE
+======================================================================
+        n_seg    sum_s  first_s   last_e
+count  208.00   208.00   208.00   208.00
+mean    32.11   172.62     0.07   172.86
+std     38.59   191.09     0.72   191.18
+min      1.00     6.00     0.00     6.00
+25%     11.00    56.75     0.00    56.75
+50%     18.00    98.50     0.00    98.50
+75%     38.00   212.00     0.00   212.00
+max    325.00  1202.00    10.00  1202.00
+
+top 5 longest files by annotated time:
+     n_seg   sum_s  first_s  last_e
+fid                                
+65     167  1202.0      0.0  1202.0
+2      325  1037.0      0.0  1037.0
+1      210   831.0      0.0   831.0
+23     144   765.0      2.0   767.0
+30     152   761.0      0.0   761.0
+
+======================================================================
+JEMBER - AUDIO PROBE (all files)
+======================================================================
+audio files on disk: 208
+jember_audio: probed 208 ok, 0 failed
+
+sample rates : {44100: 89, 48000: 119}
+channels     : {1: 208}
+bitrate kbps : {64: 208}
+jember_audio_files -> {"n": 208, "total_h": 10.015, "mean_s": 173.34, "min_s": 6.1, "p01": 7.21, "p25": 57.25, "median": 100.06, "p75": 212.36, "p95": 548.17, "p99": 826.67, "max_s": 1202.64, "n_over_30s": 186, "n_under_1s": 0, "n_nonpositive": 0}
+
+======================================================================
+JEMBER - ANNOTATION COVERAGE
+======================================================================
+total audio on disk      : 10.01 h
+total annotated segments : 9.97 h
+overall coverage         : 99.6 %
+UNANNOTATED audio        : 0.04 h  <-- candidate for self-training / pseudo-labelling
+
+coverage per file:
+count    208.000
+mean       0.991
+std        0.021
+min        0.831
+25%        0.991
+50%        0.996
+75%        0.998
+max        1.068
+
+audio files with NO rows in the TSV : 0 []
+TSV file-ids with NO audio on disk  : 0 []
+
+lowest-coverage files (possible truncated annotation):
+     n_seg  sum_s  audio_s  coverage
+fid                                 
+62       7   34.0    40.93      0.83
+63      45  265.0   299.04      0.89
+13       3    6.0     6.72      0.89
+174     20   91.0   101.56      0.90
+139     18   90.0   100.41      0.90
+7        4   11.0    11.93      0.92
+86       3   22.0    23.64      0.93
+6        3    9.0     9.58      0.94
+
+======================================================================
+JEMBER - RAW TEXT SAMPLE (20 consecutive segments)
+======================================================================
+[1 0:06:29-0:06:35] Menurut sepengetahuan Anda, apa permasalahan lingkungan di negara Anda?
+[1 0:06:35-0:06:36] Permasalah lingkungan?
+[1 0:06:36-0:06:38] Tambang.
+[1 0:06:38-0:06:41] Kalau, lèk jarèku iku tambang.
+[1 0:06:41-0:06:46] Permasalahan lingkungan di negara Indonesia iku tambang.
+[1 0:06:46-0:06:48] Akèh tambang.
+[1 0:06:48-0:06:53] Pemilik-pemilik tambang yang sudah menambang tidak bertanggung jawab.
+[1 0:06:53-0:06:55] Ndak ngêlakokna reklamasi.
+[1 0:06:55-0:06:59] Sêharuse kan ditutup kembali.
+[1 0:06:59-0:07:01] Ben alam iku mbalik mênèh
+[1 0:07:01-0:07:02] Ternyata ênggak.
+[1 0:07:02-0:07:06] Apa mênèh saiki kan, e.., sing kasus nèng Papua iku.
+[1 0:07:06-0:07:09] Woh, iku seharuse aja nggolèk nèng kana tambange.
+[1 0:07:09-0:07:12] Aja nambang nèng Raja Ampat.
+[1 0:07:12-0:07:20] Soale Raja Ampat itu wisata, penarik wisata.
+[1 0:07:20-0:07:21] Wisatane Indonesia.
+[1 0:07:21-0:07:22] Apik  mênèh, Raja Ampat.
+[1 0:07:22-0:07:25] Aku nggak, paling nggak setuju tambang nèng Raja Ampat.
+[1 0:07:25-0:07:32] Nèk tambang sing bukan tempat-tempat wisata sak karêp wis, sing pênting sesuai dengan prosedur ngono ae.
+[1 0:07:32-0:07:38] Bagaimana cara Anda menegur atau mengingatkan orang terdekat Anda untuk menjaga lingkungan?
+
+======================================================================
+JEMBER - CHARACTER INVENTORY
+======================================================================
+distinct characters: 81
+
+--- all non-ASCII-letter / non-space characters (the ones that matter) ---
+char     n cat                                 name
+ ',' 10941  Po                                COMMA
+ '.'  8562  Po                            FULL STOP
+ 'ê'  5374  Ll LATIN SMALL LETTER E WITH CIRCUMFLEX
+ 'è'  4833  Ll      LATIN SMALL LETTER E WITH GRAVE
+ '-'  1966  Pd                         HYPHEN-MINUS
+ 'ě'   820  Ll      LATIN SMALL LETTER E WITH CARON
+ '?'   651  Po                        QUESTION MARK
+ "'"   261  Po                           APOSTROPHE
+ '"'   206  Po                       QUOTATION MARK
+ '!'    29  Po                     EXCLAMATION MARK
+ '“'    29  Pi           LEFT DOUBLE QUOTATION MARK
+ '2'    28  Nd                            DIGIT TWO
+ '”'    28  Pf          RIGHT DOUBLE QUOTATION MARK
+ '1'    26  Nd                            DIGIT ONE
+ '’'    19  Pf          RIGHT SINGLE QUOTATION MARK
+ '0'    18  Nd                           DIGIT ZERO
+ 'ḍ'    17  Ll  LATIN SMALL LETTER D WITH DOT BELOW
+ '5'     6  Nd                           DIGIT FIVE
+ '3'     6  Nd                          DIGIT THREE
+ '…'     4  Po                  HORIZONTAL ELLIPSIS
+ '4'     4  Nd                           DIGIT FOUR
+ '7'     3  Nd                          DIGIT SEVEN
+ '6'     2  Nd                            DIGIT SIX
+ '%'     2  Po                         PERCENT SIGN
+ '8'     2  Nd                          DIGIT EIGHT
+ ';'     1  Po                            SEMICOLON
+ ':'     1  Po                                COLON
+ 'é'     1  Ll      LATIN SMALL LETTER E WITH ACUTE
+ '9'     1  Nd                           DIGIT NINE
+ '+'     1  Sm                            PLUS SIGN
+
+NON-ASCII chars present: [('è', 4833, 'LATIN SMALL LETTER E WITH GRAVE'), ('é', 1, 'LATIN SMALL LETTER E WITH ACUTE'), ('ê', 5374, 'LATIN SMALL LETTER E WITH CIRCUMFLEX'), ('ě', 820, 'LATIN SMALL LETTER E WITH CARON'), ('ḍ', 17, 'LATIN SMALL LETTER D WITH DOT BELOW'), ('’', 19, 'RIGHT SINGLE QUOTATION MARK'), ('“', 29, 'LEFT DOUBLE QUOTATION MARK'), ('”', 28, 'RIGHT DOUBLE QUOTATION MARK'), ('…', 4, 'HORIZONTAL ELLIPSIS')]
+
+======================================================================
+JEMBER - TOKEN STATISTICS
+======================================================================
+tokens/segment: {'count': 6679.0, 'mean': 9.84, 'std': 5.69, 'min': 1.0, '25%': 6.0, '50%': 9.0, '75%': 13.0, 'max': 48.0}
+chars/segment : {'count': 6679.0, 'mean': 59.46, 'std': 34.89, 'min': 3.0, '25%': 34.0, '50%': 54.0, '75%': 79.0, 'max': 250.0}
+chars/sec     : median=11.50 p95=19.50  (outliers = misaligned timestamps)
+empty-text segments: 0
+total tokens: 65720 | vocab size: 7556 | hapax: 3873 (51.3%)
+
+top 40 tokens: [('ya', 2745), ('iku', 2685), ('ngono', 1454), ('aku', 1417), ('sing', 1350), ('e', 1262), ('apa', 1201), ('kan', 949), ('gak', 911), ('lèk', 815), ('ndèk', 783), ('těrus', 759), ('kaya', 740), ('dadi', 708), ('iki', 707), ('wis', 665), ('ana', 579), ('nèk', 484), ('isa', 454), ('nèng', 452), ('sih', 437), ('lah', 421), ('tapi', 407), ('wong', 400), ('dhewe', 354), ('nggak', 322), ('mbak', 320), ('kuwi', 311), ('ki', 303), ('soale', 300), ('nah', 269), ('jênênge', 250), ('dan', 248), ('karo', 237), ('nang', 236), ('pas', 228), ('misale', 227), ('kadang', 220), ('bangêt', 209), ('akèh', 207)]
+
+======================================================================
+JEMBER - DISFLUENCY / ANNOTATION CONVENTIONS
+======================================================================
+square_bracket               segments=    0  examples=[]
+paren                        segments=    0  examples=[]
+angle                        segments=    0  examples=[]
+curly                        segments=    0  examples=[]
+trailing_hyphen_truncation   segments=    3  examples=[('beda-', 1), ('game-', 1), ('sehari-', 1)]
+ellipsis                     segments=  718  examples=[('...', 769), ('…', 4)]
+digit                        segments=   49  examples=[('2', 28), ('1', 26), ('0', 18), ('5', 6), ('3', 6), ('4', 4), ('7', 3), ('6', 2)]
+uppercase_run                segments=  213  examples=[('SMA', 38), ('HP', 31), ('SD', 25), ('SMP', 18), ('SMK', 16), ('CS', 13), ('KKN', 11), ('RW', 9)]
+multi_space                  segments=  108  examples=[('  ', 120)]
+reduplication                segments= 1148  examples=[('wong', 123), ('arèk', 45), ('ngono', 29), ('rata', 27), ('apa', 27), ('beda', 25), ('bênêr', 20), ('padha', 17)]
+redup_partial                segments= 1558  examples=[('wong-wong', 123), ('arèk-arèk', 45), ('sehari-hari', 34), ('ngono-ngono', 29), ('rata-rata', 27), ('apa-apa', 27), ('beda-beda', 25), ('bênêr-bênêr', 20)]
+
+filler-ish token counts: {'ya': 2745, 'iku': 2685, 'ngono': 1454, 'e': 1262, 'apa': 1201, 'kan': 949, 'lah': 421, 'nah': 269, 'em': 94, 'anu': 47, 'eh': 37, 'itu': 34, 'oh': 28, 'ini': 11, 'gitu': 10, 'ah': 8, 'opo': 5, 'hmm': 4, 'ee': 1}
+
+======================================================================
+JEMBER - DIACRITIC CONSISTENCY (pepet / taling)
+======================================================================
+e-family codepoints in use: {'e (e)': 18590, 'è (e-grave)': 4833, 'é (e-acute)': 1, 'ê (e-circumflex)': 5374, 'ě (e-caron)': 820}
+
+folded forms written more than one way: 210
+token mass affected: 7097 (10.8 % of all tokens)
+
+worst 30 inconsistently-spelled words:
+   lek                {'lèk': 815, 'lek': 2}
+   ndek               {'ndèk': 783, 'ndek': 2}
+   terus              {'těrus': 759, 'têrus': 4}
+   nek                {'nèk': 484, 'nêk': 2, 'nek': 1}
+   neng               {'nèng': 452, 'nêng': 6, 'neng': 3}
+   jenenge            {'jênênge': 250, 'jènènge': 1}
+   banget             {'bangêt': 209, 'banget': 1}
+   teka               {'têka': 207, 'teka': 2}
+   mbek               {'mbêk': 96, 'mbèk': 74, 'mbek': 7}
+   enek               {'ènèk': 141, 'enèk': 9}
+   sampek             {'sampèk': 142, 'sampek': 1}
+   penting            {'pênting': 117, 'penting': 11}
+   kerja              {'kêrja': 121, 'kerja': 1}
+   ben                {'ben': 77, 'bên': 36, 'bèn': 7, 'běn': 1}
+   seneng             {'sênêng': 112, 'sênèng': 1}
+   sering             {'sêring': 78, 'sering': 5}
+   mek                {'mèk': 55, 'mek': 23, 'mêk': 1}
+   sekolah            {'sêkolah': 75, 'sekolah': 1}
+   wektu              {'wêktu': 67, 'wektu': 2}
+   ndelok             {'ndêlok': 65, 'ndelok': 1}
+   ke                 {'ke': 58, 'kê': 2}
+   engko              {'êngko': 40, 'engko': 8, 'èngko': 2}
+   enggak             {'ênggak': 40, 'ènggak': 9, 'enggak': 1}
+   sekitar            {'sekitar': 47, 'sêkitar': 1}
+   tetep              {'têtêp': 45, 'tetep': 2}
+   ambek              {'ambèk': 32, 'ambêk': 14}
+   pernah             {'pêrnah': 37, 'pernah': 6}
+   pendhidhikan       {'pendhidhikan': 36, 'pêndhidhikan': 2}
+   angel              {'angèl': 36, 'angel': 1}
+   oleh               {'olèh': 35, 'oleh': 2}
+
+vocab size raw: 7556 -> after folding e-diacritics: 7335 (-2.9 %)
+>>> DECISION NEEDED: does the competition metric compare raw or normalised text?
+>>> If raw, these spellings must be predicted exactly and folding would hurt.
+>>> If normalised, fold them in training to stop wasting model capacity.
+CV data dir: /kaggle/input/datasets/thoriqfarras/common-voice-corpus/id
+
+======================================================================
+COMMON VOICE - README
+======================================================================
+# *Bahasa Indonesia* &mdash; Indonesian (`id`)
+
+This datasheet is for cv-corpus-26.0-2026-06-12 of the Mozilla Common Voice *Scripted Speech* dataset for Indonesian [Bahasa Indonesia - `id`]. The dataset contains 60804 clips representing 67.38 hours of recorded speech (33.76 hours validated) from 671 speakers, recorded from a text corpus of 25,184 sentences.
+
+## Language
+
+### Accents
+
+| Code | Accent | Clips | Speakers |
+|---|---|---|---|
+| - |  | 5,565 (9.2%) | 60 (8.9%) |
+
+## Demographic information
+
+The dataset includes the following self-declared age and gender distributions. A coverage summary is shown below each table.
+
+### Gender
+
+Self-declared gender information. The table shows clip and speaker counts with percentages. Speakers who did not declare a gender are listed as Unspecified. A dash (-) indicates zero.
+
+| Code | Gender | Clips | Speakers |
+|---|---|---|---|
+| male_masculine | Male, masculine | 26,420 (43.5%) | 191 (28.5%) |
+| female_feminine | Female, feminine | 15,604 (25.7%) | 51 (7.6%) |
+| transgender | Transgender | - | - |
+| non-binary | Non-binary | - | - |
+| do_not_wish_to_say | Prefer not to say | 10 (0.0%) | 1 (0.1%) |
+| - | Unspecified | 18,765 (30.9%) | 466 (69.4%) |
+
+*Gender declared: 42,039 of 60,804 clips (69.1%), 205 of 671 speakers (30.6%)*
+
+### Age
+
+Self-declared age information. The table shows clip and speaker counts with percentages. Speakers who did not declare an age are listed as Unspecified. A dash (-) indicates zero.
+
+| Code | Age | Clips | Speakers |
+|---|---|---|---|
+| teens | Teens | 12,808 (21.1%) | 39 (5.8%) |
+| twenties | Twenties | 25,306 (41.6%) | 159 (23.7%) |
+| thirties | Thirties | 6,088 (10.0%) | 48 (7.2%) |
+| fourties | Fourties | 1,046 (1.7%) | 20 (3.0%) |
+| fifties | Fifties | 234 (0.4%) | 3 (0.4%) |
+| sixties | Sixties | - | - |
+| seventies | Seventies | - | - |
+| eighties | Eighties | - | - |
+| nineties | Nineties | - | - |
+| - | Unspecified | 15,322 (25.2%) | 446 (66.5%) |
+
+*Age declared: 45,482 of 60,804 clips (74.8%), 225 of 671 speakers (33.5%)*
+
+## Data splits for modelling
+
+**Clip buckets**
+
+| Bucket | Clips |
+|---|---|
+| Validated | 30,465 (50.1%) |
+| Invalidated | 2,808 (4.6%) |
+| Other | 27,531 (45.3%) |
+
+**Training splits**
+
+| Split | Clips |
+|---|---|
+| Train | 4,981 (16.3%) |
+| Dev | 3,489 (11.5%) |
+| Test | 3,700 (12.1%) |
+
+*Training split coverage: 12,170 of 30,465 validated clips (39.9%)*
+
+The dataset contains 30465 validated, 2808 invalidated, and 27531 unresolved clips. The average 
+
+clip_durations rows: 60804
+
+loaded splits: {'validated': (30465, 13), 'train': (4981, 13), 'dev': (3489, 13), 'test': (3700, 13), 'other': (27531, 13), 'invalidated': (2808, 13), 'reported': (364, 4)}
+
+columns of validated: ['client_id', 'path', 'sentence_id', 'sentence', 'sentence_domain', 'up_votes', 'down_votes', 'age', 'gender', 'accents', 'variant', 'locale', 'segment']
+
+======================================================================
+COMMON VOICE - SPLIT SUMMARY
+======================================================================
+      split  clips  hours  speakers  clips_per_spk  sentences
+  validated  30465  35.94       468           65.1      12170
+      train   4981   7.70         4         1245.2       4981
+        dev   3489   4.02        43           81.1       3489
+       test   3700   4.25       418            8.9       3700
+      other  27531  28.72       483           57.0       7140
+invalidated   2808   2.73       190           14.8       2556
+
+>>> WATCH THE speakers COLUMN. A train split with a handful of speakers is
+>>> nearly worthless for acoustic diversity - build your own split from validated.
+
+======================================================================
+COMMON VOICE - SPEAKER OVERLAP BETWEEN OFFICIAL SPLITS
+======================================================================
+             train   dev   test  other  invalidated
+train          4.0   0.0    0.0    4.0          4.0
+dev            0.0  43.0    0.0   29.0         35.0
+test           0.0   0.0  418.0  257.0        120.0
+other          4.0  29.0  257.0  483.0        116.0
+invalidated    4.0  35.0  120.0  116.0        190.0
+
+======================================================================
+COMMON VOICE - SPEAKER CONCENTRATION (validated)
+======================================================================
+top   1 speakers hold   9.1 % of validated hours
+top   5 speakers hold  39.8 % of validated hours
+top  10 speakers hold  59.1 % of validated hours
+top  25 speakers hold  74.7 % of validated hours
+top  50 speakers hold  84.4 % of validated hours
+top 100 speakers hold  92.6 % of validated hours
+
+speakers with >=10 clips: 178 | >=50 clips: 80 | >=200 clips: 24
+
+======================================================================
+COMMON VOICE - CLIP DURATION + DEMOGRAPHICS (validated)
+======================================================================
+cv_validated_clips -> {"n": 30465, "total_h": 35.944, "mean_s": 4.25, "min_s": 1.12, "p01": 2.02, "p25": 3.22, "median": 3.96, "p75": 4.99, "p95": 7.03, "p99": 8.57, "max_s": 10.84, "n_over_30s": 0, "n_under_1s": 0, "n_nonpositive": 0}
+
+age:
+age
+twenties    12522
+teens        7502
+<NA>         6947
+thirties     2743
+fourties      679
+fifties        72
+
+gender:
+gender
+male_masculine     14030
+<NA>                8788
+female_feminine     7647
+
+accents:
+accents
+<NA>                                                    29347
+Betawi                                                    509
+Jawa Tengah|medhok|surakarta|tionghoa|bindeng             232
+Javanese                                                  154
+Jakartan Standard                                          67
+jawa                                                       53
+normal conversation indonesia, male                        13
+Javanese|Arabic                                            12
+jawa|It's kind of the essensial of Javanese language       12
+Javanese|sundanese                                         10
+
+variant:
+variant
+<NA>    30465
+
+locale:
+locale
+id    30465
+
+sentence_domain:
+sentence_domain
+<NA>    30465
+
+segment:
+segment
+<NA>         30319
+Benchmark      146
+
+======================================================================
+COMMON VOICE - VOTE QUALITY
+======================================================================
+up_votes  : {'count': 30465.0, 'mean': 2.11, 'std': 0.71, 'min': 2.0, '25%': 2.0, '50%': 2.0, '75%': 2.0, 'max': 24.0}
+down_votes: {'count': 30465.0, 'mean': 0.09, 'std': 0.3, 'min': 0.0, '25%': 0.0, '50%': 0.0, '75%': 0.0, 'max': 6.0}
+clips with >=1 down_vote: 2614 (8.6%)
+
+======================================================================
+COMMON VOICE - SENTENCE TEXT
+======================================================================
+distinct sentences: 12170 / 30465 clips  (repeat factor 2.50)
+unique-sentence tokens: 90737 | vocab: 13977
+top 30: [('di', 2508), ('yang', 2035), ('saya', 1730), ('dan', 1594), ('ini', 1503), ('tidak', 1188), ('dia', 1149), ('itu', 1146), ('dengan', 994), ('untuk', 788), ('adalah', 787), ('dari', 738), ('ke', 633), ('aku', 597), ('dalam', 557), ('kamu', 516), ('ada', 513), ('akan', 486), ('tom', 455), ('pada', 404), ('juga', 369), ('mereka', 364), ('seorang', 336), ('orang', 329), ('oleh', 328), ('sebagai', 321), ('lebih', 303), ('bisa', 288), ('karena', 280), ('memiliki', 280)]
+
+non-ASCII chars in CV sentences: [('É', 1), ('á', 3), ('é', 2), ('ł', 1), ('ń', 1), ('ō', 1), ('–', 6), ('—', 4), ('‘', 12), ('’', 20), ('“', 125), ('”', 121), ('！', 1), ('，', 1)]
+
+sample sentences:
+  - Dia tidak sepenuhnya mempercayaiku.
+  - Aku juga tidak mengerti.
+  - Berharap kau di sini.
+  - Maha Suci Allah.
+  - Pada akhirnya, dia memilih anak kucing yang satunya.
+  - Kucingku tersayang sudah seminggu hilang.
+  - Inilah dunia kecil.
+  - Ketika dia sampai stasiun, keretanya telah berangkat.
+
+======================================================================
+CENTRAL JAVANESE TTS - FULL INVENTORY
+======================================================================
+total files: 4692
+by extension: {'.webm': 4599, '.tsv': 93}
+
+metadata-ish files:
+   RECORDING TTS/recordings (68)/mapping.tsv  [6.0 KB]
+   RECORDING TTS/recordings (28)/mapping.tsv  [5.9 KB]
+   RECORDING TTS/recordings (15)/mapping.tsv  [5.6 KB]
+   RECORDING TTS/recordings (21)/mapping.tsv  [6.7 KB]
+   RECORDING TTS/recordings (7)/mapping.tsv  [6.4 KB]
+   RECORDING TTS/recordings (9)/mapping.tsv  [5.9 KB]
+   RECORDING TTS/recordings (85)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (22)/mapping.tsv  [6.4 KB]
+   RECORDING TTS/recordings (5)/mapping.tsv  [7.1 KB]
+   RECORDING TTS/recordings (70)/mapping.tsv  [5.6 KB]
+   RECORDING TTS/recordings (79)/mapping.tsv  [5.9 KB]
+   RECORDING TTS/recordings (88)/mapping.tsv  [5.9 KB]
+   RECORDING TTS/recordings (20)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (45)/mapping.tsv  [5.7 KB]
+   RECORDING TTS/recordings (86)/mapping.tsv  [6.0 KB]
+   RECORDING TTS/recordings (59)/mapping.tsv  [6.3 KB]
+   RECORDING TTS/recordings (44)/mapping.tsv  [5.7 KB]
+   RECORDING TTS/recordings (51)/mapping.tsv  [6.3 KB]
+   RECORDING TTS/recordings (29)/mapping.tsv  [6.2 KB]
+   RECORDING TTS/recordings (62)/mapping.tsv  [5.8 KB]
+   RECORDING TTS/recordings (43)/mapping.tsv  [6.4 KB]
+   RECORDING TTS/recordings (4)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (35)/mapping.tsv  [6.0 KB]
+   RECORDING TTS/recordings (90)/mapping.tsv  [5.8 KB]
+   RECORDING TTS/recordings (49)/mapping.tsv  [6.6 KB]
+   RECORDING TTS/recordings (31)/mapping.tsv  [5.4 KB]
+   RECORDING TTS/recordings (82)/mapping.tsv  [6.2 KB]
+   RECORDING TTS/recordings (33)/mapping.tsv  [6.0 KB]
+   RECORDING TTS/recordings (77)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (84)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (30)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (61)/mapping.tsv  [5.6 KB]
+   RECORDING TTS/recordings (78)/mapping.tsv  [5.6 KB]
+   RECORDING TTS/recordings (6)/mapping.tsv  [5.9 KB]
+   RECORDING TTS/recordings (52)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (8)/mapping.tsv  [5.5 KB]
+   RECORDING TTS/recordings (81)/mapping.tsv  [6.1 KB]
+   RECORDING TTS/recordings (91)/mapping.tsv  [5.5 KB]
+   RECORDING TTS/recordings (46)/mapping.tsv  [5.9 KB]
+   RECORDING TTS/recordings (32)/mapping.tsv  [6.0 KB]
+
+======================================================================
+TTS METADATA: RECORDING TTS/recordings (68)/mapping.tsv
+======================================================================
+shape: (50, 2) | columns: ['audio_filename', 'sentence']
+                          audio_filename                                                                                                sentence
+0  47cba305a690c29e0dcf6e2609f95592.webm                                  Koyo sing sakdurunge dibahas, ngeki kado kuwi ora melulu ngeki barang.
+1  fe44b79d11f86c6be92e8cf59707ba10.webm  Ning Islam, ngeki senyuman ning wong liyo iku wes termasuk ngeki hadiah mergo wes nyenengke wong liyo.
+2  ac8e1c7d0b353a1bc0521ad753a617f2.webm                                                       Salah siji sifat hadiah kuwi nyenengke wong liyo.
+3  8325de351914915a545654cde13a0c82.webm                                Awake dewe yo iso hadiah ning uwong berupa doa sing apik-apik lan tulus.
+4  6466d6f5abf39f650dbffe52869274bc.webm                                                      Doa sing tulus kuwi mesti nyentuh atine wong liyo.
+5  dab6dd6be166fdc35011068c01bce9ea.webm                  Hadiah yo iso wae bentuke kata-kata penyemangat, opo meneh yen wong iku lagi terpuruk.
+6  1cefd629ed94557e371e4da339d9e25b.webm             Kadang, kata-kata sing apik kuwi iso dadi hadiah barang nggo wong sing lagi butuh dukungan.
+7  ec1103637acdbc25e91a978a7f1d9b73.webm                        Sing paling penting seko ngeki hadiah kuwi usaha lan ketulusan uwong ngeki kado.
+
+======================================================================
+TTS METADATA: RECORDING TTS/recordings (28)/mapping.tsv
+======================================================================
+shape: (50, 2) | columns: ['audio_filename', 'sentence']
+                          audio_filename                                                                                                                                  sentence
+0  a42c0a91af6844c4a4cf689027021ebc.webm  Panganan-panganan sing langsung iso dipangan koyo burger, ayam goreng krispy, kuwi asin banget dadi natriume duwur marakke darah tinggi.
+1  2e3719a42a62effe3a3f94594505834c.webm                                           Terus, okeh cah enom sing seneng es kopi sing gulone duwur, dadi resiko diabetese duwur banget.
+2  2e30bfacd3bd8e1ea2807ef6d2b3b2f0.webm                                     Pancene kudu jogo panganan ket enom, mergane bakal resikone iku pas wes rodo tuo dadi okeh penyakite.
+3  5ec5c5ca269400727503f504247af984.webm                                                   Gaya hidup iku paling utama sing nyebabne kualitas organ dalam utowo awak njobo liyane.
+4  09575f179a1d98e73fb180911ddd8a6a.webm                                        Sing pertama iku panganan, panganan sing ora sehat marakke ngundang penyakit sing kronis iku teko.
+5  81e70bbdea6bae362d747462a3298524.webm                               Saiki okeh banget panganan sing kudune ora dipangan, tapi do dipangan mergo gampang entuke dan enak rasane.
+6  6da8755931751047fb3d8d44245ab2b7.webm                                                                                                Panganan sing sehat biasane ora pati enak.
+7  c47cc50437b10c926b7ab1ba87404e2a.webm                                                                                                     Terus, ora okeh gerak utowo olahraga.
+
+======================================================================
+TTS METADATA: RECORDING TTS/recordings (15)/mapping.tsv
+======================================================================
+shape: (51, 2) | columns: ['audio_filename', 'sentence']
+                          audio_filename                                                                                    sentence
+0  f94db457eff5395d7a40064c402071ec.webm                                              AI iso ndue okeh dampak negatif nggo menungso.
+1  71f13b0eb452722665cae5297b16e354.webm                                                          AI jaman saiki iso malsukke video.
+2  195629c8d56bef2bfbf93eb13d096e5a.webm                  Belakangan ono video-video sing ngomong tapi jebule kuwi palsu gaweane AI.
+3  8f33f5cc9ab31df2a20815ea9883a917.webm                Misale ono video Presiden Prabowo ngomong tapi jebule isine penipuan online.
+4  afade1980114ead116dab75b6cb3806f.webm  Gawe wong-wong sing ora ngerti nek kuwi palsu, mesti langsung percoyo terus keno penipuan.
+5  5087c6537bebd5fd19ef5d61cfa823aa.webm                 AI yo rawan banget jipuk kerjane wong-wong sing kerjone ning dunia kreatif.
+6  f04f25a194fc632803e0f02b2b3dbfbb.webm                                              Misale ilustrator, animator, lan sak piturute.
+7  ce08359eb81d7ed7091fac9779aaf8b5.webm                    Jaman saiki okeh perusahaan sing akhire milih nggo AI soale luwih murah.
+
+======================================================================
+TTS - AUDIO PROBE (sample of 200)
+======================================================================
+audio files: 4599
+tts_audio_sample: probed 200 ok, 0 failed
+sample rates: {48000: 200}
+channels    : {1: 200}
+tts_clip_sample -> {"n": 200, "total_h": 0.343, "mean_s": 6.18, "min_s": 1.74, "p01": 1.92, "p25": 4.79, "median": 6.03, "p75": 7.34, "p95": 10.04, "p99": 11.95, "max_s": 13.2, "n_over_30s": 0, "n_under_1s": 0, "n_nonpositive": 0}
+estimated total: 7.89 h (mean clip 6.18s x 4599 files)
+
+======================================================================
+TTS - DIRECTORY / SPEAKER STRUCTURE
+======================================================================
+distinct audio-holding directories: 93
+   RECORDING TTS/recordings (86)                                51 files
+   RECORDING TTS/recordings (46)                                51 files
+   RECORDING TTS/recordings (32)                                51 files
+   RECORDING TTS/recordings (17)                                51 files
+   RECORDING TTS/recordings (87)                                51 files
+   RECORDING TTS/recordings (64)                                51 files
+   RECORDING TTS/recordings (68)                                50 files
+   RECORDING TTS/recordings (28)                                50 files
+   RECORDING TTS/recordings (15)                                50 files
+   RECORDING TTS/recordings (21)                                50 files
+   RECORDING TTS/recordings (7)                                 50 files
+   RECORDING TTS/recordings (9)                                 50 files
+   RECORDING TTS/recordings (85)                                50 files
+   RECORDING TTS/recordings (22)                                50 files
+   RECORDING TTS/recordings (5)                                 50 files
+   RECORDING TTS/recordings (70)                                50 files
+   RECORDING TTS/recordings (79)                                50 files
+   RECORDING TTS/recordings (88)                                50 files
+   RECORDING TTS/recordings (20)                                50 files
+   RECORDING TTS/recordings (45)                                50 files
+
+filename stem examples: ['3632d6f970931d7365773bf2554718e9', '3fdd110d50ab052bec2c3e2d24d3a349', '09b8873bd55008f9cafbda11dc5b4701', 'f19310c2597112b1b72efd27cb85b697', '7a846b4a9403e9cb6286237ca74fee66', 'fe44b79d11f86c6be92e8cf59707ba10', '6fd40efec1195b6d82b9fbcc6ea94f69', 'b65b0eb54e0b167584709fda50ac772b', '6535c2846f7e3ee5cb53d22fdddd58b3', 'c5c6841ae2c4ca1d3d690f99991fdd5d', '8e1b4c134f0ec659a99ff8835fc83518', '1cefd629ed94557e371e4da339d9e25b']
+stem prefixes (possible speaker ids): [('', 1233), ('f', 83), ('d', 82), ('c', 78), ('e', 74), ('a', 73), ('b', 70), ('ec', 11), ('ed', 10), ('df', 10), ('fe', 9), ('ab', 9), ('ca', 9), ('ac', 8), ('ad', 8)]
+
+======================================================================
+TTS - TRANSCRIPT TEXT
+======================================================================
+transcript rows: 4630 | rows paired to an audio filename: 4630
+audio files on disk: 4549 | referenced by metadata: 4579 | matched: 4549
+referenced but missing on disk: 30
+on disk but not in any mapping: 0
+
+  - Koyo sing sakdurunge dibahas, ngeki kado kuwi ora melulu ngeki barang.
+  - Ning Islam, ngeki senyuman ning wong liyo iku wes termasuk ngeki hadiah mergo wes nyenengke wong liyo.
+  - Salah siji sifat hadiah kuwi nyenengke wong liyo.
+  - Awake dewe yo iso hadiah ning uwong berupa doa sing apik-apik lan tulus.
+  - Doa sing tulus kuwi mesti nyentuh atine wong liyo.
+  - Hadiah yo iso wae bentuke kata-kata penyemangat, opo meneh yen wong iku lagi terpuruk.
+  - Kadang, kata-kata sing apik kuwi iso dadi hadiah barang nggo wong sing lagi butuh dukungan.
+  - Sing paling penting seko ngeki hadiah kuwi usaha lan ketulusan uwong ngeki kado.
+  - Okeh film lan serial utowo sinetron sing cerito yen ora perlu barang mewah nggo ngado wong liyo.
+  - Okeh barang sing nggawe kado seko tangane dewe.
+
+vocab: 6168 | top 30: [('sing', 2710), ('iku', 1941), ('ning', 1734), ('iso', 1084), ('lan', 1010), ('ora', 972), ('nggo', 831), ('dadi', 793), ('kuwi', 783), ('karo', 767), ('ono', 653), ('wong', 649), ('okeh', 614), ('yen', 606), ('banget', 593), ('seko', 551), ('yo', 534), ('wes', 529), ('dewe', 514), ('luwih', 446), ('wong-wong', 432), ('awake', 391), ('mergo', 356), ('uwong', 330), ('utowo', 326), ('nek', 326), ('tapi', 317), ('koyo', 310), ('ndue', 299), ('terus', 296)]
+non-ASCII chars: []
+
+======================================================================
+CODE-SWITCHING - METHOD
+======================================================================
+Indonesian lexicon from Common Voice (freq>=2): 5744 types
+Javanese/Madurese marker list: 101 types
+
+======================================================================
+CODE-SWITCHING - TOKEN-LEVEL
+======================================================================
+JV            12451   18.9 %
+ID_attested   21433   32.6 %
+OOV_id        31836   48.4 %
+
+read: JV = confident Javanese function words
+      ID_attested = also appears in Indonesian CV (may be shared vocabulary)
+      OOV_id = never seen in Indonesian CV
+      -> JV + OOV_id is the upper bound on Javanese-specific material.
+
+======================================================================
+CODE-SWITCHING - UTTERANCE-LEVEL
+======================================================================
+segments scored: 6679
+
+distribution of Javanese-side token ratio per segment:
+count    6679.000
+mean        0.673
+std         0.210
+min         0.000
+10%         0.409
+25%         0.556
+50%         0.688
+75%         0.800
+90%         1.000
+max         1.000
+
+segments by Javanese-side ratio:
+   0pct pure-ID       135    2.0 %
+   0-20pct             51    0.8 %
+   20-40pct           378    5.7 %
+   40-60pct          1452   21.7 %
+   60-80pct          2739   41.0 %
+   80-100pct         1924   28.8 %
+
+INTRA-UTTERANCE MIXED (15-85 pct JV, >=4 tokens): 4948 segments (74.1 %)
+>>> a high number here means the task really is code-switched ASR,
+>>> and a Javanese-only model will lose WER on the Indonesian spans.
+
+======================================================================
+CODE-SWITCHING - EXAMPLES
+======================================================================
+
+--- LOW JV (Indonesian-looking) : 22 segments ---
+   [0.00] Selanjutnya, menurut Anda, apa permasalahan lingkungan di sekitar rumah Anda?
+   [0.00] A..., polusi udara di sana. 
+   [0.00] Menurut Anda, bagaimana cara agar kita bisa mengurangi sampah plastik?
+   [0.00] Menurut Anda, bagaimana cara terbaik untuk menjaga kebersihan sungai? 
+   [0.00] Bagaimana yang Anda rasakan saat memasuki tempat...
+   [0.00] Menurut Anda siapa yang perlu bertanggung jawab menjaga lingkungan? Individu atau pemerintahan? Dan, Kenapa?
+   [0.00] Seperti apa lingkungan yang ideal bagi Anda?
+   [0.00] Lingkungan yang ideal bagi saya...
+
+--- MIXED (code-switched) : 2019 segments ---
+   [0.40] Langsung ae ya, aja suwi-suwi.
+   [0.64] Nah, populer itu, sing populer iku, em, saiki lèk jarèku ya, lèk jarèku ya.
+   [0.57] Wah, iku..., sip iku, cek sip e.
+   [0.40] Těrus, yang ketiga, e..., kêtêlu.
+   [0.40] Jaremu, piye cara awak dhewe jaga kebersihan nang lingkungan sekitar?
+   [0.50] Lèk wong gak sadar, gak kira isa jaga kebersihan lingkungan.
+   [0.60] Buuuh, lèk pantai cek akène.
+   [0.40] Apa ya, ndak pêrnah ya.
+
+--- HIGH JV (Javanese-looking) : 442 segments ---
+   [1.00] Sing tektok wis pêrnah ping pira ae, sing tektok.
+   [1.00] Lèk nggawa carrier siji, ngêcamp siji.
+   [1.00] Siji, loro, têlu, papat, lima, ênêm, pitu.
+   [1.00] Lèk wis numpuk êngko dibuwak sêkarêpan.
+   [1.00] Nèk wis diguwak sêkarêpan, diobong.
+   [1.00] Alamatku ndèk Umbulsari, ndèk Jember.
+   [1.00] He'eh, aku saiki pendhidhikan ndèk Situbondo.
+   [1.00] Pondokku iki modele akèh asramane.
+
+======================================================================
+OOV: JEMBER TOKENS ABSENT FROM COMMON VOICE INDONESIAN
+======================================================================
+OOV types: 5877 / 7556 (77.8 %) | OOV token mass: 64.6 %
+
+top 60 OOV tokens - vocabulary that Common Voice Indonesian cannot teach:
+[('iku', 2685), ('ngono', 1454), ('sing', 1350), ('gak', 911), ('lèk', 815), ('ndèk', 783), ('těrus', 759), ('dadi', 708), ('iki', 707), ('wis', 665), ('ana', 579), ('nèk', 484), ('isa', 454), ('nèng', 452), ('sih', 437), ('wong', 400), ('dhewe', 354), ('mbak', 320), ('kuwi', 311), ('ki', 303), ('soale', 300), ('nah', 269), ('jênênge', 250), ('karo', 237), ('nang', 236), ('pas', 228), ('misale', 227), ('bangêt', 209), ('akèh', 207), ('têka', 207), ('ae', 188), ('ora', 184), ('gawe', 179), ('biasane', 178), ('saiki', 174), ('sampeyan', 174), ('kudu', 172), ('pisan', 167), ('utawa', 158), ('nduwe', 155), ('ning', 151), ('lho', 151), ('sak', 149), ('kene', 148), ('sampèk', 142), ('sik', 141), ('ènèk', 141), ('luwih', 140), ('wong-wong', 133), ('kêrja', 121), ('pênting', 117), ('sênêng', 112), ('omah', 109), ("de'e", 105), ('piye', 101), ('kabèh', 100), ('mbêk', 96), ('ngêrti', 95), ('em', 94), ('dadine', 93)]
+
+======================================================================
+VOCABULARY OVERLAP BETWEEN THE THREE CORPORA
+======================================================================
+Jember vocab types : 7556
+CV-id  vocab types : 13977
+TTS-cj vocab types : 6168
+
+Jember token mass covered by CV-id vocab  : 41.5 %
+Jember token mass covered by TTS-cj vocab : 56.2 %
+Jember token mass covered by CV+TTS       : 69.5 %
+
+type overlap Jember&TTS : 2228
+TTS-only types (Central Javanese vocabulary absent from Jember): 3940
+examples: ['iso', 'ono', 'yen', 'yo', 'ndue', 'terus', 'meneh', 'kabeh', 'tuo', 'mergane', 'marakke', 'mesti', 'menungso', 'seneng', 'moco', 'boso', 'mbien', 'kerjo', 'tekan', 'ngeki', 'amben', 'gede', 'liya-liyane', 'ngerti', 'liyo', 'enom', 'jowo', 'amergo', 'entuk', 'okeh-okeh', 'restoran', 'jogo', 'jenenge', 'maem', 'njobo', 'ngenggo', 'patik', 'dee', 'bedo', 'podo']
+
+>>> If TTS-cj adds little coverage beyond CV-id, its 7-8 hours are
+>>> unlikely to pay for the dialect mismatch. Decide on evidence, not vibes.
+
+======================================================================
+UTTERANCE-LENGTH DOMAIN GAP
+======================================================================
+               corpus  median_s  p95_s  median_tok
+ Jember (spontaneous)      5.00  12.00         9.0
+CommonVoice id (read)      3.96   7.03         6.0
+
+>>> Whisper pads every input to 30 s. Short read-speech clips waste compute
+>>> and shift the length prior away from the spontaneous target domain.
+
+======================================================================
+VALIDATION SPLIT FEASIBILITY FOR JEMBER
+======================================================================
+The Jember TSV exposes no speaker column, only an audio-file id.
+The safest available unit of grouping is therefore the AUDIO FILE (session).
+A random SEGMENT-level split would leak the same session/speaker into both
+sides and produce a WER that flatters the model. Do not do it.
+
+annotated total: 9.97 h across 208 files
+held-out 10% ->  20 files, 1.08 h (train 8.89 h, 188 files)
+held-out 15% ->  25 files, 1.52 h (train 8.46 h, 183 files)
+held-out 20% ->  42 files, 2.06 h (train 7.91 h, 166 files)
+
+file-level annotated minutes: min=0.1 median=1.6 max=20.0
+
+======================================================================
+WHISPER TOKENIZER FERTILITY ON JAVANESE vs INDONESIAN
+======================================================================
+Fertility = BPE tokens per word. High fertility on Javanese means the
+tokenizer shreds the language, which inflates decode length and hurts WER.
+
+fertility Jember top-3k words        : 2.72 tokens/word
+fertility CommonVoice-id top-3k words: 2.47 tokens/word
+fertility Jember OOV top-1k words    : 2.87 tokens/word
+
+worst-shredded Javanese words: [(13, 'cêdhêk-cêdhêk'), (9, 'tuwêk-tuwêk'), (9, 'sênêng-sênêng'), (9, 'pênting-pênting'), (8, 'pintêr-pintêr'), (8, 'bênêr-bênêr'), (7, 'sithik-sithik'), (7, 'rêsik-rêsik'), (7, 'olèh-olèh'), (7, 'ngombe-ngombe'), (7, 'nangdi-nangdi'), (7, 'kutha-kutha'), (7, 'kumpul-kumpul'), (7, 'klambi-klambi'), (7, 'dhewe-dhewe'), (7, 'daerah-daerah'), (7, 'barêng-barêng'), (7, 'bapak-bapak'), (7, 'arèk-arèk'), (7, 'anèh-anèh'), (7, 'akèh-akèhe'), (7, 'akèh-akèh'), (6, 'tangga-tangga'), (6, 'sêbênêre'), (6, 'sering-sêring')]
+words hitting UNK: 0 []
+all 10 sections present
+
+===== BEGIN CLAUDE-HANDOFF-JSON =====
+{"_meta":{"complete":true,"generated_for":"handoff to Claude - do not edit by hand","missing_sections":[],"notebook":"mozilla-javanese dataset EDA v1"},"code_switching":{"id_lexicon_size":5744,"intra_utterance_mixed_pct":74.1,"jv_side_ratio_median":0.688,"method":"CV-Indonesian attestation + Javanese marker list; estimate not gold","oov_token_mass_pct":64.6,"oov_types_pct":77.8,"segments_by_jv_ratio":{"0-20pct":51,"0pct pure-ID":135,"20-40pct":378,"40-60pct":1452,"60-80pct":2739,"80-100pct":1924},"token_pct":{"ID_attested":32.6,"JV":18.9,"OOV_id":48.4},"top_oov":[["iku",2685],["ngono",1454],["sing",1350],["gak",911],["lèk",815],["ndèk",783],["těrus",759],["dadi",708],["iki",707],["wis",665],["ana",579],["nèk",484],["isa",454],["nèng",452],["sih",437],["wong",400],["dhewe",354],["mbak",320],["kuwi",311],["ki",303],["soale",300],["nah",269],["jênênge",250],["karo",237],["nang",236],["pas",228],["misale",227],["bangêt",209],["akèh",207],["têka",207],["ae",188],["ora",184],["gawe",179],["biasane",178],["saiki",174],["sampeyan",174],["kudu",172],["pisan",167],["utawa",158],["nduwe",155],["ning",151],["lho",151],["sak",149],["kene",148],["sampèk",142],["sik",141],["ènèk",141],["luwih",140],["wong-wong",133],["kêrja",121],["pênting",117],["sênêng",112],["omah",109],["de'e",105],["piye",101],["kabèh",100],["mbêk",96],["ngêrti",95],["em",94],["dadine",93]]},"common_voice":{"cv_vocab_size":13977,"data_dir":"/kaggle/input/datasets/thoriqfarras/common-voice-corpus/id","demographics":{"accents":{"<NA>":29347,"Betawi":509,"Jakartan Standard":67,"Javanese":154,"Jawa Tengah|medhok|surakarta|tionghoa|bindeng":232,"jawa":53},"age":{"<NA>":6947,"fifties":72,"fourties":679,"teens":7502,"thirties":2743,"twenties":12522},"gender":{"<NA>":8788,"female_feminine":7647,"male_masculine":14030},"variant":{"<NA>":30465}},"distinct_sentences":12170,"n_speakers_ge50_clips":80,"sentence_repeat_factor":2.5,"speaker_overlap":{"dev":{"dev":43.0,"invalidated":35.0,"other":29.0,"test":0.0,"train":0.0},"invalidated":{"dev":35.0,"invalidated":190.0,"other":116.0,"test":120.0,"train":4.0},"other":{"dev":29.0,"invalidated":116.0,"other":483.0,"test":257.0,"train":4.0},"test":{"dev":0.0,"invalidated":120.0,"other":257.0,"test":418.0,"train":0.0},"train":{"dev":0.0,"invalidated":4.0,"other":4.0,"test":0.0,"train":4.0}},"splits":[{"clips":30465,"clips_per_spk":65.1,"hours":35.94,"sentences":12170,"speakers":468,"split":"validated"},{"clips":4981,"clips_per_spk":1245.2,"hours":7.7,"sentences":4981,"speakers":4,"split":"train"},{"clips":3489,"clips_per_spk":81.1,"hours":4.02,"sentences":3489,"speakers":43,"split":"dev"},{"clips":3700,"clips_per_spk":8.9,"hours":4.25,"sentences":3700,"speakers":418,"split":"test"},{"clips":27531,"clips_per_spk":57.0,"hours":28.72,"sentences":7140,"speakers":483,"split":"other"},{"clips":2808,"clips_per_spk":14.8,"hours":2.73,"sentences":2556,"speakers":190,"split":"invalidated"}],"top10_speaker_share_pct":59.1,"validated_clip_duration":{"max_s":10.84,"mean_s":4.25,"median":3.96,"min_s":1.12,"n":30465,"n_nonpositive":0,"n_over_30s":0,"n_under_1s":0,"p01":2.02,"p25":3.22,"p75":4.99,"p95":7.03,"p99":8.57,"total_h":35.944}},"cross_dataset":{"jember_annotated_h":9.97,"jember_mass_covered_by_cv_pct":41.5,"jember_mass_covered_by_cv_plus_tts_pct":69.5,"jember_mass_covered_by_tts_pct":56.2,"jember_n_sessions":208,"length_comparison":[{"corpus":"Jember (spontaneous)","median_s":5.0,"median_tok":9.0,"p95_s":12.0},{"corpus":"CommonVoice id (read)","median_s":3.96,"median_tok":6.0,"p95_s":7.03}],"session_minutes_median":1.6},"env":{"cv_dir":"/kaggle/input/datasets/thoriqfarras/common-voice-corpus/id","cv_root":"/kaggle/input/datasets/thoriqfarras/common-voice-corpus","jember_root":"/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus","kaggle_layout":["datasets","datasets/thoriqfarras","datasets/thoriqfarras/common-voice-corpus","datasets/thoriqfarras/common-voice-corpus/id","datasets/thoriqfarras/jember-javanese-corpus","datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus","datasets/thoriqfarras/central-javanese-corpus","datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS"],"pandas":"2.3.3","python":"3.12.13","tts_root":"/kaggle/input/datasets/thoriqfarras/central-javanese-corpus","unresolved":[]},"jember":{"bad_timestamp_parse":0,"columns":["Audio file name","start","end","text"],"duration":{"max_s":29.0,"mean_s":5.38,"median":5.0,"min_s":-30.0,"n":6679,"n_nonpositive":41,"n_over_30s":0,"n_under_1s":41,"p01":1.0,"p25":3.0,"p75":7.0,"p95":12.0,"p99":16.0,"total_h":9.974},"extra_files":[],"gap_median_s":0.0,"gap_p95_s":0.0,"n_audio_files":208,"n_files_with_overlap":1,"n_mp3_on_disk":208,"n_nonpositive_dur":41,"n_segments":6679,"seg_per_file_median":18.0},"jember_audio":{"channels":{"1":208},"coverage_pct":99.6,"file_duration":{"max_s":1202.64,"mean_s":173.34,"median":100.06,"min_s":6.1,"n":208,"n_nonpositive":0,"n_over_30s":186,"n_under_1s":0,"p01":7.21,"p25":57.25,"p75":212.36,"p95":548.17,"p99":826.67,"total_h":10.015},"n_audio_without_tsv":0,"n_probed":208,"n_tsv_without_audio":0,"sample_rates":{"44100":89,"48000":119},"total_annotated_h":9.97,"total_audio_h":10.01,"unannotated_h":0.04},"jember_orthography":{"ambiguous_token_mass_pct":10.8,"e_family_counts":{"e":18590,"e-acute":1,"e-caron":820,"e-circumflex":5374,"e-grave":4833},"n_ambiguous_forms":210,"vocab_folded":7335,"vocab_raw":7556,"worst_examples":{"banget":{"banget":1,"bangêt":209},"ben":{"ben":77,"bèn":7,"bên":36,"běn":1},"enek":{"enèk":9,"ènèk":141},"jenenge":{"jènènge":1,"jênênge":250},"kerja":{"kerja":1,"kêrja":121},"lek":{"lek":2,"lèk":815},"mbek":{"mbek":7,"mbèk":74,"mbêk":96},"mek":{"mek":23,"mèk":55,"mêk":1},"ndek":{"ndek":2,"ndèk":783},"ndelok":{"ndelok":1,"ndêlok":65},"nek":{"nek":1,"nèk":484,"nêk":2},"neng":{"neng":3,"nèng":452,"nêng":6},"penting":{"penting":11,"pênting":117},"sampek":{"sampek":1,"sampèk":142},"sekolah":{"sekolah":1,"sêkolah":75},"seneng":{"sênèng":1,"sênêng":112},"sering":{"sering":5,"sêring":78},"teka":{"teka":2,"têka":207},"terus":{"têrus":4,"těrus":759},"wektu":{"wektu":2,"wêktu":67}}},"jember_text":{"chars_per_sec_median":11.5,"fillers":{"ah":8,"anu":47,"apa":1201,"e":1262,"ee":1,"eh":37,"em":94,"gitu":10,"hmm":4,"iku":2685,"ini":11,"itu":34,"kan":949,"lah":421,"nah":269,"ngono":1454,"oh":28,"opo":5,"ya":2745},"hapax_pct":51.3,"n_distinct_chars":81,"n_empty_text":0,"non_ascii_chars":[["è",4833,"LATIN SMALL LETTER E WITH GRAVE"],["é",1,"LATIN SMALL LETTER E WITH ACUTE"],["ê",5374,"LATIN SMALL LETTER E WITH CIRCUMFLEX"],["ě",820,"LATIN SMALL LETTER E WITH CARON"],["ḍ",17,"LATIN SMALL LETTER D WITH DOT BELOW"],["’",19,"RIGHT SINGLE QUOTATION MARK"],["“",29,"LEFT DOUBLE QUOTATION MARK"],["”",28,"RIGHT DOUBLE QUOTATION MARK"],["…",4,"HORIZONTAL ELLIPSIS"]],"special_chars":{"\"'\"":261,"'!'":29,"'\"'":206,"'%'":2,"'+'":1,"','":10941,"'-'":1966,"'.'":8562,"'0'":18,"'1'":26,"'2'":28,"'3'":6,"'4'":4,"'5'":6,"'6'":2,"'7'":3,"'8'":2,"'9'":1,"':'":1,"';'":1,"'?'":651,"'è'":4833,"'é'":1,"'ê'":5374,"'ě'":820,"'ḍ'":17,"'’'":19,"'“'":29,"'”'":28,"'…'":4},"tokens_per_seg_median":9.0,"top40":[["ya",2745],["iku",2685],["ngono",1454],["aku",1417],["sing",1350],["e",1262],["apa",1201],["kan",949],["gak",911],["lèk",815],["ndèk",783],["těrus",759],["kaya",740],["dadi",708],["iki",707],["wis",665],["ana",579],["nèk",484],["isa",454],["nèng",452],["sih",437],["lah",421],["tapi",407],["wong",400],["dhewe",354],["nggak",322],["mbak",320],["kuwi",311],["ki",303],["soale",300],["nah",269],["jênênge",250],["dan",248],["karo",237],["nang",236],["pas",228],["misale",227],["kadang",220],["bangêt",209],["akèh",207]],"total_tokens":65720,"vocab_size":7556},"tokenizer":{"whisper_fertility_cv_id":2.47,"whisper_fertility_jember":2.72,"whisper_fertility_jember_oov":2.87,"worst_shredded":[["cêdhêk-cêdhêk",13],["tuwêk-tuwêk",9],["sênêng-sênêng",9],["pênting-pênting",9],["pintêr-pintêr",8],["bênêr-bênêr",8],["sithik-sithik",7],["rêsik-rêsik",7],["olèh-olèh",7],["ngombe-ngombe",7],["nangdi-nangdi",7],["kutha-kutha",7],["kumpul-kumpul",7],["klambi-klambi",7],["dhewe-dhewe",7],["daerah-daerah",7],["barêng-barêng",7],["bapak-bapak",7],["arèk-arèk",7],["anèh-anèh",7]]},"tts_central":{"by_ext":{".tsv":93,".webm":4599},"clip_duration":{"estimated_total_h":7.89,"max_s":13.2,"mean_s":6.18,"median":6.03,"min_s":1.74,"n":200,"n_nonpositive":0,"n_over_30s":0,"n_under_1s":0,"p01":1.92,"p25":4.79,"p75":7.34,"p95":10.04,"p99":11.95,"total_h":0.343},"dir_examples":["RECORDING TTS/recordings (86)","RECORDING TTS/recordings (46)","RECORDING TTS/recordings (32)","RECORDING TTS/recordings (17)","RECORDING TTS/recordings (87)","RECORDING TTS/recordings (64)","RECORDING TTS/recordings (68)","RECORDING TTS/recordings (28)","RECORDING TTS/recordings (15)","RECORDING TTS/recordings (21)"],"metadata_files":["RECORDING TTS/recordings (68)/mapping.tsv","RECORDING TTS/recordings (28)/mapping.tsv","RECORDING TTS/recordings (15)/mapping.tsv","RECORDING TTS/recordings (21)/mapping.tsv","RECORDING TTS/recordings (7)/mapping.tsv","RECORDING TTS/recordings (9)/mapping.tsv","RECORDING TTS/recordings (85)/mapping.tsv","RECORDING TTS/recordings (22)/mapping.tsv","RECORDING TTS/recordings (5)/mapping.tsv","RECORDING TTS/recordings (70)/mapping.tsv","RECORDING TTS/recordings (79)/mapping.tsv","RECORDING TTS/recordings (88)/mapping.tsv","RECORDING TTS/recordings (20)/mapping.tsv","RECORDING TTS/recordings (45)/mapping.tsv","RECORDING TTS/recordings (86)/mapping.tsv","RECORDING TTS/recordings (59)/mapping.tsv","RECORDING TTS/recordings (44)/mapping.tsv","RECORDING TTS/recordings (51)/mapping.tsv","RECORDING TTS/recordings (29)/mapping.tsv","RECORDING TTS/recordings (62)/mapping.tsv"],"n_audio":4599,"n_audio_dirs":93,"n_files":4692,"n_paired":4630,"n_transcript_rows":4630,"top_tts_tokens":[["sing",2710],["iku",1941],["ning",1734],["iso",1084],["lan",1010],["ora",972],["nggo",831],["dadi",793],["kuwi",783],["karo",767],["ono",653],["wong",649],["okeh",614],["yen",606],["banget",593],["seko",551],["yo",534],["wes",529],["dewe",514],["luwih",446],["wong-wong",432],["awake",391],["mergo",356],["uwong",330],["utowo",326],["nek",326],["tapi",317],["koyo",310],["ndue",299],["terus",296]],"tts_vocab_size":6168,"unextracted_archives":[]}}
+===== END CLAUDE-HANDOFF-JSON =====
+
+size: 10.1 KB - select the whole block above and paste it into the chat
+saved -> /kaggle/working/findings/01-dataset-eda/dataset_findings.json
+saved -> /kaggle/working/findings/01-dataset-eda/run-log.txt
+swept into _kaggle-artifacts: ['__notebook__.ipynb']
+
+DOWNLOAD: Output tab -> download all. The archive already contains
+  findings/01-dataset-eda/ ... so unzip it onto the repo root and it merges.
+
+======================================================================
+OPEN QUESTIONS THIS NOTEBOOK COULD NOT ANSWER
+======================================================================
+ - Speaker identity in Jember: is one mp3 = one speaker, one dialogue, or one session?
+ -   -> without this, a speaker-disjoint validation split cannot be guaranteed.
+ - Dialect label per Jember file: Jember vs Pandhalungan - is it recorded anywhere?
+ - Madurese content: the corpus description lists it, but no marker column exists.
+ - Audio quality: SNR, clipping, overlapped speech. Needs signal analysis, not metadata.
+ - Competition test-set format: segmented utterances or full recordings to be segmented?

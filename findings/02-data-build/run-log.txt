@@ -1,0 +1,583 @@
+==========================================================================
+RUN PHASE  : 1 REVIEW      DEBUG_N_RECORDINGS = None   WRITE_AUDIO = False
+==========================================================================
+output dir : /kaggle/working/findings/02-data-build
+console log: /kaggle/working/findings/02-data-build/run-log.txt  (restarts every time this cell runs)
+seed       : 20260825
+
+==========================================================================
+DISCOVERY
+==========================================================================
+  datasets/
+      thoriqfarras/
+          central-javanese-corpus/
+              RECORDING TTS/
+          common-voice-corpus/
+              id  [11 files]
+          jember-javanese-corpus/
+              Jember Javanese Spontaneous Speech Corpus  [1 files]
+
+RESOLVED:
+  JEMBER_TSV   = /kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/Jember Javanese Spontaneous Speech Corpus - 1-200.tsv
+  JEMBER_AUDIO = /kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/mp3 audio (208 mp3)
+  CV_SENT      = /kaggle/input/datasets/thoriqfarras/common-voice-corpus/id/validated_sentences.tsv
+  TTS mappings = 93 files under /kaggle/input/datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS
+
+Jember resolved - safe to run the rest. CV/TTS only feed the lexicon;
+without them every word falls back to origin 'unk'.
+wrote /kaggle/working/findings/02-data-build/scorer.py  (22.4 KB)
+
+==========================================================================
+SCORER SELF-TEST (unit level - the corpus-level checks run in cell 9)
+==========================================================================
+  [ok] lowercases sentence-initial letter
+  [ok] keeps mid-sentence case
+  [ok] leaves acronym alone
+  [ok] strips sentence-final period
+  [ok] keeps hyphen
+  [ok] drops comma
+  [ok] drops question mark
+  [ok] drops bracket tag
+  [ok] drops inaudible
+  [ok] drops free ellipsis
+  [ok] keeps attached ellipsis
+  [ok] lowercases after sentence boundary
+  [ok] sees past a comma to the next letter
+  [ok] sees past a quote to the next letter
+  [ok] collapses whitespace
+  [ok] idempotent on samples
+  [ok] folds diacritics
+  [ok] lex key
+  [ok] wer(refs, refs) == 0
+  [ok] wer(refs, empty) == 1
+  [ok] counts one sub
+  [ok] counts one ins
+  [ok] counts one del
+  [ok] origin attribution
+  [ok] insertions unattributed
+  [ok] case-only substitution flagged
+  [ok] diacritic-only substitution flagged
+  [ok] wer_ci on a perfect system is 0 with no spread
+  [ok] wer_ci brackets the point estimate
+  [ok] compare_systems sees a strictly worse B
+  scorer self-test: 30/30 passed
+
+==========================================================================
+WHAT THE NORMALIZER DOES TO REAL LINES
+==========================================================================
+raw      : Langsung ae ya, aja suwi-suwi.
+official : langsung ae ya aja suwi-suwi
+folded   : langsung ae ya aja suwi-suwi
+
+raw      : Tapi, keba, e..., keseringan lèk ndèk kono?
+official : tapi keba e... keseringan lèk ndèk kono
+folded   : tapi keba e... keseringan lek ndek kono
+
+raw      : Asline wong ngêndi ?
+official : asline wong ngêndi
+folded   : asline wong ngendi
+
+raw      : iya [laugh] ngono (???) mba...
+official : iya ngono mba...
+folded   : iya ngono mba...
+
+raw      : Dadi têka kakèk'e ki jalur ya asli Jêmbêr.
+official : dadi têka kakèk'e ki jalur ya asli Jêmbêr
+folded   : dadi teka kakek'e ki jalur ya asli Jember
+
+
+==========================================================================
+LOAD JEMBER SEGMENT TABLE
+==========================================================================
+rows: 6679   columns: ['audio_filename', 'start', 'end', 'text']
+recordings: 208
+unparseable timestamps: 0
+
+==========================================================================
+TIMESTAMP PRECISION AND GAP STRUCTURE
+==========================================================================
+timestamps that are whole seconds: 100.0 %
+consecutive pairs: 6471   gap == 0: 6471 (100.0 %)   gap > 0: 0   gap < 0: 0
+
+>>> If every gap is 0 the annotation is a CONTIGUOUS partition: segment n
+>>> ends exactly where segment n+1 starts. Consequence for padding: under
+>>> PAD_MODE='clip_to_neighbour' there is nowhere to pad except at the
+>>> first and last segment of each recording. Cell 7 quantifies the cost
+>>> by measuring how much speech energy sits across those boundaries.
+
+==========================================================================
+REPAIR PASS (end <= start)
+==========================================================================
+seg_id    raw fixed      how                                                         text
+63_002 40->10 0->10 start<-0 Jênêngku Rilo nama panggilane, nèk nama lengkape Muhammad Ri
+repaired: 1
+
+==========================================================================
+DROP PASS
+==========================================================================
+nonpositive / unparseable duration : 40
+dropped for overlap                : 1
+segments touched by an overlap     : 3
+longer than 30 s (kept, flagged)  : 0
+
+kept 6638 of 6679 segments  (9.99 h of 9.98 h annotated)
+
+drop_reason
+nonpositive_duration    40
+overlap                  1
+
+dropped segment ids by recording:
+  1     1_090, 1_191
+  105   105_002, 105_014
+  114   114_030
+  128   128_011
+  139   139_018
+  174   174_020
+  187   187_021
+  197   197_041
+  198   198_006
+  2     2_023, 2_079, 2_083, 2_168, 2_188, 2_199, 2_213, 2_228, 2_235, 2_258, 2_284, 2_294
+  204   204_027, 204_059
+  24    24_005, 24_052, 24_134
+  30    30_003, 30_012, 30_033
+  42    42_051, 42_092
+  43    43_012
+  44    44_077
+  45    45_011
+  47    47_029
+  58    58_002
+  63    63_001
+  65    65_152
+  91    91_011
+
+saved -> /kaggle/working/findings/02-data-build/dropped_segments.csv
+
+kept segment dur       n=6638   min=1.00 p25=3.00 med=5.00 p75=7.00 p95=12.00 max=29.00  sum=9.99 h
+
+==========================================================================
+NORMALIZE
+==========================================================================
+segments whose text is empty after normalization: 0
+scoring tokens: 65612   word types (letters only, lowercased): 7555
+
+==========================================================================
+AUDIT 1 - THE PERIOD DECISION
+==========================================================================
+  tokens_total                                   65612
+  tokens_ending_period                           758  (1.2 % of 65612 tokens)
+  tokens_containing_period                       765  (1.2 % of 65612 tokens)
+  period_inside_forms                            [('e...m', 7)]
+  most common sentence-final tokens: [('ngono', 502), ('ya', 344), ('iku', 241), ('Mbak', 185), ('lah', 169), ('sih', 148), ('kan', 130), ('apa', 99), ('lho', 75), ('kuwi', 73), ('bangêt', 63), ('pisan', 56)]
+
+==========================================================================
+AUDIT 2 - THE CASE DECISION
+==========================================================================
+  tokens_capitalised                             2187  (3.3 % of 65612 tokens)
+  tokens_capitalised_non_initial                 2182  (3.3 % of 65612 tokens)
+  top_non_initial_capitals                       [('Mbak', 317), ('Jember', 76), ('SMA', 38), ('Jawa', 36), ('Indonesia', 31), ('Anda', 29), ('Jepang', 27), ('Inggris', 26), ('HP', 24), ('SD', 22), ('S2', 21), ...
+  tokens_all_caps                                309  (0.5 % of 65612 tokens)
+
+==========================================================================
+AUDIT 3 - ELLIPSIS THAT SURVIVED
+==========================================================================
+  tokens_with_attached_ellipsis                  769  (1.2 % of 65612 tokens)
+  attached_ellipsis_forms                        [('e...', 624), ('em...', 32), ('a...', 24), ('o...', 10), ('e...m', 7), ('s...', 7), ('ya...', 6), ('iku...', 3), ('ke...', 3), ('eh...', 3), ('e…', 2), ('di.. ...
+  segments_with_attached_ellipsis                710
+  tokens_with_two_dots                           0
+  unicode_ellipsis_u2026                         4
+  NOTE: the normalizer only removes '...' with whitespace on both sides.
+  U+2026 is left alone on purpose - the published rule names three dots.
+
+==========================================================================
+AUDIT 4 - CHARACTER INVENTORY AFTER NORMALIZATION (the CTC charset)
+==========================================================================
+  n_distinct_chars                               75
+  non_alphanumeric_survivors                     {'.': 2296, '-': 1965, "'": 250, '“': 29, '”': 28, '’': 19, '…': 4, '%': 2, '+': 1}
+  survivors: {'U+002E .': 2296, 'U+002D -': 1965, "U+0027 '": 250, 'U+201C “': 29, 'U+201D ”': 28, 'U+2019 ’': 19, 'U+2026 …': 4, 'U+0025 %': 2, 'U+002B +': 1}
+
+  >>> Curly quotes and U+2026 are NOT in the organiser's removal list, so
+  >>> they survive into the reference. Either the model learns to emit
+  >>> them, or they are permanent WER. Flag for the organiser question.
+
+==========================================================================
+AUDIT 5 - DIGITS
+==========================================================================
+  tokens_with_digit                              63  (0.1 % of 65612 tokens)
+  digit_forms                                    [('S2', 21), ('S1', 10), ('S-1', 5), ('5', 3), ('17', 2), ('G30S', 2), ('M2', 1), ('S1-ne', 1), ('2026', 1), ('70%', 1), ('s2', 1), ('1010', 1), ('1088', 1), (' ...
+  Digits are usually free WER: the model writes '5', the reference says
+  'lima', or the other way round. 63 tokens is small enough to ignore -
+  check the count before deciding to spend anything on it.
+
+==========================================================================
+AUDIT 6 - HYPHENS AND REDUPLICATION
+==========================================================================
+  tokens_with_hyphen                             1961  (3.0 % of 65612 tokens)
+  tokens_reduplication                           1446  (2.2 % of 65612 tokens)
+  segments_with_hyphen                           1564
+  top_reduplications                             [('wong-wong', 133), ('arèk-arèk', 47), ('rata-rata', 34), ('ngono-ngono', 34), ('apa-apa', 26), ('beda-beda', 25), ('bênêr-bênêr', 20), ('padha-padha', 19), (' ...
+  hyphen_not_reduplication                       [('sehari-hari', 34), ('nge-gym', 20), ('nge-game', 19), ('kanca-kancaku', 15), ('wong-wonge', 12), ('woh-wohan', 11), ('akèh-akèhe', 10), ('gotong-royong', 7), ...
+
+==========================================================================
+AUDIT 7 - DOUBLE SPELLINGS (the diacritic question, in full)
+==========================================================================
+  vocab_types_official                           7555
+  vocab_types_folded                             7335
+  types_recovered_by_folding                     220
+  n_ambiguous_forms                              209
+  ambiguous_token_mass                           7087
+  ambiguous_token_mass_pct                       10.8
+ folded  total                        variants
+    lek    815                 lèk=813 | lek=2
+   ndek    783               ndèk=781 | ndek=2
+  terus    762             těrus=758 | têrus=4
+    nek    487         nèk=484 | nêk=2 | nek=1
+   neng    461      nèng=452 | nêng=6 | neng=3
+jenenge    251         jênênge=250 | jènènge=1
+ banget    209           bangêt=208 | banget=1
+   teka    209               têka=207 | teka=2
+   mbek    177      mbêk=96 | mbèk=74 | mbek=7
+   enek    149               ènèk=140 | enèk=9
+ sampek    143           sampèk=142 | sampek=1
+penting    128        pênting=117 | penting=11
+  kerja    122             kêrja=121 | kerja=1
+    ben    121 ben=77 | bên=36 | bèn=7 | běn=1
+ seneng    113           sênêng=112 | sênèng=1
+ sering     83            sêring=78 | sering=5
+    mek     79         mèk=55 | mek=23 | mêk=1
+sekolah     76          sêkolah=75 | sekolah=1
+  wektu     69              wêktu=67 | wektu=2
+ ndelok     66            ndêlok=65 | ndelok=1
+     ke     60                    ke=58 | kê=2
+  engko     50    êngko=40 | engko=8 | èngko=2
+ enggak     50 ênggak=40 | ènggak=9 | enggak=1
+sekitar     48          sekitar=47 | sêkitar=1
+  tetep     47              têtêp=45 | tetep=2
+
+  >>> Folding recovers 220 types and would make 10.8 % of the token mass
+  >>> spell consistently. That is the size of the prize - and the size of
+  >>> the loss if the organiser does NOT fold before scoring.
+
+==========================================================================
+AUDIT 8 - IDEMPOTENCY OF official_normalize
+==========================================================================
+  non_idempotent_rows                            0
+  non_idempotent_examples                        []
+  clean: applying the normalizer twice equals applying it once
+
+saved -> /kaggle/working/findings/02-data-build/text_audit.json
+
+==========================================================================
+SOURCE VOCABULARIES
+==========================================================================
+Common Voice id : 15498    types   from validated_sentences.tsv (13335 rows, column 'sentence')
+Central JV TTS  : 6385     types   from 93 mapping.tsv (4630 rows)
+Jember          : 7649     types   from 6638 segments
+
+==========================================================================
+CLASSIFY
+==========================================================================
+lexicon_v1.csv : 23805 entries
+origin  source     
+both    cv+tts          2117
+id      cv             13375
+jv      marker            51
+        tts             4221
+unk     jember-only     4041
+
+saved -> /kaggle/working/findings/02-data-build/lexicon_v1.csv
+
+>>> FROZEN. If a later notebook wants a better lexicon it writes
+>>> lexicon_v2.csv, so every number produced against v1 stays comparable.
+
+==========================================================================
+WHAT THE LEXICON SAYS ABOUT JEMBER TOKEN MASS
+==========================================================================
+  jv       27255 tokens   39.2 %     1299 types
+  id        9877 tokens   14.2 %     1075 types
+  both     19420 tokens   27.9 %     1234 types
+  unk      12965 tokens   18.7 %     4041 types
+
+  most frequent unk (Javanese vocabulary neither corpus attests):
+    ['isa', 'neng', 'teka', 'ae', 'sampeyan', 'utawa', 'enek', 'sampek', "de'e", 'padha', 'em', 'mbiyen', 'ndak', 'thok', 'maneh', 'kae', 'biasae', 'jember', 'mek', 'mesthi', 'rada', 'pengin', 'dudu', 'nggawa', 'gae', 'nge', 'kancaku', 'cuman', 'engko', 'sakwise']
+
+==========================================================================
+PER-SEGMENT jv_ratio
+==========================================================================
+segments with no jv and no id token (jv_ratio = NaN): 213
+jv_ratio
+0 pure-id     323
+0-20%          46
+20-40%        394
+40-60%       1111
+60-80%       2000
+80-100%      2551
+
+median jv_ratio: 0.750
+
+==========================================================================
+SEGMENT FLAGS
+==========================================================================
+[('has_redup', 1212), ('has_ellipsis', 714), ('has_digit', 49), ('overlap', 2), ('zero_dur', 1), ('repaired', 1)]
+
+==========================================================================
+PER-RECORDING PROFILE
+==========================================================================
+recordings: 208   total 9.99 h   median 1.6 min
+recording minutes      n=208    min=0.10 p25=0.95 med=1.64 p75=3.53 p95=9.12 max=20.03  sum=0.17 h
+
+                 n     hours
+stratum                     
+jv_hi/d_long    15  1.308333
+jv_hi/d_mid     23  0.664722
+jv_hi/d_short   32  0.324722
+jv_lo/d_long    22  2.744444
+jv_lo/d_mid     22  0.609444
+jv_lo/d_short   25  0.310000
+jv_mid/d_long   33  3.164444
+jv_mid/d_mid    24  0.710000
+jv_mid/d_short  12  0.150000
+
+==========================================================================
+DEV SELECTION - greedy bin-packing inside each stratum
+==========================================================================
+  jv_hi/d_long      1/15 recordings    12.7 min of   78.5 min  (target  11.8)
+  jv_hi/d_mid       3/23 recordings     7.0 min of   39.9 min  (target   6.0)
+  jv_hi/d_short     3/32 recordings     3.3 min of   19.5 min  (target   2.9)
+  jv_lo/d_long      2/22 recordings    29.3 min of  164.7 min  (target  24.7)
+  jv_lo/d_mid       2/22 recordings     4.8 min of   36.6 min  (target   5.5)
+  jv_lo/d_short     3/25 recordings     3.0 min of   18.6 min  (target   2.8)
+  jv_mid/d_long     2/33 recordings    29.3 min of  189.9 min  (target  28.5)
+  jv_mid/d_mid      3/24 recordings     7.2 min of   42.6 min  (target   6.4)
+  jv_mid/d_short    1/12 recordings     1.2 min of    9.0 min  (target   1.4)
+
+dev = 16.33 % of duration (target 15 %)
+
+==========================================================================
+FOLDS - a grouped 5-fold over ALL recordings, for later
+==========================================================================
+fold hours: f0=2.00  f1=2.00  f2=2.00  f3=2.00  f4=2.00
+fold sizes: f0=41  f1=40  f2=42  f3=43  f4=42
+
+saved -> /kaggle/working/findings/02-data-build/split.csv
+>>> FROZEN. split.csv goes into the repo and is never regenerated. Every
+>>> WER in notebooks 03-07 is measured against exactly these recordings.
+
+==========================================================================
+SPLIT REPORT
+==========================================================================
+split  recordings  segments  hours  median_seg_s  p95_seg_s  words  jv_ratio_median  jv_ratio_p25  jv_ratio_p75
+train         188      5541  8.355           5.0       12.0  55221             0.75         0.587           1.0
+  dev          20      1097  1.631           5.0       12.0  10391             0.75         0.545           1.0
+
+dev-only word types : 808 of 2214 dev types (36.5 %)
+dev-only token mass : 1228 of 10391 dev tokens (11.82 %)  <- unavoidable dev WER floor
+examples: ['majalah', 'asrama', 'blok', 'betor', 'divisi', 'santri', 'koran', 'hadiah', 'pesantren', 'chat', 'belanja', 'mading', 'skillmu', 'mandor', 'transportasi', 'situbondo', 'cabang', 'tulalit', "ma'had", 'ali', 'tanwirul', 'afkar', 'suwun', 'narkoba', 'pengawas']
+
+recordings on both sides: 0  (must be 0)
+
+>>> 20 recordings and 1.63 h of dev means a WER difference under roughly
+>>> one point is noise. When a decision turns on less than that, re-run it
+>>> over the 5 folds instead of arguing about the dev number.
+
+==========================================================================
+AUDIO PASS  (WRITE_AUDIO = False)
+==========================================================================
+Analysis pass: every mp3 is still decoded, every bound and every
+measurement is computed, but no FLAC is written. Output stays a few MB.
+Re-run with WRITE_AUDIO = True to produce the audio for notebook 03.
+
+recordings needed: 208   mp3 present: 208   missing: []
+   25/208 recordings   1045 segments    25.0 s elapsed  eta 183.0 s
+   50/208 recordings   1476 segments    28.0 s elapsed  eta  88.6 s
+   75/208 recordings   1861 segments    30.7 s elapsed  eta  54.5 s
+  100/208 recordings   2641 segments    35.9 s elapsed  eta  38.8 s
+  125/208 recordings   3915 segments    44.2 s elapsed  eta  29.3 s
+  150/208 recordings   5329 segments    54.5 s elapsed  eta  21.1 s
+  175/208 recordings   6135 segments    61.3 s elapsed  eta  11.6 s
+  200/208 recordings   6373 segments    62.7 s elapsed  eta   2.5 s
+  208/208 recordings   6638 segments    64.9 s elapsed  eta   0.0 s
+
+measured 208 recordings, 6638 segments indexed, in 64.9 s
+
+==========================================================================
+PADDING - WHAT IT ACTUALLY BOUGHT
+==========================================================================
+segments whose padding was clipped by a neighbour or the file edge: 6638 of 6638 (100.0 %)
+mean context actually gained: 0.005 s of the 0.40 s requested (1 % of the ask)
+segments whose annotated end runs past the end of the mp3: 4
+
+>>> Because the audio is stored per recording, these bounds are just two
+>>> numbers in the manifest. Changing PAD_MODE later costs a recompute of
+>>> start_sample/end_sample - not a rebuild of the dataset.
+
+==========================================================================
+BOUNDARY PROBE - IS THE 1-SECOND TIMESTAMP CUTTING WORDS IN HALF?
+==========================================================================
+boundaries probed         : 13267
+onset windows with speech : 3256
+offset windows with speech: 3028
+
+  just outside a boundary : 47.4 % of windows are above the speech threshold
+  anywhere in the audio   : 59.8 % (base rate, same statistic, 1800730 windows)
+  ratio                   : 0.79 x base
+
+>>> Boundaries are indistinguishable from random moments: the annotation
+>>> grid ignores where the speech actually is. Roughly that share of clips
+>>> starts or ends mid-word, and clip_to_neighbour repairs none of them.
+
+segment duration       n=6638   min=1.00 p25=3.00 med=5.00 p75=7.00 p95=12.00 max=29.00  sum=9.99 h
+
+==========================================================================
+MANIFEST
+==========================================================================
+manifest.csv : 6638 rows x 23 columns
+saved -> /kaggle/working/findings/02-data-build/manifest.csv
+
+seg_id audio_filename              path  start_sample  end_sample  start_s  end_s  dur_s  ann_start_s  ann_end_s                           text_raw                      text_official                        text_folded  n_words  n_chars  jv_ratio  n_jv  n_id  n_both  n_unk split  fold                 flags
+ 1_001              1 recordings/1.flac             0       48000      0.0    3.0    3.0          0.0        3.0     Oke. Bismillahirrahmanirrahim.       oke bismillahirrahmanirrahim       oke bismillahirrahmanirrahim        2       28       NaN     0     0       1      1 train     3           pad_clipped
+ 1_002              1 recordings/1.flac         48000       80000      3.0    5.0    2.0          3.0        5.0     Langsung ae ya, aja suwi-suwi.       langsung ae ya aja suwi-suwi       langsung ae ya aja suwi-suwi        5       28    0.3333     1     2       1      1 train     3 has_redup,pad_clipped
+ 1_003              1 recordings/1.flac         80000      112000      5.0    7.0    2.0          5.0        7.0                   Soale aku sibuk.                    soale aku sibuk                    soale aku sibuk        3       15    1.0000     2     0       1      0 train     3           pad_clipped
+ 1_004              1 recordings/1.flac        112000      160000      7.0   10.0    3.0          7.0       10.0 Nèngdi tempat wisata alam popul... nèngdi tempat wisata alam popul... nengdi tempat wisata alam popul...        7       48       NaN     0     0       5      2 train     3           pad_clipped
+ 1_005              1 recordings/1.flac        160000      176000     10.0   11.0    1.0         10.0       11.0                          Akèh sih.                           akèh sih                           akeh sih        2        8    0.5000     1     1       0      0 train     3           pad_clipped
+ 1_006              1 recordings/1.flac        176000      208000     11.0   13.0    2.0         11.0       13.0                   Indonesia wakèh.                    indonesia wakèh                    indonesia wakeh        2       15       NaN     0     0       1      1 train     3           pad_clipped
+ 1_007              1 recordings/1.flac        208000      256000     13.0   16.0    3.0         13.0       16.0                         Cek akène.                          cek akène                          cek akene        2        9       NaN     0     0       1      1 train     3           pad_clipped
+ 1_008              1 recordings/1.flac        256000      288000     16.0   18.0    2.0         16.0       18.0 Salah sijine iki, nèng Jember a...  salah sijine iki nèng Jember akèh  salah sijine iki neng Jember akeh        6       33    1.0000     3     0       1      2 train     3           pad_clipped
+
+columns: ['seg_id', 'audio_filename', 'path', 'start_sample', 'end_sample', 'start_s', 'end_s', 'dur_s', 'ann_start_s', 'ann_end_s', 'text_raw', 'text_official', 'text_folded', 'n_words', 'n_chars', 'jv_ratio', 'n_jv', 'n_id', 'n_both', 'n_unk', 'split', 'fold', 'flags']
+
+HOW NOTEBOOK 03+ READS ONE SEGMENT:
+    import soundfile as sf
+    r = manifest.iloc[i]
+    y, sr = sf.read(ROOT / r.path, start=r.start_sample, stop=r.end_sample,
+                    dtype='float32')      # 16 kHz mono, seek not decode
+
+==========================================================================
+SELF-VALIDATION
+==========================================================================
+  [skip] the four on-disk audio checks - WRITE_AUDIO is False.
+         Bounds, sample offsets and the boundary probe were still
+         measured from the decoded audio; only the files were not written.
+  [PASS] manifest duration matches TSV after drops (<1 %)     9.9861 h vs 9.9861 h
+  [PASS] no recording in both train and dev                   []
+  [PASS] official_normalize is idempotent on the corpus       6638 rows
+  [PASS] scorer.wer(refs, refs) == 0.0                        0.000000
+  [PASS] scorer.wer(refs, empty) == 1.0                       1.000000
+  [PASS] scorer.self_test on the real references              34/34
+  [skip] the four round-trip checks - no audio on disk in this pass
+  [PASS] every clip is shorter than 30 s                      longest 29.00 s
+  [PASS] no empty transcript                                  min 1 words
+  [PASS] seg_id unique                                        6638 ids
+  [PASS] split.csv covers every manifest recording            208 vs 208
+  [PASS] not a smoke run                                      DEBUG_N_RECORDINGS = None
+
+11/11 checks passed
+>>> ANALYSIS PASS OK. Every number here is final and can be reviewed,
+>>> but Gate 1 is not passed until the clips exist: re-run with
+>>> WRITE_AUDIO = True once the numbers have been agreed.
+
+==========================================================================
+SCORER DEMO - what notebooks 03-07 will call
+==========================================================================
+A hypothesis that only lowercases, strips periods and folds diacritics:
+  wer_total 0.1915   jv 0.2527 (748 ref tok)   id 0.0782 (422)   both 0.0942 (775)   unk 0.3467 (499)
+  sub 0.1915  del 0.0000  ins 0.0000   cosmetic substitutions: 100.0 %
+
+>>> That WER is entirely self-inflicted: no acoustic model was involved.
+>>> It is the cost of training on 'cleaned' text instead of the
+>>> normalizer's own output.
+
+ op     ref     hyp  count ref_origin  diacritic_only  case_only  punct_only  cosmetic
+sub    ndèk    ndek     40         jv            True      False       False      True
+sub     lèk     lek     31         jv            True      False       False      True
+sub    nèng    neng     21        unk            True      False       False      True
+sub    akèh    akeh     21         jv            True      False       False      True
+sub    Anda    anda     20         id           False       True       False      True
+sub    e...       e     17       both           False      False        True      True
+sub   těrus   terus     11         jv            True      False       False      True
+sub   kabèh   kabeh     11         jv            True      False       False      True
+sub  Jember  jember     10        unk           False       True       False      True
+sub     nèk     nek     10         jv            True      False       False      True
+sub pênting penting      8       both            True      False       False      True
+sub  pêrnah  pernah      8       both            True      False       False      True
+sub   mênèh   meneh      7         jv            True      False       False      True
+sub sêkolah sekolah      7       both            True      False       False      True
+sub   manèh   maneh      6        unk            True      False       False      True
+
+==========================================================================
+ARTIFACT FINGERPRINTS
+==========================================================================
+  manifest.csv             6f2a43d335c9839a     2199.3 KB
+  split.csv                a7192227554da0ab        3.5 KB
+  lexicon_v1.csv           25dabca43dd2fcfc      533.9 KB
+  scorer.py                3260677fe544f6b0       22.4 KB
+  text_audit.json          dd6d1bd31b70b01b       18.1 KB
+  dropped_segments.csv     407c22c08f7b4ded        3.2 KB
+
+>>> Write these down. Pass 2 prints the same list, and every line must
+>>> be identical - that is what makes reviewing pass 1 meaningful.
+
+==========================================================================
+PACKAGE recordings/ AS A SELF-CONTAINED KAGGLE DATASET
+==========================================================================
+ANALYSIS PASS - no audio written, recordings/ removed from the output so
+the whole archive stays small enough to download in one piece.
+
+===== BEGIN CLAUDE-HANDOFF-JSON =====
+{"_meta":{"artifacts":["dropped_segments.csv","lexicon_v1.csv","manifest.csv","run-log.txt","scorer.py","split.csv","text_audit.json"],"complete":true,"generated_for":"handoff to Claude - do not edit by hand","missing_sections":[],"notebook":"mozilla-javanese data build + eval harness v1","notebook_id":"02-data-build"},"audio":{"boundary_in_speech_pct":47.37,"boundary_offset_in_speech_pct":45.65,"boundary_onset_in_speech_pct":49.08,"boundary_probe_n":13267,"boundary_vs_base_ratio":0.792,"bytes_total":0,"failed":[],"mb_total":0.0,"mean_context_gained_s":0.0055,"n_end_beyond_file":4,"n_failed":0,"n_pad_clipped":6638,"n_recordings":208,"n_segments":6638,"pad_clipped_pct":100.0,"pad_mode":"clip_to_neighbour","pad_s":0.2,"probe_windows":1800730,"seconds_elapsed":64.9,"segment_duration":{"max_s":29.0,"mean":5.418,"median":5.0,"min_s":1.0,"n":6638,"p05":1.0,"p25":3.0,"p75":7.0,"p95":12.0,"total_h":9.99},"speech_base_rate_pct":59.81,"storage":"one 16 kHz mono FLAC per recording; segments addressed by sample offset","target_sr":16000},"env":{"cv_sentences":"/kaggle/input/datasets/thoriqfarras/common-voice-corpus/id/validated_sentences.tsv","jember_audio":"/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/mp3 audio","jember_tsv":"/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/Jember Javanese Spontaneous Speech Corpus - 1-200.tsv","kaggle_layout":["datasets","datasets/thoriqfarras","datasets/thoriqfarras/central-javanese-corpus","datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS","datasets/thoriqfarras/common-voice-corpus","datasets/thoriqfarras/common-voice-corpus/id","datasets/thoriqfarras/jember-javanese-corpus","datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus"],"n_tts_mappings":93,"notebook":"02-data-build","numpy":"2.0.2","pandas":"2.3.3","python":"3.12.13","seed":20260825,"unresolved":[]},"fingerprints":{"dropped_segments.csv":"407c22c08f7b4ded","lexicon_v1.csv":"25dabca43dd2fcfc","manifest.csv":"6f2a43d335c9839a","scorer.py":"3260677fe544f6b0","split.csv":"a7192227554da0ab","text_audit.json":"dd6d1bd31b70b01b"},"lexicon":{"by_origin":{"both":2117,"id":13375,"jv":4272,"unk":4041},"cv_types":15498,"definition":"jv_ratio = n_jv / (n_jv + n_id); both and unk excluded from the ratio","flag_counts":{"has_digit":49,"has_ellipsis":714,"has_redup":1212,"overlap":2,"repaired":1,"zero_dur":1},"jember_token_mass":{"both":19420,"id":9877,"jv":27255,"unk":12965},"jember_token_mass_pct":{"both":27.94,"id":14.21,"jv":39.21,"unk":18.65},"jember_types":7649,"jv_ratio_median":0.75,"jv_ratio_nan_segments":213,"n_entries":23805,"n_markers":51,"top_unk":[["isa",481],["neng",461],["teka",211],["ae",188],["sampeyan",174],["utawa",158],["enek",149],["sampek",145],["de'e",105],["padha",95],["em",94],["mbiyen",91],["ndak",86],["thok",85],["maneh",83],["kae",82],["biasae",81],["jember",79],["mek",79],["mesthi",78],["rada",75],["pengin",74],["dudu",72],["nggawa",63],["gae",62],["nge",59],["kancaku",57],["cuman",53],["engko",52],["sakwise",51],["arek-arek",47],["anu",47],["merga",47],["maca",46],["ambek",46],["duwe",44],["areke",42],["pendhidhikan",38],["melok",38],["ta",38]],"tts_types":6385},"manifest":{"by_split":{"dev":1097,"train":5541},"columns":["seg_id","audio_filename","path","start_sample","end_sample","start_s","end_s","dur_s","ann_start_s","ann_end_s","text_raw","text_official","text_folded","n_words","n_chars","jv_ratio","n_jv","n_id","n_both","n_unk","split","fold","flags"],"hours":9.99,"hours_by_split":{"dev":1.627,"train":8.363},"n_rows":6638,"words":65612},"scorer":{"does_not_lowercase":true,"does_not_strip_hyphens":true,"does_not_strip_periods":true,"path":"/kaggle/working/findings/02-data-build/scorer.py","punct_removed":",?¿¡!\";:","unit_checks":30,"unit_checks_passed":30,"version":"1.0"},"segments":{"debug_n_recordings":null,"drop_reasons":{"nonpositive_duration":40,"overlap":1},"dropped_seg_ids":["1_090","1_191","2_023","2_079","2_083","2_168","2_188","2_199","2_213","2_228","2_235","2_258","2_284","2_294","24_005","24_052","24_134","30_003","30_012","30_033","42_051","42_092","43_012","44_077","45_011","47_029","58_002","63_001","65_152","91_011","105_002","105_014","114_030","128_011","139_018","174_020","187_021","197_041","198_006","204_027","204_059"],"gap_negative":0,"gap_positive":0,"gap_zero_pct":100.0,"kept_duration":{"max_s":29.0,"mean":5.416,"median":5.0,"min_s":1.0,"n":6638,"p05":1.0,"p25":3.0,"p75":7.0,"p95":12.0,"total_h":9.986},"n_dropped":41,"n_kept":6638,"n_over_30s":0,"n_overlap_touched":3,"n_recordings":208,"n_repaired":1,"n_rows_tsv":6679,"n_unparsed_timestamps":0,"pad_mode":"clip_to_neighbour","pad_s":0.2,"repairs":[{"fixed":"0->10","how":"start<-0","raw":"40->10","seg_id":"63_002","text":"Jênêngku Rilo nama panggilane, nèk nama lengkape Muhammad Ri"}],"whole_second_timestamp_pct":100.0,"write_audio":false},"split":{"dev_frac_duration":0.1633,"dev_only_token_mass":1228,"dev_only_token_pct":11.82,"dev_only_types":808,"dev_recordings":["2","4","30","31","51","52","65","96","102","105","111","119","129","136","138","148","177","191","195","200"],"dev_target_frac":0.15,"fold_hours":[2.002,1.996,1.996,1.998,1.995],"grouping":"audio_filename (recording/session) - no speaker column exists","leak_recordings":[],"n_folds":5,"per_split":[{"hours":8.355,"jv_ratio_median":0.75,"jv_ratio_p25":0.587,"jv_ratio_p75":1.0,"median_seg_s":5.0,"p95_seg_s":12.0,"recordings":188,"segments":5541,"split":"train","words":55221},{"hours":1.631,"jv_ratio_median":0.75,"jv_ratio_p25":0.545,"jv_ratio_p75":1.0,"median_seg_s":5.0,"p95_seg_s":12.0,"recordings":20,"segments":1097,"split":"dev","words":10391}],"seed":20260825,"strata":"median jv_ratio tercile x recording duration tercile"},"text_audit":{"ambiguous_forms_top40":{"ambek":{"ambèk":32,"ambêk":14},"angel":{"angel":1,"angèl":36},"banget":{"banget":1,"bangêt":208},"beda-beda":{"beda-beda":25,"bêda-bêda":1},"ben":{"ben":77,"bèn":7,"bên":36,"běn":1},"enek":{"enèk":9,"ènèk":140},"enggak":{"enggak":1,"ènggak":9,"ênggak":40},"engko":{"engko":8,"èngko":2,"êngko":40},"jareku":{"jareku":5,"jarèku":20},"jenenge":{"jènènge":1,"jênênge":250},"ke":{"ke":58,"kê":2},"kembang":{"kembang":1,"kêmbang":34},"kerja":{"kerja":1,"kêrja":121},"ketemu":{"ketemu":2,"kêtêmu":34},"lek":{"lek":2,"lèk":813},"mbek":{"mbek":7,"mbèk":74,"mbêk":96},"mek":{"mek":23,"mèk":55,"mêk":1},"ndek":{"ndek":2,"ndèk":781},"ndelok":{"ndelok":1,"ndêlok":65},"negara":{"negara":23,"nêgara":2},"nek":{"nek":1,"nèk":484,"nêk":2},"nemen":{"nêmên":24,"něměn":1},"neng":{"neng":3,"nèng":452,"nêng":6},"ngerasa":{"ngerasa":22,"ngêrasa":9},"oleh":{"oleh":2,"olèh":35},"pendhidhikan":{"pendhidhikan":36,"pêndhidhikan":2},"penting":{"penting":11,"pênting":117},"perkara":{"perkara":34,"pêrkara":1},"pernah":{"pernah":6,"pêrnah":37},"sampek":{"sampek":1,"sampèk":142},"sekitar":{"sekitar":47,"sêkitar":1},"sekolah":{"sekolah":1,"sêkolah":75},"seneng":{"sênèng":1,"sênêng":112},"sepuluh":{"sepuluh":20,"sêpuluh":12},"sering":{"sering":5,"sêring":78},"setengah":{"setengah":20,"sêtêngah":11},"teka":{"teka":2,"têka":207},"terus":{"têrus":4,"těrus":758},"tetep":{"tetep":2,"têtêp":45},"wektu":{"wektu":2,"wêktu":67}},"ambiguous_token_mass":7087,"ambiguous_token_mass_pct":10.8,"attached_ellipsis_forms":[["e...",624],["em...",32],["a...",24],["o...",10],["e...m",7],["s...",7],["ya...",6],["iku...",3],["ke...",3],["eh...",3],["e…",2],["di...",2],["m...",2],["mmm...",2],["O...",2],["nandur...",1],["kè'i...",1],["tempat...",1],["ba…",1],["saya...",1],["ndèk...",1],["artine...",1],["těrus...",1],["tuku...",1],["semakin...",1],["em…",1],["lèk...",1],["sih...",1],["sama-sama...",1],["sing...",1],["e....",1],["beh...",1],["usia...",1],["lak...",1],["se...",1],["hm...",1],["hueh...",1],["Uwah...",1],["Aaakhh...",1],["dadie...",1]],"charset":" %'+-.0123456789ABCDEFGHIJKLMNOPRSTUVWYZabcdefghijklmnopqrstuvwxyzèéêěḍ’“”…","digit_forms":[["S2",21],["S1",10],["S-1",5],["5",3],["17",2],["G30S",2],["M2",1],["S1-ne",1],["2026",1],["70%",1],["s2",1],["1010",1],["1088",1],["100%",1],["5050",1],["G30",1],["3D",1],["2025",1],["34",1],["30",1],["29",1],["10",1],["4",1],["H-1",1],["1400",1],["1406",1]],"hyphen_not_reduplication":[["sehari-hari",34],["nge-gym",20],["nge-game",19],["kanca-kancaku",15],["wong-wonge",12],["woh-wohan",11],["akèh-akèhe",10],["gotong-royong",7],["hari-H",6],["nge-judge",5],["buah-buahan",5],["kanca-kancane",5],["jedag-jedug",5],["S-1",5],["wit-witan",4],["skill-ku",4],["dempèt-dempètan",4],["camping-e",4],["omong-omongan",3],["tangga-tanggane",3],["nom-noman",3],["semena-mena",3],["těrus-těrusan",3],["HP-ne",3],["guru-gurune",3],["bal-balan",2],["sehari-harine",2],["dulur-dulure",2],["liyan-liyane",2],["value-ne",2]],"n_ambiguous_forms":209,"n_distinct_chars":75,"non_alphanumeric_survivors":{"%":2,"'":250,"+":1,"-":1965,".":2296,"’":19,"“":29,"”":28,"…":4},"non_ascii":["U+00EA","U+00E8","U+011B","U+201C","U+201D","U+2019","U+1E0D","U+2026","U+00E9"],"non_idempotent_examples":[],"non_idempotent_rows":0,"period_inside_forms":[["e...m",7]],"segments_with_attached_ellipsis":710,"segments_with_hyphen":1564,"tokens_all_caps":309,"tokens_capitalised":2187,"tokens_capitalised_non_initial":2182,"tokens_containing_period":765,"tokens_ending_period":758,"tokens_reduplication":1446,"tokens_total":65612,"tokens_with_attached_ellipsis":769,"tokens_with_digit":63,"tokens_with_hyphen":1961,"tokens_with_two_dots":0,"top_non_initial_capitals":[["Mbak",317],["Jember",76],["SMA",38],["Jawa",36],["Indonesia",31],["Anda",29],["Jepang",27],["Inggris",26],["HP",24],["SD",22],["S2",21],["Psikologi",19],["Jogja",19],["Linguistik",19],["Allah",18],["Minggu",18],["Google",17],["SMK",16],["SMP",16],["Bali",14],["Pak",14],["Banyuwangi",14],["Londo",14],["Sabtu",13],["B",12],["Agroteknologi",12],["Muhammadiyah",11],["CS",11],["Korpus",11],["Unmuh",10]],"top_reduplications":[["wong-wong",133],["arèk-arèk",47],["rata-rata",34],["ngono-ngono",34],["apa-apa",26],["beda-beda",25],["bênêr-bênêr",20],["padha-padha",19],["rêsik-rêsik",16],["foto-foto",16],["dhewe-dhewe",15],["mlaku-mlaku",15],["masing-masing",15],["akèh-akèh",13],["isa-isa",13],["awal-awal",13],["macêm-macêm",12],["ibu-ibu",12],["olèh-olèh",12],["bapak-bapak",12],["suwi-suwi",11],["moro-moro",11],["hal-hal",11],["kanca-kanca",11],["kira-kira",11],["anèh-anèh",11],["cah-cah",11],["tangga-tangga",10],["tempat-tempat",9],["umbah-umbah",9]],"types_recovered_by_folding":220,"unicode_ellipsis_u2026":4,"vocab_types_folded":7335,"vocab_types_official":7555},"validation":{"checks":[{"check":"manifest duration matches TSV after drops (<1 %)","detail":"9.9861 h vs 9.9861 h","passed":true},{"check":"no recording in both train and dev","detail":"[]","passed":true},{"check":"official_normalize is idempotent on the corpus","detail":"6638 rows","passed":true},{"check":"scorer.wer(refs, refs) == 0.0","detail":"0.000000","passed":true},{"check":"scorer.wer(refs, empty) == 1.0","detail":"1.000000","passed":true},{"check":"scorer.self_test on the real references","detail":"34/34","passed":true},{"check":"every clip is shorter than 30 s","detail":"longest 29.00 s","passed":true},{"check":"no empty transcript","detail":"min 1 words","passed":true},{"check":"seg_id unique","detail":"6638 ids","passed":true},{"check":"split.csv covers every manifest recording","detail":"208 vs 208","passed":true},{"check":"not a smoke run","detail":"DEBUG_N_RECORDINGS = None","passed":true}],"cleaned_text_cosmetic_sub_pct":100.0,"cleaned_text_self_inflicted_wer":0.1915,"gate1_passed":false,"n_passed":11,"n_total":11,"write_audio":false}}
+===== END CLAUDE-HANDOFF-JSON =====
+
+size: 11.4 KB - select the whole block above and paste it into the chat
+saved -> /kaggle/working/findings/02-data-build/dataset_findings.json
+saved -> /kaggle/working/findings/02-data-build/run-log.txt
+swept into _kaggle-artifacts: ['__notebook__.ipynb']
+
+==========================================================================
+LITE ARCHIVE - THE ONLY THING THAT NEEDS TO BE DOWNLOADED
+==========================================================================
+    dataset_findings.json        17.7 KB
+    text_audit.json              18.1 KB
+    manifest.csv               2199.3 KB
+    split.csv                     3.5 KB
+    lexicon_v1.csv              533.9 KB
+    scorer.py                    22.4 KB
+    dropped_segments.csv          3.2 KB
+    run-log.txt                  40.7 KB
+
+02-data-build-lite.zip : 0.6 MB   vs 1 MB for the full output
+
+==========================================================================
+NEXT STEPS, BY HAND
+==========================================================================
+THIS WAS PASS 1 OF 2 - analysis only.
+
+1. Output tab -> Download all. The entire output is a few MB in this
+   pass, so there is no large file to fail halfway. (02-data-build-lite.zip is
+   in there too if you would rather grab a single file.)
+
+2. Unzip onto the repo root - it already contains findings/02-data-build/.
+
+3. Tell Claude it has landed, or paste the CLAUDE-HANDOFF-JSON block
+   above. Review the numbers - especially the boundary probe, which
+   decides PAD_MODE - before spending a run on the audio.
+
+4. THEN set WRITE_AUDIO = True in cell 3 and Run All again. Same seed,
+   same rules, so manifest.csv / split.csv / lexicon_v1.csv come out
+   identical - pass 2 only adds the clips.
+
+==========================================================================
+DECISIONS THIS NOTEBOOK MEASURED BUT DID NOT TAKE
+==========================================================================
+ - Padding: the annotation is contiguous, so clip_to_neighbour pads almost
+ -   nothing. The boundary probe in cell 7 says how much speech that leaves
+ -   outside the clips. Flipping PAD_MODE to 'allow_overlap' is a one-line
+ -   change plus a re-run - decide before the segments dataset is published.
+ - Diacritics: text_folded is carried but never used as the training target.
+ -   The organiser has not said whether scoring folds. Until they do, train on
+ -   text_official and keep the folded column as the fallback experiment.
+ - Curly quotes and U+2026 survive the official normalizer. Either the model
+ -   learns to emit them or they are permanent WER. Worth one question.
+ - Case and periods are kept, on the reading that the published normalizer
+ -   lists neither. The demo in cell 9 prices what being wrong about that
+ -   would cost - it is not small.
+ - Common Voice and TTS Central Javanese are used here ONLY as vocabulary
+ -   attestation. Whether to train on them is notebook 06's question.

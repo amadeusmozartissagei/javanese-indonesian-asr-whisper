@@ -1,0 +1,2 @@
+experiment,run_id,verdict,n_rules_passed,wer_nb04,wer_this,delta,delta_lo,delta_hi,wer_jv,wer_id,jv_to_id,mix_hours,n_train_items
+E5,06-data-mixing-E5-A,drop,0,0.2532,0.2591,0.0059,-0.0058,0.019,0.4638,0.1559,35.45,6.527508836805556,1184

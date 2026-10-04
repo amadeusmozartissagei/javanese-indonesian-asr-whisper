@@ -1,0 +1,352 @@
+{
+ "_meta": {
+  "artifacts": [
+   "checkpoint_manifest.json",
+   "run-log.txt",
+   "submission_dev_S.csv",
+   "train_log.csv",
+   "dataset_findings.json"
+  ],
+  "generated_for": "handoff ke Claude - agregat saja, jangan diedit",
+  "notebook_id": "10-dev-stage-finetune",
+  "run_id": "10-dev-stage-finetune-homo-all",
+  "run_mode": "train"
+ },
+ "base": {
+  "cleanup": true,
+  "download_s": 27.6,
+  "files": {
+   "config.json": "eec2aae0c8d6cb5b",
+   "generation_config.json": "9df27bd2d4f03c64",
+   "model.safetensors": "dde745d5eff80bd8",
+   "processor_config.json": "8efb801da889b24f",
+   "tokenizer.json": "519b63069fd675c1",
+   "tokenizer_config.json": "80ad2fcf6f4abfc5"
+  },
+  "n_tensors": 587,
+  "repo": "amozaurus/mozilla-jv-13-stage1-homostoria-E4-native-homo",
+  "revision": "1bbab855c44e1d18aac52f86b50fd74ddc15cf07",
+  "saved_by": "5.0.0",
+  "sha16": "dde745d5eff80bd8",
+  "sha_ok": true
+ },
+ "checkpoint": {
+  "arch_same": true,
+  "config_keys_differing": [
+   "begin_suppress_tokens",
+   "tie_word_embeddings",
+   "transformers_version"
+  ],
+  "dtypes": {
+   "float32": 587
+  },
+  "files": {
+   "config.json": "eec2aae0c8d6cb5b",
+   "generation_config.json": "9df27bd2d4f03c64",
+   "model.safetensors": "09ad57361da47cc7",
+   "processor_config.json": "8efb801da889b24f",
+   "tokenizer.json": "519b63069fd675c1",
+   "tokenizer_config.json": "80ad2fcf6f4abfc5"
+  },
+  "hf_repo": "amozaurus/mozilla-jv-10-dev-stage-finetune-homo-all",
+  "hf_revision": "f93454bf41d78a393a5bc2a3c6a3fee27ad5ad10",
+  "key_diff": [],
+  "n_tensors_changed": 586,
+  "n_tensors_common": 587,
+  "nonweight_same_as_base": true,
+  "rel_delta": {
+   "decoder": 0.002286,
+   "encoder": 0.000387,
+   "semua": 0.000642
+  },
+  "saved_files": [
+   "added_tokens.json",
+   "config.json",
+   "generation_config.json",
+   "merges.txt",
+   "model.safetensors",
+   "normalizer.json",
+   "preprocessor_config.json",
+   "special_tokens_map.json",
+   "tokenizer.json",
+   "tokenizer_config.json",
+   "training_args.bin",
+   "vocab.json"
+  ],
+  "sha16": "09ad57361da47cc7"
+ },
+ "compare": {
+  "verdict": "n/a (tidak ada convo uji)"
+ },
+ "data": {
+  "convo": {
+   "2": {
+    "hours": 0.518,
+    "languages": {
+     "ind": 20,
+     "javind": 58
+    },
+    "max_s": 34.28,
+    "mean_s": 23.91,
+    "n": 78,
+    "n_over_29_8": 14,
+    "n_over_30": 13,
+    "n_speakers": 2,
+    "role": "LATIH"
+   },
+   "5": {
+    "hours": 2.044,
+    "languages": {
+     "javind": 294
+    },
+    "max_s": 37.81,
+    "mean_s": 25.02,
+    "n": 294,
+    "n_over_29_8": 30,
+    "n_over_30": 24,
+    "n_speakers": 2,
+    "role": "LATIH"
+   }
+  },
+  "dropped_hours": 0.319,
+  "eval_hours": 0.0,
+  "n_dropped_long": 37,
+  "n_eval": 0,
+  "n_train": 335,
+  "speakers_disjoint": true,
+  "train_hours": 2.243
+ },
+ "env": {
+  "accelerate": "1.13.0",
+  "convo_counts": {
+   "2": 78,
+   "5": 294
+  },
+  "eval_convos": [],
+  "gpu": "Tesla T4",
+  "hf_enabled": true,
+  "hf_repo": "amozaurus/mozilla-jv-10-dev-stage-finetune-homo-all",
+  "n_dev": 372,
+  "notebook": "10-dev-stage-finetune",
+  "numpy": "2.0.2",
+  "python": "3.12.13",
+  "run_id": "10-dev-stage-finetune-homo-all",
+  "run_mode": "train",
+  "run_note": "homo-all",
+  "torch": "2.10.0+cu128",
+  "train_convos": [
+   "2",
+   "5"
+  ],
+  "transformers": "4.57.6"
+ },
+ "labels": {
+  "n_texts": 372,
+  "per_convo": {
+   "2": {
+    "max": 156,
+    "n_over_448": 0,
+    "n_short_over_gen_max": 0,
+    "p95": 132
+   },
+   "5": {
+    "max": 182,
+    "n_over_448": 0,
+    "n_short_over_gen_max": 0,
+    "p95": 141
+   }
+  },
+  "prefix": [
+   "<|startoftranscript|>",
+   "<|jw|>",
+   "<|transcribe|>",
+   "<|notimestamps|>"
+  ],
+  "tokenizer_class": "WhisperTokenizerFast",
+  "tokenizer_ids_identical": 372
+ },
+ "recipe": {
+  "base": {
+   "name": "E4NH",
+   "repo": "amozaurus/mozilla-jv-13-stage1-homostoria-E4-native-homo",
+   "rev": "1bbab855c44e1d18aac52f86b50fd74ddc15cf07",
+   "sha16": "dde745d5eff80bd8"
+  },
+  "curve": true,
+  "effective_batch": 16,
+  "grad_accum": 4,
+  "grad_checkpoint": true,
+  "learning_rate": 3e-06,
+  "max_train_s": 30.0,
+  "num_beams_eval": 5,
+  "num_epochs": 3,
+  "optim": "adafactor",
+  "per_device_batch": 4,
+  "seed": 20260829,
+  "spec_augment": true,
+  "target": "transcript (resmi, apa adanya)",
+  "warmup_ratio": 0.1
+ },
+ "run.S": {
+  "exit_code": 0,
+  "import_s": 9.1,
+  "leak_names": 0,
+  "load_s": 1.8,
+  "n_empty": 0,
+  "n_log_lines": 4,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "paths_match": true,
+  "s_per_clip": 0.932,
+  "wall_s": 346.7
+ },
+ "score": {
+  "parity_D": {},
+  "per_arm": {
+   "S": {
+    "2": {
+     "n_err": 510,
+     "n_tok": 3556,
+     "wer": 0.14342,
+     "wer_lower_nopunct": 0.136952
+    },
+    "5": {
+     "n_err": 1939,
+     "n_tok": 13929,
+     "wer": 0.139206,
+     "wer_lower_nopunct": 0.128815
+    },
+    "all": {
+     "n_err": 2449,
+     "n_tok": 17485,
+     "wer": 0.140063,
+     "wer_lower_nopunct": 0.13047
+    }
+   }
+  }
+ },
+ "source": {
+  "main_base_sha16": "8f76b71382f9b33c",
+  "main_eval_sha16": "aa5a691f68011b81",
+  "num_beams": 5,
+  "same_as_shipped_D": true
+ },
+ "training": {
+  "curve": [],
+  "epoch": 3.0,
+  "global_step": 63,
+  "load_missing_derived": 0,
+  "load_unexpected": 0,
+  "loss_finite": true,
+  "loss_first": 0.9425,
+  "loss_last": 0.3472,
+  "minutes": 11.92,
+  "n_dropped_label": 0,
+  "n_items": 335,
+  "optimizer": "adafactor",
+  "peak_vram_gb": 9.71,
+  "save_probe_files": [
+   "config.json",
+   "generation_config.json",
+   "model.safetensors"
+  ],
+  "steps_expected": 63,
+  "train_loss": 0.4846
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "transformers = versi container (<5)",
+    "detail": "4.57.6",
+    "passed": true
+   },
+   {
+    "check": "bobot awal = D (sha16 dde745d5eff80bd8)",
+    "detail": "dde745d5eff80bd8",
+    "passed": true
+   },
+   {
+    "check": "main.py evaluasi = main.py D yang dikirim",
+    "detail": "aa5a691f68011b81",
+    "passed": true
+   },
+   {
+    "check": "convo latih dan uji terpisah, penutur juga",
+    "detail": "latih ['2', '5'], uji []",
+    "passed": true
+   },
+   {
+    "check": "tidak ada klip latih > 30 s",
+    "detail": "37 klip dibuang",
+    "passed": true
+   },
+   {
+    "check": "tokenizer tahap 1 = tokenizer.json checkpoint",
+    "detail": "372/372",
+    "passed": true
+   },
+   {
+    "check": "training sampai akhir jadwal (step terakhir dikirim)",
+    "detail": "step 63, epoch 3.00 (rencana ~63)",
+    "passed": true
+   },
+   {
+    "check": "loss hingga akhir terhingga",
+    "detail": "0.9425 -> 0.3472",
+    "passed": true
+   },
+   {
+    "check": "S dipush ke repo HF private dengan revisi",
+    "detail": "f93454bf41d78a393a5bc2a3c6a3fee27ad5ad10",
+    "passed": true
+   },
+   {
+    "check": "nama tensor S = D (di luar tensor turunan)",
+    "detail": "sama",
+    "passed": true
+   },
+   {
+    "check": "bobot bergeser, tapi wajar (0 < relatif < 0,05)",
+    "detail": "{'decoder': 0.002286, 'semua': 0.000642, 'encoder': 0.000387}",
+    "passed": true
+   },
+   {
+    "check": "file non-bobot S identik dengan D",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "arm S: main.py selesai, tanpa transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "check": "arm S: jalur decode = 328 / 44 / 88",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "check": "arm S: log tanpa nama klip, <= 20 baris",
+    "detail": "0 nama, 4 baris",
+    "passed": true
+   },
+   {
+    "check": "tidak ada bobot di /kaggle/working",
+    "detail": "0 file bobot",
+    "passed": true
+   },
+   {
+    "check": "unduhan kecil (bobot di HF)",
+    "detail": "0.3 MB",
+    "passed": true
+   }
+  ],
+  "n_passed": 17,
+  "n_total": 17
+ }
+}

@@ -1,0 +1,211 @@
+
+==========================================================================
+DISCOVERY
+==========================================================================
+dev metadata : /kaggle/input/datasets/hamzapratama/indonesian-dev/indonesian_dev/metadata.tsv
+dev clips    : 372 mp3 | baris metadata: 372
+convo_id     : {'2': 78, '5': 294}
+
+==========================================================================
+HUGGINGFACE
+==========================================================================
+hf user : amozaurus
+hf repo : amozaurus/mozilla-jv-10-dev-stage-finetune-c5-lr6e6  (private)
+
+output     : /kaggle/working/findings/10-dev-stage-finetune-c5-lr6e6
+checkpoint : /kaggle/temp/ckpt/10-dev-stage-finetune-c5-lr6e6 (scratch, tidak ikut diunduh)
+
+==========================================================================
+CHECKPOINT AWAL: E4N
+==========================================================================
+repo     : amozaurus/mozilla-jv-06-data-mixing-E4-native @ 3437f4424cde | unduh 14 s
+sha16    : b3438f32cf61ebbe -> COCOK
+   config.json                      0.0 MB  eec2aae0c8d6cb5b
+   generation_config.json           0.0 MB  9df27bd2d4f03c64
+   model.safetensors             3235.6 MB  b3438f32cf61ebbe
+   processor_config.json            0.0 MB  8efb801da889b24f
+   tokenizer.json                   3.9 MB  519b63069fd675c1
+   tokenizer_config.json            0.0 MB  80ad2fcf6f4abfc5
+
+feature extractor : 128 mel, sr 16000 | clean_up_tokenization_spaces: True | 587 tensor
+
+==========================================================================
+MAIN.PY
+==========================================================================
+main.py dasar  sha16 8f76b71382f9b33c  (NB 08: 8f76b71382f9b33c) -> SAMA
+main.py beam 5 sha16 aa5a691f68011b81  (D dikirim: aa5a691f68011b81) -> SAMA
+scorer resmi siap | contoh normalisasi: 'terus... aku ya ndak '
+
+==========================================================================
+DATA
+==========================================================================
+  100/372 klip, 25 s
+  200/372 klip, 32 s
+  300/372 klip, 40 s
+audio: 372 klip, 2.56 jam, 45 s
+
+convo     klip     jam  mean s   max s  >29.8    >30  peran
+2           78    0.52    23.9    34.3     14     13  UJI, 2 penutur, {'javind': 58, 'ind': 20}
+5          294    2.04    25.0    37.8     30     24  LATIH, 2 penutur, {'javind': 294}
+
+data latih : 270 klip, 1.84 jam (dibuang karena > 30 s: 24 klip, 0.21 jam = 10.1% audio convo latih)
+data uji   : 78 klip, 0.52 jam
+
+==========================================================================
+PROCESSOR
+==========================================================================
+tokenizer    : WhisperTokenizerFast | prefiks label: ['<|startoftranscript|>', '<|jw|>', '<|transcribe|>', '<|notimestamps|>']
+feature extractor vs checkpoint: sama
+token id 372 transkrip, tokenizer tahap 1 vs tokenizer.json checkpoint: 372/372 identik
+convo 2: label max 156, p95 132 | klip <= 29.8 s dengan label > 225 token: 0 | > 448: 0
+convo 5: label max 182, p95 141 | klip <= 29.8 s dengan label > 225 token: 0 | > 448: 0
+collator: decoder_start_token_id 50258
+
+==========================================================================
+TRAINING
+==========================================================================
+dataset latih : 270 klip (0 dibuang karena label > 448 token)
+rencana       : 3 epoch x ~17 step = ~51 step optimizer, LR 6.0e-06, warmup 10%
+batch contoh  : fitur (4, 128, 3000), label (4, 113), 17.0% posisi -100, token pertama ['<|jw|>']
+model dimuat  : 1 s | tensor diturunkan 0, tak terduga 0 | 809 M parameter
+uji simpan    : OK, 6 s, ['config.json', 'generation_config.json', 'model.safetensors']
+  [KURVA convo 2, greedy] epoch 0.0   step 0    WER 0.2317 (824/3556)  rasio panjang 1.009  35 s
+  [KURVA convo 2, greedy] epoch 1.0   step 17   WER 0.2028 (721/3556)  rasio panjang 1.013  36 s
+  [KURVA convo 2, greedy] epoch 2.0   step 34   WER 0.1954 (695/3556)  rasio panjang 1.016  37 s
+  [KURVA convo 2, greedy] epoch 3.0   step 51   WER 0.1985 (706/3556)  rasio panjang 1.022  36 s
+
+log training (tiap 5 step):
+ step    epoch   loss  learning_rate  grad_norm
+    5 0.294118 0.8026   4.000000e-06   8.759966
+   10 0.588235 0.5648   5.600000e-06   8.987570
+   15 0.882353 0.5722   4.933333e-06   7.597271
+   20 1.176471 0.4725   4.266667e-06   5.058564
+   25 1.470588 0.3924   3.600000e-06   5.601902
+   30 1.764706 0.3984   2.933333e-06   5.048863
+   35 2.058824 0.3652   2.266667e-06   4.754220
+   40 2.352941 0.2790   1.600000e-06   5.726249
+   45 2.647059 0.2945   9.333333e-07   4.214613
+   50 2.941176 0.3044   2.666667e-07   5.320073
+
+kurva greedy di convo uji (observasi, bukan seleksi):
+ epoch  step     wer  n_err  n_tok  len_ratio  seconds
+   0.0     0 0.23172    824   3556     1.0090     34.8
+   1.0    17 0.20276    721   3556     1.0132     36.3
+   2.0    34 0.19544    695   3556     1.0163     36.6
+   3.0    51 0.19854    706   3556     1.0225     36.4
+konteks: N (E4-native greedy lewat main.py) di convo 2 = 823 error / 3556 token
+
+training: 51 step (rencana ~51), epoch 3.00, 12.1 menit, VRAM puncak 9.7 GB, loss 0.8026 -> 0.3044
+
+==========================================================================
+CHECKPOINT S
+==========================================================================
+disimpan transformers 4.57.6: ['added_tokens.json', 'config.json', 'generation_config.json', 'merges.txt', 'model.safetensors', 'normalizer.json', 'preprocessor_config.json', 'special_tokens_map.json', 'tokenizer.json', 'tokenizer_config.json', 'training_args.bin', 'vocab.json']
+config arsitektur vs D: sama | kunci lain yang beda: ['begin_suppress_tokens', 'tie_word_embeddings', 'transformers_version']
+GPU setelah dikosongkan: 0.02 GB teralokasi
+tensor: S 587, D 587 | beda di luar tensor turunan: tidak ada
+pergeseran bobot relatif: {'decoder': 0.00371, 'semua': 0.001033, 'encoder': 0.000612} | tensor berubah 586/587 | dtype {'float32': 587}
+file non-bobot identik dengan D: True
+push -> amozaurus/mozilla-jv-10-dev-stage-finetune-c5-lr6e6 @ d59cb293340716fb4566a5f55e74b072c54cbdce (42 s)
+
+S = amozaurus/mozilla-jv-10-dev-stage-finetune-c5-lr6e6 @ d59cb293340716fb4566a5f55e74b072c54cbdce | model.safetensors sha16 473c9d17b0b86401
+    RUN_MODE='eval' memakai dua angka ini kalau evaluasi perlu diulang.
+
+==========================================================================
+EVALUASI LEWAT main.py (beam 5)
+==========================================================================
+
+--- arm D: D: E4-native, beam 5 (kontrol = submission 2693) ---
+clips to transcribe: 372
+import 10.4s | model load 2.1s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 328 | chunked 44 (88 windows) | failed 0 | empty 0 | 372 clips in 327.6s
+wrote 372 rows
+
+wall 344 s (0.93 s/klip) | import 10.4 s, load 2.1 s | jalur {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0} | kosong 0 | nama klip di log 0
+
+--- arm S: S: tahap 2 (c5-lr6e6), beam 5 ---
+clips to transcribe: 372
+import 10.2s | model load 2.1s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 328 | chunked 44 (88 windows) | failed 0 | empty 0 | 372 clips in 361.1s
+wrote 372 rows
+
+wall 374 s (1.00 s/klip) | import 10.2 s, load 2.1 s | jalur {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0} | kosong 0 | nama klip di log 0
+
+==========================================================================
+SKOR
+==========================================================================
+
+arm D:
+   semua                              WER 0.2268  (3965 / 17485)   lower+tanpa tanda baca 0.2147
+   convo 2 (UJI)                      WER 0.2247  ( 799 /  3556)   lower+tanpa tanda baca 0.2188
+   convo 5 (LATIH - fit, bukan hasil) WER 0.2273  (3166 / 13929)   lower+tanpa tanda baca 0.2136
+
+arm S:
+   semua                              WER 0.1314  (2298 / 17485)   lower+tanpa tanda baca 0.1219
+   convo 2 (UJI)                      WER 0.1943  ( 691 /  3556)   lower+tanpa tanda baca 0.1879
+   convo 5 (LATIH - fit, bukan hasil) WER 0.1154  (1607 / 13929)   lower+tanpa tanda baca 0.1050
+
+kontrol D vs NB 08 (normalizer resmi):
+   all      3965 error vs 3965 (NB 08) -> +0, +0.0000 OK
+   2         799 error vs  799 (NB 08) -> +0, +0.0000 OK
+   5        3166 error vs 3166 (NB 08) -> +0, +0.0000 OK
+
+S - D berpasangan, bootstrap per klip 5000 resample. Negatif = S lebih baik.
+   UJI convo 2 (78 klip)                    -0.0304  CI95 [-0.0445, -0.0163]  p(S lebih baik) 1.000
+     ruang lower + tanpa tanda baca         -0.0309  CI95 [-0.0447, -0.0171]  p(S lebih baik) 1.000
+     bahasa ind (20 klip)                   -0.0128  CI95 [-0.0374, +0.0135]  p(S lebih baik) 0.839
+     bahasa javind (58 klip)                -0.0360  CI95 [-0.0526, -0.0195]  p(S lebih baik) 1.000
+     penutur uji #1 (44 klip)               -0.0437  CI95 [-0.0631, -0.0240]  p(S lebih baik) 1.000
+     penutur uji #2 (34 klip)               -0.0169  CI95 [-0.0369, +0.0033]  p(S lebih baik) 0.952
+   LATIH convo 5 (fit, BUKAN hasil)         -0.1119  CI95 [-0.1217, -0.1025]  p(S lebih baik) 1.000
+
+transkrip uji identik S vs D: 0/78 | rasio panjang hyp/ref: D 1.009, S 1.019
+
+>>> VERDICT (aturan dari markdown atas: CI95 S - D di convo uji seluruhnya < 0): JELAS LEBIH BAIK
+    D di convo uji 0.2247 -> S 0.1943. Konteks, bukan ramalan: D di test 0.2901, #1 leaderboard 0.2096.
+    Convo uji cuma 2 penutur: CI per klip meremehkan variasi antar penutur.
+
+==========================================================================
+SELF-VALIDATION
+==========================================================================
+  [PASS] transformers = versi container (<5)                            4.57.6
+  [PASS] bobot awal = D (sha16 b3438f32cf61ebbe)                        b3438f32cf61ebbe
+  [PASS] main.py evaluasi = main.py D yang dikirim                      aa5a691f68011b81
+  [PASS] convo latih dan uji terpisah, penutur juga                     latih ['5'], uji ['2']
+  [PASS] tidak ada klip latih > 30 s                                    24 klip dibuang
+  [PASS] tokenizer tahap 1 = tokenizer.json checkpoint                  372/372
+  [PASS] training sampai akhir jadwal (step terakhir dikirim)           step 51, epoch 3.00 (rencana ~51)
+  [PASS] loss hingga akhir terhingga                                    0.8026 -> 0.3044
+  [PASS] S dipush ke repo HF private dengan revisi                      d59cb293340716fb4566a5f55e74b072c54cbdce
+  [PASS] nama tensor S = D (di luar tensor turunan)                     sama
+  [PASS] bobot bergeser, tapi wajar (0 < relatif < 0,05)                {'decoder': 0.00371, 'semua': 0.001033, 'encoder': 0.000612}
+  [PASS] file non-bobot S identik dengan D                              
+  [PASS] arm D: main.py selesai, tanpa transkrip kosong                 0 kosong
+  [PASS] arm D: jalur decode = 328 / 44 / 88                            {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}
+  [PASS] arm D: log tanpa nama klip, <= 20 baris                        0 nama, 4 baris
+  [PASS] arm S: main.py selesai, tanpa transkrip kosong                 0 kosong
+  [PASS] arm S: jalur decode = 328 / 44 / 88                            {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}
+  [PASS] arm S: log tanpa nama klip, <= 20 baris                        0 nama, 4 baris
+  [PASS] kontrol D = NB 08 di semua klip (toleransi 0.005)              3965 vs 3965 error (+0)
+  [PASS] kontrol D = NB 08 di convo 2 (toleransi 0.005)                 799 vs 799 error (+0)
+  [PASS] kontrol D = NB 08 di convo 5 (toleransi 0.005)                 3166 vs 3166 error (+0)
+  [PASS] tidak ada bobot di /kaggle/working                             0 file bobot
+  [PASS] unduhan kecil (bobot di HF)                                    0.4 MB
+
+23/23 checks passed
+
+===== BEGIN CLAUDE-HANDOFF-JSON =====
+{"_meta":{"artifacts":["checkpoint_manifest.json","curve_eval_greedy.csv","run-log.txt","submission_dev_D.csv","submission_dev_S.csv","train_log.csv","dataset_findings.json"],"generated_for":"handoff ke Claude - agregat saja, jangan diedit","notebook_id":"10-dev-stage-finetune","run_id":"10-dev-stage-finetune-c5-lr6e6","run_mode":"train"},"base":{"cleanup":true,"download_s":14.4,"files":{"config.json":"eec2aae0c8d6cb5b","generation_config.json":"9df27bd2d4f03c64","model.safetensors":"b3438f32cf61ebbe","processor_config.json":"8efb801da889b24f","tokenizer.json":"519b63069fd675c1","tokenizer_config.json":"80ad2fcf6f4abfc5"},"n_tensors":587,"repo":"amozaurus/mozilla-jv-06-data-mixing-E4-native","revision":"3437f4424cdee0ce3113f7fe2ccbc32e5350be7e","saved_by":"5.0.0","sha16":"b3438f32cf61ebbe","sha_ok":true},"checkpoint":{"arch_same":true,"config_keys_differing":["begin_suppress_tokens","tie_word_embeddings","transformers_version"],"dtypes":{"float32":587},"files":{"config.json":"eec2aae0c8d6cb5b","generation_config.json":"9df27bd2d4f03c64","model.safetensors":"473c9d17b0b86401","processor_config.json":"8efb801da889b24f","tokenizer.json":"519b63069fd675c1","tokenizer_config.json":"80ad2fcf6f4abfc5"},"hf_repo":"amozaurus/mozilla-jv-10-dev-stage-finetune-c5-lr6e6","hf_revision":"d59cb293340716fb4566a5f55e74b072c54cbdce","key_diff":[],"n_tensors_changed":586,"n_tensors_common":587,"nonweight_same_as_base":true,"rel_delta":{"decoder":0.00371,"encoder":0.000612,"semua":0.001033},"saved_files":["added_tokens.json","config.json","generation_config.json","merges.txt","model.safetensors","normalizer.json","preprocessor_config.json","special_tokens_map.json","tokenizer.json","tokenizer_config.json","training_args.bin","vocab.json"],"sha16":"473c9d17b0b86401"},"compare":{"eval":{"ci95":[-0.0445,-0.0163],"delta":-0.0304,"p_better":1.0},"eval_lang_ind":{"ci95":[-0.0374,0.0135],"delta":-0.0128,"n_clips":20,"n_tok":861,"p_better":0.839},"eval_lang_javind":{"ci95":[-0.0526,-0.0195],"delta":-0.036,"n_clips":58,"n_tok":2695,"p_better":1.0},"eval_lower_nopunct":{"ci95":[-0.0447,-0.0171],"delta":-0.0309,"p_better":1.0},"eval_speaker_1":{"ci95":[-0.0631,-0.024],"delta":-0.0437,"n_clips":44,"n_tok":1783,"p_better":1.0},"eval_speaker_2":{"ci95":[-0.0369,0.0033],"delta":-0.0169,"n_clips":34,"n_tok":1773,"p_better":0.952},"len_ratio_eval":{"D":1.0087,"S":1.0188},"n_eval":78,"n_identical_eval":0,"train_fit":{"ci95":[-0.1217,-0.1025],"delta":-0.1119,"p_better":1.0},"verdict":"JELAS LEBIH BAIK"},"data":{"convo":{"2":{"hours":0.518,"languages":{"ind":20,"javind":58},"max_s":34.28,"mean_s":23.91,"n":78,"n_over_29_8":14,"n_over_30":13,"n_speakers":2,"role":"UJI"},"5":{"hours":2.044,"languages":{"javind":294},"max_s":37.81,"mean_s":25.02,"n":294,"n_over_29_8":30,"n_over_30":24,"n_speakers":2,"role":"LATIH"}},"dropped_hours":0.206,"eval_hours":0.518,"n_dropped_long":24,"n_eval":78,"n_train":270,"speakers_disjoint":true,"train_hours":1.838},"env":{"accelerate":"1.13.0","convo_counts":{"2":78,"5":294},"eval_convos":["2"],"gpu":"Tesla T4","hf_enabled":true,"hf_repo":"amozaurus/mozilla-jv-10-dev-stage-finetune-c5-lr6e6","n_dev":372,"notebook":"10-dev-stage-finetune","numpy":"2.0.2","python":"3.12.13","run_id":"10-dev-stage-finetune-c5-lr6e6","run_mode":"train","run_note":"c5-lr6e6","torch":"2.10.0+cu128","train_convos":["5"],"transformers":"4.57.6"},"labels":{"n_texts":372,"per_convo":{"2":{"max":156,"n_over_448":0,"n_short_over_gen_max":0,"p95":132},"5":{"max":182,"n_over_448":0,"n_short_over_gen_max":0,"p95":141}},"prefix":["<|startoftranscript|>","<|jw|>","<|transcribe|>","<|notimestamps|>"],"tokenizer_class":"WhisperTokenizerFast","tokenizer_ids_identical":372},"recipe":{"base":{"name":"E4N","repo":"amozaurus/mozilla-jv-06-data-mixing-E4-native","rev":"3437f4424cdee0ce3113f7fe2ccbc32e5350be7e","sha16":"b3438f32cf61ebbe"},"curve":true,"effective_batch":16,"grad_accum":4,"grad_checkpoint":true,"learning_rate":6e-06,"max_train_s":30.0,"num_beams_eval":5,"num_epochs":3,"optim":"adafactor","per_device_batch":4,"seed":20260829,"spec_augment":true,"target":"transcript (resmi, apa adanya)","warmup_ratio":0.1},"run.D":{"exit_code":0,"import_s":10.4,"leak_names":0,"load_s":2.1,"n_empty":0,"n_log_lines":4,"paths":{"chunked":44,"empty":0,"failed":0,"short":328,"windows":88},"paths_match":true,"s_per_clip":0.9255,"wall_s":344.3},"run.S":{"exit_code":0,"import_s":10.2,"leak_names":0,"load_s":2.1,"n_empty":0,"n_log_lines":4,"paths":{"chunked":44,"empty":0,"failed":0,"short":328,"windows":88},"paths_match":true,"s_per_clip":1.0044,"wall_s":373.7},"score":{"parity_D":{"2":{"delta_err":0,"delta_wer":0.0,"n_err":799,"ok":true,"ref_err":799},"5":{"delta_err":0,"delta_wer":0.0,"n_err":3166,"ok":true,"ref_err":3166},"all":{"delta_err":0,"delta_wer":0.0,"n_err":3965,"ok":true,"ref_err":3965}},"per_arm":{"D":{"2":{"n_err":799,"n_tok":3556,"wer":0.224691,"wer_lower_nopunct":0.218785},"5":{"n_err":3166,"n_tok":13929,"wer":0.227296,"wer_lower_nopunct":0.213614},"all":{"n_err":3965,"n_tok":17485,"wer":0.226766,"wer_lower_nopunct":0.214666}},"S":{"2":{"n_err":691,"n_tok":3556,"wer":0.194319,"wer_lower_nopunct":0.187852},"5":{"n_err":1607,"n_tok":13929,"wer":0.115371,"wer_lower_nopunct":0.105048},"all":{"n_err":2298,"n_tok":17485,"wer":0.131427,"wer_lower_nopunct":0.12189}}}},"source":{"main_base_sha16":"8f76b71382f9b33c","main_eval_sha16":"aa5a691f68011b81","num_beams":5,"same_as_shipped_D":true},"training":{"curve":[{"epoch":0.0,"len_ratio":1.009,"n_err":824,"n_tok":3556,"seconds":34.8,"step":0,"wer":0.23172},{"epoch":1.0,"len_ratio":1.0132,"n_err":721,"n_tok":3556,"seconds":36.3,"step":17,"wer":0.20276},{"epoch":2.0,"len_ratio":1.0163,"n_err":695,"n_tok":3556,"seconds":36.6,"step":34,"wer":0.19544},{"epoch":3.0,"len_ratio":1.0225,"n_err":706,"n_tok":3556,"seconds":36.4,"step":51,"wer":0.19854}],"epoch":3.0,"global_step":51,"load_missing_derived":0,"load_unexpected":0,"loss_finite":true,"loss_first":0.8026,"loss_last":0.3044,"minutes":12.11,"n_dropped_label":0,"n_items":270,"optimizer":"adafactor","peak_vram_gb":9.7,"save_probe_files":["config.json","generation_config.json","model.safetensors"],"steps_expected":51,"train_loss":0.4428},"validation":{"checks":[{"check":"transformers = versi container (<5)","detail":"4.57.6","passed":true},{"check":"bobot awal = D (sha16 b3438f32cf61ebbe)","detail":"b3438f32cf61ebbe","passed":true},{"check":"main.py evaluasi = main.py D yang dikirim","detail":"aa5a691f68011b81","passed":true},{"check":"convo latih dan uji terpisah, penutur juga","detail":"latih ['5'], uji ['2']","passed":true},{"check":"tidak ada klip latih > 30 s","detail":"24 klip dibuang","passed":true},{"check":"tokenizer tahap 1 = tokenizer.json checkpoint","detail":"372/372","passed":true},{"check":"training sampai akhir jadwal (step terakhir dikirim)","detail":"step 51, epoch 3.00 (rencana ~51)","passed":true},{"check":"loss hingga akhir terhingga","detail":"0.8026 -> 0.3044","passed":true},{"check":"S dipush ke repo HF private dengan revisi","detail":"d59cb293340716fb4566a5f55e74b072c54cbdce","passed":true},{"check":"nama tensor S = D (di luar tensor turunan)","detail":"sama","passed":true},{"check":"bobot bergeser, tapi wajar (0 < relatif < 0,05)","detail":"{'decoder': 0.00371, 'semua': 0.001033, 'encoder': 0.000612}","passed":true},{"check":"file non-bobot S identik dengan D","detail":"","passed":true},{"check":"arm D: main.py selesai, tanpa transkrip kosong","detail":"0 kosong","passed":true},{"check":"arm D: jalur decode = 328 / 44 / 88","detail":"{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}","passed":true},{"check":"arm D: log tanpa nama klip, <= 20 baris","detail":"0 nama, 4 baris","passed":true},{"check":"arm S: main.py selesai, tanpa transkrip kosong","detail":"0 kosong","passed":true},{"check":"arm S: jalur decode = 328 / 44 / 88","detail":"{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}","passed":true},{"check":"arm S: log tanpa nama klip, <= 20 baris","detail":"0 nama, 4 baris","passed":true},{"check":"kontrol D = NB 08 di semua klip (toleransi 0.005)","detail":"3965 vs 3965 error (+0)","passed":true},{"check":"kontrol D = NB 08 di convo 2 (toleransi 0.005)","detail":"799 vs 799 error (+0)","passed":true},{"check":"kontrol D = NB 08 di convo 5 (toleransi 0.005)","detail":"3166 vs 3166 error (+0)","passed":true},{"check":"tidak ada bobot di /kaggle/working","detail":"0 file bobot","passed":true},{"check":"unduhan kecil (bobot di HF)","detail":"0.4 MB","passed":true}],"n_passed":23,"n_total":23}}
+===== END CLAUDE-HANDOFF-JSON =====
+size: 8.4 KB
+
+unduhan satu file: /kaggle/working/10-dev-stage-finetune-c5-lr6e6-lite.zip (109.9 KB)
+
+==========================================================================
+LANGKAH BERIKUTNYA
+==========================================================================
+1. Salin blok CLAUDE-HANDOFF-JSON ke chat, dan unduh findings/10-dev-stage-finetune-c5-lr6e6/ ke repo.
+2. Verdict: JELAS LEBIH BAIK.
+   Varian final: RUN_NOTE='all', TRAIN_CONVOS=('2', '5'), EVAL_CONVOS=(), resep sama,
+   Run All di sesi baru. Lalu NB 08: entri CHECKPOINTS baru + arm beam 5, dan slot test
+   melawan D 0,2901. Tidak ada validasi dev tersisa setelah itu - keputusannya di test.

@@ -1,0 +1,12 @@
+This dataset is a derivative work and is licensed
+CC-BY-SA-4.0 (https://creativecommons.org/licenses/by-sa/4.0/),
+the licence of the most restrictively licensed source it contains.
+
+SOURCES
+  TTS Central Javanese - CC-BY-SA-4.0
+      https://mozilladatacollective.com/datasets/cml5bn4k900aame07u0rwidcg
+  Common Voice Scripted Speech 26.0, Indonesian - CC0-1.0
+      https://mozilladatacollective.com/datasets/cmqinqwef00xonr07z4vbfovw
+
+Attribution follows the Mozilla Data Collective catalog entries above.
+Provided as-is, without warranties, to the extent permitted by the licence.

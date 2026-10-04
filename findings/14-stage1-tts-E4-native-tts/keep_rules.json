@@ -1,0 +1,52 @@
+{
+ "checkpoint_policy": "final",
+ "comparator": "04-whisper-core-full-concat25-1epoch",
+ "experiment": "E4",
+ "n_passed": 3,
+ "n_total": 3,
+ "paired": {
+  "vs_nb04": {
+   "delta": -0.0193,
+   "delta_hi": -0.0142,
+   "delta_lo": -0.0245,
+   "label": "official/vs-nb04",
+   "p_better": 1.0,
+   "proven": true,
+   "wer_a": 0.2532,
+   "wer_b": 0.2339
+  },
+  "vs_zeroshot": {
+   "delta": -0.0356,
+   "delta_hi": -0.0209,
+   "delta_lo": -0.0507,
+   "label": "official/zero-shot",
+   "p_better": 1.0,
+   "proven": true,
+   "wer_a": 0.2695,
+   "wer_b": 0.2339
+  }
+ },
+ "rules": [
+  {
+   "detail": "0.2532 -> 0.2339, CI [-0.0245, -0.0142]",
+   "passed": true,
+   "rule": "1. wer_total falls beyond the CI"
+  },
+  {
+   "detail": "0.2513 -> 0.2065",
+   "passed": true,
+   "rule": "2. wer_jv does not get worse"
+  },
+  {
+   "detail": "0.5265% -> 0.5208%  (92 -> 91 of 17473 tokens, noise band +-9.6)",
+   "passed": true,
+   "rule": "3. jv_to_id does not rise (per reference token)"
+  }
+ ],
+ "run_id": "14-stage1-tts-E4-native-tts",
+ "run_mode": "train",
+ "selected_on": "official",
+ "selection_failed": false,
+ "shipped_step": 506,
+ "verdict": "keep"
+}

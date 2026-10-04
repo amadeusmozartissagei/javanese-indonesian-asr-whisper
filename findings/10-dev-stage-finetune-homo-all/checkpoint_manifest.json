@@ -1,0 +1,35 @@
+{
+ "base_repo": "amozaurus/mozilla-jv-13-stage1-homostoria-E4-native-homo",
+ "base_revision": "1bbab855c44e1d18aac52f86b50fd74ddc15cf07",
+ "base_sha16": "dde745d5eff80bd8",
+ "checkpoint_policy": "final",
+ "effective_batch": 16,
+ "eval_convos": [],
+ "files": {
+  "config.json": "eec2aae0c8d6cb5b",
+  "generation_config.json": "9df27bd2d4f03c64",
+  "model.safetensors": "09ad57361da47cc7",
+  "processor_config.json": "8efb801da889b24f",
+  "tokenizer.json": "519b63069fd675c1",
+  "tokenizer_config.json": "80ad2fcf6f4abfc5"
+ },
+ "global_step": 63,
+ "hf_branch": "main",
+ "hf_repo": "amozaurus/mozilla-jv-10-dev-stage-finetune-homo-all",
+ "hf_revision": "f93454bf41d78a393a5bc2a3c6a3fee27ad5ad10",
+ "learning_rate": 3e-06,
+ "max_train_s": 30.0,
+ "nonweight_files_from_base": true,
+ "num_epochs": 3,
+ "optim": "adafactor",
+ "private": true,
+ "run_id": "10-dev-stage-finetune-homo-all",
+ "safetensors_sha16": "09ad57361da47cc7",
+ "seed": 20260829,
+ "train_convos": [
+  "2",
+  "5"
+ ],
+ "trained_with_transformers": "4.57.6",
+ "warmup_ratio": 0.1
+}

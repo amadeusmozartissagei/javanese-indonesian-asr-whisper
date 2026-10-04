@@ -1,0 +1,56 @@
+{
+  "exp": "E4",
+  "question": "Does curated Common Voice repair the Indonesian regression?",
+  "jember": {
+    "split": "train",
+    "segment_mode": "concat25",
+    "upsample": 1
+  },
+  "curriculum": false,
+  "n_add_items": 1184,
+  "add_hours": 6.5275,
+  "concentration": {
+    "n_groups": 283,
+    "top_group_share": 0.036409
+  },
+  "per_speaker_hours": {
+    "722682d5957b350e": 0.23766,
+    "12fa18880e7748c0": 0.175617,
+    "5b9d421df111585a": 0.170457,
+    "6ac0427a8caef565": 0.16439,
+    "f1d28380afd1c969": 0.162267,
+    "10b763f739eb0a23": 0.158353,
+    "7154a5b04bd2fde8": 0.15049,
+    "14c0c499d700e249": 0.125677,
+    "8b06b50dc705efb9": 0.124533,
+    "64979f4bb4bd2cc3": 0.124457,
+    "8eb6a0f8aa447f1e": 0.122813,
+    "84d1fe116b609f7d": 0.121723,
+    "6013e4afd967f450": 0.121377,
+    "4c81270f49ada076": 0.120867,
+    "54785195e3cfd366": 0.119513,
+    "bc6cdb2d920809ca": 0.119177,
+    "13b177e61850abe0": 0.114757,
+    "ab461a8efcbe5201": 0.113653,
+    "fab876600ae7fdf0": 0.113403,
+    "6fc4f5a146ccfaf3": 0.111967
+  },
+  "seed": 20260902,
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888",
+  "policy": {
+    "cv_drop_downvoted": true,
+    "cv_dedup_sentences": true,
+    "cv_max_clips_per_speaker": 100,
+    "cv_keep_accent_jv_always": true,
+    "digit_policy": "drop",
+    "min_words": 2,
+    "target_s": 25.0,
+    "hard_cap_s": 29.0,
+    "join_sil_s": 0.3,
+    "item_gap_s": 0.5,
+    "shard_target_s": 600.0,
+    "sr": 16000,
+    "sec_per_step": 9.0,
+    "effective_batch": 16
+  }
+}

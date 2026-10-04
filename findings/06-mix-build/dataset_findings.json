@@ -1,0 +1,547 @@
+{
+ "licence": {
+  "derivative_licence": "CC-BY-SA-4.0",
+  "sources": {
+   "tts": "CC-BY-SA-4.0",
+   "common_voice": "CC0-1.0"
+  },
+  "jember_audio_included": false
+ },
+ "env": {
+  "notebook": "06-mix-build",
+  "phase": "2 PRODUCE",
+  "seed": 20260902,
+  "write_audio": true,
+  "debug_n_clips": null,
+  "python": "3.12.13",
+  "pandas": "2.3.3",
+  "numpy": "2.0.2",
+  "cv_dir": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433215 15213433215/cv-corpus-26.0-2026-06-12/id",
+  "tts_root": "/kaggle/input/datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS",
+  "n_tts_mappings": 93,
+  "jember_artifacts": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build",
+  "cv_audio_source": "mounted_dirs",
+  "cv_meta": {
+   "validated.tsv": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433300 15213433215/cv-corpus-26.0-2026-06-12/id/validated.tsv",
+   "clip_durations.tsv": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433215 15213433215/cv-corpus-26.0-2026-06-12/id/clip_durations.tsv"
+  },
+  "cv_mp3_indexed": 60804,
+  "cv_mp3_duplicate_names": 0,
+  "cv_audio_dirs": 235,
+  "ffmpeg": true,
+  "ffprobe": true,
+  "unresolved": []
+ },
+ "policy": {
+  "cv_drop_downvoted": true,
+  "cv_dedup_sentences": true,
+  "cv_max_clips_per_speaker": 100,
+  "cv_keep_accent_jv_always": true,
+  "digit_policy": "drop",
+  "min_words": 2,
+  "target_s": 25.0,
+  "hard_cap_s": 29.0,
+  "join_sil_s": 0.3,
+  "item_gap_s": 0.5,
+  "shard_target_s": 600.0,
+  "sr": 16000,
+  "sec_per_step": 9.0,
+  "effective_batch": 16
+ },
+ "jember": {
+  "n_train": 5541,
+  "n_dev": 1097,
+  "n_test": 0,
+  "train_hours": 8.36266,
+  "vocab_types": 6557,
+  "vocab_tokens": 55218,
+  "scorer_version": "1.0",
+  "scorer_self_test": true,
+  "lexicon_entries": 23805
+ },
+ "tts": {
+  "n_mapping_files": 93,
+  "n_rows_raw": 4599,
+  "n_joined_continuations": 31,
+  "n_dropped_missing_audio": 0,
+  "n_dropped_dup_hash": 50,
+  "n_dropped_probe_fail": 0,
+  "n_clean": 4549,
+  "n_groups": 92,
+  "n_with_digit": 42,
+  "duration": {
+   "n": 4549,
+   "mean": 6.15,
+   "min_s": 1.68,
+   "p25": 4.68,
+   "median": 5.94,
+   "p75": 7.32,
+   "p95": 9.78,
+   "max_s": 15.361,
+   "total_h": 7.771
+  }
+ },
+ "cv": {
+  "n_validated": 30465,
+  "filters": [
+   {
+    "filter": "no duration in clip_durations",
+    "dropped": 0,
+    "left": 30465
+   },
+   {
+    "filter": "audio not present on the mount",
+    "dropped": 0,
+    "left": 30465
+   },
+   {
+    "filter": "down_votes >= 1",
+    "dropped": 2614,
+    "left": 27851
+   },
+   {
+    "filter": "duplicate sentence_id",
+    "dropped": 15819,
+    "left": 12032
+   },
+   {
+    "filter": "clips per speaker > 100",
+    "dropped": 6660,
+    "left": 5372
+   }
+  ],
+  "n_pool": 5372,
+  "n_mp3_on_mount": 60804,
+  "n_mp3_in_metadata": 60804,
+  "accent_labels": {
+   "Jawa Tengah|medhok|surakarta|tionghoa|bindeng": 230,
+   "Javanese": 152,
+   "jawa": 53,
+   "Javanese|Arabic": 12,
+   "jawa|It's kind of the essensial of Javanese language": 12,
+   "Javanese|sundanese": 10,
+   "jawa|Ngapak": 7,
+   "Jawa Tengah": 7,
+   "Javanese|general bahasa indonesia": 4,
+   "Javanese|medhok|East java": 3,
+   "Central Java": 2,
+   "Javanese|Balinese": 1
+  },
+  "n_speakers": 284,
+  "n_accent_jv": 494,
+  "n_with_digit": 0,
+  "duration": {
+   "n": 5372,
+   "mean": 4.153,
+   "min_s": 1.176,
+   "p25": 3.216,
+   "median": 3.864,
+   "p75": 4.776,
+   "p95": 6.876,
+   "max_s": 10.368,
+   "total_h": 6.197
+  }
+ },
+ "pool": {
+  "n_clips": 9851,
+  "hours": 13.8678,
+  "n_digit_dropped": 42,
+  "by_source": {
+   "cv": {
+    "n": 5344,
+    "hours": 6.18084
+   },
+   "tts": {
+    "n": 4507,
+    "hours": 7.68697
+   }
+  },
+  "coverage": {
+   "tts": {
+    "pool_types": 6157,
+    "covered_types": 2263,
+    "type_cov": 0.345127,
+    "token_cov": 0.652631,
+    "new_types": 3894,
+    "origin_mix": {
+     "both": 2059,
+     "jv": 4070,
+     "id": 7,
+     "unk": 21
+    }
+   },
+   "cv": {
+    "pool_types": 5488,
+    "covered_types": 1451,
+    "type_cov": 0.22129,
+    "token_cov": 0.383552,
+    "new_types": 4037,
+    "origin_mix": {
+     "both": 1375,
+     "id": 4101,
+     "jv": 5,
+     "unk": 7
+    }
+   },
+   "cv_jv_acc": {
+    "pool_types": 1052,
+    "covered_types": 511,
+    "type_cov": 0.077932,
+    "token_cov": 0.236626,
+    "new_types": 541,
+    "origin_mix": {
+     "id": 643,
+     "both": 404,
+     "jv": 4,
+     "unk": 1
+    }
+   },
+   "both": {
+    "pool_types": 10288,
+    "covered_types": 2844,
+    "type_cov": 0.433735,
+    "token_cov": 0.769586,
+    "new_types": 7444,
+    "origin_mix": {
+     "both": 2088,
+     "id": 4102,
+     "jv": 4070,
+     "unk": 28
+    }
+   }
+  }
+ },
+ "packing": {
+  "n_items": 2552,
+  "n_clips": 9851,
+  "n_shards": 91,
+  "item_duration": {
+   "n": 2552,
+   "mean": 20.421,
+   "min_s": 1.824,
+   "p25": 19.548,
+   "median": 21.87,
+   "p75": 23.401,
+   "p95": 24.684,
+   "max_s": 24.996,
+   "total_h": 14.476
+  },
+  "mean_clips_per_item": 3.86011,
+  "oversize_alone": 0,
+  "window_used_pct": 68.0692,
+  "window_used_pct_native": 16.8931,
+  "est_flac_gb": 1.02421,
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888"
+ },
+ "experiments": {
+  "e4_target_h": 10.0,
+  "jember_concat25_items": 1455,
+  "table": [
+   {
+    "exp": "E3",
+    "n_add_items": 90,
+    "add_hours": 0.53794,
+    "n_add_clips": 492,
+    "n_speakers": 15,
+    "top_speaker_share": 0.441796,
+    "jember_upsample": 1,
+    "n_total_items": 1545,
+    "steps": 97,
+    "est_gpu_h": 0.5925,
+    "add_share_of_items": 0.0582524
+   },
+   {
+    "exp": "E4",
+    "n_add_items": 1184,
+    "add_hours": 6.5275,
+    "n_add_clips": 5344,
+    "n_speakers": 283,
+    "top_speaker_share": 0.036409,
+    "jember_upsample": 1,
+    "n_total_items": 2639,
+    "steps": 165,
+    "est_gpu_h": 0.7625,
+    "add_share_of_items": 0.448655
+   },
+   {
+    "exp": "E6",
+    "n_add_items": 1184,
+    "add_hours": 6.5275,
+    "n_add_clips": 5344,
+    "n_speakers": 283,
+    "top_speaker_share": 0.036409,
+    "jember_upsample": 2,
+    "n_total_items": 4094,
+    "steps": 256,
+    "est_gpu_h": 0.99,
+    "add_share_of_items": 0.289204
+   },
+   {
+    "exp": "E1",
+    "n_add_items": 1368,
+    "add_hours": 7.94855,
+    "n_add_clips": 4507,
+    "n_speakers": 92,
+    "top_speaker_share": 0.0139569,
+    "jember_upsample": 1,
+    "n_total_items": 2823,
+    "steps": 177,
+    "est_gpu_h": 0.7925,
+    "add_share_of_items": 0.484591
+   },
+   {
+    "exp": "E5",
+    "n_add_items": 1184,
+    "add_hours": 6.5275,
+    "n_add_clips": 5344,
+    "n_speakers": 283,
+    "top_speaker_share": 0.036409,
+    "jember_upsample": 1,
+    "n_total_items": 2639,
+    "steps": 165,
+    "est_gpu_h": 1.1125,
+    "add_share_of_items": 0.448655
+   }
+  ],
+  "total_est_gpu_h": 4.25,
+  "e2_dropped_reason": "official reference has zero diacritics; target is text_folded"
+ },
+ "decode_probe": {
+  "n": 48,
+  "n_ok": 48,
+  "elapsed_s": 3.94512,
+  "realtime_factor": 67.0764,
+  "drift_median_s": 0.029834,
+  "drift_max_s": 0.059894,
+  "proj_decode_min": 12.4048,
+  "peak_normalize": false,
+  "fails": []
+ },
+ "audio": {
+  "n_shards": 91,
+  "gb": 0.845647,
+  "minutes": 13.5787,
+  "n_clips": 9851,
+  "n_items": 2552,
+  "n_decode_failures": 0,
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888"
+ },
+ "validation": {
+  "checks": [
+   {
+    "name": "inputs resolved",
+    "ok": true,
+    "skipped": false,
+    "detail": "missing=[]"
+   },
+   {
+    "name": "scorer self-test",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "no empty training text",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "every item within the 30 s window",
+    "ok": true,
+    "skipped": false,
+    "detail": "max 25.26 s"
+   },
+   {
+    "name": "items over the soft cap are single clips",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "no clip used twice",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "no item spans two groups",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "no item spans two shards",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "offsets are ordered and inside the shard",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "no two clips overlap in a shard",
+    "ok": true,
+    "skipped": false,
+    "detail": "0 overlaps"
+   },
+   {
+    "name": "shard file count under the Kaggle limit",
+    "ok": true,
+    "skipped": false,
+    "detail": "91 shards"
+   },
+   {
+    "name": "no digits in any training text",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "nothing points outside this build's shards",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "no source clip came from the Jember mount",
+    "ok": true,
+    "skipped": false,
+    "detail": "20 jember dev/test recordings exist and none are referenced"
+   },
+   {
+    "name": "common voice speaker cap respected",
+    "ok": true,
+    "skipped": false,
+    "detail": "max 229 clips for one speaker"
+   },
+   {
+    "name": "licence notice ships with the data",
+    "ok": true,
+    "skipped": false,
+    "detail": "written by cell 11; fails only before cell 11 has ever run here"
+   },
+   {
+    "name": "every experiment manifest is non-empty and reproducible",
+    "ok": true,
+    "skipped": false,
+    "detail": ""
+   },
+   {
+    "name": "decode path works",
+    "ok": true,
+    "skipped": false,
+    "detail": "48/48 probe files decoded"
+   },
+   {
+    "name": "every shard header is 16 kHz mono",
+    "ok": true,
+    "skipped": false,
+    "detail": "[]"
+   },
+   {
+    "name": "every shard is long enough for its offsets",
+    "ok": true,
+    "skipped": false,
+    "detail": "[]"
+   },
+   {
+    "name": "sampled clips contain actual audio",
+    "ok": true,
+    "skipped": false,
+    "detail": "0/40 silent"
+   },
+   {
+    "name": "no decode failures",
+    "ok": true,
+    "skipped": false,
+    "detail": "0 failed"
+   },
+   {
+    "name": "structure matches the reviewed phase 1",
+    "ok": true,
+    "skipped": false,
+    "detail": "expected 8640e1cfc11b..., got 8640e1cfc11b..."
+   },
+   {
+    "name": "download size is what this phase intends",
+    "ok": true,
+    "skipped": false,
+    "detail": "0.85 GB against a 8.0 GB budget"
+   }
+  ],
+  "n_pass": 24,
+  "n_fail": 0,
+  "n_skip": 0,
+  "verdict": "BUILD OK - publish it, then run notebooks/06-mix-verify.ipynb",
+  "working_gb": 0.850901
+ },
+ "fingerprints": {
+  "files": {
+   "mix_manifest_E3.csv": {
+    "sha256": "7e31015c1fc1329c",
+    "bytes": 29815
+   },
+   "mix_manifest_E4.csv": {
+    "sha256": "9d64be9713a0097a",
+    "bytes": 360726
+   },
+   "mix_manifest_E6.csv": {
+    "sha256": "9d64be9713a0097a",
+    "bytes": 360726
+   },
+   "mix_manifest_E1.csv": {
+    "sha256": "0731553144f96467",
+    "bytes": 539063
+   },
+   "mix_manifest_E5.csv": {
+    "sha256": "9d64be9713a0097a",
+    "bytes": 360726
+   },
+   "mix_spec_E3.json": {
+    "sha256": "dedc0e36f75e3b41",
+    "bytes": 1388
+   },
+   "mix_spec_E4.json": {
+    "sha256": "1621e20b2ffb405c",
+    "bytes": 1538
+   },
+   "mix_spec_E6.json": {
+    "sha256": "948a11c55e2994d4",
+    "bytes": 1550
+   },
+   "mix_spec_E1.json": {
+    "sha256": "650cd27be246c2d5",
+    "bytes": 1517
+   },
+   "mix_spec_E5.json": {
+    "sha256": "ac558063b4362fe9",
+    "bytes": 1539
+   },
+   "LICENSE.txt": {
+    "sha256": "e1c76545d230f651",
+    "bytes": 584
+   },
+   "README.md": {
+    "sha256": "fecdac2cdc73ac3e",
+    "bytes": 1543
+   },
+   "shards/_meta/clips.csv": {
+    "sha256": "d7154db8562497c8",
+    "bytes": 2376124
+   },
+   "shards/_meta/items.csv": {
+    "sha256": "49bb59410e062266",
+    "bytes": 1083913
+   },
+   "shards/_meta/shards.csv": {
+    "sha256": "5b7eaba8319690d1",
+    "bytes": 3664
+   }
+  },
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888"
+ }
+}

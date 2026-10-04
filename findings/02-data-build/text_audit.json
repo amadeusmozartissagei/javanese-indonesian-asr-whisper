@@ -1,0 +1,1649 @@
+{
+ "tokens_total": 65612,
+ "tokens_ending_period": 758,
+ "tokens_containing_period": 765,
+ "period_inside_forms": [
+  [
+   "e...m",
+   7
+  ]
+ ],
+ "tokens_capitalised": 2187,
+ "tokens_capitalised_non_initial": 2182,
+ "top_non_initial_capitals": [
+  [
+   "Mbak",
+   317
+  ],
+  [
+   "Jember",
+   76
+  ],
+  [
+   "SMA",
+   38
+  ],
+  [
+   "Jawa",
+   36
+  ],
+  [
+   "Indonesia",
+   31
+  ],
+  [
+   "Anda",
+   29
+  ],
+  [
+   "Jepang",
+   27
+  ],
+  [
+   "Inggris",
+   26
+  ],
+  [
+   "HP",
+   24
+  ],
+  [
+   "SD",
+   22
+  ],
+  [
+   "S2",
+   21
+  ],
+  [
+   "Psikologi",
+   19
+  ],
+  [
+   "Jogja",
+   19
+  ],
+  [
+   "Linguistik",
+   19
+  ],
+  [
+   "Allah",
+   18
+  ],
+  [
+   "Minggu",
+   18
+  ],
+  [
+   "Google",
+   17
+  ],
+  [
+   "SMK",
+   16
+  ],
+  [
+   "SMP",
+   16
+  ],
+  [
+   "Bali",
+   14
+  ],
+  [
+   "Pak",
+   14
+  ],
+  [
+   "Banyuwangi",
+   14
+  ],
+  [
+   "Londo",
+   14
+  ],
+  [
+   "Sabtu",
+   13
+  ],
+  [
+   "B",
+   12
+  ],
+  [
+   "Agroteknologi",
+   12
+  ],
+  [
+   "Muhammadiyah",
+   11
+  ],
+  [
+   "CS",
+   11
+  ],
+  [
+   "Korpus",
+   11
+  ],
+  [
+   "Unmuh",
+   10
+  ]
+ ],
+ "tokens_all_caps": 309,
+ "tokens_with_attached_ellipsis": 769,
+ "attached_ellipsis_forms": [
+  [
+   "e...",
+   624
+  ],
+  [
+   "em...",
+   32
+  ],
+  [
+   "a...",
+   24
+  ],
+  [
+   "o...",
+   10
+  ],
+  [
+   "e...m",
+   7
+  ],
+  [
+   "s...",
+   7
+  ],
+  [
+   "ya...",
+   6
+  ],
+  [
+   "iku...",
+   3
+  ],
+  [
+   "ke...",
+   3
+  ],
+  [
+   "eh...",
+   3
+  ],
+  [
+   "e…",
+   2
+  ],
+  [
+   "di...",
+   2
+  ],
+  [
+   "m...",
+   2
+  ],
+  [
+   "mmm...",
+   2
+  ],
+  [
+   "O...",
+   2
+  ],
+  [
+   "nandur...",
+   1
+  ],
+  [
+   "kè'i...",
+   1
+  ],
+  [
+   "tempat...",
+   1
+  ],
+  [
+   "ba…",
+   1
+  ],
+  [
+   "saya...",
+   1
+  ],
+  [
+   "ndèk...",
+   1
+  ],
+  [
+   "artine...",
+   1
+  ],
+  [
+   "těrus...",
+   1
+  ],
+  [
+   "tuku...",
+   1
+  ],
+  [
+   "semakin...",
+   1
+  ],
+  [
+   "em…",
+   1
+  ],
+  [
+   "lèk...",
+   1
+  ],
+  [
+   "sih...",
+   1
+  ],
+  [
+   "sama-sama...",
+   1
+  ],
+  [
+   "sing...",
+   1
+  ],
+  [
+   "e....",
+   1
+  ],
+  [
+   "beh...",
+   1
+  ],
+  [
+   "usia...",
+   1
+  ],
+  [
+   "lak...",
+   1
+  ],
+  [
+   "se...",
+   1
+  ],
+  [
+   "hm...",
+   1
+  ],
+  [
+   "hueh...",
+   1
+  ],
+  [
+   "Uwah...",
+   1
+  ],
+  [
+   "Aaakhh...",
+   1
+  ],
+  [
+   "dadie...",
+   1
+  ]
+ ],
+ "segments_with_attached_ellipsis": 710,
+ "tokens_with_two_dots": 0,
+ "unicode_ellipsis_u2026": 4,
+ "n_distinct_chars": 75,
+ "char_counts": {
+  " ": 58974,
+  "a": 52906,
+  "n": 33328,
+  "k": 25024,
+  "i": 24019,
+  "e": 18883,
+  "u": 17943,
+  "g": 17085,
+  "s": 13991,
+  "r": 11337,
+  "o": 11042,
+  "t": 10512,
+  "m": 9741,
+  "l": 9391,
+  "d": 8619,
+  "p": 8120,
+  "h": 7680,
+  "b": 5916,
+  "ê": 5372,
+  "w": 5260,
+  "y": 5239,
+  "è": 4825,
+  "j": 2547,
+  ".": 2296,
+  "-": 1965,
+  "c": 1527,
+  "ě": 819,
+  "M": 575,
+  "f": 503,
+  "S": 274,
+  "A": 251,
+  "'": 250,
+  "v": 216,
+  "J": 210,
+  "P": 197,
+  "K": 161,
+  "I": 144,
+  "T": 117,
+  "B": 114,
+  "D": 91,
+  "R": 83,
+  "G": 77,
+  "H": 64,
+  "C": 59,
+  "L": 58,
+  "z": 58,
+  "W": 53,
+  "N": 48,
+  "U": 36,
+  "O": 35,
+  "“": 29,
+  "2": 28,
+  "Y": 28,
+  "”": 28,
+  "1": 26,
+  "’": 19,
+  "F": 18,
+  "0": 18,
+  "ḍ": 17,
+  "E": 15,
+  "V": 9,
+  "Z": 7,
+  "5": 6,
+  "3": 6,
+  "q": 5,
+  "…": 4,
+  "x": 4,
+  "4": 4,
+  "7": 3,
+  "6": 2,
+  "%": 2,
+  "8": 2,
+  "é": 1,
+  "9": 1,
+  "+": 1
+ },
+ "non_alphanumeric_survivors": {
+  ".": 2296,
+  "-": 1965,
+  "'": 250,
+  "“": 29,
+  "”": 28,
+  "’": 19,
+  "…": 4,
+  "%": 2,
+  "+": 1
+ },
+ "non_ascii_chars": {
+  "U+00EA": [
+   "ê",
+   5372,
+   "LATIN SMALL LETTER E WITH CIRCUMFLEX"
+  ],
+  "U+00E8": [
+   "è",
+   4825,
+   "LATIN SMALL LETTER E WITH GRAVE"
+  ],
+  "U+011B": [
+   "ě",
+   819,
+   "LATIN SMALL LETTER E WITH CARON"
+  ],
+  "U+201C": [
+   "“",
+   29,
+   "LEFT DOUBLE QUOTATION MARK"
+  ],
+  "U+201D": [
+   "”",
+   28,
+   "RIGHT DOUBLE QUOTATION MARK"
+  ],
+  "U+2019": [
+   "’",
+   19,
+   "RIGHT SINGLE QUOTATION MARK"
+  ],
+  "U+1E0D": [
+   "ḍ",
+   17,
+   "LATIN SMALL LETTER D WITH DOT BELOW"
+  ],
+  "U+2026": [
+   "…",
+   4,
+   "HORIZONTAL ELLIPSIS"
+  ],
+  "U+00E9": [
+   "é",
+   1,
+   "LATIN SMALL LETTER E WITH ACUTE"
+  ]
+ },
+ "tokens_with_digit": 63,
+ "digit_forms": [
+  [
+   "S2",
+   21
+  ],
+  [
+   "S1",
+   10
+  ],
+  [
+   "S-1",
+   5
+  ],
+  [
+   "5",
+   3
+  ],
+  [
+   "17",
+   2
+  ],
+  [
+   "G30S",
+   2
+  ],
+  [
+   "M2",
+   1
+  ],
+  [
+   "S1-ne",
+   1
+  ],
+  [
+   "2026",
+   1
+  ],
+  [
+   "70%",
+   1
+  ],
+  [
+   "s2",
+   1
+  ],
+  [
+   "1010",
+   1
+  ],
+  [
+   "1088",
+   1
+  ],
+  [
+   "100%",
+   1
+  ],
+  [
+   "5050",
+   1
+  ],
+  [
+   "G30",
+   1
+  ],
+  [
+   "3D",
+   1
+  ],
+  [
+   "2025",
+   1
+  ],
+  [
+   "34",
+   1
+  ],
+  [
+   "30",
+   1
+  ],
+  [
+   "29",
+   1
+  ],
+  [
+   "10",
+   1
+  ],
+  [
+   "4",
+   1
+  ],
+  [
+   "H-1",
+   1
+  ],
+  [
+   "1400",
+   1
+  ],
+  [
+   "1406",
+   1
+  ]
+ ],
+ "tokens_with_hyphen": 1961,
+ "tokens_reduplication": 1446,
+ "segments_with_hyphen": 1564,
+ "top_reduplications": [
+  [
+   "wong-wong",
+   133
+  ],
+  [
+   "arèk-arèk",
+   47
+  ],
+  [
+   "rata-rata",
+   34
+  ],
+  [
+   "ngono-ngono",
+   34
+  ],
+  [
+   "apa-apa",
+   26
+  ],
+  [
+   "beda-beda",
+   25
+  ],
+  [
+   "bênêr-bênêr",
+   20
+  ],
+  [
+   "padha-padha",
+   19
+  ],
+  [
+   "rêsik-rêsik",
+   16
+  ],
+  [
+   "foto-foto",
+   16
+  ],
+  [
+   "dhewe-dhewe",
+   15
+  ],
+  [
+   "mlaku-mlaku",
+   15
+  ],
+  [
+   "masing-masing",
+   15
+  ],
+  [
+   "akèh-akèh",
+   13
+  ],
+  [
+   "isa-isa",
+   13
+  ],
+  [
+   "awal-awal",
+   13
+  ],
+  [
+   "macêm-macêm",
+   12
+  ],
+  [
+   "ibu-ibu",
+   12
+  ],
+  [
+   "olèh-olèh",
+   12
+  ],
+  [
+   "bapak-bapak",
+   12
+  ],
+  [
+   "suwi-suwi",
+   11
+  ],
+  [
+   "moro-moro",
+   11
+  ],
+  [
+   "hal-hal",
+   11
+  ],
+  [
+   "kanca-kanca",
+   11
+  ],
+  [
+   "kira-kira",
+   11
+  ],
+  [
+   "anèh-anèh",
+   11
+  ],
+  [
+   "cah-cah",
+   11
+  ],
+  [
+   "tangga-tangga",
+   10
+  ],
+  [
+   "tempat-tempat",
+   9
+  ],
+  [
+   "umbah-umbah",
+   9
+  ]
+ ],
+ "hyphen_not_reduplication": [
+  [
+   "sehari-hari",
+   34
+  ],
+  [
+   "nge-gym",
+   20
+  ],
+  [
+   "nge-game",
+   19
+  ],
+  [
+   "kanca-kancaku",
+   15
+  ],
+  [
+   "wong-wonge",
+   12
+  ],
+  [
+   "woh-wohan",
+   11
+  ],
+  [
+   "akèh-akèhe",
+   10
+  ],
+  [
+   "gotong-royong",
+   7
+  ],
+  [
+   "hari-H",
+   6
+  ],
+  [
+   "nge-judge",
+   5
+  ],
+  [
+   "buah-buahan",
+   5
+  ],
+  [
+   "kanca-kancane",
+   5
+  ],
+  [
+   "jedag-jedug",
+   5
+  ],
+  [
+   "S-1",
+   5
+  ],
+  [
+   "wit-witan",
+   4
+  ],
+  [
+   "skill-ku",
+   4
+  ],
+  [
+   "dempèt-dempètan",
+   4
+  ],
+  [
+   "camping-e",
+   4
+  ],
+  [
+   "omong-omongan",
+   3
+  ],
+  [
+   "tangga-tanggane",
+   3
+  ],
+  [
+   "nom-noman",
+   3
+  ],
+  [
+   "semena-mena",
+   3
+  ],
+  [
+   "těrus-těrusan",
+   3
+  ],
+  [
+   "HP-ne",
+   3
+  ],
+  [
+   "guru-gurune",
+   3
+  ],
+  [
+   "bal-balan",
+   2
+  ],
+  [
+   "sehari-harine",
+   2
+  ],
+  [
+   "dulur-dulure",
+   2
+  ],
+  [
+   "liyan-liyane",
+   2
+  ],
+  [
+   "value-ne",
+   2
+  ]
+ ],
+ "vocab_types_official": 7555,
+ "vocab_types_folded": 7335,
+ "types_recovered_by_folding": 220,
+ "n_ambiguous_forms": 209,
+ "ambiguous_token_mass": 7087,
+ "ambiguous_token_mass_pct": 10.8,
+ "ambiguous_forms_full": {
+  "lek": {
+   "lèk": 813,
+   "lek": 2
+  },
+  "ndek": {
+   "ndèk": 781,
+   "ndek": 2
+  },
+  "terus": {
+   "těrus": 758,
+   "têrus": 4
+  },
+  "nek": {
+   "nèk": 484,
+   "nêk": 2,
+   "nek": 1
+  },
+  "neng": {
+   "nèng": 452,
+   "nêng": 6,
+   "neng": 3
+  },
+  "jenenge": {
+   "jênênge": 250,
+   "jènènge": 1
+  },
+  "banget": {
+   "bangêt": 208,
+   "banget": 1
+  },
+  "teka": {
+   "têka": 207,
+   "teka": 2
+  },
+  "mbek": {
+   "mbêk": 96,
+   "mbèk": 74,
+   "mbek": 7
+  },
+  "enek": {
+   "ènèk": 140,
+   "enèk": 9
+  },
+  "sampek": {
+   "sampèk": 142,
+   "sampek": 1
+  },
+  "penting": {
+   "pênting": 117,
+   "penting": 11
+  },
+  "kerja": {
+   "kêrja": 121,
+   "kerja": 1
+  },
+  "ben": {
+   "ben": 77,
+   "bên": 36,
+   "bèn": 7,
+   "běn": 1
+  },
+  "seneng": {
+   "sênêng": 112,
+   "sênèng": 1
+  },
+  "sering": {
+   "sêring": 78,
+   "sering": 5
+  },
+  "mek": {
+   "mèk": 55,
+   "mek": 23,
+   "mêk": 1
+  },
+  "sekolah": {
+   "sêkolah": 75,
+   "sekolah": 1
+  },
+  "wektu": {
+   "wêktu": 67,
+   "wektu": 2
+  },
+  "ndelok": {
+   "ndêlok": 65,
+   "ndelok": 1
+  },
+  "ke": {
+   "ke": 58,
+   "kê": 2
+  },
+  "engko": {
+   "êngko": 40,
+   "engko": 8,
+   "èngko": 2
+  },
+  "enggak": {
+   "ênggak": 40,
+   "ènggak": 9,
+   "enggak": 1
+  },
+  "sekitar": {
+   "sekitar": 47,
+   "sêkitar": 1
+  },
+  "tetep": {
+   "têtêp": 45,
+   "tetep": 2
+  },
+  "ambek": {
+   "ambèk": 32,
+   "ambêk": 14
+  },
+  "pernah": {
+   "pêrnah": 37,
+   "pernah": 6
+  },
+  "pendhidhikan": {
+   "pendhidhikan": 36,
+   "pêndhidhikan": 2
+  },
+  "angel": {
+   "angèl": 36,
+   "angel": 1
+  },
+  "oleh": {
+   "olèh": 35,
+   "oleh": 2
+  },
+  "ketemu": {
+   "kêtêmu": 34,
+   "ketemu": 2
+  },
+  "kembang": {
+   "kêmbang": 34,
+   "kembang": 1
+  },
+  "perkara": {
+   "perkara": 34,
+   "pêrkara": 1
+  },
+  "sepuluh": {
+   "sepuluh": 20,
+   "sêpuluh": 12
+  },
+  "setengah": {
+   "setengah": 20,
+   "sêtêngah": 11
+  },
+  "ngerasa": {
+   "ngerasa": 22,
+   "ngêrasa": 9
+  },
+  "beda-beda": {
+   "beda-beda": 25,
+   "bêda-bêda": 1
+  },
+  "jareku": {
+   "jarèku": 20,
+   "jareku": 5
+  },
+  "negara": {
+   "negara": 23,
+   "nêgara": 2
+  },
+  "nemen": {
+   "nêmên": 24,
+   "něměn": 1
+  },
+  "pekerjaan": {
+   "pekêrjaan": 23,
+   "pekerjaan": 1
+  },
+  "pengalaman": {
+   "pêngalaman": 20,
+   "pengalaman": 3
+  },
+  "adhem": {
+   "adhêm": 20,
+   "adhem": 3
+  },
+  "gedhe": {
+   "gedhe": 13,
+   "gêdhe": 10
+  },
+  "mben": {
+   "mbên": 19,
+   "mben": 2,
+   "mbèn": 1
+  },
+  "meh": {
+   "mèh": 19,
+   "meh": 3
+  },
+  "seh": {
+   "seh": 21,
+   "sèh": 1
+  },
+  "tuwek": {
+   "tuwêk": 15,
+   "tuwèk": 6
+  },
+  "sebenere": {
+   "sêbênêre": 11,
+   "sebênêre": 9
+  },
+  "panen": {
+   "panèn": 18,
+   "panen": 1
+  },
+  "metu": {
+   "metu": 14,
+   "mêtu": 4
+  },
+  "golek": {
+   "golèk": 16,
+   "golek": 1
+  },
+  "kegiatane": {
+   "kegiatane": 15,
+   "kêgiatane": 2
+  },
+  "panggen": {
+   "panggèn": 9,
+   "panggen": 7,
+   "panggên": 1
+  },
+  "sedina": {
+   "sêdina": 10,
+   "sedina": 6
+  },
+  "arepe": {
+   "arêpe": 15,
+   "arepe": 1
+  },
+  "bosen": {
+   "bosen": 12,
+   "bosên": 3
+  },
+  "tengah": {
+   "tengah": 11,
+   "têngah": 4
+  },
+  "menengah": {
+   "mênêngah": 12,
+   "mènèngah": 2
+  },
+  "sempet": {
+   "sêmpêt": 11,
+   "sempet": 3
+  },
+  "macem-macem": {
+   "macêm-macêm": 12,
+   "macem-macem": 2
+  },
+  "kebetulan": {
+   "kebetulan": 12,
+   "kêbêtulan": 1
+  },
+  "sembarangan": {
+   "sêmbarangan": 11,
+   "sembarangan": 1
+  },
+  "temenan": {
+   "têmênan": 10,
+   "temenan": 2
+  },
+  "kenek": {
+   "kènèk": 7,
+   "kênèk": 3
+  },
+  "neh": {
+   "nèh": 5,
+   "neh": 5
+  },
+  "penggaweane": {
+   "penggaweane": 9,
+   "pênggaweane": 1
+  },
+  "sekitare": {
+   "sekitare": 8,
+   "sêkitare": 1
+  },
+  "ngelesi": {
+   "ngêlèsi": 5,
+   "ngêlesi": 4
+  },
+  "seminggu": {
+   "seminggu": 7,
+   "sêminggu": 2
+  },
+  "semisal": {
+   "semisal": 6,
+   "sêmisal": 3
+  },
+  "ke'i": {
+   "kè'i": 6,
+   "ke'i": 2
+  },
+  "ketok": {
+   "kètok": 5,
+   "ketok": 3
+  },
+  "arep": {
+   "arêp": 7,
+   "arep": 1
+  },
+  "ngerjakne": {
+   "ngerjakne": 7,
+   "ngêrjakne": 1
+  },
+  "tuwekku": {
+   "tuwêkku": 4,
+   "tuwèkku": 4
+  },
+  "mandheg": {
+   "mandhêg": 6,
+   "mandheg": 2
+  },
+  "bareng-bareng": {
+   "barêng-barêng": 7,
+   "bareng-barêng": 1
+  },
+  "nyampek": {
+   "nyampèk": 6,
+   "nyampek": 2
+  },
+  "setaun": {
+   "setaun": 7,
+   "sêtaun": 1
+  },
+  "pinter-pinter": {
+   "pintêr-pintêr": 6,
+   "pinter-pinter": 2
+  },
+  "ngedol": {
+   "ngedol": 7,
+   "ngêdol": 1
+  },
+  "mendaki": {
+   "mendaki": 6,
+   "mêndaki": 2
+  },
+  "seharuse": {
+   "seharuse": 6,
+   "sêharuse": 1
+  },
+  "tenan": {
+   "tênan": 4,
+   "tenan": 3
+  },
+  "ngewangi": {
+   "ngewangi": 6,
+   "ngêwangi": 1
+  },
+  "ncen": {
+   "ncèn": 6,
+   "ncen": 1
+  },
+  "kenalan": {
+   "kenalan": 6,
+   "kênalan": 1
+  },
+  "cedhek-cedhek": {
+   "cêdhêk-cêdhêk": 6,
+   "cedhek-cêdhêk": 1
+  },
+  "elek": {
+   "elèk": 4,
+   "èlèk": 2
+  },
+  "sumpek": {
+   "sumpêk": 5,
+   "sumpek": 1
+  },
+  "nge'i": {
+   "nge'i": 5,
+   "ngè'i": 1
+  },
+  "resik": {
+   "rêsik": 5,
+   "resik": 1
+  },
+  "pantes": {
+   "pantes": 4,
+   "pantês": 2
+  },
+  "ngeke'i": {
+   "ngekè'i": 5,
+   "ngêkè'i": 1
+  },
+  "nggen": {
+   "nggèn": 5,
+   "nggen": 1
+  },
+  "penak": {
+   "penak": 4,
+   "pènak": 2
+  },
+  "duren": {
+   "duren": 3,
+   "durèn": 2
+  },
+  "cedhak": {
+   "cêdhak": 4,
+   "cèdhak": 1
+  },
+  "tuwek-tuwek": {
+   "tuwêk-tuwêk": 4,
+   "tuwèk-tuwèk": 1
+  },
+  "pengaruh": {
+   "pengaruh": 4,
+   "pěngaruh": 1
+  },
+  "delok": {
+   "delok": 3,
+   "dêlok": 2
+  },
+  "tuweke": {
+   "tuwêke": 4,
+   "tuwèke": 1
+  },
+  "belakange": {
+   "belakange": 4,
+   "bêlakange": 1
+  },
+  "apel": {
+   "apèl": 3,
+   "apel": 2
+  },
+  "seger": {
+   "seger": 3,
+   "sêgêr": 2
+  },
+  "tek": {
+   "tek": 4,
+   "tèk": 1
+  },
+  "nguwehi": {
+   "nguwèhi": 4,
+   "nguwehi": 1
+  },
+  "nengeri": {
+   "nêngêri": 2,
+   "nêngeri": 2,
+   "nêngèri": 1
+  },
+  "ngadhepi": {
+   "ngadhepi": 3,
+   "ngadhêpi": 2
+  },
+  "utek": {
+   "utêk": 3,
+   "utek": 1
+  },
+  "cedheke": {
+   "cêdhêke": 3,
+   "cedhêke": 1
+  },
+  "macem": {
+   "macêm": 3,
+   "macem": 1
+  },
+  "cedhek": {
+   "cêdhêk": 3,
+   "cêdhek": 1
+  },
+  "seumpama": {
+   "seumpama": 2,
+   "sêumpama": 2
+  },
+  "sek": {
+   "sek": 3,
+   "sèk": 1
+  },
+  "ngeterna": {
+   "ngêterna": 3,
+   "ngêtêrna": 1
+  },
+  "sewelas": {
+   "sêwêlas": 3,
+   "sewelas": 1
+  },
+  "ketinggalan": {
+   "ketinggalan": 3,
+   "kêtinggalan": 1
+  },
+  "kerjaanku": {
+   "kêrjaanku": 3,
+   "kerjaanku": 1
+  },
+  "meksa": {
+   "meksa": 3,
+   "mêksa": 1
+  },
+  "anggrek": {
+   "anggrek": 3,
+   "anggrèk": 1
+  },
+  "sewu": {
+   "sèwu": 2,
+   "sewu": 2
+  },
+  "dike": {
+   "dikè": 3,
+   "dike": 1
+  },
+  "pancet": {
+   "pancêt": 3,
+   "pancet": 1
+  },
+  "tengah-tengah": {
+   "tengah-tengah": 3,
+   "têngah-têngah": 1
+  },
+  "muter": {
+   "muter": 3,
+   "mutêr": 1
+  },
+  "dek": {
+   "dek": 3,
+   "dèk": 1
+  },
+  "mbecek": {
+   "mbècèk": 3,
+   "mbecek": 1
+  },
+  "ngembang": {
+   "ngêmbang": 3,
+   "ngembang": 1
+  },
+  "nyenengke": {
+   "nyenèngke": 3,
+   "nyênèngke": 1
+  },
+  "didekek": {
+   "didèkèk": 3,
+   "didekèk": 1
+  },
+  "wegah": {
+   "wêgah": 2,
+   "wegah": 2
+  },
+  "meler": {
+   "meler": 3,
+   "mêlêr": 1
+  },
+  "tanem": {
+   "tanêm": 2,
+   "tanem": 1
+  },
+  "kepira": {
+   "kepira": 2,
+   "kêpira": 1
+  },
+  "anggep": {
+   "anggêp": 2,
+   "anggep": 1
+  },
+  "didelok": {
+   "didêlok": 2,
+   "didelok": 1
+  },
+  "anget-anget": {
+   "anget-anget": 2,
+   "angêt-angêt": 1
+  },
+  "ketambahan": {
+   "ketambahan": 2,
+   "kêtambahan": 1
+  },
+  "seringe": {
+   "seringe": 2,
+   "sêringe": 1
+  },
+  "mes": {
+   "mes": 2,
+   "mês": 1
+  },
+  "seumpamane": {
+   "seumpamane": 2,
+   "sêumpamane": 1
+  },
+  "embuh": {
+   "embuh": 2,
+   "èmbuh": 1
+  },
+  "sempat": {
+   "sempat": 2,
+   "sêmpat": 1
+  },
+  "puter": {
+   "puter": 2,
+   "putêr": 1
+  },
+  "ngerungokna": {
+   "ngerungokna": 2,
+   "ngêrungokna": 1
+  },
+  "pengertian": {
+   "pengêrtian": 2,
+   "pengertian": 1
+  },
+  "sebut": {
+   "sebut": 2,
+   "sêbut": 1
+  },
+  "kendharaan": {
+   "kendharaan": 2,
+   "kêndharaan": 1
+  },
+  "mrene": {
+   "mrene": 2,
+   "mrênê": 1
+  },
+  "medeni": {
+   "mêdèni": 2,
+   "medeni": 1
+  },
+  "nggenku": {
+   "nggènku": 2,
+   "nggenku": 1
+  },
+  "semacem": {
+   "sêmacêm": 2,
+   "semacêm": 1
+  },
+  "negur": {
+   "negur": 2,
+   "nêgur": 1
+  },
+  "kepengin": {
+   "kêpengin": 2,
+   "kepengin": 1
+  },
+  "dientuk": {
+   "diêntuk": 2,
+   "dientuk": 1
+  },
+  "rempah-rempah": {
+   "rempah-rempah": 2,
+   "rêmpah-rêmpah": 1
+  },
+  "mesakne": {
+   "mesakne": 2,
+   "mêsakne": 1
+  },
+  "bekal": {
+   "bekal": 2,
+   "bêkal": 1
+  },
+  "temen": {
+   "temen": 2,
+   "têmên": 1
+  },
+  "diserbukna": {
+   "disêrbukna": 2,
+   "diserbukna": 1
+  },
+  "menawa": {
+   "menawa": 2,
+   "mênawa": 1
+  },
+  "refleksi": {
+   "reflèksi": 2,
+   "refleksi": 1
+  },
+  "dipateni": {
+   "dipateni": 2,
+   "dipatèni": 1
+  },
+  "kepentingan": {
+   "kepêntingan": 2,
+   "kepentingan": 1
+  },
+  "menyang": {
+   "menyang": 2,
+   "mênyang": 1
+  },
+  "gelut": {
+   "gelut": 2,
+   "gêlut": 1
+  },
+  "manen": {
+   "manèn": 2,
+   "manen": 1
+  },
+  "ketelu": {
+   "kêtêlu": 1,
+   "ketêlu": 1
+  },
+  "taneman": {
+   "tanêman": 1,
+   "taneman": 1
+  },
+  "nentu": {
+   "nêntu": 1,
+   "nentu": 1
+  },
+  "nyepak": {
+   "nyepak": 1,
+   "nyêpak": 1
+  },
+  "sepaneng": {
+   "sepanèng": 1,
+   "sěpaněng": 1
+  },
+  "ngerungokne": {
+   "ngêrungokne": 1,
+   "ngerungokne": 1
+  },
+  "pateng": {
+   "patêng": 1,
+   "pateng": 1
+  },
+  "kerep": {
+   "kêrêp": 1,
+   "kerep": 1
+  },
+  "nduweni": {
+   "nduweni": 1,
+   "nduwèni": 1
+  },
+  "sewajare": {
+   "sêwajare": 1,
+   "sewajare": 1
+  },
+  "ngapunten": {
+   "ngapunten": 1,
+   "ngapuntên": 1
+  },
+  "teng": {
+   "teng": 1,
+   "têng": 1
+  },
+  "becik": {
+   "becik": 1,
+   "bêcik": 1
+  },
+  "ketoke": {
+   "kètoke": 1,
+   "ketoke": 1
+  },
+  "dibenahi": {
+   "dibenahi": 1,
+   "dibênahi": 1
+  },
+  "mek'an": {
+   "mèk'an": 1,
+   "mek'an": 1
+  },
+  "ngelanggar": {
+   "ngelanggar": 1,
+   "ngêlanggar": 1
+  },
+  "keperluane": {
+   "keperluane": 1,
+   "kêpêrluane": 1
+  },
+  "ngekekna": {
+   "ngekèkna": 1,
+   "ngêkèkna": 1
+  },
+  "ngaret": {
+   "ngaret": 1,
+   "ngarèt": 1
+  },
+  "entheng": {
+   "entheng": 1,
+   "ènthèng": 1
+  },
+  "iseng-iseng": {
+   "iseng-iseng": 1,
+   "isêng-isêng": 1
+  },
+  "nyemprot": {
+   "nyemprot": 1,
+   "nyêmprot": 1
+  },
+  "ngetes": {
+   "ngetes": 1,
+   "ngêtes": 1
+  },
+  "mengisor": {
+   "mêngisor": 1,
+   "mengisor": 1
+  },
+  "suket": {
+   "suket": 1,
+   "sukêt": 1
+  },
+  "sreg": {
+   "srêg": 1,
+   "sreg": 1
+  },
+  "menentukan": {
+   "mênêntukan": 1,
+   "menêntukan": 1
+  },
+  "ngopeni": {
+   "ngopèni": 1,
+   "ngopeni": 1
+  },
+  "penggaweanku": {
+   "pênggaweanku": 1,
+   "penggaweanku": 1
+  },
+  "nge-chat": {
+   "nge-chat": 1,
+   "ngê-chat": 1
+  },
+  "nyimpen": {
+   "nyimpen": 1,
+   "nyimpên": 1
+  },
+  "dalem": {
+   "dalêm": 1,
+   "dalem": 1
+  },
+  "digebuki": {
+   "digêbuki": 1,
+   "digebuki": 1
+  },
+  "okeh": {
+   "okèh": 1,
+   "okeh": 1
+  },
+  "angger": {
+   "anggèr": 1,
+   "anggêr": 1
+  },
+  "panggene": {
+   "panggene": 1,
+   "panggène": 1
+  },
+  "terno": {
+   "terno": 1,
+   "têrno": 1
+  },
+  "pener": {
+   "pênêr": 1,
+   "pener": 1
+  },
+  "dores": {
+   "dorês": 1,
+   "dores": 1
+  }
+ },
+ "non_idempotent_rows": 0,
+ "non_idempotent_examples": []
+}

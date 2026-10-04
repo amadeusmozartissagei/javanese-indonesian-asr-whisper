@@ -1,0 +1,575 @@
+{
+ "_meta": {
+  "artifacts": [
+   "baseline_zeroshot.json",
+   "checkpoint_manifest.json",
+   "error_table_dev.csv",
+   "error_table_official_dev.csv",
+   "eval_final.json",
+   "keep_rules.json",
+   "official_curve.csv",
+   "predictions_dev.csv",
+   "predictions_official_dev.csv",
+   "results.csv",
+   "run-log.txt",
+   "train_log.csv"
+  ],
+  "complete": false,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [
+   "gate2"
+  ],
+  "notebook": "mozilla-javanese whisper fine-tune (core)",
+  "notebook_id": "06-data-mixing",
+  "run_id": "06-data-mixing-E5-A",
+  "run_mode": "train"
+ },
+ "audio": {
+  "n_files_loaded": 61,
+  "preloaded": true,
+  "ram_gb": 0.959
+ },
+ "baseline": {
+  "decode_paths": {
+   "chunk": 44,
+   "chunk_windows": 88,
+   "short": 328
+  },
+  "gen_max_length": 225,
+  "jember": {
+   "folded_cosmetic_sub_pct": 2.53,
+   "folded_del_rate": 0.212,
+   "folded_ins_rate": 0.0481,
+   "folded_jv_to_id_sub_pct": 25.23,
+   "folded_len_ratio": 0.8361,
+   "folded_n_jv_sub": 2239,
+   "folded_n_jv_to_id": 565,
+   "folded_n_ref_tokens": 10391,
+   "folded_n_utts": 1097,
+   "folded_pct_hyp_with_digit": 2.19,
+   "folded_sub_rate": 0.4898,
+   "folded_wer": 0.7499,
+   "folded_wer_both": 0.4724,
+   "folded_wer_id": 0.6368,
+   "folded_wer_jv": 0.7882,
+   "folded_wer_unk": 0.8729,
+   "official_cosmetic_sub_pct": 6.25,
+   "official_del_rate": 0.2108,
+   "official_ins_rate": 0.0469,
+   "official_jv_to_id_sub_pct": 23.29,
+   "official_len_ratio": 0.8361,
+   "official_n_jv_sub": 2426,
+   "official_n_jv_to_id": 565,
+   "official_n_ref_tokens": 10391,
+   "official_n_utts": 1097,
+   "official_pct_hyp_with_digit": 2.19,
+   "official_sub_rate": 0.5237,
+   "official_wer": 0.7813,
+   "official_wer_both": 0.5066,
+   "official_wer_id": 0.6412,
+   "official_wer_jv": 0.8397,
+   "official_wer_unk": 0.8897
+  },
+  "lang": "jw",
+  "long_chunk_s": 28.0,
+  "long_mode": "chunk",
+  "long_overlap_s": 2.0,
+  "model": "openai/whisper-large-v3-turbo",
+  "n_dev": 1097,
+  "n_official": 372,
+  "no_repeat_ngram": 4,
+  "official": {
+   "folded_cosmetic_sub_pct": 10.99,
+   "folded_del_rate": 0.0607,
+   "folded_ins_rate": 0.0207,
+   "folded_jv_to_id_sub_pct": 33.06,
+   "folded_len_ratio": 0.9599,
+   "folded_n_jv_sub": 980,
+   "folded_n_jv_to_id": 324,
+   "folded_n_ref_tokens": 17473,
+   "folded_n_utts": 372,
+   "folded_pct_hyp_with_digit": 16.4,
+   "folded_sub_rate": 0.188,
+   "folded_wer": 0.2694,
+   "folded_wer_both": 0.1609,
+   "folded_wer_id": 0.1836,
+   "folded_wer_jv": 0.4366,
+   "folded_wer_unk": 0.4249,
+   "official_cosmetic_sub_pct": 11.04,
+   "official_del_rate": 0.0607,
+   "official_ins_rate": 0.0207,
+   "official_jv_to_id_sub_pct": 33.03,
+   "official_len_ratio": 0.9599,
+   "official_n_jv_sub": 981,
+   "official_n_jv_to_id": 324,
+   "official_n_ref_tokens": 17473,
+   "official_n_utts": 372,
+   "official_pct_hyp_with_digit": 16.4,
+   "official_sub_rate": 0.1881,
+   "official_wer": 0.2695,
+   "official_wer_both": 0.1609,
+   "official_wer_id": 0.1836,
+   "official_wer_jv": 0.437,
+   "official_wer_unk": 0.4253
+  },
+  "run_mode": "train"
+ },
+ "checkpoint": {
+  "base_model": "openai/whisper-large-v3-turbo",
+  "best_eval_wer": 0.2604,
+  "best_local_checkpoint": "/kaggle/temp/ckpt/06-data-mixing-E5-A/run/checkpoint-50",
+  "decode": {
+   "max_length": 225,
+   "no_repeat_ngram_size": 4,
+   "num_beams": 1
+  },
+  "effective_batch": 16,
+  "global_step": 74,
+  "hf_branch": "main",
+  "hf_repo": null,
+  "hf_revision": null,
+  "lang": "jw",
+  "learning_rate": 6e-06,
+  "n_files": 7,
+  "num_epochs": 1,
+  "optimizer": "adafactor",
+  "private": true,
+  "run_id": "06-data-mixing-E5-A",
+  "run_mode": "train",
+  "segment_mode": "concat25",
+  "size_bytes": 3239526334,
+  "size_gb": 3.24,
+  "state_branch": "training-state",
+  "variant": "full"
+ },
+ "composition": {
+  "curriculum": true,
+  "jember_hours": 0.0,
+  "mix_hours": 6.52751,
+  "n_jember_items": 1455,
+  "n_mix_items": 1184,
+  "n_train_items": 1184,
+  "upsample": 1
+ },
+ "data": {
+  "dev_hours": 1.627,
+  "n_dev_segments": 1097,
+  "n_dev_subset": 299,
+  "n_lexicon_entries": 23805,
+  "n_official_dev": 372,
+  "n_train_segments": 5541,
+  "official_dev_available": true,
+  "train_hours": 8.363
+ },
+ "env": {
+  "audio_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build",
+  "device": "cuda",
+  "experiment": "E5",
+  "hf_model": "openai/whisper-large-v3-turbo",
+  "is_baseline": false,
+  "lang": "jw",
+  "meta_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta",
+  "mix_root": "/kaggle/input/datasets/hamzapratama/jv-mix-16k/findings/06-mix-build",
+  "n_gpu": 1,
+  "nb04_baseline": "/kaggle/input/datasets/hamzapratama/nb04-baseline/upload-nb04-baseline",
+  "notebook": "06-data-mixing",
+  "numpy": "2.0.2",
+  "odev_meta": "/kaggle/input/datasets/hamzapratama/indonesian-dev/indonesian_dev/metadata.tsv",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "resume_from_hf": false,
+  "run_id": "06-data-mixing-E5-A",
+  "run_mode": "train",
+  "seed": 20260829,
+  "segment_mode": "concat25",
+  "select_on": "official",
+  "torch": "2.10.0+cu128",
+  "train_variant": "full",
+  "transformers": "5.0.0",
+  "use_both_gpus": false
+ },
+ "eval_final": {
+  "decode_paths": {
+   "chunk": 44,
+   "chunk_windows": 88,
+   "short": 328
+  },
+  "jember": {
+   "folded_cosmetic_sub_pct": 0.9,
+   "folded_del_rate": 0.2198,
+   "folded_ins_rate": 0.045,
+   "folded_jv_to_id_sub_pct": 28.15,
+   "folded_len_ratio": 0.8252,
+   "folded_n_jv_sub": 2412,
+   "folded_n_jv_to_id": 679,
+   "folded_n_ref_tokens": 10391,
+   "folded_n_utts": 1097,
+   "folded_pct_hyp_with_digit": 1.46,
+   "folded_sub_rate": 0.5048,
+   "folded_wer": 0.7696,
+   "folded_wer_both": 0.4773,
+   "folded_wer_id": 0.6221,
+   "folded_wer_jv": 0.8442,
+   "folded_wer_unk": 0.8836,
+   "official_cosmetic_sub_pct": 3.74,
+   "official_del_rate": 0.2195,
+   "official_ins_rate": 0.0448,
+   "official_jv_to_id_sub_pct": 27.1,
+   "official_len_ratio": 0.8252,
+   "official_n_jv_sub": 2524,
+   "official_n_jv_to_id": 684,
+   "official_n_ref_tokens": 10391,
+   "official_n_utts": 1097,
+   "official_pct_hyp_with_digit": 1.46,
+   "official_sub_rate": 0.5276,
+   "official_wer": 0.7918,
+   "official_wer_both": 0.5058,
+   "official_wer_id": 0.6247,
+   "official_wer_jv": 0.8779,
+   "official_wer_unk": 0.8925
+  },
+  "official": {
+   "folded_cosmetic_sub_pct": 5.13,
+   "folded_del_rate": 0.0561,
+   "folded_ins_rate": 0.0201,
+   "folded_jv_to_id_sub_pct": 35.45,
+   "folded_len_ratio": 0.9639,
+   "folded_n_jv_sub": 1055,
+   "folded_n_jv_to_id": 374,
+   "folded_n_ref_tokens": 17473,
+   "folded_n_utts": 372,
+   "folded_pct_hyp_with_digit": 4.57,
+   "folded_sub_rate": 0.1829,
+   "folded_wer": 0.2591,
+   "folded_wer_both": 0.1397,
+   "folded_wer_id": 0.1559,
+   "folded_wer_jv": 0.4638,
+   "folded_wer_unk": 0.4445,
+   "official_cosmetic_sub_pct": 5.13,
+   "official_del_rate": 0.0561,
+   "official_ins_rate": 0.0201,
+   "official_jv_to_id_sub_pct": 35.45,
+   "official_len_ratio": 0.9639,
+   "official_n_jv_sub": 1055,
+   "official_n_jv_to_id": 374,
+   "official_n_ref_tokens": 17473,
+   "official_n_utts": 372,
+   "official_pct_hyp_with_digit": 4.57,
+   "official_sub_rate": 0.1829,
+   "official_wer": 0.2591,
+   "official_wer_both": 0.1397,
+   "official_wer_id": 0.1559,
+   "official_wer_jv": 0.4638,
+   "official_wer_unk": 0.4445
+  },
+  "per_recording_wer_std": 0.1159
+ },
+ "fingerprints": {
+  "baseline_zeroshot.json": "171112e303a1bc72",
+  "checkpoint_manifest.json": "509fbd3340cd4504",
+  "error_table_dev.csv": "838954eb0ce20477",
+  "error_table_official_dev.csv": "673326328989e6c2",
+  "eval_final.json": "31cb3987b4c15bd2",
+  "keep_rules.json": "bfd6b3496cb5fcc5",
+  "official_curve.csv": "0ea91af3eaca36c8",
+  "predictions_dev.csv": "f8ea840d5797e6d7",
+  "predictions_official_dev.csv": "fb789ad4aa3ef0f3",
+  "results.csv": "4573ce24f9abfd21",
+  "train_log.csv": "205d3afa74a42857"
+ },
+ "hub": {
+  "enabled": false,
+  "push_every_n_saves": 3,
+  "repo": null,
+  "state_branch": "training-state",
+  "user": null
+ },
+ "items": {
+  "max_dur_s": 24.996,
+  "mean_dur_s": 19.847,
+  "median_dur_s": 22.176,
+  "n_cap_breaks": 1267,
+  "n_dev_items": 1097,
+  "n_dev_subset_items": 299,
+  "n_gap_breaks": 0,
+  "n_over_29s": 0,
+  "n_train_items": 1184,
+  "segment_mode": "concat25",
+  "total_hours": 6.528
+ },
+ "keep_rules": {
+  "comparator": "04-whisper-core-full-concat25-1epoch",
+  "experiment": "E5",
+  "n_passed": 0,
+  "n_total": 3,
+  "paired": {
+   "vs_nb04": {
+    "delta": 0.0059,
+    "delta_hi": 0.019,
+    "delta_lo": -0.0058,
+    "label": "official/vs-nb04",
+    "p_better": 0.185,
+    "proven": false,
+    "wer_a": 0.2532,
+    "wer_b": 0.2591
+   },
+   "vs_zeroshot": {
+    "delta": -0.0104,
+    "delta_hi": 0.0018,
+    "delta_lo": -0.0231,
+    "label": "official/zero-shot",
+    "p_better": 0.952,
+    "proven": false,
+    "wer_a": 0.2695,
+    "wer_b": 0.2591
+   }
+  },
+  "rules": [
+   {
+    "detail": "0.2532 -> 0.2591, CI [-0.0058, +0.0190]",
+    "passed": false,
+    "rule": "1. wer_total falls beyond the CI"
+   },
+   {
+    "detail": "0.2513 -> 0.4638",
+    "passed": false,
+    "rule": "2. wer_jv does not get worse"
+   },
+   {
+    "detail": "0.5265% -> 2.1404%  (92 -> 374 of 17473 tokens, noise band +-9.6)",
+    "passed": false,
+    "rule": "3. jv_to_id does not rise (per reference token)"
+   }
+  ],
+  "run_id": "06-data-mixing-E5-A",
+  "run_mode": "train",
+  "selected_on": "official",
+  "selection_failed": false,
+  "verdict": "drop"
+ },
+ "mixture": {
+  "comparator_clips": 372,
+  "concentration": {
+   "n_groups": 283,
+   "top_group_share": 0.036409
+  },
+  "curriculum": true,
+  "experiment": "E5",
+  "mix_hours": 6.52751,
+  "n_mix_items": 1184,
+  "spec": "Curriculum: pre-fine-tune on the addition, then Jember alone.",
+  "upsample": 1
+ },
+ "model_setup": {
+  "decoder_start_token_id": 50258,
+  "label_prefix": [
+   "<|startoftranscript|>",
+   "<|jw|>",
+   "<|transcribe|>",
+   "<|notimestamps|>"
+  ],
+  "max_label_len": 448,
+  "n_mels": 128
+ },
+ "nb03_historical": {
+  "jv_to_id_sub_pct": 30.15,
+  "lang": "id_or_jw_tie",
+  "model": "whisper-large-v3-turbo",
+  "wer_folded_unguarded": 0.8719,
+  "wer_official_unguarded": 0.896
+ },
+ "official_curve": {
+  "best_step": 50,
+  "first_wer": 0.2759,
+  "last_wer": 0.2604,
+  "n_clips": 150,
+  "rows": [
+   {
+    "epoch": 0.338,
+    "official_jv_to_id": 33.69,
+    "official_len_ratio": 0.9646,
+    "official_wer": 0.2759,
+    "official_wer_id": 0.1735,
+    "official_wer_jv": 0.4834,
+    "seconds": 0.0,
+    "step": 25
+   },
+   {
+    "epoch": 0.676,
+    "official_jv_to_id": 33.97,
+    "official_len_ratio": 0.9678,
+    "official_wer": 0.2604,
+    "official_wer_id": 0.1541,
+    "official_wer_jv": 0.4572,
+    "seconds": 0.0,
+    "step": 50
+   }
+  ]
+ },
+ "optim": {
+  "requested": "auto",
+  "used": "adafactor"
+ },
+ "projection": {
+  "comparator_and_final_eval_hours": 0.762,
+  "eval_hours": 0.218,
+  "n_evals": 2,
+  "n_steps": 74,
+  "peak_vram_gb": 7.03,
+  "sec_per_gen_clip": 0.8289,
+  "sec_per_microbatch": 2.361,
+  "total_hours": 1.193,
+  "train_hours": 0.214
+ },
+ "recipe": {
+  "effective_batch": 16,
+  "eval_every": 25,
+  "eval_subset_n": 300,
+  "gen_max_length": 225,
+  "grad_accum": 4,
+  "grad_checkpoint": true,
+  "learning_rate": 6e-06,
+  "long_chunk_s": 28.0,
+  "long_mode": "chunk",
+  "long_overlap_s": 2.0,
+  "max_train_hours": 10.0,
+  "no_repeat_ngram": 4,
+  "num_epochs": 1,
+  "official_eval_during_training": true,
+  "official_eval_n": 150,
+  "optim_request": "auto",
+  "pct_window_used": 66.2,
+  "per_device_batch": 4,
+  "spec_augment": true,
+  "steps_per_epoch": 74,
+  "total_steps_est": 74,
+  "warmup_ratio": 0.1
+ },
+ "scorer": {
+  "n_checks": 30,
+  "self_test_passed": true,
+  "version": "1.0"
+ },
+ "training": {
+  "best_checkpoint": "/kaggle/temp/ckpt/06-data-mixing-E5-A/run/checkpoint-50",
+  "best_eval_wer": 0.2604,
+  "early_stopped": false,
+  "epochs_done": 1.0,
+  "global_step": 74,
+  "n_eval_points": 2,
+  "optimizer": "adafactor",
+  "wall_clock_hours": 0.486
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "training target is text_folded of exactly the segments it covers",
+    "detail": "0 items verified against the manifest window; first mismatch: cv_028ab76c21b9_i0000",
+    "passed": false
+   },
+   {
+    "check": "label prefix carried the <|jw|> token",
+    "detail": "['<|startoftranscript|>', '<|jw|>', '<|transcribe|>', '<|notimestamps|>']",
+    "passed": true
+   },
+   {
+    "check": "startoftranscript was trimmed from the labels",
+    "detail": "asserted in the collator on every batch",
+    "passed": true
+   },
+   {
+    "check": "the comparator was measured here, not taken from NB 03",
+    "detail": "zero-shot 0.7499 (folded) vs NB 03's unguarded 0.8719",
+    "passed": true
+   },
+   {
+    "check": "the official 372-clip layer was actually evaluated",
+    "detail": "372 clips",
+    "passed": true
+   },
+   {
+    "check": "clips over 30 s were chunked, not truncated",
+    "detail": "{'short': 328, 'chunk': 44, 'chunk_windows': 88}",
+    "passed": true
+   },
+   {
+    "check": "both Gate 2 passes used the same long-clip decode path",
+    "detail": "zero-shot {'chunk': 44, 'chunk_windows': 88} vs fine-tuned {'chunk': 44, 'chunk_windows': 88}",
+    "passed": true
+   },
+   {
+    "check": "no long-clip decode fell back mid-run",
+    "detail": "LONG_MODE=chunk, 0 fallbacks",
+    "passed": true
+   },
+   {
+    "check": "checkpoint selection used dev WER, not loss",
+    "detail": "official_wer",
+    "passed": false
+   },
+   {
+    "check": "more than one eval point exists (a curve, not a single dot)",
+    "detail": "2 eval points",
+    "passed": true
+   },
+   {
+    "check": "the official layer has a curve, not just an endpoint",
+    "detail": "2 official measurements during training",
+    "passed": true
+   },
+   {
+    "check": "Jember-selected checkpoint is also the official layer's best",
+    "detail": "Jember picked step 50, official best was step 50",
+    "passed": true
+   },
+   {
+    "check": "dev was native segments in every mode",
+    "detail": "segment_mode=concat25 affects training only",
+    "passed": true
+   },
+   {
+    "check": "train and dev recordings stayed disjoint",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "best checkpoint pushed to a private HF repo with a revision",
+    "detail": "None",
+    "passed": false
+   },
+   {
+    "check": "checkpoint selected on the official dev, not the Jember dev",
+    "detail": "select_on=official, metric failures=False",
+    "passed": true
+   },
+   {
+    "check": "the mixture this arm claims is the mixture it trained on",
+    "detail": "1184 manifest items, 1184 trained",
+    "passed": true
+   },
+   {
+    "check": "a comparator was available to decide the rules against",
+    "detail": "372 clips",
+    "passed": true
+   },
+   {
+    "check": "no model weights anywhere in the download path",
+    "detail": "0 weight files",
+    "passed": true
+   },
+   {
+    "check": "total download stays small (weights live on HF)",
+    "detail": "0.6 MB across 13 files in /kaggle/working",
+    "passed": true
+   },
+   {
+    "check": "not a sanity run",
+    "detail": "RUN_MODE=train",
+    "passed": true
+   }
+  ],
+  "n_passed": 18,
+  "n_total": 21,
+  "sanity_run": false
+ }
+}

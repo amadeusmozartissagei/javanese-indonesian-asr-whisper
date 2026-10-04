@@ -1,0 +1,71 @@
+{
+ "criteria": [
+  {
+   "criterion": "1. fine-tuned dev WER better than zero-shot (paired, proven)",
+   "detail": "official/official: 0.2695 -> 0.2532, CI [-0.0306, -0.0026]",
+   "passed": true
+  },
+  {
+   "criterion": "2. Javanese WER improves",
+   "detail": "wer_jv 0.4370 -> 0.2513",
+   "passed": true
+  },
+  {
+   "criterion": "3. jv_to_id no worse than zero-shot",
+   "detail": "33.03% -> 14.31%  (NB 03 historical 30.15%)",
+   "passed": true
+  },
+  {
+   "criterion": "4. checkpoint-resume proven (in-process AND cross-session)",
+   "detail": "{'cross_session_passed': True, 'cross_session_start_step': 60, 'in_process_passed': True, 'optimizer_state': True, 'pushed_revision': '3c8dcafb9e1f948ff197eece2d7c5ae29140a989', 'scheduler_state': Tru",
+   "passed": true
+  },
+  {
+   "criterion": "5. best checkpoint on private HF with a recorded revision",
+   "detail": "amozaurus/mozilla-jv-04-whisper-core-full-concat25-1epoch",
+   "passed": true
+  }
+ ],
+ "n_passed": 5,
+ "n_total": 5,
+ "paired": {
+  "jember_folded": {
+   "better": true,
+   "delta": -0.3445,
+   "delta_hi": -0.3299,
+   "delta_lo": -0.3594,
+   "label": "jember/folded",
+   "p_better": 1.0,
+   "proven": true,
+   "wer_ft": 0.4054,
+   "wer_zero": 0.7499
+  },
+  "jember_official": {
+   "better": true,
+   "delta": -0.2823,
+   "delta_hi": -0.2689,
+   "delta_lo": -0.2956,
+   "label": "jember/official",
+   "p_better": 1.0,
+   "proven": true,
+   "wer_ft": 0.4991,
+   "wer_zero": 0.7813
+  },
+  "official": {
+   "better": true,
+   "delta": -0.0163,
+   "delta_hi": -0.0026,
+   "delta_lo": -0.0306,
+   "label": "official/official",
+   "p_better": 0.99,
+   "proven": true,
+   "wer_ft": 0.2532,
+   "wer_zero": 0.2695
+  }
+ },
+ "primary_layer": "official/official",
+ "resume_proven": true,
+ "run_id": "04-whisper-core-full-concat25-1epoch",
+ "run_mode": "train",
+ "verdict": "passed"
+}

@@ -1,0 +1,2 @@
+experiment,run_id,verdict,n_rules_passed,wer_nb04,wer_this,delta,delta_lo,delta_hi,wer_jv,wer_id,jv_to_id,mix_hours,n_train_items
+E4,14-stage1-tts-E4-native-tts,keep,3,0.2532,0.2339,-0.0193,-0.0245,-0.0142,0.2065,0.1934,17.64,6.527508836805556,8093

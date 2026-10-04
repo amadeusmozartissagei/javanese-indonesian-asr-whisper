@@ -1,0 +1,25 @@
+old_path	new_path
+Feasibility Study - Mozilla Lost in Transcription.md	docs/feasibility-study.md
+Kaji Ulang Peraturan - 23 Agustus 2026.md	docs/rules-review-2026-08-23.md
+Rencana Eksekusi - Lost in Transcription.md	plan/execution-plan.md
+plan/Brief Notebook 02 - Data Build dan Eval Harness.md	plan/nb02-brief-data-build-eval-harness.md
+plan/Brief Notebook 03 - Zero-shot Baseline.md	plan/nb03-brief-zeroshot-baseline.md
+plan/Brief Notebook 04 - Finetune Whisper Core.md	plan/nb04-brief-finetune-whisper-core.md
+plan/Brief Notebook 05 - XLS-R CTC dan LM.md	plan/nb05-brief-xlsr-ctc-lm.md
+plan/Brief Notebook 06 - Data Mixing.md	plan/nb06-brief-data-mixing.md
+plan/Brief Notebook 07 - Error Analysis dan Robustness.md	plan/nb07-brief-error-analysis-robustness.md
+plan/Brief Notebook 08 - Packaging dan Submission.md	plan/nb08-brief-packaging-submission.md
+Analisa Dataset - Notebook 01.md	reports/nb01-dataset-analysis.md
+Hasil Notebook 02 - Data Build.md	reports/nb02-data-build-results.md
+Audit Silang - Scorer dan Asumsi Teks (26 Agustus 2026).md	reports/nb02-cross-audit-scorer-text-2026-08-26.md
+Analisa Dev Set Resmi - 28 Agustus 2026.md	reports/official-dev-set-analysis-2026-08-28.md
+Hasil Notebook 03 - Zero-shot Baseline.md	reports/nb03-zeroshot-baseline-results.md
+Hasil Notebook 04 - Whisper Core.md	reports/nb04-whisper-core-results.md
+Hasil Notebook 06 - Data Mixing.md	reports/nb06-data-mixing-results.md
+id-2297_E4-greedy_smoke.txt	submissions/logs/id-2297_E4-greedy_smoke.txt
+id-2507_E4-greedy_full.txt	submissions/logs/id-2507_E4-greedy_full.txt
+id-2515_B-e4beam5_smoke.txt	submissions/logs/id-2515_B-e4beam5_smoke.txt
+id-2529_A-nb04native_smoke.txt	submissions/logs/id-2529_A-nb04native_smoke.txt
+id-2536_A-nb04native_full.txt	submissions/logs/id-2536_A-nb04native_full.txt
+id-2537_B-e4beam5_full.txt	submissions/logs/id-2537_B-e4beam5_full.txt
+id-2691_D-e4native-beam5_smoke.txt	submissions/logs/id-2691_D-e4native-beam5_smoke.txt

@@ -1,0 +1,28 @@
+{
+ "collator": {
+  "feat_shape": [
+   4,
+   128,
+   3000
+  ],
+  "label_shape": [
+   4,
+   62
+  ],
+  "pct_masked": 29.84,
+  "prefix_trimmed": true
+ },
+ "passed": false,
+ "speed": {
+  "comparator_and_final_eval_hours": 0.745,
+  "eval_hours": 0.85,
+  "fits_budget": true,
+  "n_evals": 8,
+  "n_steps": 421,
+  "peak_vram_gb": 7.03,
+  "sec_per_gen_clip": 0.8099,
+  "sec_per_microbatch": 2.2703,
+  "total_hours": 2.763,
+  "train_hours": 1.168
+ }
+}

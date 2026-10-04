@@ -1,0 +1,264 @@
+==========================================================================
+RUN PHASE  : 2 PRODUCE     WRITE_AUDIO = True     DEBUG_N_CLIPS = None
+==========================================================================
+output dir : /kaggle/working/findings/06-mix-build
+console log: /kaggle/working/findings/06-mix-build/run-log.txt  (restarts every time this cell runs)
+seed       : 20260902
+
+==========================================================================
+LICENCE AND ATTRIBUTION
+==========================================================================
+wrote LICENSE.txt (584 B) and README.md (1543 B)
+Set the Kaggle dataset's licence field to CC BY-SA 4.0 when publishing phase 2.
+
+==========================================================================
+DISCOVERY
+==========================================================================
+  datasets/
+      thoriqfarras/
+          common-voice-corpus/
+              15213433210 15213432553/
+              15213433214 15213432527/
+              15213433211 15213432517/
+              15213433210 15213432542/
+              15213433213 15213432505/
+              15213433211 15213432552/
+              15213433214 15213432541/
+              15213433210 15213432560/
+              15213433211 15213432510/
+              15213433213 15213432525/
+              15213433213 15213432543/
+              15213433212 15213432553/
+              15213433211 15213432527/
+              15213433212 15213432534/
+              15213433213 15213432513/
+              15213433211 15213432545/
+              15213433211 15213432532/
+              15213433211 15213432536/
+              15213433210 15213432505/
+              15213433213 15213432530/
+              15213433212 15213432535/
+              15213433210 15213432562/
+              15213433213 15213432536/
+              15213433210 15213432512/
+              15213433213 15213432553/
+              15213433213 15213432504/
+              15213433210 15213432525/
+              15213433214 15213432554/
+              15213433214 15213432514/
+              15213433214 15213432557/
+              15213433213 15213432546/
+              15213433212 15213432543/
+              15213433213 15213432531/
+              15213433211 15213432513/
+              15213433214 15213432552/
+              15213433211 15213432530/
+              15213433210 15213432557/
+  ... +209 more directories
+  indexed 60804 Common Voice mp3 in 28.8 s (0 duplicate names ignored)
+  validated.tsv          /kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433300 15213433215/cv-corpus-26.0-2026-06-12/id/validated.tsv
+  clip_durations.tsv     /kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433215 15213433215/cv-corpus-26.0-2026-06-12/id/clip_durations.tsv
+  audio is spread over 235 directories; resolved by index, not by path
+  manifest.csv copies : 3
+     6f2a43d335c9839a  /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build   <- using this one
+     6f2a43d335c9839a  /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta
+     6f2a43d335c9839a  /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/02-data-build-lite/findings/02-data-build
+
+RESOLVED:
+  CV_DIR       = /kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433215 15213433215/cv-corpus-26.0-2026-06-12/id
+  CV_AUDIO     = 60804 mp3 indexed, from mounted directories
+  largest dir  = /kaggle/input/datasets/thoriqfarras/common-voice-corpus/15213433211 15213432557/cv-corpus-26.0-2026-06-12/id/clips
+  TTS mappings = 93 files under /kaggle/input/datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS
+  JEM_DIR      = /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build
+  scorer.py    = /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/scorer.py
+
+All inputs resolved - safe to run the rest.
+  ffmpeg       = /usr/bin/ffmpeg
+  ffprobe      = /usr/bin/ffprobe
+
+==========================================================================
+SCORER
+==========================================================================
+scorer.py VERSION = 1.0  from /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/scorer.py
+scorer self-test  : OK
+
+==========================================================================
+JEMBER REFERENCE (notebook 02 artifacts)
+==========================================================================
+jember segments   : 5541 train / 1097 dev / 0 test
+jember train hours: 8.36
+jember train vocab: 6557 types, 55218 tokens
+lexicon_v1        : 23805 entries
+
+==========================================================================
+TTS - MAPPINGS
+==========================================================================
+multi-line transcripts rejoined: 31  (nb01 mistook these for missing audio)
+mapping files     : 93
+transcript rows   : 4599 across 93 folders
+dropped, no audio : 0   (should be ~0: notebook 01's '30 missing' were the
+                       multi-line transcripts rejoined above, not absent files)
+dropped, dup hash : 50   (notebook 01 measured ~50)
+probing 4549 durations with ffprobe ...
+    500/4549  (33.9 s elapsed)
+   1000/4549  (67.1 s elapsed)
+   1500/4549  (100.3 s elapsed)
+   2000/4549  (133.7 s elapsed)
+   2500/4549  (167.1 s elapsed)
+   3000/4549  (200.5 s elapsed)
+   3500/4549  (233.9 s elapsed)
+   4000/4549  (267.3 s elapsed)
+   4500/4549  (300.8 s elapsed)
+ffprobe took      : 304.1 s
+
+non-ASCII in TTS text (diacritics) : 0 clips
+clips containing a digit           : 42  (policy=drop)
+tts, after cleaning        n=4549    med=5.94 p95=9.78 max=15.36  sum=7.77 h
+
+==========================================================================
+COMMON VOICE - POOL
+==========================================================================
+validated.tsv rows: 30465   speakers: 468
+clips with a duration: 30465 of 30465
+mp3 present on mount : 60804
+mp3 named by metadata: 60804
+accent-Javanese      : 498 clips  (notebook 01's narrower rule gave 439)
+       232  Jawa Tengah|medhok|surakarta|tionghoa|bindeng
+       154  Javanese
+        53  jawa
+        12  Javanese|Arabic
+        12  jawa|It's kind of the essensial of Javanese language
+        10  Javanese|sundanese
+         7  jawa|Ngapak
+         7  Jawa Tengah
+         4  Javanese|general bahasa indonesia
+         3  Javanese|medhok|East java
+         2  Central Java
+         1  Javanese|Balinese
+no duration in clip_durations      -     0  ->  30465 left
+audio not present on the mount     -     0  ->  30465 left
+down_votes >= 1                    -  2614  ->  27851 left
+duplicate sentence_id              - 15819  ->  12032 left
+clips per speaker > 100            -  6660  ->   5372 left
+clips containing a digit           : 0  (policy=drop)
+cv, after filters          n=5372    med=3.86 p95=6.88 max=10.37  sum=6.20 h
+speakers left     : 284   accent-jv left: 494
+
+==========================================================================
+POOL
+==========================================================================
+dropped, empty text after normalization: 0
+dropped, fewer than 2 words           : 28
+dropped, contains a digit              : 42  (0.08 h)
+
+pool: cv                   n=5344    med=3.86 p95=6.88 max=10.37  sum=6.18 h
+pool: tts                  n=4507    med=5.94 p95=9.78 max=15.36  sum=7.69 h
+pool: all                  n=9851    med=4.63 p95=8.76 max=15.36  sum=13.87 h
+
+==========================================================================
+VOCABULARY COVERAGE OF JEMBER TRAIN
+==========================================================================
+tts                       types   6157  covers  34.5% of jember types,  65.3% of tokens   +3894 new types
+cv                        types   5488  covers  22.1% of jember types,  38.4% of tokens   +4037 new types
+cv, accent-jv only        types   1052  covers   7.8% of jember types,  23.7% of tokens   +541 new types
+tts + cv                  types  10288  covers  43.4% of jember types,  77.0% of tokens   +7444 new types
+
+Notebook 01 measured 56.2 % / 41.5 % / 69.5 % type coverage on the RAW corpora.
+These are after cleaning, so they are expected to differ - large gaps are not.
+
+==========================================================================
+PACKING
+==========================================================================
+items             : 2552 from 9851 clips
+items                      n=2552    med=21.87 p95=24.68 max=25.00  sum=14.48 h
+clips per item    : mean 3.86  max 8
+items over cap    : 0  (must be 0 except single oversize clips: 0)
+window used       : 68.1%  (native read-speech clips would be 16.9%)
+
+==========================================================================
+SHARDS
+==========================================================================
+shards            : 91 files, 9.8 min mean, 1.02 GB estimated FLAC
+wrote _meta/clips.csv (9851 rows), items.csv (2552), shards.csv (91)
+struct_hash       : 8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888
+
+==========================================================================
+EXPERIMENTS
+==========================================================================
+exp  n_add_items add_hours  n_add_clips  n_speakers top_speaker_share  jember_upsample  n_total_items  steps est_gpu_h add_share_of_items
+ E3           90      0.54          492          15             44.2%                1           1545     97      0.59               5.8%
+ E4         1184      6.53         5344         283              3.6%                1           2639    165      0.76              44.9%
+ E6         1184      6.53         5344         283              3.6%                2           4094    256      0.99              28.9%
+ E1         1368      7.95         4507          92              1.4%                1           2823    177      0.79              48.5%
+ E5         1184      6.53         5344         283              3.6%                1           2639    165      1.11              44.9%
+!! E3: one speaker holds 44% of the added audio across 15 speakers.
+!! Readable either way, but if this arm wins, the follow-up question is
+!! whether the win survives dropping that speaker.
+
+Jember-only baseline for comparison: 1455 items, 91 steps, 0.68 h (measured, NB 04)
+Whole set, run once each     : 4.25 GPU h
+Weekly quota                 : 30 h. Budget is not the binding constraint here;
+the binding constraint is that every arm must clear the three keep-rules.
+
+E2 (M2 diacritisation) is intentionally absent - see this cell's markdown.
+
+==========================================================================
+DECODE PROBE
+==========================================================================
+decoded 48/48 files in 3.9 s
+  cv   24/24 decoded
+  tts  24/24 decoded
+duration drift    : median 0.0298 s   max 0.0599 s
+  cv   peak median 0.765   rms median 0.1031
+  tts  peak median 0.607   rms median 0.0771
+
+throughput        : 67x realtime
+phase 2 projection: 12.4 min of decoding for 13.87 h of audio
+phase 2 output    : ~1.02 GB of FLAC in 91 files
+
+==========================================================================
+AUDIO
+==========================================================================
+    20/91 shards   3.3 min elapsed
+    40/91 shards   6.8 min elapsed
+    60/91 shards   9.4 min elapsed
+    80/91 shards   12.1 min elapsed
+    91/91 shards   13.6 min elapsed
+
+shards written    : 91   0.85 GB   13.6 min
+clips written     : 9851   items: 2552   decode failures: 0
+struct_hash       : 8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888
+
+==========================================================================
+SELF-VALIDATION
+==========================================================================
+PASS inputs resolved                              missing=[]
+PASS scorer self-test                             
+PASS no empty training text                       
+PASS every item within the 30 s window            max 25.26 s
+PASS items over the soft cap are single clips     
+PASS no clip used twice                           
+PASS no item spans two groups                     
+PASS no item spans two shards                     
+PASS offsets are ordered and inside the shard     
+PASS no two clips overlap in a shard              0 overlaps
+PASS shard file count under the Kaggle limit      91 shards
+PASS no digits in any training text               
+PASS nothing points outside this build's shards   
+PASS no source clip came from the Jember mount    20 jember dev/test recordings exist and none are referenced
+PASS common voice speaker cap respected           max 229 clips for one speaker
+PASS licence notice ships with the data           written by cell 11; fails only before cell 11 has ever run here
+PASS every experiment manifest is non-empty and reproducible 
+PASS decode path works                            48/48 probe files decoded
+PASS every shard header is 16 kHz mono            []
+PASS every shard is long enough for its offsets   []
+PASS sampled clips contain actual audio           0/40 silent
+PASS no decode failures                           0 failed
+PASS structure matches the reviewed phase 1       expected 8640e1cfc11b..., got 8640e1cfc11b...
+
+output tree       : 0.85 GB total
+       0.85 GB  /kaggle/working/findings
+PASS download size is what this phase intends     0.85 GB against a 8.0 GB budget
+
+24 passed, 0 failed, 0 skipped
+BUILD OK - publish it, then run notebooks/06-mix-verify.ipynb

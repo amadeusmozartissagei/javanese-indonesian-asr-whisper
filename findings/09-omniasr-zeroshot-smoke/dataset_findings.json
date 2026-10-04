@@ -1,0 +1,128 @@
+{
+ "checks": {
+  "failed": [],
+  "passed": 12,
+  "total": 12
+ },
+ "dtype_check": {
+  "fp16_minus_bf16": 0.004,
+  "speed_ratio_bf16_over_fp16": 4.89
+ },
+ "env": {
+  "batch_size": 4,
+  "disk_free_gib": 1119.2,
+  "dtype": "fp16",
+  "gpu": "Tesla T4, 15360 MiB, 7.5\nTesla T4, 15360 MiB, 7.5",
+  "n_dev": 372,
+  "run_id": "09-omniasr-zeroshot-smoke",
+  "run_mode": "smoke"
+ },
+ "files": {
+  "pred/omniASR_CTC_1B_v2__nolang__fp16.csv": "f8b46867310b8e22",
+  "pred/omniASR_CTC_1B_v2__nolang__fp16.meta.json": "ed8b8e98ed551849",
+  "pred/omniASR_LLM_3B__jav_Latn__bf16.csv": "7b95135e64090ada",
+  "pred/omniASR_LLM_3B__jav_Latn__bf16.meta.json": "d51e9bfdddd3d13a",
+  "pred/omniASR_LLM_3B__jav_Latn__fp16.csv": "21bf09471f4de0e5",
+  "pred/omniASR_LLM_3B__jav_Latn__fp16.meta.json": "22c317c2a1ce0235",
+  "results.csv": "d0366a4e3ee7de62"
+ },
+ "grid": {
+  "n_done": 3,
+  "n_planned": 3,
+  "skipped": {},
+  "total_h": 0.21
+ },
+ "projection": {
+  "omniASR_CTC_1B_v2__nolang__fp16": 0.25,
+  "omniASR_LLM_3B__jav_Latn__bf16": 18.03,
+  "omniASR_LLM_3B__jav_Latn__fp16": 3.69
+ },
+ "results": {
+  "omniASR_CTC_1B_v2__nolang__fp16": {
+   "D": 56,
+   "I": 10,
+   "S": 117,
+   "audio_s": 274.4,
+   "decode_s": 4.7,
+   "digit_tok_share": 0.0022,
+   "errors": [],
+   "hyp_ref_len_ratio": 0.909,
+   "init_s": 31.8,
+   "n": 12,
+   "n_clips": 12,
+   "n_empty": 0,
+   "n_err": 183,
+   "n_fail": 0,
+   "n_ref": 505,
+   "n_trunc": 0,
+   "peak_vram_gib": 4.46,
+   "rtf": 0.0172,
+   "torch": "2.8.0+cu128",
+   "wall_s": 44,
+   "wer": 0.3624,
+   "wer_ind": 0.2791,
+   "wer_javind": 0.3701,
+   "wer_lower_nopunct": 0.3426
+  },
+  "omniASR_LLM_3B__jav_Latn__bf16": {
+   "D": 5,
+   "I": 14,
+   "S": 95,
+   "audio_s": 274.4,
+   "decode_s": 337.8,
+   "digit_tok_share": 0.0,
+   "errors": [],
+   "hyp_ref_len_ratio": 1.018,
+   "init_s": 76.2,
+   "n": 12,
+   "n_clips": 12,
+   "n_empty": 0,
+   "n_err": 114,
+   "n_fail": 0,
+   "n_ref": 505,
+   "n_trunc": 0,
+   "peak_vram_gib": 10.85,
+   "rtf": 1.231,
+   "torch": "2.8.0+cu128",
+   "wall_s": 423,
+   "wer": 0.2257,
+   "wer_ind": 0.186,
+   "wer_javind": 0.2294,
+   "wer_lower_nopunct": 0.1941
+  },
+  "omniASR_LLM_3B__jav_Latn__fp16": {
+   "D": 5,
+   "I": 14,
+   "S": 97,
+   "audio_s": 274.4,
+   "decode_s": 69.1,
+   "digit_tok_share": 0.0,
+   "errors": [],
+   "hyp_ref_len_ratio": 1.018,
+   "init_s": 193.3,
+   "n": 12,
+   "n_clips": 12,
+   "n_empty": 0,
+   "n_err": 116,
+   "n_fail": 0,
+   "n_ref": 505,
+   "n_trunc": 0,
+   "peak_vram_gib": 10.85,
+   "rtf": 0.2517,
+   "torch": "2.8.0+cu128",
+   "wall_s": 288,
+   "wer": 0.2297,
+   "wer_ind": 0.186,
+   "wer_javind": 0.2338,
+   "wer_lower_nopunct": 0.198
+  }
+ },
+ "scorer": {
+  "self_test": true
+ },
+ "venv": {
+  "n_langs": 1672,
+  "probe": "torch 2.8.0+cu128 | cuda True | numpy 1.26.4 | fairseq2 0.6 | omnilingual_asr 0.2.0",
+  "setup_s": 119
+ }
+}

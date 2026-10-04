@@ -1,0 +1,448 @@
+{
+ "_meta": {
+  "artifacts": [
+   "error_tables/whisper-large-v3-turbo__auto.csv",
+   "error_tables/whisper-large-v3-turbo__id.csv",
+   "error_tables/whisper-large-v3-turbo__jw.csv",
+   "jv_to_id_substitutions.csv",
+   "latency.json",
+   "predictions/whisper-base__auto.csv",
+   "predictions/whisper-base__id.csv",
+   "predictions/whisper-base__jw.csv",
+   "predictions/whisper-large-v3-turbo__auto.csv",
+   "predictions/whisper-large-v3-turbo__id.csv",
+   "predictions/whisper-large-v3-turbo__jw.csv",
+   "predictions/whisper-medium__auto.csv",
+   "predictions/whisper-medium__id.csv",
+   "predictions/whisper-medium__jw.csv",
+   "predictions/whisper-small__auto.csv",
+   "predictions/whisper-small__id.csv",
+   "predictions/whisper-small__jw.csv",
+   "predictions/whisper-tiny__auto.csv",
+   "predictions/whisper-tiny__id.csv",
+   "predictions/whisper-tiny__jw.csv",
+   "run-log.txt",
+   "zeroshot_results.csv"
+  ],
+  "complete": true,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [],
+  "notebook": "mozilla-javanese zero-shot baseline",
+  "notebook_id": "03-zeroshot"
+ },
+ "data": {
+  "dev_hours": 1.6274,
+  "n_dev_recordings": 20,
+  "n_dev_segments": 1097,
+  "n_lexicon_entries": 23805
+ },
+ "decision": {
+  "champion_model": "whisper-large-v3-turbo",
+  "champion_wer": 0.896,
+  "lang": "id",
+  "model": "whisper-large-v3-turbo",
+  "picked_champion": true,
+  "wer": 0.896,
+  "wer_id": 0.6673,
+  "wer_jv": 0.8969
+ },
+ "dev_ci": {
+  "half_width": 0.1031,
+  "hi": 1.0196,
+  "lo": 0.8134,
+  "n_boot": 1000,
+  "n_utts": 1097,
+  "se": 0.0517,
+  "wer": 0.896
+ },
+ "dev_variance": {
+  "per_recording": [
+   {
+    "audio_filename": "111",
+    "n_segs": 11,
+    "wer": 0.6875
+   },
+   {
+    "audio_filename": "138",
+    "n_segs": 13,
+    "wer": 0.7519
+   },
+   {
+    "audio_filename": "148",
+    "n_segs": 17,
+    "wer": 0.7594
+   },
+   {
+    "audio_filename": "136",
+    "n_segs": 15,
+    "wer": 0.763
+   },
+   {
+    "audio_filename": "2",
+    "n_segs": 313,
+    "wer": 0.7669
+   },
+   {
+    "audio_filename": "195",
+    "n_segs": 27,
+    "wer": 0.7709
+   },
+   {
+    "audio_filename": "30",
+    "n_segs": 149,
+    "wer": 0.7743
+   },
+   {
+    "audio_filename": "96",
+    "n_segs": 25,
+    "wer": 0.7984
+   },
+   {
+    "audio_filename": "105",
+    "n_segs": 115,
+    "wer": 0.8015
+   },
+   {
+    "audio_filename": "51",
+    "n_segs": 16,
+    "wer": 0.8033
+   },
+   {
+    "audio_filename": "177",
+    "n_segs": 26,
+    "wer": 0.8215
+   },
+   {
+    "audio_filename": "200",
+    "n_segs": 7,
+    "wer": 0.8235
+   },
+   {
+    "audio_filename": "4",
+    "n_segs": 7,
+    "wer": 0.8333
+   },
+   {
+    "audio_filename": "65",
+    "n_segs": 166,
+    "wer": 0.8424
+   },
+   {
+    "audio_filename": "102",
+    "n_segs": 33,
+    "wer": 0.8502
+   },
+   {
+    "audio_filename": "129",
+    "n_segs": 30,
+    "wer": 0.8592
+   },
+   {
+    "audio_filename": "119",
+    "n_segs": 15,
+    "wer": 0.8662
+   },
+   {
+    "audio_filename": "31",
+    "n_segs": 61,
+    "wer": 1.2173
+   },
+   {
+    "audio_filename": "52",
+    "n_segs": 20,
+    "wer": 1.8596
+   },
+   {
+    "audio_filename": "191",
+    "n_segs": 31,
+    "wer": 2.3244
+   }
+  ],
+  "std_across_recordings": 0.4112
+ },
+ "elbow": {
+  "champion_lang": "id",
+  "champion_model": "whisper-large-v3-turbo",
+  "champion_wer": 0.896,
+  "selected": "whisper-large-v3-turbo",
+  "table": [
+   {
+    "delta": 1.5407,
+    "delta_hi": 1.906,
+    "delta_lo": 1.1903,
+    "lang": "jw",
+    "model": "whisper-tiny",
+    "not_worse": false,
+    "wer": 2.4366
+   },
+   {
+    "delta": 1.1666,
+    "delta_hi": 1.4589,
+    "delta_lo": 0.8491,
+    "lang": "id",
+    "model": "whisper-base",
+    "not_worse": false,
+    "wer": 2.0626
+   },
+   {
+    "delta": 0.4386,
+    "delta_hi": 0.6633,
+    "delta_lo": 0.2393,
+    "lang": "id",
+    "model": "whisper-small",
+    "not_worse": false,
+    "wer": 1.3346
+   },
+   {
+    "delta": 0.4642,
+    "delta_hi": 0.7164,
+    "delta_lo": 0.2435,
+    "lang": "id",
+    "model": "whisper-medium",
+    "not_worse": false,
+    "wer": 1.3602
+   },
+   {
+    "delta": 0.0,
+    "delta_hi": 0.0,
+    "delta_lo": 0.0,
+    "lang": "id",
+    "model": "whisper-large-v3-turbo",
+    "not_worse": true,
+    "wer": 0.896
+   }
+  ]
+ },
+ "env": {
+  "audio_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build",
+  "batch_size": 8,
+  "device": "cuda",
+  "latency_n": 40,
+  "meta_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta",
+  "n_gpu": 2,
+  "notebook": "03-zeroshot",
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "run_full_grid": true,
+  "seed": 20260827,
+  "smoke_n": null,
+  "torch": "2.10.0+cu128",
+  "transformers": "5.0.0"
+ },
+ "error_tables": {
+  "configs": [
+   {
+    "lang": "id",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.896
+   },
+   {
+    "lang": "jw",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.9184
+   },
+   {
+    "lang": "auto",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.9433
+   }
+  ]
+ },
+ "fingerprints": {
+  "error_tables/whisper-large-v3-turbo__auto.csv": "5a72f8a35408eedf",
+  "error_tables/whisper-large-v3-turbo__id.csv": "288a7cd67ff02fd7",
+  "error_tables/whisper-large-v3-turbo__jw.csv": "8fb906a37392ab06",
+  "jv_to_id_substitutions.csv": "28ec1aa56967f86d",
+  "latency.json": "9658004d939ce55a",
+  "predictions/whisper-base__auto.csv": "3d204966976d7135",
+  "predictions/whisper-base__id.csv": "58f10af0f4b053ab",
+  "predictions/whisper-base__jw.csv": "678a69ee8ddb7101",
+  "predictions/whisper-large-v3-turbo__auto.csv": "399e7df407b0be9c",
+  "predictions/whisper-large-v3-turbo__id.csv": "c2a720093d70d830",
+  "predictions/whisper-large-v3-turbo__jw.csv": "7b06b0f1a6ccaacc",
+  "predictions/whisper-medium__auto.csv": "868400127a9b72e7",
+  "predictions/whisper-medium__id.csv": "b30c6283c676121a",
+  "predictions/whisper-medium__jw.csv": "9fda55417e397874",
+  "predictions/whisper-small__auto.csv": "35b7d16a80577512",
+  "predictions/whisper-small__id.csv": "bb617e8e21d15f1e",
+  "predictions/whisper-small__jw.csv": "b71c439127d69ad9",
+  "predictions/whisper-tiny__auto.csv": "c41eaa465d41b198",
+  "predictions/whisper-tiny__id.csv": "bf5f6814ff06cb85",
+  "predictions/whisper-tiny__jw.csv": "b0fd7eef9d2d2ff4",
+  "zeroshot_results.csv": "ddae977141d5c786"
+ },
+ "grid": {
+  "n_configs": 15,
+  "n_result_rows": 30
+ },
+ "grid_mode": {
+  "run_full_grid": true,
+  "winner_lang_carried": null
+ },
+ "latency": {
+  "whisper-base": {
+   "disk_mb": 294.8,
+   "load_s": 3.66,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.2247,
+   "sec_per_clip_bs8": 0.125
+  },
+  "whisper-large-v3-turbo": {
+   "disk_mb": 1622.4,
+   "load_s": 9.34,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.2503,
+   "sec_per_clip_bs8": 0.2033
+  },
+  "whisper-medium": {
+   "disk_mb": 3059.9,
+   "load_s": 23.23,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.3913,
+   "sec_per_clip_bs8": 0.4147
+  },
+  "whisper-small": {
+   "disk_mb": 971.4,
+   "load_s": 7.94,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.2599,
+   "sec_per_clip_bs8": 0.1008
+  },
+  "whisper-tiny": {
+   "disk_mb": 155.4,
+   "load_s": 3.89,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.2875,
+   "sec_per_clip_bs8": 0.1456
+  }
+ },
+ "q1": {
+  "flattens_at": "whisper-medium",
+  "table": [
+   {
+    "lang": "jw",
+    "model": "whisper-tiny",
+    "wer": 2.4366,
+    "wer_id": 0.9847,
+    "wer_jv": 0.9858
+   },
+   {
+    "lang": "id",
+    "model": "whisper-base",
+    "wer": 2.0626,
+    "wer_id": 0.8212,
+    "wer_jv": 0.9523
+   },
+   {
+    "lang": "id",
+    "model": "whisper-small",
+    "wer": 1.3346,
+    "wer_id": 0.7557,
+    "wer_jv": 0.9261
+   },
+   {
+    "lang": "id",
+    "model": "whisper-medium",
+    "wer": 1.3602,
+    "wer_id": 0.7786,
+    "wer_jv": 0.9428
+   },
+   {
+    "lang": "id",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.896,
+    "wer_id": 0.6673,
+    "wer_jv": 0.8969
+   }
+  ]
+ },
+ "q2": {
+  "best_model": "whisper-large-v3-turbo",
+  "detected_lang_distribution": {
+   "?": 1097
+  },
+  "lang_comparison": [
+   {
+    "lang": "id",
+    "wer": 0.896,
+    "wer_id": 0.6673,
+    "wer_jv": 0.8969
+   },
+   {
+    "lang": "jw",
+    "wer": 0.9184,
+    "wer_id": 0.6438,
+    "wer_jv": 0.8404
+   },
+   {
+    "lang": "auto",
+    "wer": 0.9433,
+    "wer_id": 0.6718,
+    "wer_jv": 0.8984
+   }
+  ]
+ },
+ "q3": {
+  "jv_to_id_sub_pct": 30.15,
+  "n_jv_sub": 2471,
+  "n_jv_to_id": 745
+ },
+ "scorer": {
+  "n_checks": 30,
+  "self_test_passed": true,
+  "version": "1.0"
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "full WER table covers the intended grid, jv/id split present",
+    "detail": "15/15 configs",
+    "passed": true
+   },
+   {
+    "check": "one (model, lang) selected as fine-tune baseline, with a reason",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "selected baseline is the champion, or provably not worse than it",
+    "detail": "whisper-large-v3-turbo: delta +0.0000 vs champion whisper-large-v3-turbo, 95% CI [+0.0000, +0.0000]",
+    "passed": true
+   },
+   {
+    "check": "no cheaper model was skipped over",
+    "detail": "cheapest surviving = whisper-large-v3-turbo",
+    "passed": true
+   },
+   {
+    "check": "autodetect reported real language tokens, not '?'",
+    "detail": "{'?': 1097}",
+    "passed": false
+   },
+   {
+    "check": "jv_to_id substitution rate measured and saved",
+    "detail": "2471 jv-class substitutions",
+    "passed": true
+   },
+   {
+    "check": "bootstrap 95% CI available for the selected baseline",
+    "detail": "half-width 0.1031",
+    "passed": true
+   },
+   {
+    "check": "latency.json filled for every model in the grid",
+    "detail": "5/5 models",
+    "passed": true
+   },
+   {
+    "check": "not a smoke run",
+    "detail": "SMOKE_N = None",
+    "passed": true
+   }
+  ],
+  "n_passed": 8,
+  "n_total": 9,
+  "smoke_run": false
+ }
+}

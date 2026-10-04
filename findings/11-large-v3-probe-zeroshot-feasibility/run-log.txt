@@ -1,0 +1,158 @@
+
+==========================================================================
+DISCOVERY
+==========================================================================
+dev metadata : /kaggle/input/datasets/hamzapratama/indonesian-dev/indonesian_dev/metadata.tsv
+dev clips    : 372 mp3 | baris metadata: 372
+convo_id     : {'2': 78, '5': 294}
+
+==========================================================================
+HUGGINGFACE
+==========================================================================
+hf user : amozaurus
+
+output : /kaggle/working/findings/11-large-v3-probe-zeroshot-feasibility
+
+==========================================================================
+CHECKPOINT
+==========================================================================
+D   amozaurus/mozilla-jv-06-data-mixing-E4-native @ 3437f4424c | 3.24 GB F32 | enc 32 / dec 4 layer | 637 M + 172 M param | 128 mel True | <|jw|> True | unduh 12 s
+T0  openai/whisper-large-v3-turbo @ 41f01f3fe8 | 1.62 GB F16 | enc 32 / dec 4 layer | 637 M + 172 M param | 128 mel True | <|jw|> True | unduh 7 s
+L0  openai/whisper-large-v3 @ 06f233fe06 | 3.09 GB F16 | enc 32 / dec 32 layer | 637 M + 907 M param | 128 mel True | <|jw|> True | unduh 20 s
+
+==========================================================================
+MAIN.PY
+==========================================================================
+main.py dasar  sha16 8f76b71382f9b33c  (NB 08: 8f76b71382f9b33c) -> SAMA
+main.py beam 5 sha16 aa5a691f68011b81  (D dikirim: aa5a691f68011b81) -> SAMA
+scorer resmi siap | contoh normalisasi: 'terus... aku ya ndak '
+
+==========================================================================
+DECODE LEWAT main.py (beam 5)
+==========================================================================
+durasi: 372 klip, 2.56 jam, 44 > 29,8 s
+
+--- arm D: kontrol: E4-native = submission D, harus = NB 08 ---
+clips to transcribe: 372
+import 24.4s | model load 2.1s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 328 | chunked 44 (88 windows) | failed 0 | empty 0 | 372 clips in 319.0s
+wrote 372 rows
+
+wall 347 s (0.93 s/klip) | import 24.4 s, load 2.1 s | jalur {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0} | kosong 0 | nama klip di log 0
+
+--- arm T0: turbo zero-shot (titik awal semua fine-tune kita) ---
+clips to transcribe: 372
+import 10.2s | model load 1.0s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 328 | chunked 44 (88 windows) | failed 0 | empty 0 | 372 clips in 299.6s
+wrote 372 rows
+
+wall 312 s (0.84 s/klip) | import 10.2 s, load 1.0 s | jalur {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0} | kosong 0 | nama klip di log 0
+
+--- arm L0: large-v3 zero-shot (kandidat) ---
+clips to transcribe: 372
+import 10.0s | model load 1.7s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 328 | chunked 44 (88 windows) | failed 0 | empty 0 | 372 clips in 1522.0s
+wrote 372 rows
+
+wall 1534 s (4.12 s/klip) | import 10.0 s, load 1.7 s | jalur {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0} | kosong 0 | nama klip di log 0
+
+==========================================================================
+SKOR
+==========================================================================
+
+arm D  (kontrol: E4-native = submission D, harus = NB 08)
+   all     WER 0.2268 (3965 / 17485)   lower+tanpa tanda baca 0.2146   [372 klip]
+   short   WER 0.2240 (3301 / 14738)   lower+tanpa tanda baca 0.2120   [328 klip]
+   long    WER 0.2417 ( 664 /  2747)   lower+tanpa tanda baca 0.2290   [44 klip]
+   2       WER 0.2247 ( 799 /  3556)   lower+tanpa tanda baca 0.2188   [78 klip]
+   5       WER 0.2273 (3166 / 13929)   lower+tanpa tanda baca 0.2136   [294 klip]
+   S/D/I 2972/368/625 | rasio panjang hyp/ref 1.015 | klip runaway 0
+
+arm T0  (turbo zero-shot (titik awal semua fine-tune kita))
+   all     WER 0.2514 (4395 / 17485)   lower+tanpa tanda baca 0.2329   [372 klip]
+   short   WER 0.2448 (3608 / 14738)   lower+tanpa tanda baca 0.2276   [328 klip]
+   long    WER 0.2865 ( 787 /  2747)   lower+tanpa tanda baca 0.2614   [44 klip]
+   2       WER 0.2286 ( 813 /  3556)   lower+tanpa tanda baca 0.2058   [78 klip]
+   5       WER 0.2572 (3582 / 13929)   lower+tanpa tanda baca 0.2398   [294 klip]
+   S/D/I 3163/885/347 | rasio panjang hyp/ref 0.969 | klip runaway 0
+
+arm L0  (large-v3 zero-shot (kandidat))
+   all     WER 0.2655 (4642 / 17485)   lower+tanpa tanda baca 0.2467   [372 klip]
+   short   WER 0.2629 (3875 / 14738)   lower+tanpa tanda baca 0.2446   [328 klip]
+   long    WER 0.2792 ( 767 /  2747)   lower+tanpa tanda baca 0.2581   [44 klip]
+   2       WER 0.2376 ( 845 /  3556)   lower+tanpa tanda baca 0.2151   [78 klip]
+   5       WER 0.2726 (3797 / 13929)   lower+tanpa tanda baca 0.2548   [294 klip]
+   S/D/I 3240/1024/378 | rasio panjang hyp/ref 0.963 | klip runaway 0
+
+kontrol D vs NB 08 (normalizer resmi):
+   all  3965 error vs 3965 (NB 08) -> +0 OK
+   2     799 error vs  799 (NB 08) -> +0 OK
+   5    3166 error vs 3166 (NB 08) -> +0 OK
+
+L0 - T0 berpasangan, bootstrap per klip 5000 resample. Negatif = large-v3 lebih baik.
+   all: lower+tanpa tanda baca (PENDENGARAN)    +0.0138  CI95 [+0.0050, +0.0221]  p(lebih baik) 0.001
+   all: normalizer resmi                        +0.0141  CI95 [+0.0044, +0.0235]  p(lebih baik) 0.002
+   short: lower+tanpa tanda baca (PENDENGARAN)  +0.0170  CI95 [+0.0090, +0.0251]  p(lebih baik) 0.000
+   short: normalizer resmi                      +0.0181  CI95 [+0.0088, +0.0274]  p(lebih baik) 0.000
+   long: lower+tanpa tanda baca (PENDENGARAN)   -0.0033  CI95 [-0.0413, +0.0243]  p(lebih baik) 0.519
+   long: normalizer resmi                       -0.0073  CI95 [-0.0460, +0.0240]  p(lebih baik) 0.610
+   2: lower+tanpa tanda baca (PENDENGARAN)      +0.0093  CI95 [-0.0202, +0.0324]  p(lebih baik) 0.235
+   2: normalizer resmi                          +0.0090  CI95 [-0.0229, +0.0357]  p(lebih baik) 0.247
+   5: lower+tanpa tanda baca (PENDENGARAN)      +0.0150  CI95 [+0.0071, +0.0235]  p(lebih baik) 0.000
+   5: normalizer resmi                          +0.0154  CI95 [+0.0060, +0.0249]  p(lebih baik) 0.001
+
+konteks (bukan keputusan): model zero-shot vs D yang sudah di-fine-tune
+   T0 - D, lower+tanpa tanda baca               +0.0182  CI95 [+0.0075, +0.0293]  p(lebih baik) 0.000
+   L0 - D, lower+tanpa tanda baca               +0.0321  CI95 [+0.0203, +0.0445]  p(lebih baik) 0.000
+
+>>> VERDICT PENDENGARAN (L0 - T0, lower+tanpa tanda baca, 372 klip): L0 LEBIH BURUK
+
+==========================================================================
+PROYEKSI WAKTU (dari rasio terhadap D)
+==========================================================================
+   D   1.00x D -> test A100 ~  620 s (target <= 3600) OK | load 2.1 s di T4 OK
+   T0  0.90x D -> test A100 ~  557 s (target <= 3600) OK | load 1.0 s di T4 OK
+   L0  4.42x D -> test A100 ~ 2738 s (target <= 3600) OK | load 1.7 s di T4 OK
+   Kasar: rasio T4 dipakai untuk A100, dan dev punya lebih banyak klip panjang (12 %) dari test (3 %).
+
+==========================================================================
+PROBE TRAINING (sintetis, label 128 token)
+==========================================================================
+   T0  full           mb 4: 2.776 s/micro, step 0.03 s, puncak 9.45 GB (reserved 9.91) | 807.0 M latih | loss OK
+   L0  full           mb 4: GAGAL OOM
+   L0  full           mb 2: GAGAL OOM
+   L0  full           mb 1: GAGAL OOM
+   L0  freeze_encoder mb 4: 1.318 s/micro, step 0.54 s, puncak 11.97 GB (reserved 12.39) | 906.5 M latih | loss OK
+
+kalibrasi: turbo nyata 2.270 s/micro vs probe 2.7764 -> faktor 0.818 | puncak nyata 7.03 GB vs probe 9.45 GB
+   T0  full           mb 4: muat YA | stage 1 (421 step) ~1.30 jam mentah, ~1.06 jam terkalibrasi (tanpa evaluasi)
+   L0  freeze_encoder mb 4: muat YA | stage 1 (421 step) ~0.68 jam mentah, ~0.56 jam terkalibrasi (tanpa evaluasi)
+   Pembanding: turbo stage 1 nyata 1.17 jam latih saja, 2.72 jam total dengan evaluasi.
+
+==========================================================================
+SELF-VALIDATION
+==========================================================================
+  [PASS] transformers = versi container (<5)                            4.57.6
+  [PASS] bobot D = submission D (sha16 b3438f32cf61ebbe)                b3438f32cf61ebbe
+  [PASS] main.py evaluasi = main.py D yang dikirim                      aa5a691f68011b81
+  [PASS] T0 turbo: decoder 4 layer                                      4
+  [PASS] L0 large-v3: decoder 32 layer                                  32
+  [PASS] arm D: exit 0, 0 gagal, jalur decode = NB 08                   {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}
+  [PASS] arm D: tidak ada nama klip di log main.py                      0
+  [PASS] arm T0: exit 0, 0 gagal, jalur decode = NB 08                  {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}
+  [PASS] arm T0: tidak ada nama klip di log main.py                     0
+  [PASS] arm L0: exit 0, 0 gagal, jalur decode = NB 08                  {'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}
+  [PASS] arm L0: tidak ada nama klip di log main.py                     0
+  [PASS] kontrol D = NB 08 (all)                                        +0 error
+  [PASS] kontrol D = NB 08 (2)                                          +0 error
+  [PASS] kontrol D = NB 08 (5)                                          +0 error
+  [PASS] probe kalibrasi turbo jalan                                    
+  [PASS] probe large-v3: minimal satu konfigurasi jalan                 
+  [PASS] probe: loss selalu finite                                      
+
+17/17 PASS
+
+===== BEGIN CLAUDE-HANDOFF-JSON =====
+{"checkpoints":{"D":{"d_model":1280,"decoder_layers":4,"download_s":11.7,"encoder_layers":32,"feature_size":128,"files":["config.json","generation_config.json","model.safetensors","processor_config.json","tokenizer.json","tokenizer_config.json"],"has_jw":true,"num_mel_bins":128,"params_decoder_M":171.9,"params_encoder_M":637.0,"repo":"amozaurus/mozilla-jv-06-data-mixing-E4-native","revision":"3437f4424cdee0ce3113f7fe2ccbc32e5350be7e","sha16":"b3438f32cf61ebbe","sha_ok":true,"size_gb":3.236,"weight_dtype":"F32"},"L0":{"d_model":1280,"decoder_layers":32,"download_s":20.1,"encoder_layers":32,"feature_size":128,"files":["added_tokens.json","config.json","generation_config.json","merges.txt","model.safetensors","normalizer.json","preprocessor_config.json","special_tokens_map.json","tokenizer.json","tokenizer_config.json","vocab.json"],"has_jw":true,"num_mel_bins":128,"params_decoder_M":906.5,"params_encoder_M":637.0,"repo":"openai/whisper-large-v3","revision":"06f233fe06e710322aca913c1bc4249a0d71fce1","sha16":"a8e94b85976e5864","sha_ok":null,"size_gb":3.087,"weight_dtype":"F16"},"T0":{"d_model":1280,"decoder_layers":4,"download_s":7.0,"encoder_layers":32,"feature_size":128,"files":["added_tokens.json","config.json","generation_config.json","merges.txt","model.safetensors","normalizer.json","preprocessor_config.json","special_tokens_map.json","tokenizer.json","tokenizer_config.json","vocab.json"],"has_jw":true,"num_mel_bins":128,"params_decoder_M":171.9,"params_encoder_M":637.0,"repo":"openai/whisper-large-v3-turbo","revision":"41f01f3fe87f28c78e2fbf8b568835947dd65ed9","sha16":"542566a422ae4f3f","sha_ok":null,"size_gb":1.618,"weight_dtype":"F16"}},"compare":{"L0_D_ln_all":{"ci95":[0.0203,0.0445],"delta":0.0321,"p_better":0.0},"L0_T0_ln_2":{"ci95":[-0.0202,0.0324],"delta":0.0093,"p_better":0.235},"L0_T0_ln_5":{"ci95":[0.0071,0.0235],"delta":0.015,"p_better":0.0},"L0_T0_ln_all":{"ci95":[0.005,0.0221],"delta":0.0138,"p_better":0.001},"L0_T0_ln_long":{"ci95":[-0.0413,0.0243],"delta":-0.0033,"p_better":0.519},"L0_T0_ln_short":{"ci95":[0.009,0.0251],"delta":0.017,"p_better":0.0},"L0_T0_off_2":{"ci95":[-0.0229,0.0357],"delta":0.009,"p_better":0.247},"L0_T0_off_5":{"ci95":[0.006,0.0249],"delta":0.0154,"p_better":0.001},"L0_T0_off_all":{"ci95":[0.0044,0.0235],"delta":0.0141,"p_better":0.002},"L0_T0_off_long":{"ci95":[-0.046,0.024],"delta":-0.0073,"p_better":0.61},"L0_T0_off_short":{"ci95":[0.0088,0.0274],"delta":0.0181,"p_better":0.0},"T0_D_ln_all":{"ci95":[0.0075,0.0293],"delta":0.0182,"p_better":0.0},"verdict_hearing":"L0 LEBIH BURUK"},"env":{"arms":["D","T0","L0"],"gpu":"Tesla T4","n_dev":372,"notebook":"11-large-v3-probe","num_beams":5,"numpy":"2.0.2","python":"3.12.13","run_id":"11-large-v3-probe-zeroshot-feasibility","torch":"2.10.0+cu128","transformers":"4.57.6","vram_gb":15.6},"probe":{"calibration_factor":0.818,"projection":[{"arm":"T0","fits_vram":true,"micro_batch":4,"train_h_calibrated":1.06,"train_h_raw":1.3,"variant":"full"},{"arm":"L0","fits_vram":true,"micro_batch":4,"train_h_calibrated":0.56,"train_h_raw":0.68,"variant":"freeze_encoder"}],"runs":[{"arm":"T0","label_len":128,"loss_finite":true,"micro_batch":4,"ok":true,"opt_step_s":0.031,"peak_alloc_gb":9.45,"peak_reserved_gb":9.91,"sec_per_micro":2.7764,"trainable_M":807.0,"variant":"full"},{"arm":"L0","error":"OOM","label_len":128,"micro_batch":4,"ok":false,"peak_alloc_gb":15.14,"trainable_M":1541.6,"variant":"full"},{"arm":"L0","error":"OOM","label_len":128,"micro_batch":2,"ok":false,"peak_alloc_gb":15.18,"trainable_M":1541.6,"variant":"full"},{"arm":"L0","error":"OOM","label_len":128,"micro_batch":1,"ok":false,"peak_alloc_gb":15.26,"trainable_M":1541.6,"variant":"full"},{"arm":"L0","label_len":128,"loss_finite":true,"micro_batch":4,"ok":true,"opt_step_s":0.54,"peak_alloc_gb":11.97,"peak_reserved_gb":12.39,"sec_per_micro":1.3177,"trainable_M":906.5,"variant":"freeze_encoder"}]},"projection":{"D":{"load_ok":true,"load_s_t4":2.1,"test_a100_s_proj":620,"test_ok":true,"wall_ratio_vs_D":1.0},"L0":{"load_ok":true,"load_s_t4":1.7,"test_a100_s_proj":2738,"test_ok":true,"wall_ratio_vs_D":4.417},"T0":{"load_ok":true,"load_s_t4":1.0,"test_a100_s_proj":557,"test_ok":true,"wall_ratio_vs_D":0.898}},"run.D":{"exit_code":0,"import_s":24.4,"leak_names":0,"load_s":2.1,"n_empty":0,"n_log_lines":4,"paths":{"chunked":44,"empty":0,"failed":0,"short":328,"windows":88},"paths_match":true,"s_per_clip":0.9337,"wall_s":347.3},"run.L0":{"exit_code":0,"import_s":10.0,"leak_names":0,"load_s":1.7,"n_empty":0,"n_log_lines":4,"paths":{"chunked":44,"empty":0,"failed":0,"short":328,"windows":88},"paths_match":true,"s_per_clip":4.1238,"wall_s":1534.0},"run.T0":{"exit_code":0,"import_s":10.2,"leak_names":0,"load_s":1.0,"n_empty":0,"n_log_lines":4,"paths":{"chunked":44,"empty":0,"failed":0,"short":328,"windows":88},"paths_match":true,"s_per_clip":0.8386,"wall_s":312.0},"score":{"parity_D":{"2":{"delta_err":0,"delta_wer":0.0,"n_err":799,"ok":true,"ref_err":799},"5":{"delta_err":0,"delta_wer":0.0,"n_err":3166,"ok":true,"ref_err":3166},"all":{"delta_err":0,"delta_wer":0.0,"n_err":3965,"ok":true,"ref_err":3965}},"per_arm":{"D":{"2":{"n_clips":78,"n_err":799,"n_tok":3556,"wer":0.224691,"wer_lower_nopunct":0.218785},"5":{"n_clips":294,"n_err":3166,"n_tok":13929,"wer":0.227296,"wer_lower_nopunct":0.213583},"all":{"n_clips":372,"n_err":3965,"n_tok":17485,"wer":0.226766,"wer_lower_nopunct":0.214641},"len_ratio":1.0147,"long":{"n_clips":44,"n_err":664,"n_tok":2747,"wer":0.241718,"wer_lower_nopunct":0.228977},"ops":{"dele":368,"errors":3965,"ins":625,"sub":2972},"runaway_clips":0,"short":{"n_clips":328,"n_err":3301,"n_tok":14738,"wer":0.223979,"wer_lower_nopunct":0.211969}},"L0":{"2":{"n_clips":78,"n_err":845,"n_tok":3556,"wer":0.237627,"wer_lower_nopunct":0.215129},"5":{"n_clips":294,"n_err":3797,"n_tok":13929,"wer":0.272597,"wer_lower_nopunct":0.254792},"all":{"n_clips":372,"n_err":4642,"n_tok":17485,"wer":0.265485,"wer_lower_nopunct":0.246726},"len_ratio":0.9631,"long":{"n_clips":44,"n_err":767,"n_tok":2747,"wer":0.279214,"wer_lower_nopunct":0.2581},"ops":{"dele":1024,"errors":4642,"ins":378,"sub":3240},"runaway_clips":0,"short":{"n_clips":328,"n_err":3875,"n_tok":14738,"wer":0.262926,"wer_lower_nopunct":0.244606}},"T0":{"2":{"n_clips":78,"n_err":813,"n_tok":3556,"wer":0.228628,"wer_lower_nopunct":0.205849},"5":{"n_clips":294,"n_err":3582,"n_tok":13929,"wer":0.257161,"wer_lower_nopunct":0.239787},"all":{"n_clips":372,"n_err":4395,"n_tok":17485,"wer":0.251358,"wer_lower_nopunct":0.232885},"len_ratio":0.9692,"long":{"n_clips":44,"n_err":787,"n_tok":2747,"wer":0.286494,"wer_lower_nopunct":0.261376},"ops":{"dele":885,"errors":4395,"ins":347,"sub":3163},"runaway_clips":0,"short":{"n_clips":328,"n_err":3608,"n_tok":14738,"wer":0.244809,"wer_lower_nopunct":0.227575}}}},"self_validation":{"failed":[],"passed":17,"total":17},"source":{"main_base_sha16":"8f76b71382f9b33c","main_eval_sha16":"aa5a691f68011b81","num_beams":5,"same_as_shipped_D":true},"summary":{"L0_T0_ln_all":{"ci95":[0.005,0.0221],"delta":0.0138,"p_better":0.001},"L0_T0_ln_short":{"ci95":[0.009,0.0251],"delta":0.017,"p_better":0.0},"test_a100_s_proj":{"D":620,"L0":2738,"T0":557},"verdict_hearing":"L0 LEBIH BURUK","wer":{"D":0.226766,"L0":0.265485,"T0":0.251358},"wer_lower_nopunct":{"D":0.214641,"L0":0.246726,"T0":0.232885}}}
+===== END CLAUDE-HANDOFF-JSON =====
+size: 7.2 KB

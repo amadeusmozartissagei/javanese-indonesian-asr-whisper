@@ -1,0 +1,2 @@
+experiment,run_id,verdict,n_rules_passed,wer_nb04,wer_this,delta,delta_lo,delta_hi,wer_jv,wer_id,jv_to_id,mix_hours,n_train_items
+E4,13-stage1-homostoria-E4-native-homo,drop,2,0.2532,0.2096,-0.0436,-0.0499,-0.0373,0.245,0.1367,23.14,6.527508836805556,11418

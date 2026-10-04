@@ -1,0 +1,1406 @@
+{
+ "_meta": {
+  "artifacts": [
+   "dropped_segments.csv",
+   "lexicon_v1.csv",
+   "manifest.csv",
+   "run-log.txt",
+   "scorer.py",
+   "split.csv",
+   "text_audit.json"
+  ],
+  "complete": true,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [],
+  "notebook": "mozilla-javanese data build + eval harness v1",
+  "notebook_id": "02-data-build"
+ },
+ "audio": {
+  "boundary_in_speech_pct": 47.37,
+  "boundary_offset_in_speech_pct": 45.65,
+  "boundary_onset_in_speech_pct": 49.08,
+  "boundary_probe_n": 13267,
+  "boundary_vs_base_ratio": 0.792,
+  "bytes_total": 0,
+  "failed": [],
+  "mb_total": 0.0,
+  "mean_context_gained_s": 0.0055,
+  "n_end_beyond_file": 4,
+  "n_failed": 0,
+  "n_pad_clipped": 6638,
+  "n_recordings": 208,
+  "n_segments": 6638,
+  "pad_clipped_pct": 100.0,
+  "pad_mode": "clip_to_neighbour",
+  "pad_s": 0.2,
+  "probe_windows": 1800730,
+  "seconds_elapsed": 64.9,
+  "segment_duration": {
+   "max_s": 29.0,
+   "mean": 5.418,
+   "median": 5.0,
+   "min_s": 1.0,
+   "n": 6638,
+   "p05": 1.0,
+   "p25": 3.0,
+   "p75": 7.0,
+   "p95": 12.0,
+   "total_h": 9.99
+  },
+  "speech_base_rate_pct": 59.81,
+  "storage": "one 16 kHz mono FLAC per recording; segments addressed by sample offset",
+  "target_sr": 16000
+ },
+ "env": {
+  "cv_sentences": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus/id/validated_sentences.tsv",
+  "jember_audio": "/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/mp3 audio",
+  "jember_tsv": "/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus/Jember Javanese Spontaneous Speech Corpus - 1-200.tsv",
+  "kaggle_layout": [
+   "datasets",
+   "datasets/thoriqfarras",
+   "datasets/thoriqfarras/central-javanese-corpus",
+   "datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS",
+   "datasets/thoriqfarras/common-voice-corpus",
+   "datasets/thoriqfarras/common-voice-corpus/id",
+   "datasets/thoriqfarras/jember-javanese-corpus",
+   "datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus"
+  ],
+  "n_tts_mappings": 93,
+  "notebook": "02-data-build",
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "seed": 20260825,
+  "unresolved": []
+ },
+ "fingerprints": {
+  "dropped_segments.csv": "407c22c08f7b4ded",
+  "lexicon_v1.csv": "25dabca43dd2fcfc",
+  "manifest.csv": "6f2a43d335c9839a",
+  "scorer.py": "3260677fe544f6b0",
+  "split.csv": "a7192227554da0ab",
+  "text_audit.json": "dd6d1bd31b70b01b"
+ },
+ "lexicon": {
+  "by_origin": {
+   "both": 2117,
+   "id": 13375,
+   "jv": 4272,
+   "unk": 4041
+  },
+  "cv_types": 15498,
+  "definition": "jv_ratio = n_jv / (n_jv + n_id); both and unk excluded from the ratio",
+  "flag_counts": {
+   "has_digit": 49,
+   "has_ellipsis": 714,
+   "has_redup": 1212,
+   "overlap": 2,
+   "repaired": 1,
+   "zero_dur": 1
+  },
+  "jember_token_mass": {
+   "both": 19420,
+   "id": 9877,
+   "jv": 27255,
+   "unk": 12965
+  },
+  "jember_token_mass_pct": {
+   "both": 27.94,
+   "id": 14.21,
+   "jv": 39.21,
+   "unk": 18.65
+  },
+  "jember_types": 7649,
+  "jv_ratio_median": 0.75,
+  "jv_ratio_nan_segments": 213,
+  "n_entries": 23805,
+  "n_markers": 51,
+  "top_unk": [
+   [
+    "isa",
+    481
+   ],
+   [
+    "neng",
+    461
+   ],
+   [
+    "teka",
+    211
+   ],
+   [
+    "ae",
+    188
+   ],
+   [
+    "sampeyan",
+    174
+   ],
+   [
+    "utawa",
+    158
+   ],
+   [
+    "enek",
+    149
+   ],
+   [
+    "sampek",
+    145
+   ],
+   [
+    "de'e",
+    105
+   ],
+   [
+    "padha",
+    95
+   ],
+   [
+    "em",
+    94
+   ],
+   [
+    "mbiyen",
+    91
+   ],
+   [
+    "ndak",
+    86
+   ],
+   [
+    "thok",
+    85
+   ],
+   [
+    "maneh",
+    83
+   ],
+   [
+    "kae",
+    82
+   ],
+   [
+    "biasae",
+    81
+   ],
+   [
+    "jember",
+    79
+   ],
+   [
+    "mek",
+    79
+   ],
+   [
+    "mesthi",
+    78
+   ],
+   [
+    "rada",
+    75
+   ],
+   [
+    "pengin",
+    74
+   ],
+   [
+    "dudu",
+    72
+   ],
+   [
+    "nggawa",
+    63
+   ],
+   [
+    "gae",
+    62
+   ],
+   [
+    "nge",
+    59
+   ],
+   [
+    "kancaku",
+    57
+   ],
+   [
+    "cuman",
+    53
+   ],
+   [
+    "engko",
+    52
+   ],
+   [
+    "sakwise",
+    51
+   ],
+   [
+    "arek-arek",
+    47
+   ],
+   [
+    "anu",
+    47
+   ],
+   [
+    "merga",
+    47
+   ],
+   [
+    "maca",
+    46
+   ],
+   [
+    "ambek",
+    46
+   ],
+   [
+    "duwe",
+    44
+   ],
+   [
+    "areke",
+    42
+   ],
+   [
+    "pendhidhikan",
+    38
+   ],
+   [
+    "melok",
+    38
+   ],
+   [
+    "ta",
+    38
+   ]
+  ],
+  "tts_types": 6385
+ },
+ "manifest": {
+  "by_split": {
+   "dev": 1097,
+   "train": 5541
+  },
+  "columns": [
+   "seg_id",
+   "audio_filename",
+   "path",
+   "start_sample",
+   "end_sample",
+   "start_s",
+   "end_s",
+   "dur_s",
+   "ann_start_s",
+   "ann_end_s",
+   "text_raw",
+   "text_official",
+   "text_folded",
+   "n_words",
+   "n_chars",
+   "jv_ratio",
+   "n_jv",
+   "n_id",
+   "n_both",
+   "n_unk",
+   "split",
+   "fold",
+   "flags"
+  ],
+  "hours": 9.99,
+  "hours_by_split": {
+   "dev": 1.627,
+   "train": 8.363
+  },
+  "n_rows": 6638,
+  "words": 65612
+ },
+ "scorer": {
+  "does_not_lowercase": true,
+  "does_not_strip_hyphens": true,
+  "does_not_strip_periods": true,
+  "path": "/kaggle/working/findings/02-data-build/scorer.py",
+  "punct_removed": ",?¿¡!\";:",
+  "unit_checks": 30,
+  "unit_checks_passed": 30,
+  "version": "1.0"
+ },
+ "segments": {
+  "debug_n_recordings": null,
+  "drop_reasons": {
+   "nonpositive_duration": 40,
+   "overlap": 1
+  },
+  "dropped_seg_ids": [
+   "1_090",
+   "1_191",
+   "2_023",
+   "2_079",
+   "2_083",
+   "2_168",
+   "2_188",
+   "2_199",
+   "2_213",
+   "2_228",
+   "2_235",
+   "2_258",
+   "2_284",
+   "2_294",
+   "24_005",
+   "24_052",
+   "24_134",
+   "30_003",
+   "30_012",
+   "30_033",
+   "42_051",
+   "42_092",
+   "43_012",
+   "44_077",
+   "45_011",
+   "47_029",
+   "58_002",
+   "63_001",
+   "65_152",
+   "91_011",
+   "105_002",
+   "105_014",
+   "114_030",
+   "128_011",
+   "139_018",
+   "174_020",
+   "187_021",
+   "197_041",
+   "198_006",
+   "204_027",
+   "204_059"
+  ],
+  "gap_negative": 0,
+  "gap_positive": 0,
+  "gap_zero_pct": 100.0,
+  "kept_duration": {
+   "max_s": 29.0,
+   "mean": 5.416,
+   "median": 5.0,
+   "min_s": 1.0,
+   "n": 6638,
+   "p05": 1.0,
+   "p25": 3.0,
+   "p75": 7.0,
+   "p95": 12.0,
+   "total_h": 9.986
+  },
+  "n_dropped": 41,
+  "n_kept": 6638,
+  "n_over_30s": 0,
+  "n_overlap_touched": 3,
+  "n_recordings": 208,
+  "n_repaired": 1,
+  "n_rows_tsv": 6679,
+  "n_unparsed_timestamps": 0,
+  "pad_mode": "clip_to_neighbour",
+  "pad_s": 0.2,
+  "repairs": [
+   {
+    "fixed": "0->10",
+    "how": "start<-0",
+    "raw": "40->10",
+    "seg_id": "63_002",
+    "text": "Jênêngku Rilo nama panggilane, nèk nama lengkape Muhammad Ri"
+   }
+  ],
+  "whole_second_timestamp_pct": 100.0,
+  "write_audio": false
+ },
+ "split": {
+  "dev_frac_duration": 0.1633,
+  "dev_only_token_mass": 1228,
+  "dev_only_token_pct": 11.82,
+  "dev_only_types": 808,
+  "dev_recordings": [
+   "2",
+   "4",
+   "30",
+   "31",
+   "51",
+   "52",
+   "65",
+   "96",
+   "102",
+   "105",
+   "111",
+   "119",
+   "129",
+   "136",
+   "138",
+   "148",
+   "177",
+   "191",
+   "195",
+   "200"
+  ],
+  "dev_target_frac": 0.15,
+  "fold_hours": [
+   2.002,
+   1.996,
+   1.996,
+   1.998,
+   1.995
+  ],
+  "grouping": "audio_filename (recording/session) - no speaker column exists",
+  "leak_recordings": [],
+  "n_folds": 5,
+  "per_split": [
+   {
+    "hours": 8.355,
+    "jv_ratio_median": 0.75,
+    "jv_ratio_p25": 0.587,
+    "jv_ratio_p75": 1.0,
+    "median_seg_s": 5.0,
+    "p95_seg_s": 12.0,
+    "recordings": 188,
+    "segments": 5541,
+    "split": "train",
+    "words": 55221
+   },
+   {
+    "hours": 1.631,
+    "jv_ratio_median": 0.75,
+    "jv_ratio_p25": 0.545,
+    "jv_ratio_p75": 1.0,
+    "median_seg_s": 5.0,
+    "p95_seg_s": 12.0,
+    "recordings": 20,
+    "segments": 1097,
+    "split": "dev",
+    "words": 10391
+   }
+  ],
+  "seed": 20260825,
+  "strata": "median jv_ratio tercile x recording duration tercile"
+ },
+ "text_audit": {
+  "ambiguous_forms_top40": {
+   "ambek": {
+    "ambèk": 32,
+    "ambêk": 14
+   },
+   "angel": {
+    "angel": 1,
+    "angèl": 36
+   },
+   "banget": {
+    "banget": 1,
+    "bangêt": 208
+   },
+   "beda-beda": {
+    "beda-beda": 25,
+    "bêda-bêda": 1
+   },
+   "ben": {
+    "ben": 77,
+    "bèn": 7,
+    "bên": 36,
+    "běn": 1
+   },
+   "enek": {
+    "enèk": 9,
+    "ènèk": 140
+   },
+   "enggak": {
+    "enggak": 1,
+    "ènggak": 9,
+    "ênggak": 40
+   },
+   "engko": {
+    "engko": 8,
+    "èngko": 2,
+    "êngko": 40
+   },
+   "jareku": {
+    "jareku": 5,
+    "jarèku": 20
+   },
+   "jenenge": {
+    "jènènge": 1,
+    "jênênge": 250
+   },
+   "ke": {
+    "ke": 58,
+    "kê": 2
+   },
+   "kembang": {
+    "kembang": 1,
+    "kêmbang": 34
+   },
+   "kerja": {
+    "kerja": 1,
+    "kêrja": 121
+   },
+   "ketemu": {
+    "ketemu": 2,
+    "kêtêmu": 34
+   },
+   "lek": {
+    "lek": 2,
+    "lèk": 813
+   },
+   "mbek": {
+    "mbek": 7,
+    "mbèk": 74,
+    "mbêk": 96
+   },
+   "mek": {
+    "mek": 23,
+    "mèk": 55,
+    "mêk": 1
+   },
+   "ndek": {
+    "ndek": 2,
+    "ndèk": 781
+   },
+   "ndelok": {
+    "ndelok": 1,
+    "ndêlok": 65
+   },
+   "negara": {
+    "negara": 23,
+    "nêgara": 2
+   },
+   "nek": {
+    "nek": 1,
+    "nèk": 484,
+    "nêk": 2
+   },
+   "nemen": {
+    "nêmên": 24,
+    "něměn": 1
+   },
+   "neng": {
+    "neng": 3,
+    "nèng": 452,
+    "nêng": 6
+   },
+   "ngerasa": {
+    "ngerasa": 22,
+    "ngêrasa": 9
+   },
+   "oleh": {
+    "oleh": 2,
+    "olèh": 35
+   },
+   "pendhidhikan": {
+    "pendhidhikan": 36,
+    "pêndhidhikan": 2
+   },
+   "penting": {
+    "penting": 11,
+    "pênting": 117
+   },
+   "perkara": {
+    "perkara": 34,
+    "pêrkara": 1
+   },
+   "pernah": {
+    "pernah": 6,
+    "pêrnah": 37
+   },
+   "sampek": {
+    "sampek": 1,
+    "sampèk": 142
+   },
+   "sekitar": {
+    "sekitar": 47,
+    "sêkitar": 1
+   },
+   "sekolah": {
+    "sekolah": 1,
+    "sêkolah": 75
+   },
+   "seneng": {
+    "sênèng": 1,
+    "sênêng": 112
+   },
+   "sepuluh": {
+    "sepuluh": 20,
+    "sêpuluh": 12
+   },
+   "sering": {
+    "sering": 5,
+    "sêring": 78
+   },
+   "setengah": {
+    "setengah": 20,
+    "sêtêngah": 11
+   },
+   "teka": {
+    "teka": 2,
+    "têka": 207
+   },
+   "terus": {
+    "têrus": 4,
+    "těrus": 758
+   },
+   "tetep": {
+    "tetep": 2,
+    "têtêp": 45
+   },
+   "wektu": {
+    "wektu": 2,
+    "wêktu": 67
+   }
+  },
+  "ambiguous_token_mass": 7087,
+  "ambiguous_token_mass_pct": 10.8,
+  "attached_ellipsis_forms": [
+   [
+    "e...",
+    624
+   ],
+   [
+    "em...",
+    32
+   ],
+   [
+    "a...",
+    24
+   ],
+   [
+    "o...",
+    10
+   ],
+   [
+    "e...m",
+    7
+   ],
+   [
+    "s...",
+    7
+   ],
+   [
+    "ya...",
+    6
+   ],
+   [
+    "iku...",
+    3
+   ],
+   [
+    "ke...",
+    3
+   ],
+   [
+    "eh...",
+    3
+   ],
+   [
+    "e…",
+    2
+   ],
+   [
+    "di...",
+    2
+   ],
+   [
+    "m...",
+    2
+   ],
+   [
+    "mmm...",
+    2
+   ],
+   [
+    "O...",
+    2
+   ],
+   [
+    "nandur...",
+    1
+   ],
+   [
+    "kè'i...",
+    1
+   ],
+   [
+    "tempat...",
+    1
+   ],
+   [
+    "ba…",
+    1
+   ],
+   [
+    "saya...",
+    1
+   ],
+   [
+    "ndèk...",
+    1
+   ],
+   [
+    "artine...",
+    1
+   ],
+   [
+    "těrus...",
+    1
+   ],
+   [
+    "tuku...",
+    1
+   ],
+   [
+    "semakin...",
+    1
+   ],
+   [
+    "em…",
+    1
+   ],
+   [
+    "lèk...",
+    1
+   ],
+   [
+    "sih...",
+    1
+   ],
+   [
+    "sama-sama...",
+    1
+   ],
+   [
+    "sing...",
+    1
+   ],
+   [
+    "e....",
+    1
+   ],
+   [
+    "beh...",
+    1
+   ],
+   [
+    "usia...",
+    1
+   ],
+   [
+    "lak...",
+    1
+   ],
+   [
+    "se...",
+    1
+   ],
+   [
+    "hm...",
+    1
+   ],
+   [
+    "hueh...",
+    1
+   ],
+   [
+    "Uwah...",
+    1
+   ],
+   [
+    "Aaakhh...",
+    1
+   ],
+   [
+    "dadie...",
+    1
+   ]
+  ],
+  "charset": " %'+-.0123456789ABCDEFGHIJKLMNOPRSTUVWYZabcdefghijklmnopqrstuvwxyzèéêěḍ’“”…",
+  "digit_forms": [
+   [
+    "S2",
+    21
+   ],
+   [
+    "S1",
+    10
+   ],
+   [
+    "S-1",
+    5
+   ],
+   [
+    "5",
+    3
+   ],
+   [
+    "17",
+    2
+   ],
+   [
+    "G30S",
+    2
+   ],
+   [
+    "M2",
+    1
+   ],
+   [
+    "S1-ne",
+    1
+   ],
+   [
+    "2026",
+    1
+   ],
+   [
+    "70%",
+    1
+   ],
+   [
+    "s2",
+    1
+   ],
+   [
+    "1010",
+    1
+   ],
+   [
+    "1088",
+    1
+   ],
+   [
+    "100%",
+    1
+   ],
+   [
+    "5050",
+    1
+   ],
+   [
+    "G30",
+    1
+   ],
+   [
+    "3D",
+    1
+   ],
+   [
+    "2025",
+    1
+   ],
+   [
+    "34",
+    1
+   ],
+   [
+    "30",
+    1
+   ],
+   [
+    "29",
+    1
+   ],
+   [
+    "10",
+    1
+   ],
+   [
+    "4",
+    1
+   ],
+   [
+    "H-1",
+    1
+   ],
+   [
+    "1400",
+    1
+   ],
+   [
+    "1406",
+    1
+   ]
+  ],
+  "hyphen_not_reduplication": [
+   [
+    "sehari-hari",
+    34
+   ],
+   [
+    "nge-gym",
+    20
+   ],
+   [
+    "nge-game",
+    19
+   ],
+   [
+    "kanca-kancaku",
+    15
+   ],
+   [
+    "wong-wonge",
+    12
+   ],
+   [
+    "woh-wohan",
+    11
+   ],
+   [
+    "akèh-akèhe",
+    10
+   ],
+   [
+    "gotong-royong",
+    7
+   ],
+   [
+    "hari-H",
+    6
+   ],
+   [
+    "nge-judge",
+    5
+   ],
+   [
+    "buah-buahan",
+    5
+   ],
+   [
+    "kanca-kancane",
+    5
+   ],
+   [
+    "jedag-jedug",
+    5
+   ],
+   [
+    "S-1",
+    5
+   ],
+   [
+    "wit-witan",
+    4
+   ],
+   [
+    "skill-ku",
+    4
+   ],
+   [
+    "dempèt-dempètan",
+    4
+   ],
+   [
+    "camping-e",
+    4
+   ],
+   [
+    "omong-omongan",
+    3
+   ],
+   [
+    "tangga-tanggane",
+    3
+   ],
+   [
+    "nom-noman",
+    3
+   ],
+   [
+    "semena-mena",
+    3
+   ],
+   [
+    "těrus-těrusan",
+    3
+   ],
+   [
+    "HP-ne",
+    3
+   ],
+   [
+    "guru-gurune",
+    3
+   ],
+   [
+    "bal-balan",
+    2
+   ],
+   [
+    "sehari-harine",
+    2
+   ],
+   [
+    "dulur-dulure",
+    2
+   ],
+   [
+    "liyan-liyane",
+    2
+   ],
+   [
+    "value-ne",
+    2
+   ]
+  ],
+  "n_ambiguous_forms": 209,
+  "n_distinct_chars": 75,
+  "non_alphanumeric_survivors": {
+   "%": 2,
+   "'": 250,
+   "+": 1,
+   "-": 1965,
+   ".": 2296,
+   "’": 19,
+   "“": 29,
+   "”": 28,
+   "…": 4
+  },
+  "non_ascii": [
+   "U+00EA",
+   "U+00E8",
+   "U+011B",
+   "U+201C",
+   "U+201D",
+   "U+2019",
+   "U+1E0D",
+   "U+2026",
+   "U+00E9"
+  ],
+  "non_idempotent_examples": [],
+  "non_idempotent_rows": 0,
+  "period_inside_forms": [
+   [
+    "e...m",
+    7
+   ]
+  ],
+  "segments_with_attached_ellipsis": 710,
+  "segments_with_hyphen": 1564,
+  "tokens_all_caps": 309,
+  "tokens_capitalised": 2187,
+  "tokens_capitalised_non_initial": 2182,
+  "tokens_containing_period": 765,
+  "tokens_ending_period": 758,
+  "tokens_reduplication": 1446,
+  "tokens_total": 65612,
+  "tokens_with_attached_ellipsis": 769,
+  "tokens_with_digit": 63,
+  "tokens_with_hyphen": 1961,
+  "tokens_with_two_dots": 0,
+  "top_non_initial_capitals": [
+   [
+    "Mbak",
+    317
+   ],
+   [
+    "Jember",
+    76
+   ],
+   [
+    "SMA",
+    38
+   ],
+   [
+    "Jawa",
+    36
+   ],
+   [
+    "Indonesia",
+    31
+   ],
+   [
+    "Anda",
+    29
+   ],
+   [
+    "Jepang",
+    27
+   ],
+   [
+    "Inggris",
+    26
+   ],
+   [
+    "HP",
+    24
+   ],
+   [
+    "SD",
+    22
+   ],
+   [
+    "S2",
+    21
+   ],
+   [
+    "Psikologi",
+    19
+   ],
+   [
+    "Jogja",
+    19
+   ],
+   [
+    "Linguistik",
+    19
+   ],
+   [
+    "Allah",
+    18
+   ],
+   [
+    "Minggu",
+    18
+   ],
+   [
+    "Google",
+    17
+   ],
+   [
+    "SMK",
+    16
+   ],
+   [
+    "SMP",
+    16
+   ],
+   [
+    "Bali",
+    14
+   ],
+   [
+    "Pak",
+    14
+   ],
+   [
+    "Banyuwangi",
+    14
+   ],
+   [
+    "Londo",
+    14
+   ],
+   [
+    "Sabtu",
+    13
+   ],
+   [
+    "B",
+    12
+   ],
+   [
+    "Agroteknologi",
+    12
+   ],
+   [
+    "Muhammadiyah",
+    11
+   ],
+   [
+    "CS",
+    11
+   ],
+   [
+    "Korpus",
+    11
+   ],
+   [
+    "Unmuh",
+    10
+   ]
+  ],
+  "top_reduplications": [
+   [
+    "wong-wong",
+    133
+   ],
+   [
+    "arèk-arèk",
+    47
+   ],
+   [
+    "rata-rata",
+    34
+   ],
+   [
+    "ngono-ngono",
+    34
+   ],
+   [
+    "apa-apa",
+    26
+   ],
+   [
+    "beda-beda",
+    25
+   ],
+   [
+    "bênêr-bênêr",
+    20
+   ],
+   [
+    "padha-padha",
+    19
+   ],
+   [
+    "rêsik-rêsik",
+    16
+   ],
+   [
+    "foto-foto",
+    16
+   ],
+   [
+    "dhewe-dhewe",
+    15
+   ],
+   [
+    "mlaku-mlaku",
+    15
+   ],
+   [
+    "masing-masing",
+    15
+   ],
+   [
+    "akèh-akèh",
+    13
+   ],
+   [
+    "isa-isa",
+    13
+   ],
+   [
+    "awal-awal",
+    13
+   ],
+   [
+    "macêm-macêm",
+    12
+   ],
+   [
+    "ibu-ibu",
+    12
+   ],
+   [
+    "olèh-olèh",
+    12
+   ],
+   [
+    "bapak-bapak",
+    12
+   ],
+   [
+    "suwi-suwi",
+    11
+   ],
+   [
+    "moro-moro",
+    11
+   ],
+   [
+    "hal-hal",
+    11
+   ],
+   [
+    "kanca-kanca",
+    11
+   ],
+   [
+    "kira-kira",
+    11
+   ],
+   [
+    "anèh-anèh",
+    11
+   ],
+   [
+    "cah-cah",
+    11
+   ],
+   [
+    "tangga-tangga",
+    10
+   ],
+   [
+    "tempat-tempat",
+    9
+   ],
+   [
+    "umbah-umbah",
+    9
+   ]
+  ],
+  "types_recovered_by_folding": 220,
+  "unicode_ellipsis_u2026": 4,
+  "vocab_types_folded": 7335,
+  "vocab_types_official": 7555
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "manifest duration matches TSV after drops (<1 %)",
+    "detail": "9.9861 h vs 9.9861 h",
+    "passed": true
+   },
+   {
+    "check": "no recording in both train and dev",
+    "detail": "[]",
+    "passed": true
+   },
+   {
+    "check": "official_normalize is idempotent on the corpus",
+    "detail": "6638 rows",
+    "passed": true
+   },
+   {
+    "check": "scorer.wer(refs, refs) == 0.0",
+    "detail": "0.000000",
+    "passed": true
+   },
+   {
+    "check": "scorer.wer(refs, empty) == 1.0",
+    "detail": "1.000000",
+    "passed": true
+   },
+   {
+    "check": "scorer.self_test on the real references",
+    "detail": "34/34",
+    "passed": true
+   },
+   {
+    "check": "every clip is shorter than 30 s",
+    "detail": "longest 29.00 s",
+    "passed": true
+   },
+   {
+    "check": "no empty transcript",
+    "detail": "min 1 words",
+    "passed": true
+   },
+   {
+    "check": "seg_id unique",
+    "detail": "6638 ids",
+    "passed": true
+   },
+   {
+    "check": "split.csv covers every manifest recording",
+    "detail": "208 vs 208",
+    "passed": true
+   },
+   {
+    "check": "not a smoke run",
+    "detail": "DEBUG_N_RECORDINGS = None",
+    "passed": true
+   }
+  ],
+  "cleaned_text_cosmetic_sub_pct": 100.0,
+  "cleaned_text_self_inflicted_wer": 0.1915,
+  "gate1_passed": false,
+  "n_passed": 11,
+  "n_total": 11,
+  "write_audio": false
+ }
+}

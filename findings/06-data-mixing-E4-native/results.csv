@@ -1,0 +1,2 @@
+experiment,run_id,verdict,n_rules_passed,wer_nb04,wer_this,delta,delta_lo,delta_hi,wer_jv,wer_id,jv_to_id,mix_hours,n_train_items
+E4,06-data-mixing-E4-native,drop,2,0.2532,0.2317,-0.0215,-0.0266,-0.0168,0.2425,0.1754,17.9,6.527508836805556,6725

@@ -1,0 +1,338 @@
+==========================================================================
+RUN MODE   : SMOKE      RUN_FULL_GRID = True   SMOKE_N = 40
+==========================================================================
+!! SMOKE RUN on the first 40 dev segments only - numbers below mean
+!! nothing. Output goes to findings/03-zeroshot-dryrun/ so it can never be confused
+!! with a real run.
+output dir : /kaggle/working/findings/03-zeroshot-dryrun
+console log: /kaggle/working/findings/03-zeroshot-dryrun/run-log.txt  (restarts every time this cell runs)
+seed       : 20260827
+device     : cuda  (n_gpu=2)
+torch      : 2.10.0+cu128
+transformers: 5.0.0
+
+==========================================================================
+DISCOVERY
+==========================================================================
+META_ROOT  = /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta
+AUDIO_ROOT = /kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build
+
+recordings/_meta/ : ['dataset_findings.json', 'dropped_segments.csv', 'lexicon_v1.csv', 'manifest.csv', 'scorer.py', 'split.csv', 'text_audit.json']
+recordings/        : 208 flac
+
+==========================================================================
+SCORER
+==========================================================================
+scorer version: 1.0
+self_test: 30/30 passed
+
+==========================================================================
+LOAD
+==========================================================================
+dev segments   : 1097
+dev recordings : 20
+dev hours       : 1.627
+lexicon entries : 23805
+
+!! SMOKE RUN: DEV truncated to the first 40 segments.
+ seg_id audio_filename dur_s                                                     text_official
+102_001            102   5.0  aku kan mau anu i apa budhal kuliah tek budhal kuliah têka Rambi
+102_002            102   5.0                             těrus arêp têka nèng semprone kancaku
+102_003            102   2.0                                            aku kan durung sarapan
+102_004            102   6.0 těrus aku mangan sêga nèng salah satu warung ya menurutku enaklah
+102_005            102   5.0            mangan apa iwak pitik krispi iku lho krêmês-krêmês iku
+MODELS: ['whisper-tiny', 'whisper-base', 'whisper-small', 'whisper-medium', 'whisper-large-v3-turbo']
+LANGS : ['id', 'jw', 'auto']
+decode: {'task': 'transcribe', 'num_beams': 1, 'do_sample': False, 'temperature': 0.0, 'condition_on_prev_tokens': False, 'return_timestamps': False}
+
+==========================================================================
+GRID EXECUTION
+==========================================================================
+
+==========================================================================
+MODEL whisper-tiny (openai/whisper-tiny)  langs=['id', 'jw', 'auto']
+==========================================================================
+  load 5.7s   disk 155.4 MB   sec/clip  bs1=0.310  bs8=0.151  (n=40)
+  [id  ] 40 clips in    6.3s  (0.157 s/clip)
+  [jw  ] 40 clips in    6.0s  (0.151 s/clip)
+  [auto] 40 clips in    6.3s  (0.157 s/clip)
+
+==========================================================================
+MODEL whisper-base (openai/whisper-base)  langs=['id', 'jw', 'auto']
+==========================================================================
+  load 5.2s   disk 294.8 MB   sec/clip  bs1=0.245  bs8=0.134  (n=40)
+  [id  ] 40 clips in    5.4s  (0.136 s/clip)
+  [jw  ] 40 clips in   10.8s  (0.269 s/clip)
+  [auto] 40 clips in    8.3s  (0.208 s/clip)
+
+==========================================================================
+MODEL whisper-small (openai/whisper-small)  langs=['id', 'jw', 'auto']
+==========================================================================
+  load 9.2s   disk 971.4 MB   sec/clip  bs1=0.268  bs8=0.099  (n=40)
+  [id  ] 40 clips in    4.0s  (0.101 s/clip)
+  [jw  ] 40 clips in   28.6s  (0.714 s/clip)
+  [auto] 40 clips in   20.0s  (0.501 s/clip)
+
+==========================================================================
+MODEL whisper-medium (openai/whisper-medium)  langs=['id', 'jw', 'auto']
+==========================================================================
+  load 15.9s   disk 3059.9 MB   sec/clip  bs1=0.427  bs8=0.411  (n=40)
+  [id  ] 40 clips in   16.7s  (0.418 s/clip)
+  [jw  ] 40 clips in   25.6s  (0.639 s/clip)
+  [auto] 40 clips in   29.7s  (0.741 s/clip)
+
+==========================================================================
+MODEL whisper-large-v3-turbo (openai/whisper-large-v3-turbo)  langs=['id', 'jw', 'auto']
+==========================================================================
+  load 11.3s   disk 1622.4 MB   sec/clip  bs1=0.250  bs8=0.197  (n=40)
+  [id  ] 40 clips in    8.2s  (0.205 s/clip)
+  [jw  ] 40 clips in    8.5s  (0.213 s/clip)
+  [auto] 40 clips in   14.8s  (0.370 s/clip)
+
+prediction files: ['whisper-base__auto.csv', 'whisper-base__id.csv', 'whisper-base__jw.csv', 'whisper-large-v3-turbo__auto.csv', 'whisper-large-v3-turbo__id.csv', 'whisper-large-v3-turbo__jw.csv', 'whisper-medium__auto.csv', 'whisper-medium__id.csv', 'whisper-medium__jw.csv', 'whisper-small__auto.csv', 'whisper-small__id.csv', 'whisper-small__jw.csv', 'whisper-tiny__auto.csv', 'whisper-tiny__id.csv', 'whisper-tiny__jw.csv']
+
+==========================================================================
+SCORING GRID
+==========================================================================
+                 model lang   ref_variant    wer  wer_jv  wer_id  wer_both  wer_unk  sub_rate  del_rate  ins_rate  cosmetic_sub_pct  jv_to_id_sub_pct  n_jv_sub  n_jv_to_id  pct_long_hyp  pct_repeat_ngram  n_utts  n_ref_tokens
+whisper-large-v3-turbo   jw   text_folded 0.7301  0.6903  0.6744    0.4699   0.8966    0.5276    0.1595    0.0429              5.23             19.35        62          12           0.0               0.0      40           326
+whisper-large-v3-turbo   id   text_folded 0.8129  0.8142  0.7209    0.6024   0.9310    0.5736    0.2055    0.0337              3.21             36.62        71          26           0.0               2.5      40           326
+whisper-large-v3-turbo auto   text_folded 0.8252  0.8142  0.7209    0.6024   0.9310    0.5798    0.1994    0.0460              3.17             37.50        72          27           0.0               2.5      40           326
+         whisper-small   id   text_folded 0.8528  0.8053  0.7907    0.5783   0.9655    0.6196    0.1687    0.0644              0.00             37.68        69          26           0.0               0.0      40           326
+          whisper-base   id   text_folded 1.3558  0.8496  0.7674    0.7470   0.9885    0.6442    0.2055    0.5061              0.48             28.57        70          20           2.5               2.5      40           326
+         whisper-small auto   text_folded 2.0276  0.8407  0.8605    0.6747   0.9770    0.5706    0.2669    1.1902              0.00             25.00        64          16           5.0               5.0      40           326
+        whisper-medium auto   text_folded 2.1472  0.8850  0.9302    0.8072   0.9770    0.7055    0.1902    1.2515              0.87             46.43        84          39           2.5               5.0      40           326
+        whisper-medium   id   text_folded 2.2209  0.8319  0.9302    0.6867   0.9655    0.5613    0.2822    1.3773              1.09             61.29        62          38           2.5               5.0      40           326
+          whisper-tiny   jw   text_folded 2.6227  0.9823  1.0000    0.9759   1.0000    0.5706    0.4172    1.6350              0.00             20.69        58          12           7.5              10.0      40           326
+        whisper-medium   jw   text_folded 2.6840  0.9381  0.9070    0.9518   0.9885    0.7454    0.2055    1.7331              0.00             44.19        86          38           5.0               7.5      40           326
+         whisper-small   jw   text_folded 2.6902  0.9469  0.9767    0.9036   0.9655    0.6074    0.3374    1.7454              0.00              8.22        73           6          10.0              10.0      40           326
+          whisper-tiny auto   text_folded 2.7362  0.9027  0.9535    0.8554   1.0000    0.7086    0.2147    1.8129              0.00             27.50        80          22           7.5               5.0      40           326
+          whisper-tiny   id   text_folded 2.8589  0.8673  0.8605    0.8313   1.0000    0.6963    0.1963    1.9663              0.00             23.08        78          18           7.5               7.5      40           326
+          whisper-base auto   text_folded 3.0706  0.8496  0.7442    0.7470   0.9885    0.6595    0.1871    2.2239              0.47             29.17        72          21           7.5               5.0      40           326
+          whisper-base   jw   text_folded 4.1043  0.8673  1.0000    0.8795   0.9770    0.5429    0.3742    3.1871              1.69             17.24        58          10           7.5               7.5      40           326
+whisper-large-v3-turbo   jw text_official 0.7546  0.7345  0.6744    0.4699   0.9310    0.5521    0.1595    0.0429              8.33             18.18        66          12           0.0               0.0      40           326
+whisper-large-v3-turbo   id text_official 0.8282  0.8496  0.7209    0.6024   0.9425    0.5890    0.2055    0.0337              5.21             34.67        75          26           0.0               2.5      40           326
+whisper-large-v3-turbo auto text_official 0.8405  0.8496  0.7209    0.6024   0.9425    0.5951    0.1994    0.0460              5.15             35.53        76          27           0.0               2.5      40           326
+         whisper-small   id text_official 0.8773  0.8673  0.7907    0.5783   0.9770    0.6442    0.1687    0.0644              2.86             34.21        76          26           0.0               0.0      40           326
+          whisper-base   id text_official 1.3742  0.9027  0.7674    0.7470   0.9885    0.6626    0.2055    0.5061              2.78             26.67        75          20           2.5               2.5      40           326
+         whisper-small auto text_official 2.0491  0.9027  0.8605    0.6747   0.9770    0.5920    0.2669    1.1902              2.59             22.54        71          16           5.0               5.0      40           326
+        whisper-medium auto text_official 2.1564  0.9115  0.9302    0.8072   0.9770    0.7147    0.1902    1.2515              2.15             44.83        87          39           2.5               5.0      40           326
+        whisper-medium   id text_official 2.2331  0.8673  0.9302    0.6867   0.9655    0.5736    0.2822    1.3773              3.21             57.58        66          38           2.5               5.0      40           326
+          whisper-tiny   jw text_official 2.6227  0.9823  1.0000    0.9759   1.0000    0.5706    0.4172    1.6350              0.00             20.69        58          12           7.5              10.0      40           326
+        whisper-medium   jw text_official 2.6902  0.9558  0.9070    0.9518   0.9885    0.7515    0.2055    1.7331              0.41             41.38        87          36           5.0               7.5      40           326
+         whisper-small   jw text_official 2.6933  0.9558  0.9767    0.9036   0.9655    0.6104    0.3374    1.7454              0.50              8.11        74           6          10.0              10.0      40           326
+          whisper-tiny auto text_official 2.7454  0.9292  0.9535    0.8554   1.0000    0.7178    0.2147    1.8129              0.85             26.51        83          22           7.5               5.0      40           326
+          whisper-tiny   id text_official 2.8712  0.9027  0.8605    0.8313   1.0000    0.7086    0.1963    1.9663              1.30             21.95        82          18           7.5               7.5      40           326
+          whisper-base auto text_official 3.0951  0.9115  0.7442    0.7470   1.0000    0.6840    0.1871    2.2239              3.14             26.92        78          21           7.5               5.0      40           326
+          whisper-base   jw text_official 4.1135  0.8938  1.0000    0.8795   0.9770    0.5521    0.3742    3.1871              2.78             16.39        61          10           7.5               7.5      40           326
+
+==========================================================================
+Q1 - MODEL SIZE CURVE (best language token per model, text_official)
+==========================================================================
+                 model lang    wer  wer_jv  wer_id  cosmetic_sub_pct
+          whisper-tiny   jw 2.6227  0.9823  1.0000              0.00
+          whisper-base   id 1.3742  0.9027  0.7674              2.78
+         whisper-small   id 0.8773  0.8673  0.7907              2.86
+        whisper-medium auto 2.1564  0.9115  0.9302              2.15
+whisper-large-v3-turbo   jw 0.7546  0.7345  0.6744              8.33
+
+curve has not flattened across the grid - every step up in size still helps by >= 1.0 point.
+
+==========================================================================
+Q2 - LANGUAGE TOKEN (best model: whisper-tiny)
+==========================================================================
+         wer  wer_jv  wer_id
+lang                        
+id    2.8712  0.9027  0.8605
+jw    2.6227  0.9823  1.0000
+auto  2.7454  0.9292  0.9535
+
+autodetect - language token actually emitted, per clip:
+detected_lang
+?    40
+clips NOT matching the modal detected language: 0 / 40 (0.0%)
+
+==========================================================================
+DECISION - BASELINE FOR FINE-TUNING
+==========================================================================
+selected model : whisper-tiny
+selected lang  : jw
+dev WER        : 2.6227 (jv 0.9823, id 1.0000)
+
+reasoning: whisper-tiny has the lowest text_official WER among the models measured
+language token 'jw' beats the alternatives on this model - see the Q2 table above.
+
+==========================================================================
+Q3 - JAVANESE TOKENS SUBSTITUTED WITH INDONESIAN (selected baseline)
+==========================================================================
+jv-class reference tokens substituted : 58
+...of which the substitute is id-class: 12 (20.69%)
+
+top substitutions of a jv-class reference token:
+    ref              hyp  count hyp_origin
+    aku              ndu      2        unk
+  těrus              arp      1        unk
+   arêp            takar      1        unk
+ durung        abandirun      1        unk
+    iku               yu      1        unk
+    iku kramasakramasivu      1        unk
+    iku           taroos      1        unk
+    aku           lumbar      1        unk
+ tumbas               ah      1         id
+    iku           telpor      1        unk
+  dhewe             Siku      1         id
+   sing            soren      1        unk
+jênênge              ndu      1        unk
+mêsakke              ndu      1        unk
+  ngono              ndu      1        unk
+    iku           我拿手機死枯      1        unk
+    iku             niku      1        unk
+  kabèh            yokan      1        unk
+ngarêpe             poto      1        unk
+ lawang           mataka      1        unk
+
+==========================================================================
+Q4 - LATENCY (T4, fp16)
+==========================================================================
+                 model  load_s  disk_mb  sec_per_clip_bs1  sec_per_clip_bs8  n_latency_clips
+          whisper-tiny    5.72    155.4            0.3103            0.1511               40
+          whisper-base    5.17    294.8            0.2450            0.1343               40
+         whisper-small    9.17    971.4            0.2681            0.0988               40
+        whisper-medium   15.92   3059.9            0.4273            0.4113               40
+whisper-large-v3-turbo   11.32   1622.4            0.2501            0.1968               40
+
+batch=1 is the number relevant to the submission container (R8: clips scored independently).
+saved -> /kaggle/working/findings/03-zeroshot-dryrun/latency.json
+
+==========================================================================
+RAW (text_official) VS FOLDED (text_folded) - diacritic value at stake
+==========================================================================
+                 model lang  text_folded  text_official  official_minus_folded
+whisper-large-v3-turbo   jw       0.7301         0.7546                 0.0245
+         whisper-small   id       0.8528         0.8773                 0.0245
+          whisper-base auto       3.0706         3.0951                 0.0245
+         whisper-small auto       2.0276         2.0491                 0.0215
+          whisper-base   id       1.3558         1.3742                 0.0184
+whisper-large-v3-turbo   id       0.8129         0.8282                 0.0153
+whisper-large-v3-turbo auto       0.8252         0.8405                 0.0153
+          whisper-tiny   id       2.8589         2.8712                 0.0123
+        whisper-medium   id       2.2209         2.2331                 0.0122
+        whisper-medium auto       2.1472         2.1564                 0.0092
+          whisper-base   jw       4.1043         4.1135                 0.0092
+          whisper-tiny auto       2.7362         2.7454                 0.0092
+        whisper-medium   jw       2.6840         2.6902                 0.0062
+         whisper-small   jw       2.6902         2.6933                 0.0031
+          whisper-tiny   jw       2.6227         2.6227                 0.0000
+
+==========================================================================
+PER-RECORDING WER, selected baseline (whisper-tiny / jw)
+==========================================================================
+audio_filename  n_segs    wer
+           105       7 1.0339
+           102      33 2.9738
+
+std across recordings: 1.3717
+
+==========================================================================
+BOOTSTRAP 95%% CI, selected baseline, text_official
+==========================================================================
+WER 2.6227  [1.0317, 4.7722]  half-width 1.8703  (n_utts=40, n_boot=1000)
+
+==========================================================================
+ERROR TABLES - TOP 3 CONFIGS (text_official)
+==========================================================================
+
+whisper-large-v3-turbo__jw.csv (wer=0.7546):
+ op     ref     hyp  count ref_origin  diacritic_only  case_only  punct_only  cosmetic
+sub   těrus   terus      4         jv            True      False       False      True
+del       e              3       both           False      False       False     False
+del     iku              3         jv           False      False       False     False
+del      ya              3         id           False      False       False     False
+del   těrus              2         jv           False      False       False     False
+sub kancaku koncoku      2        unk           False      False       False     False
+sub    nèng    neng      2        unk            True      False       False      True
+del sakwise              2        unk           False      False       False     False
+del     tak              2       both           False      False       False     False
+del    dadi              2         jv           False      False       False     False
+
+whisper-large-v3-turbo__id.csv (wer=0.8282):
+ op     ref   hyp  count ref_origin  diacritic_only  case_only  punct_only  cosmetic
+del       e            4       both           False      False       False     False
+del     tak            4       both           False      False       False     False
+del   těrus            3         jv           False      False       False     False
+sub   těrus terus      3         jv            True      False       False      True
+sub     iku  ikut      3         jv           False      False       False     False
+del     kan            2       both           False      False       False     False
+ins          yang      2                      False      False       False     False
+sub  mangan makan      2         jv           False      False       False     False
+sub     iku   itu      2         jv           False      False       False     False
+del sakwise            2        unk           False      False       False     False
+
+whisper-large-v3-turbo__auto.csv (wer=0.8405):
+ op    ref   hyp  count ref_origin  diacritic_only  case_only  punct_only  cosmetic
+del    tak            4       both           False      False       False     False
+del  těrus            3         jv           False      False       False     False
+sub  těrus terus      3         jv            True      False       False      True
+del      e            3       both           False      False       False     False
+ins           oh      3                      False      False       False     False
+sub    iku  ikut      3         jv           False      False       False     False
+sub    aja  ocak      3         id           False      False       False     False
+del    kan            2       both           False      False       False     False
+ins         yang      2                      False      False       False     False
+sub mangan makan      2         jv           False      False       False     False
+
+==========================================================================
+SELF-VALIDATION
+==========================================================================
+  [PASS] full WER table covers the intended grid, jv/id split present 15/15 configs
+  [PASS] one (model, lang) selected as fine-tune baseline, with a reason 
+  [PASS] jv_to_id substitution rate measured and saved              58 jv-class substitutions
+  [PASS] bootstrap 95%% CI available for the selected baseline      half-width 1.8703
+  [PASS] latency.json filled for every model in the grid            5/5 models
+  [FAIL] not a smoke run                                            SMOKE_N = 40 - expected to FAIL on a smoke run
+
+5/6 checks passed
+>>> SMOKE RUN OK. Pipeline runs end to end. Set SMOKE_N = None and Run All for real.
+
+==========================================================================
+ARTIFACT FINGERPRINTS
+==========================================================================
+  error_tables/whisper-large-v3-turbo__auto.csv 8c76180effd9a2e7        2.2 KB
+  error_tables/whisper-large-v3-turbo__id.csv 05b95959616e52b6        2.2 KB
+  error_tables/whisper-large-v3-turbo__jw.csv c29eb25f355cd7a9        2.2 KB
+  jv_to_id_substitutions.csv               3c9c1c1056a52273        1.0 KB
+  predictions/whisper-base__auto.csv       b627fc7fdb9e4b9f        5.0 KB
+  predictions/whisper-base__id.csv         10dd3f08e4e4e816        2.8 KB
+  predictions/whisper-base__jw.csv         9c47087fe3159a98        5.8 KB
+  predictions/whisper-large-v3-turbo__auto.csv 1a55f34731596e14        2.1 KB
+  predictions/whisper-large-v3-turbo__id.csv 7a9d446d3cd1e9e1        1.9 KB
+  predictions/whisper-large-v3-turbo__jw.csv e13b8d54f8d817bb        2.0 KB
+  predictions/whisper-medium__auto.csv     a8359ded2ae491c7        4.0 KB
+  predictions/whisper-medium__id.csv       8bc66ce0e0403bf4        4.4 KB
+  predictions/whisper-medium__jw.csv       2a07886e81ffcfa9        4.1 KB
+  predictions/whisper-small__auto.csv      0851e1eb82af99e1        4.7 KB
+  predictions/whisper-small__id.csv        7efee208584f2154        2.1 KB
+  predictions/whisper-small__jw.csv        345f61ab6ff958be        9.9 KB
+  predictions/whisper-tiny__auto.csv       d99563f49f5c7edb        5.6 KB
+  predictions/whisper-tiny__id.csv         d527f570f23ccb1a        5.9 KB
+  predictions/whisper-tiny__jw.csv         d530cd66641fed9b        4.0 KB
+  zeroshot_results.csv                     d9eeb043e9390333        3.6 KB
+  latency.json                             00d6685c68af2b0c        0.7 KB
+
+===== BEGIN CLAUDE-HANDOFF-JSON =====
+{"_meta":{"artifacts":["error_tables/whisper-large-v3-turbo__auto.csv","error_tables/whisper-large-v3-turbo__id.csv","error_tables/whisper-large-v3-turbo__jw.csv","jv_to_id_substitutions.csv","latency.json","predictions/whisper-base__auto.csv","predictions/whisper-base__id.csv","predictions/whisper-base__jw.csv","predictions/whisper-large-v3-turbo__auto.csv","predictions/whisper-large-v3-turbo__id.csv","predictions/whisper-large-v3-turbo__jw.csv","predictions/whisper-medium__auto.csv","predictions/whisper-medium__id.csv","predictions/whisper-medium__jw.csv","predictions/whisper-small__auto.csv","predictions/whisper-small__id.csv","predictions/whisper-small__jw.csv","predictions/whisper-tiny__auto.csv","predictions/whisper-tiny__id.csv","predictions/whisper-tiny__jw.csv","run-log.txt","zeroshot_results.csv"],"complete":true,"generated_for":"handoff to Claude - do not edit by hand","missing_sections":[],"notebook":"mozilla-javanese zero-shot baseline","notebook_id":"03-zeroshot"},"data":{"dev_hours":0.0489,"n_dev_recordings":20,"n_dev_segments":40,"n_lexicon_entries":23805},"decision":{"lang":"jw","model":"whisper-tiny","wer":2.6227,"wer_id":1.0,"wer_jv":0.9823},"dev_ci":{"half_width":1.8703,"hi":4.7722,"lo":1.0317,"n_boot":1000,"n_utts":40,"se":0.9297,"wer":2.6227},"dev_variance":{"per_recording":[{"audio_filename":"105","n_segs":7,"wer":1.0339},{"audio_filename":"102","n_segs":33,"wer":2.9738}],"std_across_recordings":1.3717},"env":{"audio_root":"/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build","batch_size":8,"device":"cuda","latency_n":40,"meta_root":"/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta","n_gpu":2,"notebook":"03-zeroshot","numpy":"2.0.2","pandas":"2.3.3","python":"3.12.13","run_full_grid":true,"seed":20260827,"smoke_n":40,"torch":"2.10.0+cu128","transformers":"5.0.0"},"error_tables":{"configs":[{"lang":"jw","model":"whisper-large-v3-turbo","wer":0.7546},{"lang":"id","model":"whisper-large-v3-turbo","wer":0.8282},{"lang":"auto","model":"whisper-large-v3-turbo","wer":0.8405}]},"fingerprints":{"error_tables/whisper-large-v3-turbo__auto.csv":"8c76180effd9a2e7","error_tables/whisper-large-v3-turbo__id.csv":"05b95959616e52b6","error_tables/whisper-large-v3-turbo__jw.csv":"c29eb25f355cd7a9","jv_to_id_substitutions.csv":"3c9c1c1056a52273","latency.json":"00d6685c68af2b0c","predictions/whisper-base__auto.csv":"b627fc7fdb9e4b9f","predictions/whisper-base__id.csv":"10dd3f08e4e4e816","predictions/whisper-base__jw.csv":"9c47087fe3159a98","predictions/whisper-large-v3-turbo__auto.csv":"1a55f34731596e14","predictions/whisper-large-v3-turbo__id.csv":"7a9d446d3cd1e9e1","predictions/whisper-large-v3-turbo__jw.csv":"e13b8d54f8d817bb","predictions/whisper-medium__auto.csv":"a8359ded2ae491c7","predictions/whisper-medium__id.csv":"8bc66ce0e0403bf4","predictions/whisper-medium__jw.csv":"2a07886e81ffcfa9","predictions/whisper-small__auto.csv":"0851e1eb82af99e1","predictions/whisper-small__id.csv":"7efee208584f2154","predictions/whisper-small__jw.csv":"345f61ab6ff958be","predictions/whisper-tiny__auto.csv":"d99563f49f5c7edb","predictions/whisper-tiny__id.csv":"d527f570f23ccb1a","predictions/whisper-tiny__jw.csv":"d530cd66641fed9b","zeroshot_results.csv":"d9eeb043e9390333"},"grid":{"n_configs":15,"n_result_rows":30},"grid_mode":{"run_full_grid":true,"winner_lang_carried":null},"latency":{"whisper-base":{"disk_mb":294.8,"load_s":5.17,"n_latency_clips":40,"sec_per_clip_bs1":0.245,"sec_per_clip_bs8":0.1343},"whisper-large-v3-turbo":{"disk_mb":1622.4,"load_s":11.32,"n_latency_clips":40,"sec_per_clip_bs1":0.2501,"sec_per_clip_bs8":0.1968},"whisper-medium":{"disk_mb":3059.9,"load_s":15.92,"n_latency_clips":40,"sec_per_clip_bs1":0.4273,"sec_per_clip_bs8":0.4113},"whisper-small":{"disk_mb":971.4,"load_s":9.17,"n_latency_clips":40,"sec_per_clip_bs1":0.2681,"sec_per_clip_bs8":0.0988},"whisper-tiny":{"disk_mb":155.4,"load_s":5.72,"n_latency_clips":40,"sec_per_clip_bs1":0.3103,"sec_per_clip_bs8":0.1511}},"q1":{"flattens_at":null,"table":[{"lang":"jw","model":"whisper-tiny","wer":2.6227,"wer_id":1.0,"wer_jv":0.9823},{"lang":"id","model":"whisper-base","wer":1.3742,"wer_id":0.7674,"wer_jv":0.9027},{"lang":"id","model":"whisper-small","wer":0.8773,"wer_id":0.7907,"wer_jv":0.8673},{"lang":"auto","model":"whisper-medium","wer":2.1564,"wer_id":0.9302,"wer_jv":0.9115},{"lang":"jw","model":"whisper-large-v3-turbo","wer":0.7546,"wer_id":0.6744,"wer_jv":0.7345}]},"q2":{"best_model":"whisper-tiny","detected_lang_distribution":{"?":40},"lang_comparison":[{"lang":"id","wer":2.8712,"wer_id":0.8605,"wer_jv":0.9027},{"lang":"jw","wer":2.6227,"wer_id":1.0,"wer_jv":0.9823},{"lang":"auto","wer":2.7454,"wer_id":0.9535,"wer_jv":0.9292}]},"q3":{"jv_to_id_sub_pct":20.69,"n_jv_sub":58,"n_jv_to_id":12},"scorer":{"n_checks":30,"self_test_passed":true,"version":"1.0"},"validation":{"checks":[{"check":"full WER table covers the intended grid, jv/id split present","detail":"15/15 configs","passed":true},{"check":"one (model, lang) selected as fine-tune baseline, with a reason","detail":"","passed":true},{"check":"jv_to_id substitution rate measured and saved","detail":"58 jv-class substitutions","passed":true},{"check":"bootstrap 95%% CI available for the selected baseline","detail":"half-width 1.8703","passed":true},{"check":"latency.json filled for every model in the grid","detail":"5/5 models","passed":true},{"check":"not a smoke run","detail":"SMOKE_N = 40 - expected to FAIL on a smoke run","passed":false}],"n_passed":5,"n_total":6,"smoke_run":true}}
+===== END CLAUDE-HANDOFF-JSON =====
+
+size: 5.5 KB - select the whole block above and paste it into the chat
+saved -> /kaggle/working/findings/03-zeroshot-dryrun/dataset_findings.json
+saved -> /kaggle/working/findings/03-zeroshot-dryrun/run-log.txt
+
+==========================================================================
+NEXT STEPS, BY HAND
+==========================================================================
+THIS WAS A SMOKE RUN on 40 dev segments. Every number above means nothing -
+this only proves the pipeline runs end to end. Output went to
+findings/03-zeroshot-dryrun/, not the real folder. Do not download or commit any of it.
+
+If the board in the self-validation cell showed no FAIL other than
+'not a smoke run': set SMOKE_N = None in cell 1 and Run All for the real thing.

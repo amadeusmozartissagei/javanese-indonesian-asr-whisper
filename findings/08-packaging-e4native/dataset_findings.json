@@ -1,0 +1,703 @@
+{
+ "_meta": {
+  "artifacts": [
+   "main_C.py",
+   "main_D.py",
+   "main_N.py",
+   "postprocess.py",
+   "run-log-main-C.txt",
+   "run-log-main-D.txt",
+   "run-log-main-N.txt",
+   "submission_dev_C.csv",
+   "submission_dev_D.csv",
+   "submission_dev_N.csv",
+   "dataset_findings.json"
+  ],
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "notebook_id": "08-packaging",
+  "run_id": "08-packaging-e4native"
+ },
+ "allbad.D": {
+  "exit_code": 1,
+  "wrote_csv": false
+ },
+ "checkpoint.E4": {
+  "clean_up_tokenization_spaces": true,
+  "config_dtype": "float32",
+  "download_s": 21.4,
+  "expected_sha16": "c58b0538dc4c2008",
+  "feature_extractor_in": "processor_config.json:feature_extractor",
+  "feature_size": 128,
+  "files": [
+   "checkpoint_manifest.json",
+   "config.json",
+   "eval_final.json",
+   "generation_config.json",
+   "model.safetensors",
+   "processor_config.json",
+   "tokenizer.json",
+   "tokenizer_config.json"
+  ],
+  "fp16": true,
+  "fp16_exact": true,
+  "fp16_sha16": "f5a3b49295f4ed40",
+  "fp32_gb": 3.236,
+  "gen_forced_decoder_ids": null,
+  "gen_has_jw": true,
+  "gen_language": "jw",
+  "gen_max_length": 225,
+  "gen_no_repeat_ngram": 4,
+  "gen_task": "transcribe",
+  "model_mel_bins": 128,
+  "n_files": 8,
+  "processor_config_keys": [
+   "feature_extractor",
+   "processor_class"
+  ],
+  "repo": "amozaurus/mozilla-jv-06-data-mixing-E4",
+  "revision": "c79347a54d8523f9876cfbf17bd7ea217d1db800",
+  "safetensors_sha16": "c58b0538dc4c2008",
+  "saved_by_transformers": "5.0.0",
+  "sha_ok": true,
+  "size_gb": 1.622,
+  "tokenizer_class": "WhisperTokenizer",
+  "tokenizer_special_keys": [
+   "extra_special_tokens"
+  ]
+ },
+ "checkpoint.E4N": {
+  "clean_up_tokenization_spaces": true,
+  "config_dtype": "float32",
+  "download_s": 16.1,
+  "expected_sha16": "b3438f32cf61ebbe",
+  "feature_extractor_in": "processor_config.json:feature_extractor",
+  "feature_size": 128,
+  "files": [
+   "config.json",
+   "generation_config.json",
+   "model.safetensors",
+   "processor_config.json",
+   "tokenizer.json",
+   "tokenizer_config.json"
+  ],
+  "fp16": true,
+  "fp16_exact": true,
+  "fp16_sha16": "6570ae7361509521",
+  "fp32_gb": 3.236,
+  "gen_forced_decoder_ids": null,
+  "gen_has_jw": true,
+  "gen_language": "jw",
+  "gen_max_length": 225,
+  "gen_no_repeat_ngram": 4,
+  "gen_task": "transcribe",
+  "model_mel_bins": 128,
+  "n_files": 6,
+  "processor_config_keys": [
+   "feature_extractor",
+   "processor_class"
+  ],
+  "repo": "amozaurus/mozilla-jv-06-data-mixing-E4-native",
+  "revision": "3437f4424cdee0ce3113f7fe2ccbc32e5350be7e",
+  "safetensors_sha16": "b3438f32cf61ebbe",
+  "saved_by_transformers": "5.0.0",
+  "sha_ok": true,
+  "size_gb": 1.622,
+  "tokenizer_class": "WhisperTokenizer",
+  "tokenizer_special_keys": [
+   "extra_special_tokens"
+  ]
+ },
+ "edge.D": {
+  "chunked": 2,
+  "corrupt_words": 0,
+  "exit_code": 0,
+  "failed": 1,
+  "formats": {
+   "edge_35s.mp3": "MP3",
+   "edge_40s.mp3": "MP3",
+   "edge_noise.mp3": "MP3",
+   "edge_silence.mp3": "MP3",
+   "edge_veryshort.mp3": "MP3"
+  },
+  "n_clips": 6,
+  "n_rows": 6,
+  "windows": 4,
+  "words": {
+   "edge_35s": 60,
+   "edge_40s": 66,
+   "edge_corrupt": 0,
+   "edge_noise": 1,
+   "edge_silence": 5,
+   "edge_veryshort": 5
+  }
+ },
+ "env": {
+  "arms": {
+   "C": {
+    "ckpt": "E4",
+    "num_beams": 1,
+    "parity": "E4",
+    "ship": false
+   },
+   "D": {
+    "ckpt": "E4N",
+    "num_beams": 5,
+    "parity": null,
+    "ship": true
+   },
+   "N": {
+    "ckpt": "E4N",
+    "num_beams": 1,
+    "parity": "E4N",
+    "ship": false
+   }
+  },
+  "gpu": "Tesla T4",
+  "n_dev": 372,
+  "n_dev_used": 372,
+  "numpy": "2.0.2",
+  "pinned": true,
+  "python": "3.12.13",
+  "ship_fp16": true,
+  "torch": "2.10.0+cu128",
+  "transformers": "4.57.6"
+ },
+ "paired_beam": {
+  "D-N": {
+   "clean222": {
+    "ci95": [
+     -0.0058,
+     0.0013
+    ],
+    "delta": -0.0023,
+    "p_better": 0.896
+   },
+   "full372": {
+    "ci95": [
+     -0.0078,
+     -0.0013
+    ],
+    "delta": -0.0046,
+    "p_better": 0.996
+   }
+  },
+  "n_boot": 5000
+ },
+ "paired_vs_C": {
+  "D": {
+   "clean222": {
+    "ci95": [
+     -0.0133,
+     0.0001
+    ],
+    "delta": -0.0066,
+    "p_better": 0.973
+   },
+   "full372": {
+    "ci95": [
+     -0.0091,
+     0.0005
+    ],
+    "delta": -0.0042,
+    "p_better": 0.958
+   }
+  },
+  "N": {
+   "clean222": {
+    "ci95": [
+     -0.0104,
+     0.0016
+    ],
+    "delta": -0.0043,
+    "p_better": 0.914
+   },
+   "full372": {
+    "ci95": [
+     -0.0045,
+     0.0053
+    ],
+    "delta": 0.0004,
+    "p_better": 0.448
+   }
+  },
+  "n_boot": 5000
+ },
+ "run.C": {
+  "exit_code": 0,
+  "import_s": 10.7,
+  "leak_names": 0,
+  "load_s": 1.0,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 13.3,
+  "s_per_clip": 0.37,
+  "stderr_tail": "",
+  "wall_s": 149.3
+ },
+ "run.D": {
+  "exit_code": 0,
+  "import_s": 32.9,
+  "leak_names": 0,
+  "load_s": 1.1,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 30.3,
+  "s_per_clip": 0.8419,
+  "stderr_tail": "",
+  "wall_s": 347.2
+ },
+ "run.N": {
+  "exit_code": 0,
+  "import_s": 12.3,
+  "leak_names": 0,
+  "load_s": 1.0,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 13.2,
+  "s_per_clip": 0.3678,
+  "stderr_tail": "",
+  "wall_s": 150.1
+ },
+ "score.C": {
+  "delta": -0.0,
+  "delta_clean": 0.0,
+  "delta_errors": 0,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 4038,
+  "n_ref_tokens": 17485,
+  "parity": "E4",
+  "paths_match": true,
+  "ref": "E4",
+  "ref_clean222": 0.233068,
+  "ref_wer": 0.230941,
+  "wer_clean222": 0.233068,
+  "wer_official_normalizer": 0.230941
+ },
+ "score.D": {
+  "delta": -0.004575,
+  "delta_clean": -0.0023,
+  "delta_errors": -80,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 3965,
+  "n_ref_tokens": 17485,
+  "parity": null,
+  "paths_match": true,
+  "ref": "E4N",
+  "ref_clean222": 0.228758,
+  "ref_wer": 0.231341,
+  "wer_clean222": 0.226458,
+  "wer_official_normalizer": 0.226766
+ },
+ "score.N": {
+  "delta": 0.0,
+  "delta_clean": -0.0,
+  "delta_errors": 0,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 4045,
+  "n_ref_tokens": 17485,
+  "parity": "E4N",
+  "paths_match": true,
+  "ref": "E4N",
+  "ref_clean222": 0.228758,
+  "ref_wer": 0.231341,
+  "wer_clean222": 0.228758,
+  "wer_official_normalizer": 0.231341
+ },
+ "smoke.D": {
+  "cache_evicted": 14,
+  "exit_code": 0,
+  "fits_limit": true,
+  "import_s": 9.8,
+  "load_s": 1.5,
+  "ref_wer": 0.2043,
+  "wall_s": 17.9,
+  "wer": 0.2043,
+  "within_margin": true
+ },
+ "source": {
+  "consts_match_nb06": true,
+  "main_lines": 359,
+  "main_sha16": "8f76b71382f9b33c",
+  "n_bad_logs": 0,
+  "n_print": 1
+ },
+ "source.C": {
+  "diff": [],
+  "main_sha16": "8f76b71382f9b33c",
+  "num_beams": 1,
+  "only_beams_differs": true
+ },
+ "source.D": {
+  "diff": [
+   "- NUM_BEAMS = 1",
+   "+ NUM_BEAMS = 5"
+  ],
+  "main_sha16": "aa5a691f68011b81",
+  "num_beams": 5,
+  "only_beams_differs": true
+ },
+ "source.N": {
+  "diff": [],
+  "main_sha16": "8f76b71382f9b33c",
+  "num_beams": 1,
+  "only_beams_differs": true
+ },
+ "validation": {
+  "checks": [
+   {
+    "arm": "*",
+    "check": "transformers cocok dengan container (<5)",
+    "detail": "4.57.6",
+    "passed": true
+   },
+   {
+    "arm": "*",
+    "check": "konstanta decode main.py dasar = NB 06",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "*",
+    "check": "main.py tidak mencetak apa pun tentang klip",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "bobot = sidik jari NB 06 E4-native",
+    "detail": "b3438f32cf61ebbe",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "main.py beda dari dasar hanya di NUM_BEAMS = 5",
+    "detail": "- NUM_BEAMS = 1 / + NUM_BEAMS = 5",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 8 entri",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "jalur decode = 328 pendek / 44 chunk / 88 jendela",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "beam tidak rusak: WER <= NB 06 E4-native greedy + 0.03",
+    "detail": "0.2268 vs 0.2313, selisih -0.0046",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "30.3 menit di GPU ini",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "smoke test muat di limit 1 menit",
+    "detail": "17.9 s (import 9.8, load 1.5)",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "input aneh tidak menjatuhkan run",
+    "detail": "6/6 baris",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "klip 35 s dan 40 s lewat jalur chunk",
+    "detail": "4 jendela",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "klip rusak jadi '' dan dihitung gagal",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "D",
+    "check": "run rusak total berhenti tanpa submission.csv",
+    "detail": "exit 1",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "bobot = sidik jari NB 06 E4-native",
+    "detail": "b3438f32cf61ebbe",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "main.py beda dari dasar hanya di NUM_BEAMS = 1",
+    "detail": "tidak ada beda",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 8 entri",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "jalur decode = 328 pendek / 44 chunk / 88 jendela",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "WER lewat main.py = NB 06 E4-native (toleransi 0.005)",
+    "detail": "0.2313 vs 0.2313, selisih +0.0000 (+0 error)",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "222 klip bersih = NB 06 E4-native (toleransi 0.005)",
+    "detail": "0.2288 vs 0.2288",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "13.2 menit di GPU ini",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "arm": "N",
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "bobot = sidik jari NB 06",
+    "detail": "c58b0538dc4c2008",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "main.py beda dari dasar hanya di NUM_BEAMS = 1",
+    "detail": "tidak ada beda",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 10 entri",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "jalur decode = 328 pendek / 44 chunk / 88 jendela",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "WER lewat main.py = NB 06 (toleransi 0.005)",
+    "detail": "0.2309 vs 0.2309, selisih -0.0000 (+0 error)",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "222 klip bersih = NB 06 (toleransi 0.005)",
+    "detail": "0.2331 vs 0.2331",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "13.3 menit di GPU ini",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   }
+  ],
+  "n_passed": 43,
+  "n_total": 43,
+  "ready": {
+   "C": true,
+   "D": true,
+   "N": true
+  }
+ },
+ "zip.C": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "postprocess.py",
+   "model/checkpoint_manifest.json",
+   "model/config.json",
+   "model/eval_final.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json"
+  ],
+  "main_at_root": true,
+  "main_matches": true,
+  "n_entries": 10,
+  "path": "/kaggle/temp/control_C_e4greedy.zip",
+  "sha16": "a525bb183c16d6b8",
+  "shipped": false,
+  "size_gb": 1.619
+ },
+ "zip.D": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "postprocess.py",
+   "model/config.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json"
+  ],
+  "main_at_root": true,
+  "main_matches": true,
+  "n_entries": 8,
+  "path": "/kaggle/working/submission_D_e4native_beam5.zip",
+  "sha16": "2b21287a0bcef718",
+  "shipped": true,
+  "size_gb": 1.619
+ },
+ "zip.N": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "postprocess.py",
+   "model/config.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json"
+  ],
+  "main_at_root": true,
+  "main_matches": true,
+  "n_entries": 8,
+  "path": "/kaggle/temp/control_N_e4native_greedy.zip",
+  "sha16": "b2539181d52125f2",
+  "shipped": false,
+  "size_gb": 1.619
+ }
+}

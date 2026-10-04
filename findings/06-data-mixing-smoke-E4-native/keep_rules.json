@@ -1,0 +1,52 @@
+{
+ "checkpoint_policy": "final",
+ "comparator": "04-whisper-core-full-concat25-1epoch",
+ "experiment": "E4",
+ "n_passed": 1,
+ "n_total": 3,
+ "paired": {
+  "vs_nb04": {
+   "delta": 0.0211,
+   "delta_hi": 0.0453,
+   "delta_lo": -0.0097,
+   "label": "official/vs-nb04",
+   "p_better": 0.079,
+   "proven": false,
+   "wer_a": 0.2463,
+   "wer_b": 0.2674
+  },
+  "vs_zeroshot": {
+   "delta": -0.0147,
+   "delta_hi": 0.0408,
+   "delta_lo": -0.0842,
+   "label": "official/zero-shot",
+   "p_better": 0.68,
+   "proven": false,
+   "wer_a": 0.2821,
+   "wer_b": 0.2674
+  }
+ },
+ "rules": [
+  {
+   "detail": "0.2463 -> 0.2674, CI [-0.0097, +0.0453]",
+   "passed": false,
+   "rule": "1. wer_total falls beyond the CI"
+  },
+  {
+   "detail": "0.2513 -> 0.2697",
+   "passed": false,
+   "rule": "2. wer_jv does not get worse"
+  },
+  {
+   "detail": "19.3684% -> 1.6842%  (92 -> 8 of 475 tokens, noise band +-9.6)",
+   "passed": true,
+   "rule": "3. jv_to_id does not rise (per reference token)"
+  }
+ ],
+ "run_id": "06-data-mixing-smoke-E4-native",
+ "run_mode": "sanity",
+ "selected_on": "official",
+ "selection_failed": false,
+ "shipped_step": 40,
+ "verdict": "smoke"
+}

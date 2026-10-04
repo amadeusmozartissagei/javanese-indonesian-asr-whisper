@@ -1,0 +1,1160 @@
+{
+ "_meta": {
+  "complete": true,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [],
+  "notebook": "mozilla-javanese dataset EDA v1"
+ },
+ "code_switching": {
+  "id_lexicon_size": 5744,
+  "intra_utterance_mixed_pct": 74.1,
+  "jv_side_ratio_median": 0.688,
+  "method": "CV-Indonesian attestation + Javanese marker list; estimate not gold",
+  "oov_token_mass_pct": 64.6,
+  "oov_types_pct": 77.8,
+  "segments_by_jv_ratio": {
+   "0-20pct": 51,
+   "0pct pure-ID": 135,
+   "20-40pct": 378,
+   "40-60pct": 1452,
+   "60-80pct": 2739,
+   "80-100pct": 1924
+  },
+  "token_pct": {
+   "ID_attested": 32.6,
+   "JV": 18.9,
+   "OOV_id": 48.4
+  },
+  "top_oov": [
+   [
+    "iku",
+    2685
+   ],
+   [
+    "ngono",
+    1454
+   ],
+   [
+    "sing",
+    1350
+   ],
+   [
+    "gak",
+    911
+   ],
+   [
+    "lèk",
+    815
+   ],
+   [
+    "ndèk",
+    783
+   ],
+   [
+    "těrus",
+    759
+   ],
+   [
+    "dadi",
+    708
+   ],
+   [
+    "iki",
+    707
+   ],
+   [
+    "wis",
+    665
+   ],
+   [
+    "ana",
+    579
+   ],
+   [
+    "nèk",
+    484
+   ],
+   [
+    "isa",
+    454
+   ],
+   [
+    "nèng",
+    452
+   ],
+   [
+    "sih",
+    437
+   ],
+   [
+    "wong",
+    400
+   ],
+   [
+    "dhewe",
+    354
+   ],
+   [
+    "mbak",
+    320
+   ],
+   [
+    "kuwi",
+    311
+   ],
+   [
+    "ki",
+    303
+   ],
+   [
+    "soale",
+    300
+   ],
+   [
+    "nah",
+    269
+   ],
+   [
+    "jênênge",
+    250
+   ],
+   [
+    "karo",
+    237
+   ],
+   [
+    "nang",
+    236
+   ],
+   [
+    "pas",
+    228
+   ],
+   [
+    "misale",
+    227
+   ],
+   [
+    "bangêt",
+    209
+   ],
+   [
+    "akèh",
+    207
+   ],
+   [
+    "têka",
+    207
+   ],
+   [
+    "ae",
+    188
+   ],
+   [
+    "ora",
+    184
+   ],
+   [
+    "gawe",
+    179
+   ],
+   [
+    "biasane",
+    178
+   ],
+   [
+    "saiki",
+    174
+   ],
+   [
+    "sampeyan",
+    174
+   ],
+   [
+    "kudu",
+    172
+   ],
+   [
+    "pisan",
+    167
+   ],
+   [
+    "utawa",
+    158
+   ],
+   [
+    "nduwe",
+    155
+   ],
+   [
+    "ning",
+    151
+   ],
+   [
+    "lho",
+    151
+   ],
+   [
+    "sak",
+    149
+   ],
+   [
+    "kene",
+    148
+   ],
+   [
+    "sampèk",
+    142
+   ],
+   [
+    "sik",
+    141
+   ],
+   [
+    "ènèk",
+    141
+   ],
+   [
+    "luwih",
+    140
+   ],
+   [
+    "wong-wong",
+    133
+   ],
+   [
+    "kêrja",
+    121
+   ],
+   [
+    "pênting",
+    117
+   ],
+   [
+    "sênêng",
+    112
+   ],
+   [
+    "omah",
+    109
+   ],
+   [
+    "de'e",
+    105
+   ],
+   [
+    "piye",
+    101
+   ],
+   [
+    "kabèh",
+    100
+   ],
+   [
+    "mbêk",
+    96
+   ],
+   [
+    "ngêrti",
+    95
+   ],
+   [
+    "em",
+    94
+   ],
+   [
+    "dadine",
+    93
+   ]
+  ]
+ },
+ "common_voice": {
+  "cv_vocab_size": 13977,
+  "data_dir": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus/id",
+  "demographics": {
+   "accents": {
+    "<NA>": 29347,
+    "Betawi": 509,
+    "Jakartan Standard": 67,
+    "Javanese": 154,
+    "Jawa Tengah|medhok|surakarta|tionghoa|bindeng": 232,
+    "jawa": 53
+   },
+   "age": {
+    "<NA>": 6947,
+    "fifties": 72,
+    "fourties": 679,
+    "teens": 7502,
+    "thirties": 2743,
+    "twenties": 12522
+   },
+   "gender": {
+    "<NA>": 8788,
+    "female_feminine": 7647,
+    "male_masculine": 14030
+   },
+   "variant": {
+    "<NA>": 30465
+   }
+  },
+  "distinct_sentences": 12170,
+  "n_speakers_ge50_clips": 80,
+  "sentence_repeat_factor": 2.5,
+  "speaker_overlap": {
+   "dev": {
+    "dev": 43.0,
+    "invalidated": 35.0,
+    "other": 29.0,
+    "test": 0.0,
+    "train": 0.0
+   },
+   "invalidated": {
+    "dev": 35.0,
+    "invalidated": 190.0,
+    "other": 116.0,
+    "test": 120.0,
+    "train": 4.0
+   },
+   "other": {
+    "dev": 29.0,
+    "invalidated": 116.0,
+    "other": 483.0,
+    "test": 257.0,
+    "train": 4.0
+   },
+   "test": {
+    "dev": 0.0,
+    "invalidated": 120.0,
+    "other": 257.0,
+    "test": 418.0,
+    "train": 0.0
+   },
+   "train": {
+    "dev": 0.0,
+    "invalidated": 4.0,
+    "other": 4.0,
+    "test": 0.0,
+    "train": 4.0
+   }
+  },
+  "splits": [
+   {
+    "clips": 30465,
+    "clips_per_spk": 65.1,
+    "hours": 35.94,
+    "sentences": 12170,
+    "speakers": 468,
+    "split": "validated"
+   },
+   {
+    "clips": 4981,
+    "clips_per_spk": 1245.2,
+    "hours": 7.7,
+    "sentences": 4981,
+    "speakers": 4,
+    "split": "train"
+   },
+   {
+    "clips": 3489,
+    "clips_per_spk": 81.1,
+    "hours": 4.02,
+    "sentences": 3489,
+    "speakers": 43,
+    "split": "dev"
+   },
+   {
+    "clips": 3700,
+    "clips_per_spk": 8.9,
+    "hours": 4.25,
+    "sentences": 3700,
+    "speakers": 418,
+    "split": "test"
+   },
+   {
+    "clips": 27531,
+    "clips_per_spk": 57.0,
+    "hours": 28.72,
+    "sentences": 7140,
+    "speakers": 483,
+    "split": "other"
+   },
+   {
+    "clips": 2808,
+    "clips_per_spk": 14.8,
+    "hours": 2.73,
+    "sentences": 2556,
+    "speakers": 190,
+    "split": "invalidated"
+   }
+  ],
+  "top10_speaker_share_pct": 59.1,
+  "validated_clip_duration": {
+   "max_s": 10.84,
+   "mean_s": 4.25,
+   "median": 3.96,
+   "min_s": 1.12,
+   "n": 30465,
+   "n_nonpositive": 0,
+   "n_over_30s": 0,
+   "n_under_1s": 0,
+   "p01": 2.02,
+   "p25": 3.22,
+   "p75": 4.99,
+   "p95": 7.03,
+   "p99": 8.57,
+   "total_h": 35.944
+  }
+ },
+ "cross_dataset": {
+  "jember_annotated_h": 9.97,
+  "jember_mass_covered_by_cv_pct": 41.5,
+  "jember_mass_covered_by_cv_plus_tts_pct": 69.5,
+  "jember_mass_covered_by_tts_pct": 56.2,
+  "jember_n_sessions": 208,
+  "length_comparison": [
+   {
+    "corpus": "Jember (spontaneous)",
+    "median_s": 5.0,
+    "median_tok": 9.0,
+    "p95_s": 12.0
+   },
+   {
+    "corpus": "CommonVoice id (read)",
+    "median_s": 3.96,
+    "median_tok": 6.0,
+    "p95_s": 7.03
+   }
+  ],
+  "session_minutes_median": 1.6
+ },
+ "env": {
+  "cv_dir": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus/id",
+  "cv_root": "/kaggle/input/datasets/thoriqfarras/common-voice-corpus",
+  "jember_root": "/kaggle/input/datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus",
+  "kaggle_layout": [
+   "datasets",
+   "datasets/thoriqfarras",
+   "datasets/thoriqfarras/common-voice-corpus",
+   "datasets/thoriqfarras/common-voice-corpus/id",
+   "datasets/thoriqfarras/jember-javanese-corpus",
+   "datasets/thoriqfarras/jember-javanese-corpus/Jember Javanese Spontaneous Speech Corpus",
+   "datasets/thoriqfarras/central-javanese-corpus",
+   "datasets/thoriqfarras/central-javanese-corpus/RECORDING TTS"
+  ],
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "tts_root": "/kaggle/input/datasets/thoriqfarras/central-javanese-corpus",
+  "unresolved": []
+ },
+ "jember": {
+  "bad_timestamp_parse": 0,
+  "columns": [
+   "Audio file name",
+   "start",
+   "end",
+   "text"
+  ],
+  "duration": {
+   "max_s": 29.0,
+   "mean_s": 5.38,
+   "median": 5.0,
+   "min_s": -30.0,
+   "n": 6679,
+   "n_nonpositive": 41,
+   "n_over_30s": 0,
+   "n_under_1s": 41,
+   "p01": 1.0,
+   "p25": 3.0,
+   "p75": 7.0,
+   "p95": 12.0,
+   "p99": 16.0,
+   "total_h": 9.974
+  },
+  "extra_files": [],
+  "gap_median_s": 0.0,
+  "gap_p95_s": 0.0,
+  "n_audio_files": 208,
+  "n_files_with_overlap": 1,
+  "n_mp3_on_disk": 208,
+  "n_nonpositive_dur": 41,
+  "n_segments": 6679,
+  "seg_per_file_median": 18.0
+ },
+ "jember_audio": {
+  "channels": {
+   "1": 208
+  },
+  "coverage_pct": 99.6,
+  "file_duration": {
+   "max_s": 1202.64,
+   "mean_s": 173.34,
+   "median": 100.06,
+   "min_s": 6.1,
+   "n": 208,
+   "n_nonpositive": 0,
+   "n_over_30s": 186,
+   "n_under_1s": 0,
+   "p01": 7.21,
+   "p25": 57.25,
+   "p75": 212.36,
+   "p95": 548.17,
+   "p99": 826.67,
+   "total_h": 10.015
+  },
+  "n_audio_without_tsv": 0,
+  "n_probed": 208,
+  "n_tsv_without_audio": 0,
+  "sample_rates": {
+   "44100": 89,
+   "48000": 119
+  },
+  "total_annotated_h": 9.97,
+  "total_audio_h": 10.01,
+  "unannotated_h": 0.04
+ },
+ "jember_orthography": {
+  "ambiguous_token_mass_pct": 10.8,
+  "e_family_counts": {
+   "e": 18590,
+   "e-acute": 1,
+   "e-caron": 820,
+   "e-circumflex": 5374,
+   "e-grave": 4833
+  },
+  "n_ambiguous_forms": 210,
+  "vocab_folded": 7335,
+  "vocab_raw": 7556,
+  "worst_examples": {
+   "banget": {
+    "banget": 1,
+    "bangêt": 209
+   },
+   "ben": {
+    "ben": 77,
+    "bèn": 7,
+    "bên": 36,
+    "běn": 1
+   },
+   "enek": {
+    "enèk": 9,
+    "ènèk": 141
+   },
+   "jenenge": {
+    "jènènge": 1,
+    "jênênge": 250
+   },
+   "kerja": {
+    "kerja": 1,
+    "kêrja": 121
+   },
+   "lek": {
+    "lek": 2,
+    "lèk": 815
+   },
+   "mbek": {
+    "mbek": 7,
+    "mbèk": 74,
+    "mbêk": 96
+   },
+   "mek": {
+    "mek": 23,
+    "mèk": 55,
+    "mêk": 1
+   },
+   "ndek": {
+    "ndek": 2,
+    "ndèk": 783
+   },
+   "ndelok": {
+    "ndelok": 1,
+    "ndêlok": 65
+   },
+   "nek": {
+    "nek": 1,
+    "nèk": 484,
+    "nêk": 2
+   },
+   "neng": {
+    "neng": 3,
+    "nèng": 452,
+    "nêng": 6
+   },
+   "penting": {
+    "penting": 11,
+    "pênting": 117
+   },
+   "sampek": {
+    "sampek": 1,
+    "sampèk": 142
+   },
+   "sekolah": {
+    "sekolah": 1,
+    "sêkolah": 75
+   },
+   "seneng": {
+    "sênèng": 1,
+    "sênêng": 112
+   },
+   "sering": {
+    "sering": 5,
+    "sêring": 78
+   },
+   "teka": {
+    "teka": 2,
+    "têka": 207
+   },
+   "terus": {
+    "têrus": 4,
+    "těrus": 759
+   },
+   "wektu": {
+    "wektu": 2,
+    "wêktu": 67
+   }
+  }
+ },
+ "jember_text": {
+  "chars_per_sec_median": 11.5,
+  "fillers": {
+   "ah": 8,
+   "anu": 47,
+   "apa": 1201,
+   "e": 1262,
+   "ee": 1,
+   "eh": 37,
+   "em": 94,
+   "gitu": 10,
+   "hmm": 4,
+   "iku": 2685,
+   "ini": 11,
+   "itu": 34,
+   "kan": 949,
+   "lah": 421,
+   "nah": 269,
+   "ngono": 1454,
+   "oh": 28,
+   "opo": 5,
+   "ya": 2745
+  },
+  "hapax_pct": 51.3,
+  "n_distinct_chars": 81,
+  "n_empty_text": 0,
+  "non_ascii_chars": [
+   [
+    "è",
+    4833,
+    "LATIN SMALL LETTER E WITH GRAVE"
+   ],
+   [
+    "é",
+    1,
+    "LATIN SMALL LETTER E WITH ACUTE"
+   ],
+   [
+    "ê",
+    5374,
+    "LATIN SMALL LETTER E WITH CIRCUMFLEX"
+   ],
+   [
+    "ě",
+    820,
+    "LATIN SMALL LETTER E WITH CARON"
+   ],
+   [
+    "ḍ",
+    17,
+    "LATIN SMALL LETTER D WITH DOT BELOW"
+   ],
+   [
+    "’",
+    19,
+    "RIGHT SINGLE QUOTATION MARK"
+   ],
+   [
+    "“",
+    29,
+    "LEFT DOUBLE QUOTATION MARK"
+   ],
+   [
+    "”",
+    28,
+    "RIGHT DOUBLE QUOTATION MARK"
+   ],
+   [
+    "…",
+    4,
+    "HORIZONTAL ELLIPSIS"
+   ]
+  ],
+  "special_chars": {
+   "\"'\"": 261,
+   "'!'": 29,
+   "'\"'": 206,
+   "'%'": 2,
+   "'+'": 1,
+   "','": 10941,
+   "'-'": 1966,
+   "'.'": 8562,
+   "'0'": 18,
+   "'1'": 26,
+   "'2'": 28,
+   "'3'": 6,
+   "'4'": 4,
+   "'5'": 6,
+   "'6'": 2,
+   "'7'": 3,
+   "'8'": 2,
+   "'9'": 1,
+   "':'": 1,
+   "';'": 1,
+   "'?'": 651,
+   "'è'": 4833,
+   "'é'": 1,
+   "'ê'": 5374,
+   "'ě'": 820,
+   "'ḍ'": 17,
+   "'’'": 19,
+   "'“'": 29,
+   "'”'": 28,
+   "'…'": 4
+  },
+  "tokens_per_seg_median": 9.0,
+  "top40": [
+   [
+    "ya",
+    2745
+   ],
+   [
+    "iku",
+    2685
+   ],
+   [
+    "ngono",
+    1454
+   ],
+   [
+    "aku",
+    1417
+   ],
+   [
+    "sing",
+    1350
+   ],
+   [
+    "e",
+    1262
+   ],
+   [
+    "apa",
+    1201
+   ],
+   [
+    "kan",
+    949
+   ],
+   [
+    "gak",
+    911
+   ],
+   [
+    "lèk",
+    815
+   ],
+   [
+    "ndèk",
+    783
+   ],
+   [
+    "těrus",
+    759
+   ],
+   [
+    "kaya",
+    740
+   ],
+   [
+    "dadi",
+    708
+   ],
+   [
+    "iki",
+    707
+   ],
+   [
+    "wis",
+    665
+   ],
+   [
+    "ana",
+    579
+   ],
+   [
+    "nèk",
+    484
+   ],
+   [
+    "isa",
+    454
+   ],
+   [
+    "nèng",
+    452
+   ],
+   [
+    "sih",
+    437
+   ],
+   [
+    "lah",
+    421
+   ],
+   [
+    "tapi",
+    407
+   ],
+   [
+    "wong",
+    400
+   ],
+   [
+    "dhewe",
+    354
+   ],
+   [
+    "nggak",
+    322
+   ],
+   [
+    "mbak",
+    320
+   ],
+   [
+    "kuwi",
+    311
+   ],
+   [
+    "ki",
+    303
+   ],
+   [
+    "soale",
+    300
+   ],
+   [
+    "nah",
+    269
+   ],
+   [
+    "jênênge",
+    250
+   ],
+   [
+    "dan",
+    248
+   ],
+   [
+    "karo",
+    237
+   ],
+   [
+    "nang",
+    236
+   ],
+   [
+    "pas",
+    228
+   ],
+   [
+    "misale",
+    227
+   ],
+   [
+    "kadang",
+    220
+   ],
+   [
+    "bangêt",
+    209
+   ],
+   [
+    "akèh",
+    207
+   ]
+  ],
+  "total_tokens": 65720,
+  "vocab_size": 7556
+ },
+ "tokenizer": {
+  "whisper_fertility_cv_id": 2.47,
+  "whisper_fertility_jember": 2.72,
+  "whisper_fertility_jember_oov": 2.87,
+  "worst_shredded": [
+   [
+    "cêdhêk-cêdhêk",
+    13
+   ],
+   [
+    "tuwêk-tuwêk",
+    9
+   ],
+   [
+    "sênêng-sênêng",
+    9
+   ],
+   [
+    "pênting-pênting",
+    9
+   ],
+   [
+    "pintêr-pintêr",
+    8
+   ],
+   [
+    "bênêr-bênêr",
+    8
+   ],
+   [
+    "sithik-sithik",
+    7
+   ],
+   [
+    "rêsik-rêsik",
+    7
+   ],
+   [
+    "olèh-olèh",
+    7
+   ],
+   [
+    "ngombe-ngombe",
+    7
+   ],
+   [
+    "nangdi-nangdi",
+    7
+   ],
+   [
+    "kutha-kutha",
+    7
+   ],
+   [
+    "kumpul-kumpul",
+    7
+   ],
+   [
+    "klambi-klambi",
+    7
+   ],
+   [
+    "dhewe-dhewe",
+    7
+   ],
+   [
+    "daerah-daerah",
+    7
+   ],
+   [
+    "barêng-barêng",
+    7
+   ],
+   [
+    "bapak-bapak",
+    7
+   ],
+   [
+    "arèk-arèk",
+    7
+   ],
+   [
+    "anèh-anèh",
+    7
+   ]
+  ]
+ },
+ "tts_central": {
+  "by_ext": {
+   ".tsv": 93,
+   ".webm": 4599
+  },
+  "clip_duration": {
+   "estimated_total_h": 7.89,
+   "max_s": 13.2,
+   "mean_s": 6.18,
+   "median": 6.03,
+   "min_s": 1.74,
+   "n": 200,
+   "n_nonpositive": 0,
+   "n_over_30s": 0,
+   "n_under_1s": 0,
+   "p01": 1.92,
+   "p25": 4.79,
+   "p75": 7.34,
+   "p95": 10.04,
+   "p99": 11.95,
+   "total_h": 0.343
+  },
+  "dir_examples": [
+   "RECORDING TTS/recordings (86)",
+   "RECORDING TTS/recordings (46)",
+   "RECORDING TTS/recordings (32)",
+   "RECORDING TTS/recordings (17)",
+   "RECORDING TTS/recordings (87)",
+   "RECORDING TTS/recordings (64)",
+   "RECORDING TTS/recordings (68)",
+   "RECORDING TTS/recordings (28)",
+   "RECORDING TTS/recordings (15)",
+   "RECORDING TTS/recordings (21)"
+  ],
+  "metadata_files": [
+   "RECORDING TTS/recordings (68)/mapping.tsv",
+   "RECORDING TTS/recordings (28)/mapping.tsv",
+   "RECORDING TTS/recordings (15)/mapping.tsv",
+   "RECORDING TTS/recordings (21)/mapping.tsv",
+   "RECORDING TTS/recordings (7)/mapping.tsv",
+   "RECORDING TTS/recordings (9)/mapping.tsv",
+   "RECORDING TTS/recordings (85)/mapping.tsv",
+   "RECORDING TTS/recordings (22)/mapping.tsv",
+   "RECORDING TTS/recordings (5)/mapping.tsv",
+   "RECORDING TTS/recordings (70)/mapping.tsv",
+   "RECORDING TTS/recordings (79)/mapping.tsv",
+   "RECORDING TTS/recordings (88)/mapping.tsv",
+   "RECORDING TTS/recordings (20)/mapping.tsv",
+   "RECORDING TTS/recordings (45)/mapping.tsv",
+   "RECORDING TTS/recordings (86)/mapping.tsv",
+   "RECORDING TTS/recordings (59)/mapping.tsv",
+   "RECORDING TTS/recordings (44)/mapping.tsv",
+   "RECORDING TTS/recordings (51)/mapping.tsv",
+   "RECORDING TTS/recordings (29)/mapping.tsv",
+   "RECORDING TTS/recordings (62)/mapping.tsv"
+  ],
+  "n_audio": 4599,
+  "n_audio_dirs": 93,
+  "n_files": 4692,
+  "n_paired": 4630,
+  "n_transcript_rows": 4630,
+  "top_tts_tokens": [
+   [
+    "sing",
+    2710
+   ],
+   [
+    "iku",
+    1941
+   ],
+   [
+    "ning",
+    1734
+   ],
+   [
+    "iso",
+    1084
+   ],
+   [
+    "lan",
+    1010
+   ],
+   [
+    "ora",
+    972
+   ],
+   [
+    "nggo",
+    831
+   ],
+   [
+    "dadi",
+    793
+   ],
+   [
+    "kuwi",
+    783
+   ],
+   [
+    "karo",
+    767
+   ],
+   [
+    "ono",
+    653
+   ],
+   [
+    "wong",
+    649
+   ],
+   [
+    "okeh",
+    614
+   ],
+   [
+    "yen",
+    606
+   ],
+   [
+    "banget",
+    593
+   ],
+   [
+    "seko",
+    551
+   ],
+   [
+    "yo",
+    534
+   ],
+   [
+    "wes",
+    529
+   ],
+   [
+    "dewe",
+    514
+   ],
+   [
+    "luwih",
+    446
+   ],
+   [
+    "wong-wong",
+    432
+   ],
+   [
+    "awake",
+    391
+   ],
+   [
+    "mergo",
+    356
+   ],
+   [
+    "uwong",
+    330
+   ],
+   [
+    "utowo",
+    326
+   ],
+   [
+    "nek",
+    326
+   ],
+   [
+    "tapi",
+    317
+   ],
+   [
+    "koyo",
+    310
+   ],
+   [
+    "ndue",
+    299
+   ],
+   [
+    "terus",
+    296
+   ]
+  ],
+  "tts_vocab_size": 6168,
+  "unextracted_archives": []
+ }
+}

@@ -1,0 +1,375 @@
+{
+ "env": {
+  "root": "/kaggle/input/datasets/hamzapratama/jv-mix-16k/findings/06-mix-build",
+  "n_metadata_copies": 2,
+  "n_flac_beside_meta": 91,
+  "n_clips": 9851,
+  "n_items": 2552,
+  "n_shards": 91,
+  "python": "3.12.13",
+  "soundfile": "0.13.1"
+ },
+ "inventory": {
+  "n_shards": 91,
+  "hours": 14.9054,
+  "gb": 0.845647,
+  "n_missing": 0,
+  "n_bad_format": 0,
+  "n_short": 0
+ },
+ "structure": {
+  "struct_hash": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888",
+  "expected": "8640e1cfc11b794c35bdc06ce21390464568630fa761d3bbbc0886cb6302d888",
+  "overlaps": 0,
+  "max_item_s": 25.26
+ },
+ "digest": {
+  "present": true,
+  "keys": [
+   "audio",
+   "cv",
+   "decode_probe",
+   "env",
+   "experiments",
+   "fingerprints",
+   "jember",
+   "licence",
+   "packing",
+   "policy",
+   "pool",
+   "tts",
+   "validation"
+  ]
+ },
+ "text": {
+  "n_digit_items": 0,
+  "n_text_mismatch": 0,
+  "words_median": 38,
+  "words_max": 63
+ },
+ "decode": {
+  "n_sampled": 75,
+  "n_failed": 0,
+  "n_silent": 0,
+  "n_wrong_length": 0,
+  "rms_median": 0.0850349
+ },
+ "manifests": {
+  "table": [
+   {
+    "exp": "E1",
+    "items": 1368,
+    "unknown": 0,
+    "spec": true,
+    "claimed_h": 7.94855,
+    "actual_h": 8.0234,
+    "drift_pct": 0.941681
+   },
+   {
+    "exp": "E3",
+    "items": 90,
+    "unknown": 0,
+    "spec": true,
+    "claimed_h": 0.53794,
+    "actual_h": 0.53794,
+    "drift_pct": 0.0
+   },
+   {
+    "exp": "E4",
+    "items": 1184,
+    "unknown": 0,
+    "spec": true,
+    "claimed_h": 6.5275,
+    "actual_h": 6.52751,
+    "drift_pct": 0.000135378
+   },
+   {
+    "exp": "E5",
+    "items": 1184,
+    "unknown": 0,
+    "spec": true,
+    "claimed_h": 6.5275,
+    "actual_h": 6.52751,
+    "drift_pct": 0.000135378
+   },
+   {
+    "exp": "E6",
+    "items": 1184,
+    "unknown": 0,
+    "spec": true,
+    "claimed_h": 6.5275,
+    "actual_h": 6.52751,
+    "drift_pct": 0.000135378
+   }
+  ],
+  "license": true,
+  "readme": true
+ },
+ "verdict": {
+  "verdict": ">>> DATASET VERIFIED. Notebook 06b may mount it.",
+  "n_checks": 52,
+  "n_failed": 0,
+  "checks": [
+   {
+    "name": "every shard named by the manifest exists",
+    "ok": true,
+    "detail": "0 missing"
+   },
+   {
+    "name": "every shard is 16 kHz mono FLAC",
+    "ok": true,
+    "detail": "[]"
+   },
+   {
+    "name": "every shard is long enough for its offsets",
+    "ok": true,
+    "detail": "[]"
+   },
+   {
+    "name": "no stray or extra shard files",
+    "ok": true,
+    "detail": "91 on disk, 91 in manifest"
+   },
+   {
+    "name": "no clip appears twice",
+    "ok": true,
+    "detail": "0 duplicates"
+   },
+   {
+    "name": "no item id appears twice",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "every clip belongs to a known item",
+    "ok": true,
+    "detail": "0 orphans"
+   },
+   {
+    "name": "every item owns at least one clip",
+    "ok": true,
+    "detail": "0 empty items"
+   },
+   {
+    "name": "no item spans two speakers or folders",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "no item spans two shards",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "clip counts agree between the two tables",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "no two clips overlap inside a shard",
+    "ok": true,
+    "detail": "0 overlaps"
+   },
+   {
+    "name": "every clip sits inside its item's span",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "no item exceeds Whisper's 30 s window",
+    "ok": true,
+    "detail": "max 25.26 s"
+   },
+   {
+    "name": "item durations match their sample spans",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "every path points inside shards/",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "structure reproduces the reviewed pass",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "dataset_findings.json shipped with the data",
+    "ok": true,
+    "detail": "11872 B"
+   },
+   {
+    "name": "digest clip count matches the mount",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "digest item count matches the mount",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "digest shard count matches the mount",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "the build recorded no decode failures",
+    "ok": true,
+    "detail": "0"
+   },
+   {
+    "name": "digest was written by phase 2, not phase 1",
+    "ok": true,
+    "detail": "write_audio=True"
+   },
+   {
+    "name": "digest struct_hash agrees with the recomputed one",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "no item has empty text",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "no clip has empty text",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "no digits in any training target",
+    "ok": true,
+    "detail": "0 items with a digit"
+   },
+   {
+    "name": "item text is exactly its clips' text in order",
+    "ok": true,
+    "detail": "0 mismatched"
+   },
+   {
+    "name": "no item text is absurdly long for a 30 s window",
+    "ok": true,
+    "detail": "max 63 words"
+   },
+   {
+    "name": "every sampled item decodes",
+    "ok": true,
+    "detail": "[]"
+   },
+   {
+    "name": "decoded length matches the offsets",
+    "ok": true,
+    "detail": "[]"
+   },
+   {
+    "name": "no sampled item is silent",
+    "ok": true,
+    "detail": "0 silent: []"
+   },
+   {
+    "name": "a whole shard reads end to end",
+    "ok": true,
+    "detail": "cv_0000.flac: 9391424 samples at 16000 Hz"
+   },
+   {
+    "name": "experiment manifests shipped",
+    "ok": true,
+    "detail": "5 found"
+   },
+   {
+    "name": "E1 references only existing items",
+    "ok": true,
+    "detail": "0 unknown"
+   },
+   {
+    "name": "E1 item count matches its spec",
+    "ok": true,
+    "detail": "spec 1368, manifest 1368"
+   },
+   {
+    "name": "E1 hours are within the pre-decode estimate",
+    "ok": true,
+    "detail": "spec 7.95 h, manifest 8.02 h (+0.9 %)"
+   },
+   {
+    "name": "E3 references only existing items",
+    "ok": true,
+    "detail": "0 unknown"
+   },
+   {
+    "name": "E3 item count matches its spec",
+    "ok": true,
+    "detail": "spec 90, manifest 90"
+   },
+   {
+    "name": "E3 hours are within the pre-decode estimate",
+    "ok": true,
+    "detail": "spec 0.54 h, manifest 0.54 h (+0.0 %)"
+   },
+   {
+    "name": "E4 references only existing items",
+    "ok": true,
+    "detail": "0 unknown"
+   },
+   {
+    "name": "E4 item count matches its spec",
+    "ok": true,
+    "detail": "spec 1184, manifest 1184"
+   },
+   {
+    "name": "E4 hours are within the pre-decode estimate",
+    "ok": true,
+    "detail": "spec 6.53 h, manifest 6.53 h (+0.0 %)"
+   },
+   {
+    "name": "E5 references only existing items",
+    "ok": true,
+    "detail": "0 unknown"
+   },
+   {
+    "name": "E5 item count matches its spec",
+    "ok": true,
+    "detail": "spec 1184, manifest 1184"
+   },
+   {
+    "name": "E5 hours are within the pre-decode estimate",
+    "ok": true,
+    "detail": "spec 6.53 h, manifest 6.53 h (+0.0 %)"
+   },
+   {
+    "name": "E6 references only existing items",
+    "ok": true,
+    "detail": "0 unknown"
+   },
+   {
+    "name": "E6 item count matches its spec",
+    "ok": true,
+    "detail": "spec 1184, manifest 1184"
+   },
+   {
+    "name": "E6 hours are within the pre-decode estimate",
+    "ok": true,
+    "detail": "spec 6.53 h, manifest 6.53 h (+0.0 %)"
+   },
+   {
+    "name": "LICENSE.txt ships with the data",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "README.md ships with the data",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "the notice names the licence and both sources",
+    "ok": true,
+    "detail": "This dataset is a derivative work and is licensed"
+   }
+  ]
+ }
+}

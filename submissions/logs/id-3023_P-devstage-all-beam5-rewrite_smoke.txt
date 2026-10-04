@@ -1,0 +1,103 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 13.0.3
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
++ main
++ tee /code_execution/submission/log.txt
++ '[' -n 10 ']'
++ log INFO 'Sleeping 10 seconds before running submission...'
++ set +x
+2026-09-29 02:10:36.280 | INFO | Sleeping 10 seconds before running submission...
++ sleep 10
++ expected_filename=main.py
++ cd /code_execution
++ '[' 1 -eq 1 ']'
++ log INFO 'This is a smoke test run.'
++ set +x
+2026-09-29 02:10:46.284 | INFO | This is a smoke test run.
+++ zip -sf ./submission/submission.zip
++ submission_files='Archive contains:
+main.py
+postprocess.py
+model/config.json
+model/generation_config.json
+model/model.safetensors
+model/processor_config.json
+model/tokenizer.json
+model/tokenizer_config.json
+Total 8 entries (1621783064 bytes)'
++ grep -F -q -- main.py
++ log INFO 'Unpacking submission into src/...'
++ set +x
+2026-09-29 02:10:48.643 | INFO | Unpacking submission into src/...
++ unzip ./submission/submission.zip -d ./src
+Archive:  ./submission/submission.zip
+inflating: ./src/main.py
+inflating: ./src/postprocess.py
+inflating: ./src/model/config.json
+inflating: ./src/model/generation_config.json
+extracting: ./src/model/model.safetensors
+inflating: ./src/model/processor_config.json
+inflating: ./src/model/tokenizer.json
+inflating: ./src/model/tokenizer_config.json
++ log INFO 'Showing current working directory contents:'
++ set +x
+2026-09-29 02:10:58.416 | INFO | Showing current working directory contents:
++ ls -alh
+total 260K
+drwxr-xr-x 1 runtimeuser runtimeuser 4.0K Sep 29 02:10 .
+drwxr-xr-x 1 root        root        4.0K Sep 29 02:10 ..
+-rw-r--r-- 1 runtimeuser runtimeuser    5 Sep  9 20:29 .python-version
+drwxr-xr-x 5 runtimeuser runtimeuser 4.0K Sep  9 20:32 .venv
+drwxrwxrwx 2 root        root        4.0K Sep 29 02:07 data
+drwxrwxrwx 2 root        root        4.0K Sep 29 02:07 huggingface_models
+-rw-r--r-- 1 runtimeuser runtimeuser 1.3K Sep  9 20:29 pyproject.toml
+drwxr-xr-x 3 runtimeuser runtimeuser 4.0K Sep 29 02:10 src
+drwxrwxrwx 2 root        root        4.0K Sep 29 02:07 submission
+-rw-r--r-- 1 runtimeuser runtimeuser 236K Sep  9 20:29 uv.lock
++ log INFO 'Showing src/ directory contents:'
++ set +x
+2026-09-29 02:10:58.421 | INFO | Showing src/ directory contents:
++ find src/
+src/
+src/postprocess.py
+src/main.py
+src/model
+src/model/tokenizer.json
+src/model/processor_config.json
+src/model/generation_config.json
+src/model/model.safetensors
+src/model/tokenizer_config.json
+src/model/config.json
++ log INFO 'Running submission...'
++ set +x
+2026-09-29 02:10:58.425 | INFO | Running submission...
++ uv run src/main.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1790647863.612118      85 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+clips to transcribe: 5
+import 6.7s | model load 1.2s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 5 | chunked 0 (0 windows) | failed 0 | empty 0 | 5 clips in 3.4s
+wrote 5 rows
++ '[' -f ./submission/submission.csv ']'
++ log INFO 'Found submission.csv in submission/.'
++ set +x
+2026-09-29 02:11:10.032 | INFO | Found submission.csv in submission/.
++ exit_code=0
++ cp /code_execution/submission/log.txt /tmp/log
++ log INFO 'Submission run completed with exit code: 0'
++ set +x
+2026-09-29 02:11:10.070 | INFO | Submission run completed with exit code: 0
++ exit 0

@@ -1,0 +1,518 @@
+{
+ "_meta": {
+  "artifacts": [
+   "baseline_predictions_dev.csv",
+   "baseline_predictions_official.csv",
+   "baseline_zeroshot.json",
+   "checkpoint_manifest.json",
+   "error_table_dev.csv",
+   "error_table_official_dev.csv",
+   "eval_final.json",
+   "gate2.json",
+   "predictions_dev.csv",
+   "predictions_official_dev.csv",
+   "run-log.txt",
+   "train_log.csv"
+  ],
+  "complete": true,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [],
+  "notebook": "mozilla-javanese whisper fine-tune (core)",
+  "notebook_id": "04-whisper-core",
+  "run_id": "04-whisper-core",
+  "run_mode": "train"
+ },
+ "audio": {
+  "n_recordings_loaded": 208,
+  "preloaded": true,
+  "ram_gb": 1.154
+ },
+ "baseline": {
+  "decode_paths": {
+   "chunk": 44,
+   "chunk_windows": 88,
+   "short": 328
+  },
+  "gen_max_length": 225,
+  "jember": {
+   "folded_cosmetic_sub_pct": 2.53,
+   "folded_del_rate": 0.212,
+   "folded_ins_rate": 0.0481,
+   "folded_jv_to_id_sub_pct": 25.23,
+   "folded_len_ratio": 0.8361,
+   "folded_n_jv_sub": 2239,
+   "folded_n_jv_to_id": 565,
+   "folded_n_ref_tokens": 10391,
+   "folded_n_utts": 1097,
+   "folded_pct_hyp_with_digit": 2.19,
+   "folded_sub_rate": 0.4898,
+   "folded_wer": 0.7499,
+   "folded_wer_both": 0.4724,
+   "folded_wer_id": 0.6368,
+   "folded_wer_jv": 0.7882,
+   "folded_wer_unk": 0.8729,
+   "official_cosmetic_sub_pct": 6.25,
+   "official_del_rate": 0.2108,
+   "official_ins_rate": 0.0469,
+   "official_jv_to_id_sub_pct": 23.29,
+   "official_len_ratio": 0.8361,
+   "official_n_jv_sub": 2426,
+   "official_n_jv_to_id": 565,
+   "official_n_ref_tokens": 10391,
+   "official_n_utts": 1097,
+   "official_pct_hyp_with_digit": 2.19,
+   "official_sub_rate": 0.5237,
+   "official_wer": 0.7813,
+   "official_wer_both": 0.5066,
+   "official_wer_id": 0.6412,
+   "official_wer_jv": 0.8397,
+   "official_wer_unk": 0.8897
+  },
+  "lang": "jw",
+  "long_chunk_s": 28.0,
+  "long_mode": "chunk",
+  "long_overlap_s": 2.0,
+  "model": "openai/whisper-large-v3-turbo",
+  "n_dev": 1097,
+  "n_official": 372,
+  "no_repeat_ngram": 4,
+  "official": {
+   "folded_cosmetic_sub_pct": 10.99,
+   "folded_del_rate": 0.0607,
+   "folded_ins_rate": 0.0207,
+   "folded_jv_to_id_sub_pct": 33.06,
+   "folded_len_ratio": 0.9599,
+   "folded_n_jv_sub": 980,
+   "folded_n_jv_to_id": 324,
+   "folded_n_ref_tokens": 17473,
+   "folded_n_utts": 372,
+   "folded_pct_hyp_with_digit": 16.4,
+   "folded_sub_rate": 0.188,
+   "folded_wer": 0.2694,
+   "folded_wer_both": 0.1609,
+   "folded_wer_id": 0.1836,
+   "folded_wer_jv": 0.4366,
+   "folded_wer_unk": 0.4249,
+   "official_cosmetic_sub_pct": 11.04,
+   "official_del_rate": 0.0607,
+   "official_ins_rate": 0.0207,
+   "official_jv_to_id_sub_pct": 33.03,
+   "official_len_ratio": 0.9599,
+   "official_n_jv_sub": 981,
+   "official_n_jv_to_id": 324,
+   "official_n_ref_tokens": 17473,
+   "official_n_utts": 372,
+   "official_pct_hyp_with_digit": 16.4,
+   "official_sub_rate": 0.1881,
+   "official_wer": 0.2695,
+   "official_wer_both": 0.1609,
+   "official_wer_id": 0.1836,
+   "official_wer_jv": 0.437,
+   "official_wer_unk": 0.4253
+  },
+  "run_mode": "train"
+ },
+ "checkpoint": {
+  "base_model": "openai/whisper-large-v3-turbo",
+  "best_eval_wer": 0.34006,
+  "best_local_checkpoint": "/kaggle/temp/ckpt/04-whisper-core/run/checkpoint-1000",
+  "decode": {
+   "max_length": 225,
+   "no_repeat_ngram_size": 4,
+   "num_beams": 1
+  },
+  "effective_batch": 16,
+  "global_step": 1041,
+  "hf_branch": "main",
+  "hf_repo": "amozaurus/mozilla-jv-04-whisper-core",
+  "hf_revision": "9c00033f3ea9682517a1bd901a53814489b1d1ff",
+  "lang": "jw",
+  "learning_rate": 6e-06,
+  "n_files": 7,
+  "num_epochs": 3,
+  "optimizer": "adafactor",
+  "private": true,
+  "run_id": "04-whisper-core",
+  "run_mode": "train",
+  "segment_mode": "native",
+  "size_bytes": 3239526334,
+  "size_gb": 3.24,
+  "state_branch": "training-state",
+  "variant": "full"
+ },
+ "data": {
+  "dev_hours": 1.627,
+  "n_dev_segments": 1097,
+  "n_dev_subset": 299,
+  "n_lexicon_entries": 23805,
+  "n_official_dev": 372,
+  "n_train_segments": 5541,
+  "official_dev_available": true,
+  "train_hours": 8.363
+ },
+ "env": {
+  "audio_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build",
+  "device": "cuda",
+  "hf_model": "openai/whisper-large-v3-turbo",
+  "is_baseline": true,
+  "lang": "jw",
+  "meta_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta",
+  "n_gpu": 1,
+  "notebook": "04-whisper-core",
+  "numpy": "2.0.2",
+  "odev_meta": "/kaggle/input/datasets/hamzapratama/indonesian-dev/indonesian_dev/metadata.tsv",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "resume_from_hf": false,
+  "run_id": "04-whisper-core",
+  "run_mode": "train",
+  "seed": 20260829,
+  "segment_mode": "native",
+  "torch": "2.10.0+cu128",
+  "train_variant": "full",
+  "transformers": "5.0.0",
+  "use_both_gpus": false
+ },
+ "eval_final": {
+  "decode_paths": {
+   "chunk": 44,
+   "chunk_windows": 88,
+   "short": 328
+  },
+  "jember": {
+   "folded_cosmetic_sub_pct": 4.31,
+   "folded_del_rate": 0.0859,
+   "folded_ins_rate": 0.0475,
+   "folded_jv_to_id_sub_pct": 12.39,
+   "folded_len_ratio": 0.9616,
+   "folded_n_jv_sub": 670,
+   "folded_n_jv_to_id": 83,
+   "folded_n_ref_tokens": 10391,
+   "folded_n_utts": 1097,
+   "folded_pct_hyp_with_digit": 1.19,
+   "folded_sub_rate": 0.2123,
+   "folded_wer": 0.3458,
+   "folded_wer_both": 0.2298,
+   "folded_wer_id": 0.2615,
+   "folded_wer_jv": 0.249,
+   "folded_wer_unk": 0.5019,
+   "official_cosmetic_sub_pct": 32.04,
+   "official_del_rate": 0.0852,
+   "official_ins_rate": 0.0468,
+   "official_jv_to_id_sub_pct": 6.48,
+   "official_len_ratio": 0.9616,
+   "official_n_jv_sub": 1357,
+   "official_n_jv_to_id": 88,
+   "official_n_ref_tokens": 10391,
+   "official_n_utts": 1097,
+   "official_pct_hyp_with_digit": 1.19,
+   "official_sub_rate": 0.3184,
+   "official_wer": 0.4503,
+   "official_wer_both": 0.2688,
+   "official_wer_id": 0.2659,
+   "official_wer_jv": 0.4233,
+   "official_wer_unk": 0.6345
+  },
+  "official": {
+   "folded_cosmetic_sub_pct": 6.56,
+   "folded_del_rate": 0.0239,
+   "folded_ins_rate": 0.0399,
+   "folded_jv_to_id_sub_pct": 17.74,
+   "folded_len_ratio": 1.016,
+   "folded_n_jv_sub": 558,
+   "folded_n_jv_to_id": 99,
+   "folded_n_ref_tokens": 17473,
+   "folded_n_utts": 372,
+   "folded_pct_hyp_with_digit": 2.15,
+   "folded_sub_rate": 0.1997,
+   "folded_wer": 0.2635,
+   "folded_wer_both": 0.1426,
+   "folded_wer_id": 0.2373,
+   "folded_wer_jv": 0.2245,
+   "folded_wer_unk": 0.4257,
+   "official_cosmetic_sub_pct": 7.25,
+   "official_del_rate": 0.0239,
+   "official_ins_rate": 0.0399,
+   "official_jv_to_id_sub_pct": 17.37,
+   "official_len_ratio": 1.016,
+   "official_n_jv_sub": 570,
+   "official_n_jv_to_id": 99,
+   "official_n_ref_tokens": 17473,
+   "official_n_utts": 372,
+   "official_pct_hyp_with_digit": 2.15,
+   "official_sub_rate": 0.2013,
+   "official_wer": 0.265,
+   "official_wer_both": 0.1431,
+   "official_wer_id": 0.2373,
+   "official_wer_jv": 0.2287,
+   "official_wer_unk": 0.4307
+  },
+  "per_recording_wer_std": 0.2294
+ },
+ "fingerprints": {
+  "baseline_predictions_dev.csv": "63573c0d59c0515f",
+  "baseline_predictions_official.csv": "627d63d53a041b96",
+  "baseline_zeroshot.json": "ef2cf374ec239213",
+  "checkpoint_manifest.json": "6a36020af4779d8d",
+  "error_table_dev.csv": "d76cc6ecbc35f912",
+  "error_table_official_dev.csv": "d825c1032720af7b",
+  "eval_final.json": "5b92bda72c48bd5f",
+  "gate2.json": "fba964c2a87d7265",
+  "predictions_dev.csv": "4f8ba78f4ec5dcb6",
+  "predictions_official_dev.csv": "563386e3f140ccff",
+  "train_log.csv": "08fc21e4d26680fe"
+ },
+ "gate2": {
+  "criteria": [
+   {
+    "criterion": "1. fine-tuned dev WER better than zero-shot (paired, proven)",
+    "detail": "official/official: 0.2695 -> 0.2650, CI [-0.0196, +0.0101]",
+    "passed": false
+   },
+   {
+    "criterion": "2. Javanese WER improves",
+    "detail": "wer_jv 0.4370 -> 0.2287",
+    "passed": true
+   },
+   {
+    "criterion": "3. jv_to_id no worse than zero-shot",
+    "detail": "33.03% -> 17.37%  (NB 03 historical 30.15%)",
+    "passed": true
+   },
+   {
+    "criterion": "4. checkpoint-resume proven (in-process AND cross-session)",
+    "detail": "{'cross_session_passed': True, 'cross_session_start_step': 60, 'in_process_passed': True, 'optimizer_state': True, 'pushed_revision': '3c8dcafb9e1f948ff197eece2d7c5ae29140a989', 'scheduler_state': Tru",
+    "passed": true
+   },
+   {
+    "criterion": "5. best checkpoint on private HF with a recorded revision",
+    "detail": "amozaurus/mozilla-jv-04-whisper-core",
+    "passed": true
+   }
+  ],
+  "n_passed": 4,
+  "n_total": 5,
+  "paired": {
+   "jember_folded": {
+    "better": true,
+    "delta": -0.4041,
+    "delta_hi": -0.3889,
+    "delta_lo": -0.4191,
+    "label": "jember/folded",
+    "p_better": 1.0,
+    "proven": true,
+    "wer_ft": 0.3458,
+    "wer_zero": 0.7499
+   },
+   "jember_official": {
+    "better": true,
+    "delta": -0.3311,
+    "delta_hi": -0.3175,
+    "delta_lo": -0.3442,
+    "label": "jember/official",
+    "p_better": 1.0,
+    "proven": true,
+    "wer_ft": 0.4503,
+    "wer_zero": 0.7813
+   },
+   "official": {
+    "better": true,
+    "delta": -0.0045,
+    "delta_hi": 0.0101,
+    "delta_lo": -0.0196,
+    "label": "official/official",
+    "p_better": 0.72,
+    "proven": false,
+    "wer_ft": 0.265,
+    "wer_zero": 0.2695
+   }
+  },
+  "primary_layer": "official/official",
+  "resume_proven": true,
+  "run_id": "04-whisper-core",
+  "run_mode": "train",
+  "verdict": "blocked"
+ },
+ "hub": {
+  "enabled": true,
+  "push_every_n_saves": 3,
+  "repo": "amozaurus/mozilla-jv-04-whisper-core",
+  "state_branch": "training-state",
+  "user": "amozaurus"
+ },
+ "items": {
+  "max_dur_s": 25.0,
+  "mean_dur_s": 5.433,
+  "median_dur_s": 5.0,
+  "n_cap_breaks": 0,
+  "n_dev_items": 1097,
+  "n_dev_subset_items": 299,
+  "n_gap_breaks": 0,
+  "n_over_29s": 0,
+  "n_train_items": 5541,
+  "segment_mode": "native",
+  "total_hours": 8.363
+ },
+ "model_setup": {
+  "decoder_start_token_id": 50258,
+  "label_prefix": [
+   "<|startoftranscript|>",
+   "<|jw|>",
+   "<|transcribe|>",
+   "<|notimestamps|>"
+  ],
+  "max_label_len": 448,
+  "n_mels": 128
+ },
+ "nb03_historical": {
+  "jv_to_id_sub_pct": 30.15,
+  "lang": "id_or_jw_tie",
+  "model": "whisper-large-v3-turbo",
+  "wer_folded_unguarded": 0.8719,
+  "wer_official_unguarded": 0.896
+ },
+ "optim": {
+  "requested": "auto",
+  "used": "adafactor"
+ },
+ "projection": {
+  "comparator_and_final_eval_hours": 0.813,
+  "eval_hours": 0.589,
+  "n_evals": 8,
+  "n_steps": 1041,
+  "peak_vram_gb": 7.03,
+  "sec_per_gen_clip": 0.8837,
+  "sec_per_microbatch": 2.7646,
+  "total_hours": 4.919,
+  "train_hours": 3.517
+ },
+ "recipe": {
+  "effective_batch": 16,
+  "eval_every": 125,
+  "eval_subset_n": 300,
+  "gen_max_length": 225,
+  "grad_accum": 4,
+  "grad_checkpoint": true,
+  "learning_rate": 6e-06,
+  "long_chunk_s": 28.0,
+  "long_mode": "chunk",
+  "long_overlap_s": 2.0,
+  "max_train_hours": 10.0,
+  "no_repeat_ngram": 4,
+  "num_epochs": 3,
+  "optim_request": "auto",
+  "pct_window_used": 18.1,
+  "per_device_batch": 4,
+  "spec_augment": true,
+  "steps_per_epoch": 347,
+  "total_steps_est": 1041,
+  "warmup_ratio": 0.1
+ },
+ "scorer": {
+  "n_checks": 30,
+  "self_test_passed": true,
+  "version": "1.0"
+ },
+ "training": {
+  "best_checkpoint": "/kaggle/temp/ckpt/04-whisper-core/run/checkpoint-1000",
+  "best_eval_wer": 0.34006,
+  "early_stopped": false,
+  "epochs_done": 3.0,
+  "global_step": 1041,
+  "n_eval_points": 8,
+  "optimizer": "adafactor",
+  "wall_clock_hours": 4.358
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "training target was text_folded, not text_official",
+    "detail": "checked the first 50 single-segment items",
+    "passed": true
+   },
+   {
+    "check": "label prefix carried the <|jw|> token",
+    "detail": "['<|startoftranscript|>', '<|jw|>', '<|transcribe|>', '<|notimestamps|>']",
+    "passed": true
+   },
+   {
+    "check": "startoftranscript was trimmed from the labels",
+    "detail": "asserted in the collator on every batch",
+    "passed": true
+   },
+   {
+    "check": "the comparator was measured here, not taken from NB 03",
+    "detail": "zero-shot 0.7499 (folded) vs NB 03's unguarded 0.8719",
+    "passed": true
+   },
+   {
+    "check": "the official 372-clip layer was actually evaluated",
+    "detail": "372 clips",
+    "passed": true
+   },
+   {
+    "check": "clips over 30 s were chunked, not truncated",
+    "detail": "{'short': 328, 'chunk': 44, 'chunk_windows': 88}",
+    "passed": true
+   },
+   {
+    "check": "both Gate 2 passes used the same long-clip decode path",
+    "detail": "zero-shot {'chunk': 44, 'chunk_windows': 88} vs fine-tuned {'chunk': 44, 'chunk_windows': 88}",
+    "passed": true
+   },
+   {
+    "check": "no long-clip decode fell back mid-run",
+    "detail": "LONG_MODE=chunk, 0 fallbacks",
+    "passed": true
+   },
+   {
+    "check": "checkpoint selection used dev WER, not loss",
+    "detail": "wer",
+    "passed": true
+   },
+   {
+    "check": "more than one eval point exists (a curve, not a single dot)",
+    "detail": "8 eval points",
+    "passed": true
+   },
+   {
+    "check": "dev was native segments in every mode",
+    "detail": "segment_mode=native affects training only",
+    "passed": true
+   },
+   {
+    "check": "train and dev recordings stayed disjoint",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "best checkpoint pushed to a private HF repo with a revision",
+    "detail": "9c00033f3ea9682517a1bd901a53814489b1d1ff",
+    "passed": true
+   },
+   {
+    "check": "checkpoint-resume proven, in-process and cross-session",
+    "detail": "{'cross_session_passed': True, 'cross_session_start_step': 60, 'in_process_passed': True, 'optimizer_state': True, 'pushed_revision': '3c8dcafb9e1f948ff197eece2d7c5ae29140a989', 's",
+    "passed": true
+   },
+   {
+    "check": "no model weights anywhere in the download path",
+    "detail": "0 weight files",
+    "passed": true
+   },
+   {
+    "check": "total download stays small (weights live on HF)",
+    "detail": "0.8 MB across 13 files in /kaggle/working",
+    "passed": true
+   },
+   {
+    "check": "not a sanity run",
+    "detail": "RUN_MODE=train",
+    "passed": true
+   }
+  ],
+  "n_passed": 17,
+  "n_total": 17,
+  "sanity_run": false
+ }
+}

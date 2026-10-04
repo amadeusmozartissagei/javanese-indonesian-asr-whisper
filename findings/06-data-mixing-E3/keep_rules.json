@@ -1,0 +1,50 @@
+{
+ "comparator": "04-whisper-core-full-concat25-1epoch",
+ "experiment": "E3",
+ "n_passed": 2,
+ "n_total": 3,
+ "paired": {
+  "vs_nb04": {
+   "delta": -0.0124,
+   "delta_hi": -0.0079,
+   "delta_lo": -0.0171,
+   "label": "official/vs-nb04",
+   "p_better": 1.0,
+   "proven": true,
+   "wer_a": 0.2532,
+   "wer_b": 0.2408
+  },
+  "vs_zeroshot": {
+   "delta": -0.0287,
+   "delta_hi": -0.0158,
+   "delta_lo": -0.0429,
+   "label": "official/zero-shot",
+   "p_better": 1.0,
+   "proven": true,
+   "wer_a": 0.2695,
+   "wer_b": 0.2408
+  }
+ },
+ "rules": [
+  {
+   "detail": "0.2532 -> 0.2408, CI [-0.0171, -0.0079]",
+   "passed": true,
+   "rule": "1. wer_total falls beyond the CI"
+  },
+  {
+   "detail": "0.2513 -> 0.2450",
+   "passed": true,
+   "rule": "2. wer_jv does not get worse"
+  },
+  {
+   "detail": "14.31% -> 16.37%",
+   "passed": false,
+   "rule": "3. jv_to_id does not rise"
+  }
+ ],
+ "run_id": "06-data-mixing-E3",
+ "run_mode": "train",
+ "selected_on": "official",
+ "selection_failed": false,
+ "verdict": "drop"
+}

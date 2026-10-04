@@ -1,0 +1,35 @@
+{
+ "base_repo": "amozaurus/mozilla-jv-12-stage1-2epoch-E4-native-2ep-r2",
+ "base_revision": "e4cd4ab4c8f707bb16d95c09cdfbb44c5c50e4f1",
+ "base_sha16": "5cba4549f1b7f57e",
+ "checkpoint_policy": "final",
+ "effective_batch": 16,
+ "eval_convos": [],
+ "files": {
+  "config.json": "eec2aae0c8d6cb5b",
+  "generation_config.json": "9df27bd2d4f03c64",
+  "model.safetensors": "6680ef3cc3dab73e",
+  "processor_config.json": "8efb801da889b24f",
+  "tokenizer.json": "519b63069fd675c1",
+  "tokenizer_config.json": "80ad2fcf6f4abfc5"
+ },
+ "global_step": 63,
+ "hf_branch": "main",
+ "hf_repo": "amozaurus/mozilla-jv-10-dev-stage-finetune-2ep-all",
+ "hf_revision": "b368a2ce17e39d05711aa350ac60d4f45ddb400d",
+ "learning_rate": 3e-06,
+ "max_train_s": 30.0,
+ "nonweight_files_from_base": true,
+ "num_epochs": 3,
+ "optim": "adafactor",
+ "private": true,
+ "run_id": "10-dev-stage-finetune-2ep-all",
+ "safetensors_sha16": "6680ef3cc3dab73e",
+ "seed": 20260829,
+ "train_convos": [
+  "2",
+  "5"
+ ],
+ "trained_with_transformers": "4.57.6",
+ "warmup_ratio": 0.1
+}

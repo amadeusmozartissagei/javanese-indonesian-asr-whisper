@@ -1,0 +1,4 @@
+step,epoch,official_wer,official_wer_jv,official_wer_id,official_jv_to_id,official_len_ratio,seconds
+25,0.275,0.2749,0.2731,0.2214,14.63,1.0253,0.0
+50,0.549,0.2583,0.2513,0.2015,13.81,1.0197,0.0
+75,0.824,0.2584,0.2461,0.2039,14.84,1.022,0.0

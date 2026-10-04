@@ -1,0 +1,39 @@
+{
+ "base_model": "openai/whisper-large-v3-turbo",
+ "best_eval_wer": 0.2327,
+ "best_local_checkpoint": "/kaggle/temp/ckpt/14-stage1-tts-E4-native-tts/run/checkpoint-450",
+ "checkpoint_policy": "final",
+ "decode": {
+  "max_length": 225,
+  "no_repeat_ngram_size": 4,
+  "num_beams": 1
+ },
+ "effective_batch": 16,
+ "global_step": 506,
+ "hf_branch": "main",
+ "hf_repo": "amozaurus/mozilla-jv-14-stage1-tts-E4-native-tts",
+ "hf_revision": "e892b99c36147ef13addc3ae1efe2ca239f2f63a",
+ "lang": "jw",
+ "learning_rate": 6e-06,
+ "n_files": 7,
+ "num_epochs": 1,
+ "optimizer": "adafactor",
+ "private": true,
+ "run_id": "14-stage1-tts-E4-native-tts",
+ "run_mode": "train",
+ "segment_mode": "native",
+ "sha256_16": {
+  "config.json": "eec2aae0c8d6cb5b",
+  "generation_config.json": "9df27bd2d4f03c64",
+  "model.safetensors": "b494633b0708e5f9",
+  "processor_config.json": "8efb801da889b24f",
+  "tokenizer.json": "519b63069fd675c1",
+  "tokenizer_config.json": "80ad2fcf6f4abfc5",
+  "training_args.bin": "bf3e41aebf45bb0a"
+ },
+ "shipped_step": 506,
+ "size_bytes": 3239526334,
+ "size_gb": 3.24,
+ "state_branch": "training-state",
+ "variant": "full"
+}

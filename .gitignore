@@ -1,0 +1,47 @@
+# Korpus mentah dan staging upload Kaggle: besar, dan lisensinya mewajibkan unduh dari sumber.
+Datasets/*
+!Datasets/README.md
+
+# ZIP submission (~1,6 GB) dan arsip output Kaggle
+*.zip
+submissions/zips/
+
+# Cache dan state lokal
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.obsidian/workspace*.json
+.DS_Store
+Thumbs.db
+
+# ---- Data kompetisi: TIDAK dipublikasikan ----
+# Official rules: peserta setuju "not [to] transmit, duplicate, publish, redistribute or otherwise
+# provide or make available the Data to any party not participating in the Competition", dan
+# kewajiban kerahasiaan berlaku "during and after" kompetisi. Yang dikeluarkan: file resmi
+# penyelenggara (daftar klip test/smoke), serta semua keluaran per klip di dev resmi (nama klip,
+# transkrip referensi, prediksi). Angka agregat (WER, hitungan error) tetap ada di digest JSON
+# dan laporan.
+competition/*
+!competition/README.md
+findings/**/predictions_official_dev.csv
+findings/**/baseline_zeroshot.json
+findings/**/baseline_predictions_official.csv
+findings/**/submission_dev*.csv
+findings/**/error_table_official_dev.csv
+findings/09-omniasr-zeroshot*/**/omniASR_*.csv
+# run-log yang mencetak nama klip dev resmi
+/findings/04-whisper-core-full-concat25-1epoch/run-log.txt
+/findings/04-whisper-core-full-concat25/run-log.txt
+/findings/04-whisper-core-sanity/run-log.txt
+/findings/04-whisper-core/run-log.txt
+/findings/06-data-mixing-E3/run-log.txt
+/findings/06-data-mixing-E4-native/run-log.txt
+/findings/06-data-mixing-E4/run-log.txt
+/findings/06-data-mixing-E5-A/run-log.txt
+/findings/06-data-mixing-E5-B/run-log.txt
+/findings/06-data-mixing-E6/run-log.txt
+/findings/06-data-mixing-smoke-E4-native/run-log.txt
+/findings/12-stage1-2epoch-E4-native-2ep-r2/run-log.txt
+/findings/12-stage1-2epoch-E4-native-2ep/run-log.txt
+/findings/13-stage1-homostoria-E4-native-homo/run-log.txt
+/findings/14-stage1-tts-E4-native-tts/run-log.txt

@@ -1,0 +1,44 @@
+{
+ "collator": {
+  "feat_shape": [
+   4,
+   128,
+   3000
+  ],
+  "label_shape": [
+   4,
+   18
+  ],
+  "pct_masked": 22.22,
+  "prefix_trimmed": true
+ },
+ "overfit": {
+  "final_loss": 0.0142,
+  "n_items": 32,
+  "passed": true,
+  "steps": 100,
+  "wer_on_own_targets": 0.0161
+ },
+ "passed": true,
+ "resume": {
+  "cross_session_passed": true,
+  "cross_session_start_step": 60,
+  "in_process_passed": true,
+  "optimizer_state": true,
+  "pushed_revision": "3c8dcafb9e1f948ff197eece2d7c5ae29140a989",
+  "scheduler_state": true,
+  "steps_after": 60,
+  "steps_first": 30
+ },
+ "speed": {
+  "eval_hours": 0.567,
+  "fits_budget": true,
+  "n_evals": 8,
+  "n_steps": 1041,
+  "peak_vram_gb": 10.36,
+  "sec_per_gen_clip": 0.8507,
+  "sec_per_microbatch": 2.5207,
+  "total_hours": 3.774,
+  "train_hours": 3.207
+ }
+}

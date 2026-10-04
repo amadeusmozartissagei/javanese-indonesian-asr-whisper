@@ -1,0 +1,291 @@
+{
+ "_meta": {
+  "complete": true,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [],
+  "notebook": "mozilla-javanese dataset verification (phase 3)",
+  "notebook_id": "02-verify"
+ },
+ "env": {
+  "has_baseline": true,
+  "manifest": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta/manifest.csv",
+  "meta_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta",
+  "notebook": "02-verify",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "seg_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings"
+ },
+ "verify": {
+  "checks": [
+   {
+    "check": "_meta/ carries every companion file",
+    "detail": "['dataset_findings.json', 'dropped_segments.csv', 'lexicon_v1.csv', 'manifest.csv', 'scorer.py', 'split.csv', 'text_audit.json']",
+    "passed": true
+   },
+   {
+    "check": "scorer.self_test() passes from the mount",
+    "detail": "30/30",
+    "passed": true
+   },
+   {
+    "check": "one flac per recording",
+    "detail": "208 flac / 208 recordings",
+    "passed": true
+   },
+   {
+    "check": "every manifest row points at a recording that exists",
+    "detail": "0 missing, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "no orphan recording without manifest rows",
+    "detail": "0 orphans, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "seg_id unique",
+    "detail": "6638 unique",
+    "passed": true
+   },
+   {
+    "check": "manifest carries start_sample",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "manifest carries end_sample",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "manifest carries path",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "every recording is readable",
+    "detail": "[]",
+    "passed": true
+   },
+   {
+    "check": "every recording is 16 kHz",
+    "detail": "0 bad, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "every recording is mono",
+    "detail": "0 bad, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "no zero-length recording",
+    "detail": "0 empty, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "no segment addresses a sample past its recording",
+    "detail": "0 over, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "segments address between 90 and 100 %% of the audio",
+    "detail": "99.8 %",
+    "passed": true
+   },
+   {
+    "check": "every segment is under 30 s",
+    "detail": "longest 29.00 s",
+    "passed": true
+   },
+   {
+    "check": "200 segments read back at exactly the requested length",
+    "detail": "[]",
+    "passed": true
+   },
+   {
+    "check": "no NaN or inf in the decoded audio",
+    "detail": "[]",
+    "passed": true
+   },
+   {
+    "check": "no digitally silent segment in the sample",
+    "detail": "0 silent, e.g. []",
+    "passed": true
+   },
+   {
+    "check": "clipping is not widespread (would mean a conversion bug)",
+    "detail": "0.81 % of segments, in 5 recordings",
+    "passed": true
+   },
+   {
+    "check": "no recording in both train and dev",
+    "detail": "[]",
+    "passed": true
+   },
+   {
+    "check": "split.csv agrees with the manifest",
+    "detail": "208 recordings",
+    "passed": true
+   },
+   {
+    "check": "official_normalize is idempotent on the shipped text",
+    "detail": "6638 rows",
+    "passed": true
+   },
+   {
+    "check": "no empty reference",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "wer(refs, refs) == 0.0",
+    "detail": "0.000000",
+    "passed": true
+   },
+   {
+    "check": "wer(refs, empty) == 1.0",
+    "detail": "1.000000",
+    "passed": true
+   },
+   {
+    "check": "lexicon loads and covers the references",
+    "detail": "23805 entries, 99.9 % of ref tokens found",
+    "passed": true
+   },
+   {
+    "check": "fingerprints match the reviewed pass",
+    "detail": "6 of 6 files verified",
+    "passed": true
+   }
+  ],
+  "clipping": {
+   "dev_segments": 7,
+   "recordings_affected": 5,
+   "segments_over_1pct": 54,
+   "segments_pct": 0.813,
+   "worst": [
+    [
+     "196",
+     1.265
+    ],
+    [
+     "197",
+     1.03
+    ],
+    [
+     "195",
+     0.792
+    ],
+    [
+     "198",
+     0.569
+    ],
+    [
+     "194",
+     0.484
+    ]
+   ],
+   "worst_segments": [
+    [
+     "198_002",
+     4.8
+    ],
+    [
+     "196_019",
+     4.36
+    ],
+    [
+     "196_015",
+     3.96
+    ],
+    [
+     "197_049",
+     3.66
+    ],
+    [
+     "197_006",
+     2.86
+    ],
+    [
+     "196_020",
+     2.76
+    ],
+    [
+     "196_003",
+     2.71
+    ],
+    [
+     "197_023",
+     2.6
+    ],
+    [
+     "196_026",
+     2.52
+    ],
+    [
+     "197_033",
+     2.42
+    ],
+    [
+     "197_018",
+     2.38
+    ],
+    [
+     "197_021",
+     2.23
+    ],
+    [
+     "197_014",
+     2.22
+    ],
+    [
+     "197_046",
+     2.08
+    ],
+    [
+     "196_018",
+     2.04
+    ],
+    [
+     "196_014",
+     1.97
+    ],
+    [
+     "197_048",
+     1.93
+    ],
+    [
+     "197_005",
+     1.92
+    ],
+    [
+     "196_013",
+     1.82
+    ],
+    [
+     "198_025",
+     1.8
+    ]
+   ]
+  },
+  "dev_hours": 1.6274,
+  "dev_ref_tokens": 10391,
+  "dev_utterances": 1097,
+  "fingerprints": {
+   "dropped_segments.csv": "407c22c08f7b4ded",
+   "lexicon_v1.csv": "25dabca43dd2fcfc",
+   "manifest.csv": "6f2a43d335c9839a",
+   "scorer.py": "3260677fe544f6b0",
+   "split.csv": "a7192227554da0ab",
+   "text_audit.json": "dd6d1bd31b70b01b"
+  },
+  "hours_addressed": 9.99,
+  "hours_on_disk": 10.0149,
+  "manifest_rows": 6638,
+  "n_passed": 28,
+  "n_recordings": 208,
+  "n_total": 28,
+  "sample_decoded": 200,
+  "verified": true
+ }
+}

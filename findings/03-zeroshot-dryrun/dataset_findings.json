@@ -1,0 +1,287 @@
+{
+ "_meta": {
+  "artifacts": [
+   "error_tables/whisper-large-v3-turbo__auto.csv",
+   "error_tables/whisper-large-v3-turbo__id.csv",
+   "error_tables/whisper-large-v3-turbo__jw.csv",
+   "jv_to_id_substitutions.csv",
+   "latency.json",
+   "predictions/whisper-base__auto.csv",
+   "predictions/whisper-base__id.csv",
+   "predictions/whisper-base__jw.csv",
+   "predictions/whisper-large-v3-turbo__auto.csv",
+   "predictions/whisper-large-v3-turbo__id.csv",
+   "predictions/whisper-large-v3-turbo__jw.csv",
+   "predictions/whisper-medium__auto.csv",
+   "predictions/whisper-medium__id.csv",
+   "predictions/whisper-medium__jw.csv",
+   "predictions/whisper-small__auto.csv",
+   "predictions/whisper-small__id.csv",
+   "predictions/whisper-small__jw.csv",
+   "predictions/whisper-tiny__auto.csv",
+   "predictions/whisper-tiny__id.csv",
+   "predictions/whisper-tiny__jw.csv",
+   "run-log.txt",
+   "zeroshot_results.csv"
+  ],
+  "complete": true,
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "missing_sections": [],
+  "notebook": "mozilla-javanese zero-shot baseline",
+  "notebook_id": "03-zeroshot"
+ },
+ "data": {
+  "dev_hours": 0.0489,
+  "n_dev_recordings": 20,
+  "n_dev_segments": 40,
+  "n_lexicon_entries": 23805
+ },
+ "decision": {
+  "lang": "jw",
+  "model": "whisper-tiny",
+  "wer": 2.6227,
+  "wer_id": 1.0,
+  "wer_jv": 0.9823
+ },
+ "dev_ci": {
+  "half_width": 1.8703,
+  "hi": 4.7722,
+  "lo": 1.0317,
+  "n_boot": 1000,
+  "n_utts": 40,
+  "se": 0.9297,
+  "wer": 2.6227
+ },
+ "dev_variance": {
+  "per_recording": [
+   {
+    "audio_filename": "105",
+    "n_segs": 7,
+    "wer": 1.0339
+   },
+   {
+    "audio_filename": "102",
+    "n_segs": 33,
+    "wer": 2.9738
+   }
+  ],
+  "std_across_recordings": 1.3717
+ },
+ "env": {
+  "audio_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build",
+  "batch_size": 8,
+  "device": "cuda",
+  "latency_n": 40,
+  "meta_root": "/kaggle/input/datasets/hamzapratama/jember-segments-16k/findings/02-data-build/recordings/_meta",
+  "n_gpu": 2,
+  "notebook": "03-zeroshot",
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "run_full_grid": true,
+  "seed": 20260827,
+  "smoke_n": 40,
+  "torch": "2.10.0+cu128",
+  "transformers": "5.0.0"
+ },
+ "error_tables": {
+  "configs": [
+   {
+    "lang": "jw",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.7546
+   },
+   {
+    "lang": "id",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.8282
+   },
+   {
+    "lang": "auto",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.8405
+   }
+  ]
+ },
+ "fingerprints": {
+  "error_tables/whisper-large-v3-turbo__auto.csv": "8c76180effd9a2e7",
+  "error_tables/whisper-large-v3-turbo__id.csv": "05b95959616e52b6",
+  "error_tables/whisper-large-v3-turbo__jw.csv": "c29eb25f355cd7a9",
+  "jv_to_id_substitutions.csv": "3c9c1c1056a52273",
+  "latency.json": "00d6685c68af2b0c",
+  "predictions/whisper-base__auto.csv": "b627fc7fdb9e4b9f",
+  "predictions/whisper-base__id.csv": "10dd3f08e4e4e816",
+  "predictions/whisper-base__jw.csv": "9c47087fe3159a98",
+  "predictions/whisper-large-v3-turbo__auto.csv": "1a55f34731596e14",
+  "predictions/whisper-large-v3-turbo__id.csv": "7a9d446d3cd1e9e1",
+  "predictions/whisper-large-v3-turbo__jw.csv": "e13b8d54f8d817bb",
+  "predictions/whisper-medium__auto.csv": "a8359ded2ae491c7",
+  "predictions/whisper-medium__id.csv": "8bc66ce0e0403bf4",
+  "predictions/whisper-medium__jw.csv": "2a07886e81ffcfa9",
+  "predictions/whisper-small__auto.csv": "0851e1eb82af99e1",
+  "predictions/whisper-small__id.csv": "7efee208584f2154",
+  "predictions/whisper-small__jw.csv": "345f61ab6ff958be",
+  "predictions/whisper-tiny__auto.csv": "d99563f49f5c7edb",
+  "predictions/whisper-tiny__id.csv": "d527f570f23ccb1a",
+  "predictions/whisper-tiny__jw.csv": "d530cd66641fed9b",
+  "zeroshot_results.csv": "d9eeb043e9390333"
+ },
+ "grid": {
+  "n_configs": 15,
+  "n_result_rows": 30
+ },
+ "grid_mode": {
+  "run_full_grid": true,
+  "winner_lang_carried": null
+ },
+ "latency": {
+  "whisper-base": {
+   "disk_mb": 294.8,
+   "load_s": 5.17,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.245,
+   "sec_per_clip_bs8": 0.1343
+  },
+  "whisper-large-v3-turbo": {
+   "disk_mb": 1622.4,
+   "load_s": 11.32,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.2501,
+   "sec_per_clip_bs8": 0.1968
+  },
+  "whisper-medium": {
+   "disk_mb": 3059.9,
+   "load_s": 15.92,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.4273,
+   "sec_per_clip_bs8": 0.4113
+  },
+  "whisper-small": {
+   "disk_mb": 971.4,
+   "load_s": 9.17,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.2681,
+   "sec_per_clip_bs8": 0.0988
+  },
+  "whisper-tiny": {
+   "disk_mb": 155.4,
+   "load_s": 5.72,
+   "n_latency_clips": 40,
+   "sec_per_clip_bs1": 0.3103,
+   "sec_per_clip_bs8": 0.1511
+  }
+ },
+ "q1": {
+  "flattens_at": null,
+  "table": [
+   {
+    "lang": "jw",
+    "model": "whisper-tiny",
+    "wer": 2.6227,
+    "wer_id": 1.0,
+    "wer_jv": 0.9823
+   },
+   {
+    "lang": "id",
+    "model": "whisper-base",
+    "wer": 1.3742,
+    "wer_id": 0.7674,
+    "wer_jv": 0.9027
+   },
+   {
+    "lang": "id",
+    "model": "whisper-small",
+    "wer": 0.8773,
+    "wer_id": 0.7907,
+    "wer_jv": 0.8673
+   },
+   {
+    "lang": "auto",
+    "model": "whisper-medium",
+    "wer": 2.1564,
+    "wer_id": 0.9302,
+    "wer_jv": 0.9115
+   },
+   {
+    "lang": "jw",
+    "model": "whisper-large-v3-turbo",
+    "wer": 0.7546,
+    "wer_id": 0.6744,
+    "wer_jv": 0.7345
+   }
+  ]
+ },
+ "q2": {
+  "best_model": "whisper-tiny",
+  "detected_lang_distribution": {
+   "?": 40
+  },
+  "lang_comparison": [
+   {
+    "lang": "id",
+    "wer": 2.8712,
+    "wer_id": 0.8605,
+    "wer_jv": 0.9027
+   },
+   {
+    "lang": "jw",
+    "wer": 2.6227,
+    "wer_id": 1.0,
+    "wer_jv": 0.9823
+   },
+   {
+    "lang": "auto",
+    "wer": 2.7454,
+    "wer_id": 0.9535,
+    "wer_jv": 0.9292
+   }
+  ]
+ },
+ "q3": {
+  "jv_to_id_sub_pct": 20.69,
+  "n_jv_sub": 58,
+  "n_jv_to_id": 12
+ },
+ "scorer": {
+  "n_checks": 30,
+  "self_test_passed": true,
+  "version": "1.0"
+ },
+ "validation": {
+  "checks": [
+   {
+    "check": "full WER table covers the intended grid, jv/id split present",
+    "detail": "15/15 configs",
+    "passed": true
+   },
+   {
+    "check": "one (model, lang) selected as fine-tune baseline, with a reason",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "check": "jv_to_id substitution rate measured and saved",
+    "detail": "58 jv-class substitutions",
+    "passed": true
+   },
+   {
+    "check": "bootstrap 95%% CI available for the selected baseline",
+    "detail": "half-width 1.8703",
+    "passed": true
+   },
+   {
+    "check": "latency.json filled for every model in the grid",
+    "detail": "5/5 models",
+    "passed": true
+   },
+   {
+    "check": "not a smoke run",
+    "detail": "SMOKE_N = 40 - expected to FAIL on a smoke run",
+    "passed": false
+   }
+  ],
+  "n_passed": 5,
+  "n_total": 6,
+  "smoke_run": true
+ }
+}

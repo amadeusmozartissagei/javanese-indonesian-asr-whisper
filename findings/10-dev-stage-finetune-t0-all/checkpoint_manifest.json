@@ -1,0 +1,40 @@
+{
+ "base_repo": "openai/whisper-large-v3-turbo",
+ "base_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+ "base_sha16": "542566a422ae4f3f",
+ "checkpoint_policy": "final",
+ "effective_batch": 16,
+ "eval_convos": [],
+ "files": {
+  "added_tokens.json": "3c51f66c4c21f9e1",
+  "config.json": "c5b526b3e3cd64cd",
+  "generation_config.json": "cce11bfe3aaa6ae9",
+  "merges.txt": "2df2990a395e35e8",
+  "model.safetensors": "07ce20cd6c5b887c",
+  "normalizer.json": "bf1c507dc8724ca9",
+  "preprocessor_config.json": "7ccc62c6f2765af1",
+  "special_tokens_map.json": "baea4ea09372eb4f",
+  "tokenizer.json": "297b13372ac43916",
+  "tokenizer_config.json": "844b642c73a91359",
+  "vocab.json": "e2aa043ef015641d"
+ },
+ "global_step": 63,
+ "hf_branch": "main",
+ "hf_repo": "amozaurus/mozilla-jv-10-dev-stage-finetune-t0-all",
+ "hf_revision": "3f46318c5476e698bc4c8a9d196d17f3d8207396",
+ "learning_rate": 3e-06,
+ "max_train_s": 30.0,
+ "nonweight_files_from_base": true,
+ "num_epochs": 3,
+ "optim": "adafactor",
+ "private": true,
+ "run_id": "10-dev-stage-finetune-t0-all",
+ "safetensors_sha16": "07ce20cd6c5b887c",
+ "seed": 20260829,
+ "train_convos": [
+  "2",
+  "5"
+ ],
+ "trained_with_transformers": "4.57.6",
+ "warmup_ratio": 0.1
+}

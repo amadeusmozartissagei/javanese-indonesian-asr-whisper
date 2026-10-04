@@ -1,0 +1,755 @@
+{
+ "_meta": {
+  "artifacts": [
+   "main_A.py",
+   "main_B.py",
+   "main_C.py",
+   "postprocess.py",
+   "run-log-main-A.txt",
+   "run-log-main-B.txt",
+   "run-log-main-C.txt",
+   "submission_dev_A.csv",
+   "submission_dev_B.csv",
+   "submission_dev_C.csv",
+   "dataset_findings.json"
+  ],
+  "generated_for": "handoff to Claude - do not edit by hand",
+  "notebook_id": "08-packaging",
+  "run_id": "08-packaging-ab"
+ },
+ "allbad.A": {
+  "exit_code": 1,
+  "wrote_csv": false
+ },
+ "allbad.B": {
+  "exit_code": 1,
+  "wrote_csv": false
+ },
+ "checkpoint.E4": {
+  "clean_up_tokenization_spaces": true,
+  "config_dtype": "float32",
+  "download_s": 12.4,
+  "expected_sha16": "c58b0538dc4c2008",
+  "feature_extractor_in": "processor_config.json:feature_extractor",
+  "feature_size": 128,
+  "files": [
+   "checkpoint_manifest.json",
+   "config.json",
+   "eval_final.json",
+   "generation_config.json",
+   "model.safetensors",
+   "processor_config.json",
+   "tokenizer.json",
+   "tokenizer_config.json"
+  ],
+  "fp16": true,
+  "fp16_exact": true,
+  "fp16_sha16": "f5a3b49295f4ed40",
+  "fp32_gb": 3.236,
+  "gen_forced_decoder_ids": null,
+  "gen_has_jw": true,
+  "gen_language": "jw",
+  "gen_max_length": 225,
+  "gen_no_repeat_ngram": 4,
+  "gen_task": "transcribe",
+  "model_mel_bins": 128,
+  "n_files": 8,
+  "processor_config_keys": [
+   "feature_extractor",
+   "processor_class"
+  ],
+  "repo": "amozaurus/mozilla-jv-06-data-mixing-E4",
+  "revision": "c79347a54d8523f9876cfbf17bd7ea217d1db800",
+  "safetensors_sha16": "c58b0538dc4c2008",
+  "saved_by_transformers": "5.0.0",
+  "sha_ok": true,
+  "size_gb": 1.622,
+  "tokenizer_class": "WhisperTokenizer",
+  "tokenizer_special_keys": [
+   "extra_special_tokens"
+  ]
+ },
+ "checkpoint.NB04": {
+  "clean_up_tokenization_spaces": true,
+  "config_dtype": "float32",
+  "download_s": 24.6,
+  "expected_sha16": "3fc3a15f80cb7084",
+  "feature_extractor_in": "processor_config.json:feature_extractor",
+  "feature_size": 128,
+  "files": [
+   "baseline_zeroshot.json",
+   "config.json",
+   "generation_config.json",
+   "model.safetensors",
+   "processor_config.json",
+   "tokenizer.json",
+   "tokenizer_config.json"
+  ],
+  "fp16": true,
+  "fp16_exact": true,
+  "fp16_sha16": "bb8b6e981d90fb90",
+  "fp32_gb": 3.236,
+  "gen_forced_decoder_ids": null,
+  "gen_has_jw": true,
+  "gen_language": "jw",
+  "gen_max_length": 225,
+  "gen_no_repeat_ngram": 4,
+  "gen_task": "transcribe",
+  "model_mel_bins": 128,
+  "n_files": 7,
+  "processor_config_keys": [
+   "feature_extractor",
+   "processor_class"
+  ],
+  "repo": "amozaurus/mozilla-jv-04-whisper-core",
+  "revision": "9c00033f3ea9682517a1bd901a53814489b1d1ff",
+  "safetensors_sha16": "3fc3a15f80cb7084",
+  "saved_by_transformers": "5.0.0",
+  "sha_ok": true,
+  "size_gb": 1.622,
+  "tokenizer_class": "WhisperTokenizer",
+  "tokenizer_special_keys": [
+   "extra_special_tokens"
+  ]
+ },
+ "edge.A": {
+  "chunked": 2,
+  "corrupt_words": 0,
+  "exit_code": 0,
+  "failed": 1,
+  "formats": {
+   "edge_35s.mp3": "MP3",
+   "edge_40s.mp3": "MP3",
+   "edge_noise.mp3": "MP3",
+   "edge_silence.mp3": "MP3",
+   "edge_veryshort.mp3": "MP3"
+  },
+  "n_clips": 6,
+  "n_rows": 6,
+  "windows": 4,
+  "words": {
+   "edge_35s": 65,
+   "edge_40s": 73,
+   "edge_corrupt": 0,
+   "edge_noise": 1,
+   "edge_silence": 1,
+   "edge_veryshort": 1
+  }
+ },
+ "edge.B": {
+  "chunked": 2,
+  "corrupt_words": 0,
+  "exit_code": 0,
+  "failed": 1,
+  "formats": {
+   "edge_35s.mp3": "MP3",
+   "edge_40s.mp3": "MP3",
+   "edge_noise.mp3": "MP3",
+   "edge_silence.mp3": "MP3",
+   "edge_veryshort.mp3": "MP3"
+  },
+  "n_clips": 6,
+  "n_rows": 6,
+  "windows": 4,
+  "words": {
+   "edge_35s": 61,
+   "edge_40s": 68,
+   "edge_corrupt": 0,
+   "edge_noise": 5,
+   "edge_silence": 1,
+   "edge_veryshort": 5
+  }
+ },
+ "env": {
+  "arms": {
+   "A": {
+    "ckpt": "NB04",
+    "num_beams": 1,
+    "parity": "NB04",
+    "ship": true
+   },
+   "B": {
+    "ckpt": "E4",
+    "num_beams": 5,
+    "parity": null,
+    "ship": true
+   },
+   "C": {
+    "ckpt": "E4",
+    "num_beams": 1,
+    "parity": "E4",
+    "ship": false
+   }
+  },
+  "gpu": "Tesla T4",
+  "n_dev": 372,
+  "n_dev_used": 372,
+  "numpy": "2.0.2",
+  "pinned": true,
+  "python": "3.12.13",
+  "ship_fp16": true,
+  "torch": "2.10.0+cu128",
+  "transformers": "4.57.6"
+ },
+ "paired_vs_C": {
+  "A": {
+   "clean222": {
+    "ci95": [
+     0.0248,
+     0.0414
+    ],
+    "delta": 0.033,
+    "p_better": 0.0
+   },
+   "full372": {
+    "ci95": [
+     0.0271,
+     0.0401
+    ],
+    "delta": 0.0337,
+    "p_better": 0.0
+   }
+  },
+  "B": {
+   "clean222": {
+    "ci95": [
+     -0.0086,
+     0.001
+    ],
+    "delta": -0.0039,
+    "p_better": 0.936
+   },
+   "full372": {
+    "ci95": [
+     -0.0083,
+     -0.0017
+    ],
+    "delta": -0.005,
+    "p_better": 0.998
+   }
+  },
+  "n_boot": 5000
+ },
+ "run.A": {
+  "exit_code": 0,
+  "import_s": 28.2,
+  "leak_names": 0,
+  "load_s": 1.0,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 14.5,
+  "s_per_clip": 0.3956,
+  "stderr_tail": "",
+  "wall_s": 176.4
+ },
+ "run.B": {
+  "exit_code": 0,
+  "import_s": 10.4,
+  "leak_names": 0,
+  "load_s": 1.0,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 28.3,
+  "s_per_clip": 0.7973,
+  "stderr_tail": "",
+  "wall_s": 308.0
+ },
+ "run.C": {
+  "exit_code": 0,
+  "import_s": 10.0,
+  "leak_names": 0,
+  "load_s": 1.0,
+  "n_log_lines": 4,
+  "n_long_lines": 0,
+  "paths": {
+   "chunked": 44,
+   "empty": 0,
+   "failed": 0,
+   "short": 328,
+   "windows": 88
+  },
+  "projected_test_min": 13.1,
+  "s_per_clip": 0.3663,
+  "stderr_tail": "",
+  "wall_s": 147.3
+ },
+ "score.A": {
+  "delta": 0.0,
+  "delta_clean": -0.0,
+  "delta_errors": 0,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 4628,
+  "n_ref_tokens": 17485,
+  "parity": "NB04",
+  "paths_match": true,
+  "ref": "NB04",
+  "ref_clean222": 0.266022,
+  "ref_wer": 0.264684,
+  "wer_clean222": 0.266022,
+  "wer_official_normalizer": 0.264684
+ },
+ "score.B": {
+  "delta": -0.004976,
+  "delta_clean": -0.003927,
+  "delta_errors": -87,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 3951,
+  "n_ref_tokens": 17485,
+  "parity": null,
+  "paths_match": true,
+  "ref": "E4",
+  "ref_clean222": 0.233068,
+  "ref_wer": 0.230941,
+  "wer_clean222": 0.229141,
+  "wer_official_normalizer": 0.225965
+ },
+ "score.C": {
+  "delta": -0.0,
+  "delta_clean": 0.0,
+  "delta_errors": 0,
+  "full": true,
+  "leak_text": 0,
+  "n_empty": 0,
+  "n_errors": 4038,
+  "n_ref_tokens": 17485,
+  "parity": "E4",
+  "paths_match": true,
+  "ref": "E4",
+  "ref_clean222": 0.233068,
+  "ref_wer": 0.230941,
+  "wer_clean222": 0.233068,
+  "wer_official_normalizer": 0.230941
+ },
+ "smoke.A": {
+  "cache_evicted": 15,
+  "exit_code": 0,
+  "fits_limit": true,
+  "import_s": 10.5,
+  "load_s": 1.6,
+  "ref_wer": 0.2522,
+  "wall_s": 17.4,
+  "wer": 0.2522,
+  "within_margin": true
+ },
+ "smoke.B": {
+  "cache_evicted": 16,
+  "exit_code": 0,
+  "fits_limit": true,
+  "import_s": 10.0,
+  "load_s": 1.6,
+  "ref_wer": 0.2043,
+  "wall_s": 18.3,
+  "wer": 0.1957,
+  "within_margin": true
+ },
+ "source": {
+  "consts_match_nb06": true,
+  "main_lines": 359,
+  "main_sha16": "8f76b71382f9b33c",
+  "n_bad_logs": 0,
+  "n_print": 1
+ },
+ "source.A": {
+  "diff": [],
+  "main_sha16": "8f76b71382f9b33c",
+  "num_beams": 1,
+  "only_beams_differs": true
+ },
+ "source.B": {
+  "diff": [
+   "- NUM_BEAMS = 1",
+   "+ NUM_BEAMS = 5"
+  ],
+  "main_sha16": "aa5a691f68011b81",
+  "num_beams": 5,
+  "only_beams_differs": true
+ },
+ "source.C": {
+  "diff": [],
+  "main_sha16": "8f76b71382f9b33c",
+  "num_beams": 1,
+  "only_beams_differs": true
+ },
+ "validation": {
+  "checks": [
+   {
+    "arm": "*",
+    "check": "transformers cocok dengan container (<5)",
+    "detail": "4.57.6",
+    "passed": true
+   },
+   {
+    "arm": "*",
+    "check": "konstanta decode main.py dasar = NB 06",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "*",
+    "check": "main.py tidak mencetak apa pun tentang klip",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "bobot = sidik jari NB 04",
+    "detail": "3fc3a15f80cb7084",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "main.py beda dari dasar hanya di NUM_BEAMS = 1",
+    "detail": "tidak ada beda",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 9 entri",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "jalur decode = 328 pendek / 44 chunk / 88 jendela",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "WER lewat main.py = NB 04 (toleransi 0.005)",
+    "detail": "0.2647 vs 0.2647, selisih +0.0000 (+0 error)",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "222 klip bersih = NB 04 (toleransi 0.005)",
+    "detail": "0.2660 vs 0.2660",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "14.5 menit di GPU ini",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "smoke test muat di limit 1 menit",
+    "detail": "17.4 s (import 10.5, load 1.6)",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "input aneh tidak menjatuhkan run",
+    "detail": "6/6 baris",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "klip 35 s dan 40 s lewat jalur chunk",
+    "detail": "4 jendela",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "klip rusak jadi '' dan dihitung gagal",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "A",
+    "check": "run rusak total berhenti tanpa submission.csv",
+    "detail": "exit 1",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "bobot = sidik jari NB 06",
+    "detail": "c58b0538dc4c2008",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "main.py beda dari dasar hanya di NUM_BEAMS = 5",
+    "detail": "- NUM_BEAMS = 1 / + NUM_BEAMS = 5",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 10 entri",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "jalur decode = 328 pendek / 44 chunk / 88 jendela",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "beam tidak rusak: WER <= E4 greedy + 0.03",
+    "detail": "0.2260 vs 0.2309, selisih -0.0050",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "28.3 menit di GPU ini",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "smoke test muat di limit 1 menit",
+    "detail": "18.3 s (import 10.0, load 1.6)",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "input aneh tidak menjatuhkan run",
+    "detail": "6/6 baris",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "klip 35 s dan 40 s lewat jalur chunk",
+    "detail": "4 jendela",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "klip rusak jadi '' dan dihitung gagal",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "B",
+    "check": "run rusak total berhenti tanpa submission.csv",
+    "detail": "exit 1",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "bobot = sidik jari NB 06",
+    "detail": "c58b0538dc4c2008",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "fp16 identik dengan cast fp32->fp16 saat load",
+    "detail": "1.62 GB",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "main.py beda dari dasar hanya di NUM_BEAMS = 1",
+    "detail": "tidak ada beda",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "main.py + model di root arsip, CRC OK",
+    "detail": "1.62 GB, 10 entri",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "main.py jalan sampai selesai",
+    "detail": "",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "tidak ada transkrip kosong",
+    "detail": "0 kosong",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "jalur decode = 328 pendek / 44 chunk / 88 jendela",
+    "detail": "{'short': 328, 'chunked': 44, 'windows': 88, 'failed': 0, 'empty': 0}",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "WER lewat main.py = NB 06 (toleransi 0.005)",
+    "detail": "0.2309 vs 0.2309, selisih -0.0000 (+0 error)",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "222 klip bersih = NB 06 (toleransi 0.005)",
+    "detail": "0.2331 vs 0.2331",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "proyeksi test muat di limit 2 jam",
+    "detail": "13.1 menit di GPU ini",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "log pendek (<= 20 baris), tiap baris <= 300 karakter",
+    "detail": "4 baris",
+    "passed": true
+   },
+   {
+    "arm": "C",
+    "check": "log tidak memuat nama klip / transkrip",
+    "detail": "0 nama, 0 transkrip",
+    "passed": true
+   }
+  ],
+  "n_passed": 48,
+  "n_total": 48,
+  "ready": {
+   "A": true,
+   "B": true,
+   "C": true
+  }
+ },
+ "zip.A": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "postprocess.py",
+   "model/baseline_zeroshot.json",
+   "model/config.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json"
+  ],
+  "main_at_root": true,
+  "main_matches": true,
+  "n_entries": 9,
+  "path": "/kaggle/working/submission_A_nb04native.zip",
+  "sha16": "1c41d4769b0deac1",
+  "shipped": true,
+  "size_gb": 1.619
+ },
+ "zip.B": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "postprocess.py",
+   "model/checkpoint_manifest.json",
+   "model/config.json",
+   "model/eval_final.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json"
+  ],
+  "main_at_root": true,
+  "main_matches": true,
+  "n_entries": 10,
+  "path": "/kaggle/working/submission_B_e4beam5.zip",
+  "sha16": "fa4cac28be39199b",
+  "shipped": true,
+  "size_gb": 1.619
+ },
+ "zip.C": {
+  "crc_ok": true,
+  "entries": [
+   "main.py",
+   "postprocess.py",
+   "model/checkpoint_manifest.json",
+   "model/config.json",
+   "model/eval_final.json",
+   "model/generation_config.json",
+   "model/model.safetensors",
+   "model/processor_config.json",
+   "model/tokenizer.json",
+   "model/tokenizer_config.json"
+  ],
+  "main_at_root": true,
+  "main_matches": true,
+  "n_entries": 10,
+  "path": "/kaggle/temp/control_C_e4greedy.zip",
+  "sha16": "27d3c2b4e027246c",
+  "shipped": false,
+  "size_gb": 1.619
+ }
+}

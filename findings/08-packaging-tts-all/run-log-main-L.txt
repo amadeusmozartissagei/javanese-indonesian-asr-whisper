@@ -1,0 +1,4 @@
+clips to transcribe: 372
+import 27.5s | model load 1.0s | device cuda | float16 | tensors recomputed 0, unexpected 0
+short 328 | chunked 44 (88 windows) | failed 0 | empty 0 | 372 clips in 366.4s
+wrote 372 rows

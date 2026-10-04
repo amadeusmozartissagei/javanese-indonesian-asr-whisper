@@ -1,0 +1,1 @@
+{"init_s": 193.3, "decode_s": 69.1, "audio_s": 274.4, "rtf": 0.2517, "n": 12, "n_fail": 0, "n_trunc": 0, "peak_vram_gib": 10.85, "torch": "2.8.0+cu128", "errors": []}

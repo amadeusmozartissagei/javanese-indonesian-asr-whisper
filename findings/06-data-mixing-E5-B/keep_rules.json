@@ -1,0 +1,50 @@
+{
+ "comparator": "04-whisper-core-full-concat25-1epoch",
+ "experiment": "E5",
+ "n_passed": 0,
+ "n_total": 3,
+ "paired": {
+  "vs_nb04": {
+   "delta": 0.0054,
+   "delta_hi": 0.0095,
+   "delta_lo": 0.0013,
+   "label": "official/vs-nb04",
+   "p_better": 0.006,
+   "proven": false,
+   "wer_a": 0.2532,
+   "wer_b": 0.2586
+  },
+  "vs_zeroshot": {
+   "delta": -0.0109,
+   "delta_hi": 0.0031,
+   "delta_lo": -0.0248,
+   "label": "official/zero-shot",
+   "p_better": 0.935,
+   "proven": false,
+   "wer_a": 0.2695,
+   "wer_b": 0.2586
+  }
+ },
+ "rules": [
+  {
+   "detail": "0.2532 -> 0.2586, CI [+0.0013, +0.0095]",
+   "passed": false,
+   "rule": "1. wer_total falls beyond the CI"
+  },
+  {
+   "detail": "0.2513 -> 0.2559",
+   "passed": false,
+   "rule": "2. wer_jv does not get worse"
+  },
+  {
+   "detail": "0.5265% -> 0.5895%  (92 -> 103 of 17473 tokens, noise band +-9.6)",
+   "passed": false,
+   "rule": "3. jv_to_id does not rise (per reference token)"
+  }
+ ],
+ "run_id": "06-data-mixing-E5-B",
+ "run_mode": "train",
+ "selected_on": "official",
+ "selection_failed": false,
+ "verdict": "drop"
+}

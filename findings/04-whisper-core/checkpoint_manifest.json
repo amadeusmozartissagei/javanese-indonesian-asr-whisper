@@ -1,0 +1,37 @@
+{
+ "base_model": "openai/whisper-large-v3-turbo",
+ "best_eval_wer": 0.34006,
+ "best_local_checkpoint": "/kaggle/temp/ckpt/04-whisper-core/run/checkpoint-1000",
+ "decode": {
+  "max_length": 225,
+  "no_repeat_ngram_size": 4,
+  "num_beams": 1
+ },
+ "effective_batch": 16,
+ "global_step": 1041,
+ "hf_branch": "main",
+ "hf_repo": "amozaurus/mozilla-jv-04-whisper-core",
+ "hf_revision": "9c00033f3ea9682517a1bd901a53814489b1d1ff",
+ "lang": "jw",
+ "learning_rate": 6e-06,
+ "n_files": 7,
+ "num_epochs": 3,
+ "optimizer": "adafactor",
+ "private": true,
+ "run_id": "04-whisper-core",
+ "run_mode": "train",
+ "segment_mode": "native",
+ "sha256_16": {
+  "config.json": "eec2aae0c8d6cb5b",
+  "generation_config.json": "9df27bd2d4f03c64",
+  "model.safetensors": "3fc3a15f80cb7084",
+  "processor_config.json": "8efb801da889b24f",
+  "tokenizer.json": "519b63069fd675c1",
+  "tokenizer_config.json": "80ad2fcf6f4abfc5",
+  "training_args.bin": "d8399d5d5d1ed44f"
+ },
+ "size_bytes": 3239526334,
+ "size_gb": 3.24,
+ "state_branch": "training-state",
+ "variant": "full"
+}

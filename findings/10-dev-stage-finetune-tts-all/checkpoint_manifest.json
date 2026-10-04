@@ -1,0 +1,35 @@
+{
+ "base_repo": "amozaurus/mozilla-jv-14-stage1-tts-E4-native-tts",
+ "base_revision": "e892b99c36147ef13addc3ae1efe2ca239f2f63a",
+ "base_sha16": "b494633b0708e5f9",
+ "checkpoint_policy": "final",
+ "effective_batch": 16,
+ "eval_convos": [],
+ "files": {
+  "config.json": "eec2aae0c8d6cb5b",
+  "generation_config.json": "9df27bd2d4f03c64",
+  "model.safetensors": "b607116568cfb2e7",
+  "processor_config.json": "8efb801da889b24f",
+  "tokenizer.json": "519b63069fd675c1",
+  "tokenizer_config.json": "80ad2fcf6f4abfc5"
+ },
+ "global_step": 63,
+ "hf_branch": "main",
+ "hf_repo": "amozaurus/mozilla-jv-10-dev-stage-finetune-tts-all",
+ "hf_revision": "a19346cac56f3b8691b4e4bd233e681a819746db",
+ "learning_rate": 3e-06,
+ "max_train_s": 30.0,
+ "nonweight_files_from_base": true,
+ "num_epochs": 3,
+ "optim": "adafactor",
+ "private": true,
+ "run_id": "10-dev-stage-finetune-tts-all",
+ "safetensors_sha16": "b607116568cfb2e7",
+ "seed": 20260829,
+ "train_convos": [
+  "2",
+  "5"
+ ],
+ "trained_with_transformers": "4.57.6",
+ "warmup_ratio": 0.1
+}
