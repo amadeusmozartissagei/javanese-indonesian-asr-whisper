@@ -1,16 +1,19 @@
-# Data turunan di repo ini: sumber dan lisensi
+# Derived data in this repo: sources and licences
 
-Kode dan catatan di repo ini ditulis tim "Bulu Hidung". File kecil di `findings/` (manifest, potongan
-transkrip, prediksi per klip, tabel error) diturunkan dari korpus berikut. Korpus mentahnya **tidak**
-ikut di repo ini; unduh dari sumbernya.
+The code in this repository is licensed under the [Mozilla Public License 2.0](LICENSE). The small
+files in `findings/` (manifests, transcript excerpts, per-segment predictions, error tables) are
+derived from the corpora below and are **not** covered by the MPL: each keeps the licence of its
+source. The raw corpora are not included; download them from their sources.
 
-| Korpus | Sumber | Lisensi |
+| Corpus | Source | Licence |
 |---|---|---|
 | Jember Javanese Spontaneous Speech Corpus | Mozilla Data Collective | CC BY-NC-SA 4.0 |
-| Lost in Transcription Competition - Development Data (Javanese–Indonesian) | Mozilla Data Collective | CC BY-SA 4.0 |
 | TTS Central Javanese | Mozilla Data Collective | CC BY-SA 4.0 |
 | Podcast Homostoria (Indonesia) | Mozilla Data Collective | CC BY-SA 4.0 |
 | Common Voice Scripted Speech (Indonesian) | Mozilla Common Voice | CC0 1.0 |
 
-Turunan dari korpus ber-ShareAlike memakai lisensi yang sama dengan sumbernya. Turunan dari korpus
-Jember hanya untuk penggunaan non-komersial (CC BY-NC-SA 4.0).
+Derivatives of ShareAlike corpora are shared under the same licence as their source. Derivatives of
+the Jember corpus are for non-commercial use only (CC BY-NC-SA 4.0).
+
+The competition's own data (the official development and test sets) is **not** redistributed here,
+in line with the competition rules; only aggregate scores computed on it are reported.

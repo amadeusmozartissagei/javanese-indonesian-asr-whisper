@@ -9,120 +9,141 @@ status: closed
 updated: 2026-10-05
 ---
 
-# Mozilla *Lost in Transcription* — track Indonesian–Javanese
+# Mozilla *Lost in Transcription*: Indonesian–Javanese track
 
-Riset dan pipeline tim **"Bulu Hidung"** untuk kompetisi ASR code-switching Indonesia–Jawa
-(Mozilla Data Collective × DrivenData). Model: fine-tune `openai/whisper-large-v3-turbo`,
-bahasa `jw`. Semua komputasi jalan di **Kaggle**. Repo ini hanya berisi notebook,
-catatan, dan keluaran kecil (CSV/JSON); bobot model ada di HuggingFace (private), dan korpus
-mentah (`Datasets/`) serta ZIP submission tidak ikut di git.
+Research and pipeline of team **"Bulu Hidung"** for the Indonesian–Javanese code-switched ASR
+challenge (Mozilla Data Collective × DrivenData). Model: `openai/whisper-large-v3-turbo`
+fine-tuned with language token `jw`. All compute ran on **Kaggle**. This repo holds the notebooks,
+notes and small outputs (CSV/JSON) only. Model weights live on a private HuggingFace account, and
+the raw corpora (`Datasets/`) and submission ZIPs are not tracked in git.
 
-**Kompetisi sudah ditutup.** Metrik: WER, dengan `score.py` resmi (case-sensitive).
+**The competition is closed.** Metric: WER with the official `score.py` normalizer (case-sensitive).
 
-## Status akhir (3 Okt 2026)
+> Most notes in `plan/`, `reports/` and `docs/` are written in Indonesian. Notebook code and
+> comments are mostly in English.
+
+## Final result (3 Oct 2026)
 
 | | |
 |---|---|
-| Skor test terbaik | **0,2497, peringkat 25**: L = stage 1 E4-native **+ TTS Central Javanese** + tahap 2 di dev resmi + beam 5 (submission `3516`, 3 Okt) |
-| Sebelumnya | J 0,2655 (stage 1 dua epoch), F 0,2660 (E4-native + tahap 2), K 0,2698 (+ Homostoria), D 0,2901 (E4-native + beam 5), E4 + beam 5 0,2950, H 0,3088 (tanpa stage 1) |
-| Temuan utama | (1) Tahap 2 di dev resmi (konvensi referensi) −0,024 di test. (2) Stage 1 bernilai ~0,04 (H), tapi yang membantu adalah **data Jawa** (L −0,016), bukan epoch (J) atau percakapan Indonesia (K +0,004). (3) Dev resmi (4 penutur) tidak bisa menilai perubahan stage 1: salah arah di H dan K, seri di L. |
+| Best test WER | **0.2497, rank 25**: arm L = stage 1 E4-native **+ TTS Central Javanese**, then stage 2 on the official dev set, beam 5 (submission `3516`, 3 Oct) |
+| Earlier arms | J 0.2655 (stage 1, two epochs), F 0.2660 (E4-native + stage 2), K 0.2698 (+ Homostoria podcast), D 0.2901 (E4-native, beam 5), E4 beam 5 0.2950, H 0.3088 (no stage 1) |
+| Main findings | (1) A short stage 2 on the official dev set (learning the reference transcription convention) cut test WER by 0.024. (2) Stage 1 is worth about 0.04 (H), but what helped was **Javanese data** (L −0.016), not more epochs (J) or Indonesian conversational speech (K +0.004). (3) The official dev set (4 speakers) could not judge stage-1 changes: it got the sign wrong for H and K and called L a tie. |
 
-Rincian setiap submission, lengkap dengan sha ZIP dan log: [`submissions/README.md`](submissions/README.md).
+Every submission, with ZIP hashes and platform logs: [`submissions/README.md`](submissions/README.md).
 
-## Yang sengaja tidak ada di repo publik
+## Pipeline in one paragraph
 
-Official rules kompetisi melarang mempublikasikan atau meredistribusi Data kompetisi, dan larangan
-itu tetap berlaku sesudah kompetisi selesai. Karena itu repo ini **tidak memuat**:
-- file resmi penyelenggara (`competition/*.csv`: daftar klip test dan smoke);
-- keluaran per klip di dev resmi: `predictions_official_dev.csv`, `baseline_zeroshot.json`,
-  `submission_dev_*.csv`, `error_table_official_dev.csv`, CSV per klip omniASR, dan `run-log.txt`
-  yang mencetak nama klip dev;
-- korpus mentah (`Datasets/`), bobot model (HuggingFace private), dan ZIP submission.
+**Stage 1** fine-tunes whisper-large-v3-turbo for one epoch on native Jember segments (Javanese
+spontaneous speech), a curated 6.5 h slice of Common Voice Indonesian packed into ~25 s items, and,
+in the final arm, 8 h of TTS Central Javanese (`notebooks/06-data-mixing.ipynb` and its
+descendants `12`–`14`). **Stage 2** continues for 3 epochs at LR 3e-6 on the official dev clips up to 30 s (335 of 372),
+so the model learns the reference convention (`notebooks/10-dev-stage-finetune.ipynb`).
+**Packaging** builds the submission ZIP (fp16 weights + `main.py`, beam 5, chunked decoding for
+clips over 30 s) and proves parity against the training notebook's predictions inside a replica of
+the competition container (`notebooks/08-packaging.ipynb`).
 
-Semua angka agregat (WER, jumlah error, CI) tetap ada di `dataset_findings.json`, laporan, dan
-ledger. Nama lima klip smoke di `notebooks/08-packaging.ipynb` diganti dengan pembacaan dari file
-resmi yang di-attach. Daftar persisnya ada di `.gitignore`.
+## Deliberately left out of this public repo
 
-## Peta repo
+The competition's official rules forbid publishing or redistributing the competition Data, and that
+obligation survives the end of the competition. This repo therefore does **not** contain:
+- the organiser's official files (`competition/*.csv`: test and smoke clip lists);
+- per-clip outputs on the official dev set: `predictions_official_dev.csv`, `baseline_zeroshot.json`,
+  `submission_dev_*.csv`, `error_table_official_dev.csv`, per-clip omniASR CSVs, and the
+  `run-log.txt` files that print dev clip names;
+- the raw corpora (`Datasets/`), model weights (private HuggingFace) and submission ZIPs.
+
+All aggregate numbers (WER, error counts, confidence intervals) remain in `dataset_findings.json`,
+the reports and the ledger. In `notebooks/08-packaging.ipynb` the five hard-coded smoke-test clip
+names were replaced by reading the attached official file. The exact list is in `.gitignore`.
+
+## Repo map
 
 ```
-README.md          <- file ini: peta, status, konvensi
-LICENSE-DATA.md    <- atribusi dan lisensi data turunan di findings/
-CLAUDE.md          <- aturan kerja untuk agen AI (baca ini kalau kamu LLM)
-docs/              studi kelayakan, kajian aturan kompetisi, log rename
-plan/              rencana eksekusi + satu brief per notebook (nbNN-brief-*.md)
-reports/           hasil dan analisis per notebook (nbNN-*-results.md, dst.)
-notebooks/         notebook Kaggle NN-*.ipynb + skrip util
-findings/          keluaran notebook, cermin /kaggle/working/findings/<run-id>/
-submissions/       ledger submission platform + log mentahnya (logs/id-<n>_*.txt)
-competition/       file resmi penyelenggara (format submission) - jangan diedit
-Datasets/          korpus mentah + staging upload Kaggle (lokal saja, tidak ada di git; hanya README-nya)
-.obsidian/         repo ini juga vault Obsidian (catatan saling tertaut lewat wikilink)
+README.md          <- this file: map, results, conventions
+LICENSE            <- MPL 2.0, for the code
+LICENSE-DATA.md    <- sources and licences of the derived data in findings/
+CLAUDE.md          <- working rules for AI coding agents (Indonesian)
+docs/              feasibility study, rules review, rename log
+plan/              execution plan + one brief per notebook (nbNN-brief-*.md)
+reports/           results and analysis per notebook (nbNN-*-results.md, ...)
+notebooks/         Kaggle notebooks NN-*.ipynb + utility scripts
+findings/          notebook outputs, mirror of /kaggle/working/findings/<run-id>/
+submissions/       platform submission ledger + raw logs (logs/id-<n>_*.txt)
+competition/       organiser files (README only in git)
+Datasets/          raw corpora + Kaggle upload staging (local only; README only in git)
+.obsidian/         the repo is also an Obsidian vault (notes link to each other via wikilinks)
 ```
 
-Penamaan: nama file ASCII kebab-case. Prefix `nbNN-` mengikat file ke notebook `NN`.
-Tiap catatan menyimpan nama lamanya sebagai alias di frontmatter. Peta nama lama → baru
-ada di [`docs/renames-2026-09-26.tsv`](docs/renames-2026-09-26.tsv).
+Naming: ASCII kebab-case. The `nbNN-` prefix ties a note to notebook `NN`. Each note keeps its old
+name as an alias in its frontmatter; the old → new map is in
+[`docs/renames-2026-09-26.tsv`](docs/renames-2026-09-26.tsv).
 
-## Notebook dan artefaknya
+## Notebooks and their artefacts
 
-| NN | Notebook | Isi | Status | `findings/` | Catatan |
+| NN | Notebook | What it does | Outcome | `findings/` | Notes |
 |---|---|---|---|---|---|
-| 01 | `01-dataset-eda.ipynb` | EDA tiga korpus | selesai | `01-dataset-eda` | [[nb01-dataset-analysis]] |
-| 02 | `02-data-build.ipynb`, `02-verify.ipynb` | segmentasi Jember → dataset Kaggle `jember-segments-16k`, scorer, split | Gate 1 lolos 25 Agu (28/28) | `02-data-build`, `02-verify` | [[nb02-data-build-results]], [[nb02-cross-audit-scorer-text-2026-08-26]] |
-| — | — | analisis 372 klip dev resmi | selesai | — | [[official-dev-set-analysis-2026-08-28]] |
-| 03 | `03-zeroshot.ipynb` | baseline zero-shot | selesai | `03-zeroshot`, `03-zeroshot-dryrun` | [[nb03-zeroshot-baseline-results]] |
-| 04 | `04-whisper-core.ipynb` | fine-tune Jember saja: native vs concat25, 3 vs 1 epoch | Gate 2 lolos 31 Agu | `04-whisper-core*` | [[nb04-whisper-core-results]] |
-| 05 | — | XLS-R CTC + LM | ditunda | — | [[nb05-brief-xlsr-ctc-lm]] |
-| 06 | `06-mix-build.ipynb`, `06-mix-verify.ipynb` | build dataset campuran `jv-mix-16k` (CPU, berfase) | terverifikasi 52/52 | `06-mix-build`, `06-mix-verify` | [[nb06-data-mixing-results]] |
-| 06 | `06-data-mixing.ipynb` | arm E3–E6 + **E4-native** (GPU) | Gate 4 ditutup 7 Sep (E4); E4-native 25 Sep | `06-data-mixing-*` | [[nb06-data-mixing-results]] |
-| 07 | — | error analysis + aturan post-processing | belum dibangun | — | [[nb07-brief-error-analysis-robustness]] |
-| 08 | `08-packaging.ipynb` | ZIP submission + gladi container + paritas dev | dipakai untuk semua submission: B, D, F, P, H, J, K, **L (terakhir, 3 Okt)** | `08-packaging`, `08-packaging-ab`, `08-packaging-e4native`, `08-packaging-devstage`, `08-packaging-devstage-pp`, `08-packaging-t0all`, `08-packaging-2ep-all`, `08-packaging-homo-all`, `08-packaging-tts-all` | [[nb08-brief-packaging-submission]], [`submissions/README.md`](submissions/README.md) |
-| 09 | `09-omniasr-zeroshot.ipynb` | omniASR zero-shot di dev resmi (evaluasi gap, lead #2); venv terpisah | selesai 28 Sep: kalah dari D (v2 0,2518 vs 0,2268), lead ditutup | `09-omniasr-zeroshot*` | [[gap-eval-2-omniasr-zeroshot-2026-09-28]] |
-| 10 | `10-dev-stage-finetune.ipynb` | tahap 2 di dev resmi (resep F) di atas checkpoint stage 1 mana pun | c5 −0,0267 di convo 2; `all` = F 0,2660; `t0-all` = H 0,3088; `2ep-all` = J 0,2655; `homo-all` = K 0,2698; **`tts-all` = L 0,2497** | `10-dev-stage-finetune-{c5,all,c5-lr6e6,t0-c5,t0-all,2ep-all,homo-all,tts-all}` | [[nb10-dev-stage-finetune-results]] |
-| 11 | `11-large-v3-probe.ipynb` | large-v3 vs turbo zero-shot di dev (lewat `main.py` D) + probe VRAM/kecepatan training di T4 | selesai 30 Sep (17/17): large-v3 zero-shot lebih buruk dari turbo (+0,0138 CI [+0,005, +0,022]) dan full FT OOM di T4 → **ditutup**; turbo zero-shot hanya +0,018 dari D | `11-large-v3-probe-zeroshot-feasibility` | [[nb11-large-v3-probe-results]] |
-| 12 | `12-stage1-2epoch.ipynb` | stage 1 E4-native dengan **2 epoch** (NB 06 apa adanya, satu variabel `NUM_EPOCHS`); dinilai hanya lewat test setelah NB 10 `all` + NB 08 | run 1 kehilangan bobot (kuota HF); r2 jalan 1 Okt (21/21) → NB 10 `2ep-all` → arm J, **test 0,2655** (F 0,2660: epoch ke-2 tidak membantu) | `12-stage1-2epoch-E4-native-2ep`, `12-stage1-2epoch-E4-native-2ep-r2` | [[nb11-large-v3-probe-results]] (alasan: H test 0,3088) |
-| 13 | `13-stage1-homostoria.ipynb` | stage 1 E4-native **+ Podcast Homostoria** (4.693 segmen, 7,67 jam percakapan Indonesia; satu variabel: data); dinilai lewat NB 10 `all` + NB 08 + test | jalan 2 Okt (24/24): dev greedy 0,2096 vs E4-native 0,2317 (−0,0221) → NB 10 `homo-all` → arm K, **test 0,2698** (J 0,2655): dev salah arah, Homostoria tidak membantu | `13-stage1-homostoria-E4-native-homo` | [[nb13-stage1-homostoria-results]] |
-| 14 | `14-stage1-tts.ipynb` | stage 1 E4-native **+ TTS Central Javanese** (arm E1 jv-mix-16k, 1.368 item / 8,02 jam; satu variabel: data Jawa); dinilai lewat NB 10 + NB 08 + test | jalan 3 Okt (23/23): dev seri dengan E4-native (0,2339 vs 0,2317), wer_jv 0,2425 → 0,2065 → NB 10 `tts-all` → arm L, **test 0,2497 (terbaik, peringkat 25)** | `14-stage1-tts-E4-native-tts` | [[nb14-stage1-tts-results]] |
+| 01 | `01-dataset-eda.ipynb` | EDA of the three corpora | done | `01-dataset-eda` | [nb01](reports/nb01-dataset-analysis.md) |
+| 02 | `02-data-build.ipynb`, `02-verify.ipynb` | Jember segmentation → Kaggle dataset `jember-segments-16k`, scorer, split | Gate 1 passed 25 Aug (28/28) | `02-data-build`, `02-verify` | [nb02](reports/nb02-data-build-results.md), [cross-audit](reports/nb02-cross-audit-scorer-text-2026-08-26.md) |
+| — | — | analysis of the 372 official dev clips | done | — | [dev set analysis](reports/official-dev-set-analysis-2026-08-28.md) |
+| 03 | `03-zeroshot.ipynb` | zero-shot baseline | done | `03-zeroshot`, `03-zeroshot-dryrun` | [nb03](reports/nb03-zeroshot-baseline-results.md) |
+| 04 | `04-whisper-core.ipynb` | Jember-only fine-tune: native vs concat25, 3 vs 1 epoch | Gate 2 passed 31 Aug | `04-whisper-core*` | [nb04](reports/nb04-whisper-core-results.md) |
+| 05 | — | XLS-R CTC + LM | not pursued | — | [brief](plan/nb05-brief-xlsr-ctc-lm.md) |
+| 06 | `06-mix-build.ipynb`, `06-mix-verify.ipynb` | build the mixed dataset `jv-mix-16k` (CPU, phased) | verified 52/52 | `06-mix-build`, `06-mix-verify` | [nb06](reports/nb06-data-mixing-results.md) |
+| 06 | `06-data-mixing.ipynb` | arms E3–E6 + **E4-native** (GPU) | Gate 4 closed 7 Sep (E4); E4-native 25 Sep | `06-data-mixing-*` | [nb06](reports/nb06-data-mixing-results.md) |
+| 07 | — | error analysis + post-processing rules | not built | — | [brief](plan/nb07-brief-error-analysis-robustness.md) |
+| 08 | `08-packaging.ipynb` | submission ZIP + container rehearsal + dev parity | used for every submission: B, D, F, P, H, J, K, **L (final, 3 Oct)** | `08-packaging*` | [brief](plan/nb08-brief-packaging-submission.md), [ledger](submissions/README.md) |
+| 09 | `09-omniasr-zeroshot.ipynb` | omniASR zero-shot on the official dev (gap evaluation); separate venv | done 28 Sep: loses to D (v2 0.2518 vs 0.2268), lead closed | `09-omniasr-zeroshot*` | [gap eval 2](reports/gap-eval-2-omniasr-zeroshot-2026-09-28.md) |
+| 10 | `10-dev-stage-finetune.ipynb` | stage 2 on the official dev (recipe F) on top of any stage-1 checkpoint | c5 −0.0267 on held-out convo 2; `all` = F 0.2660; `t0-all` = H 0.3088; `2ep-all` = J 0.2655; `homo-all` = K 0.2698; **`tts-all` = L 0.2497** | `10-dev-stage-finetune-*` | [nb10](reports/nb10-dev-stage-finetune-results.md) |
+| 11 | `11-large-v3-probe.ipynb` | large-v3 vs turbo zero-shot on dev + T4 VRAM/speed probe | done 30 Sep (17/17): large-v3 zero-shot worse than turbo (+0.0138, CI [+0.005, +0.022]) and full fine-tune OOMs on a T4 → **closed** | `11-large-v3-probe-zeroshot-feasibility` | [nb11](reports/nb11-large-v3-probe-results.md) |
+| 12 | `12-stage1-2epoch.ipynb` | stage 1 E4-native with **2 epochs** (one variable: `NUM_EPOCHS`) | run 1 lost its weights (HF quota); r2 1 Oct (21/21) → arm J, **test 0.2655** (F 0.2660: the second epoch did not help) | `12-stage1-2epoch-*` | [nb11](reports/nb11-large-v3-probe-results.md) (motivation: H test 0.3088) |
+| 13 | `13-stage1-homostoria.ipynb` | stage 1 E4-native **+ Podcast Homostoria** (4,693 segments, 7.67 h Indonesian conversation) | 2 Oct (24/24): dev greedy 0.2096 vs 0.2317 (−0.0221) → arm K, **test 0.2698**: dev got the sign wrong | `13-stage1-homostoria-E4-native-homo` | [nb13](reports/nb13-stage1-homostoria-results.md) |
+| 14 | `14-stage1-tts.ipynb` | stage 1 E4-native **+ TTS Central Javanese** (jv-mix-16k arm E1, 1,368 items / 8.02 h) | 3 Oct (23/23): dev tie (0.2339 vs 0.2317), Javanese-token WER 0.2425 → 0.2065 → arm L, **test 0.2497 (best, rank 25)** | `14-stage1-tts-E4-native-tts` | [nb14](reports/nb14-stage1-tts-results.md) |
 
-Skrip util: `util-audit-mounts.py` (audit dataset Kaggle vs katalog MDC),
-`util-pack-cv-subset.py` (paket subset Common Voice untuk upload),
-`util-extract-findings.ipynb` (ambil folder findings kecil dari output Kaggle yang besar).
+Utility scripts: `util-audit-mounts.py` (audit Kaggle datasets against the MDC catalogue),
+`util-pack-cv-subset.py` (pack a Common Voice subset for upload),
+`util-extract-findings.ipynb` (pull the small findings folder out of a large Kaggle output).
 
-## Checkpoint (HuggingFace, private, akun `amozaurus`)
+## Checkpoints (HuggingFace, private, account `amozaurus`)
 
-| Nama | Repo @ revisi | `model.safetensors` sha16 | Dev resmi (372) | Test |
+| Name | Repo @ revision | `model.safetensors` sha16 | Official dev (372) | Test |
 |---|---|---|---|---|
-| E4 | `mozilla-jv-06-data-mixing-E4@c79347a5` | `c58b0538dc4c2008` | 0,2309 greedy / 0,2260 beam5 | 0,3005 / 0,2950 |
-| **E4-native** | `mozilla-jv-06-data-mixing-E4-native@3437f442` | `b3438f32cf61ebbe` | 0,2313 greedy / 0,2268 beam5 | — / **0,2901** |
-| NB04 native | `mozilla-jv-04-whisper-core@9c00033f` | `3fc3a15f80cb7084` | 0,2647 | 0,3027 |
-| NB04 concat25 1 ep | `mozilla-jv-04-whisper-core-full-concat25-1epoch@0a415ce6` | — | 0,2532* | — |
-| F (E4-native + tahap 2) | `mozilla-jv-10-dev-stage-finetune-all@e4df20fb` | `058f6d26fd621170` | fit dev* | — / 0,2660 |
-| J (2 epoch + tahap 2) | `mozilla-jv-10-dev-stage-finetune-2ep-all@b368a2ce` | `6680ef3cc3dab73e` | fit dev* | — / 0,2655 |
-| **L (+ TTS + tahap 2)** | `mozilla-jv-10-dev-stage-finetune-tts-all@a19346ca` | `b607116568cfb2e7` | fit dev* | — / **0,2497** |
+| E4 | `mozilla-jv-06-data-mixing-E4@c79347a5` | `c58b0538dc4c2008` | 0.2309 greedy / 0.2260 beam 5 | 0.3005 / 0.2950 |
+| **E4-native** | `mozilla-jv-06-data-mixing-E4-native@3437f442` | `b3438f32cf61ebbe` | 0.2313 greedy / 0.2268 beam 5 | — / **0.2901** |
+| NB04 native | `mozilla-jv-04-whisper-core@9c00033f` | `3fc3a15f80cb7084` | 0.2647 | 0.3027 |
+| NB04 concat25 1 ep | `mozilla-jv-04-whisper-core-full-concat25-1epoch@0a415ce6` | — | 0.2532* | — |
+| F (E4-native + stage 2) | `mozilla-jv-10-dev-stage-finetune-all@e4df20fb` | `058f6d26fd621170` | dev fit† | — / 0.2660 |
+| J (2 epochs + stage 2) | `mozilla-jv-10-dev-stage-finetune-2ep-all@b368a2ce` | `6680ef3cc3dab73e` | dev fit† | — / 0.2655 |
+| **L (+ TTS + stage 2)** | `mozilla-jv-10-dev-stage-finetune-tts-all@a19346ca` | `b607116568cfb2e7` | dev fit† | — / **0.2497** |
 
-Angka dev memakai normalizer resmi lewat `main.py` di NB 08, kecuali * (scorer kita,
-selisihnya −0,0003). E4 = Jember concat25 + Common Voice terkurasi 6,53 jam, 1 epoch.
-E4-native = resep sama, segmen Jember native, checkpoint step terakhir (tanpa seleksi dev).
-fit dev* = checkpoint tahap 2 dilatih di 372 klip dev itu sendiri, jadi angka dev-nya bukan hasil.
+Dev numbers use the official normalizer through `main.py` in NB 08, except * (our scorer, which
+differs by −0.0003). E4 = Jember concat25 + curated Common Voice 6.53 h, 1 epoch. E4-native = same
+recipe with native Jember segments and the final-step checkpoint (no dev selection).
+† Stage-2 checkpoints were trained on the 372 dev clips themselves, so their dev score is not a result.
 
-## Konvensi kerja
+## Working conventions
 
-- **Claude menulis notebook, user menjalankannya di Kaggle.** Tidak ada training atau
-  install dependensi ML di laptop. Pengecekan lokal hanya statis.
-- **Output run:** Kaggle → Output → Download all → unzip ke root repo. Arsipnya sudah
-  berisi `findings/<run-id>/`. Run ulang dengan resep lain wajib memakai `RUN_NOTE`
-  sendiri, supaya folder lama tidak tertimpa.
-- **Log platform:** simpan sebagai `submissions/logs/id-<id platform>_<arm>_<smoke|full>.txt`,
-  lalu tambah satu baris di `submissions/README.md`.
-- **Aturan data kompetisi:** hanya angka agregat (WER, hitungan) yang boleh dibawa ke
-  asisten AI. Transkrip, nama klip, dan prediksi per klip tidak. Log `main.py` tidak
-  boleh mencetak apa pun tentang data test.
-- Dev resmi (4 penutur, 2 percakapan) adalah proxy yang lemah untuk test: selisih dev
-  0,034 antara E4 dan NB04-native menyusut jadi 0,002 di test.
+- **Notebooks are authored locally and executed on Kaggle.** No training or ML dependencies on the
+  laptop; local checks are static only (`ast.parse`, cross-cell names, unit tests of pure functions).
+- **Run outputs:** Kaggle → Output → Download all → unzip into the repo root. The archive already
+  contains `findings/<run-id>/`. A run with a different recipe must use its own `RUN_NOTE`, so it
+  never overwrites a folder it is compared against.
+- **Platform logs:** saved as `submissions/logs/id-<platform id>_<arm>_<smoke|full>.txt`, plus one
+  row in `submissions/README.md`.
+- **Competition data rule:** only aggregate numbers (WER, counts) were ever shared with AI tools;
+  transcripts, clip names and per-clip predictions were not. `main.py` logs nothing about test data.
+- The official dev set (4 speakers, 2 conversations) is a weak proxy for test: a 0.034 dev gap between
+  E4 and NB04-native shrank to 0.002 on test, and stage-1 changes moved dev and test in opposite
+  directions twice.
 
-## Kalau kamu LLM yang baru masuk ke repo ini
+## For AI agents entering this repo
 
-Urutan baca: file ini → [`CLAUDE.md`](CLAUDE.md) → [`submissions/README.md`](submissions/README.md)
-→ laporan notebook terakhir yang relevan di `reports/` → `findings/<run-id>/dataset_findings.json`
-(digest JSON setiap run). Jangan menelusuri `Datasets/` secara rekursif: isinya puluhan ribu file audio.
+Read in this order: this file → [`CLAUDE.md`](CLAUDE.md) → [`submissions/README.md`](submissions/README.md)
+→ the latest relevant report in `reports/` → `findings/<run-id>/dataset_findings.json` (each run's
+JSON digest). Never walk `Datasets/` recursively: it holds tens of thousands of audio files.
+
+## License
+
+Code: [Mozilla Public License 2.0](LICENSE) (the competition rules license publicly shared code under
+MPL 2.0). Derived data in `findings/` keeps the licence of its source corpus; see
+[`LICENSE-DATA.md`](LICENSE-DATA.md).
