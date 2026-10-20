@@ -7,7 +7,7 @@ tags:
   - index
   - submission
 status: active
-updated: 2026-09-30
+updated: 2026-10-20
 ---
 
 # submissions/
@@ -42,13 +42,18 @@ skor**; skor dibaca manual dari halaman Submissions atau leaderboard.
 | 3376 | 2026-10-01 22:11 | full | J | stage 1 E4-native 2 epoch (NB 12 r2) + tahap 2 dev (NB 10 2ep-all), beam 5 | 8, 1.621.780.627 | `a964f7c56d291ff8` | **0,2655** (−0,0005 vs F, praktis seri) | [log](logs/id-3376_J-2ep-all-beam5_full.txt) |
 | 3463 | 2026-10-02 18:04 | smoke | K | stage 1 E4-native + Podcast Homostoria (NB 13) + tahap 2 dev (NB 10 homo-all), beam 5 | 8, 1.621.780.627 | `38e628e81934e8f5` | 0,1043 (smoke; = referensi lokal 0,104348; klip smoke ikut dilatih) | [log](logs/id-3463_K-homo-all-beam5_smoke.txt) |
 | 3473 | 2026-10-02 18:54 | full | K | stage 1 E4-native + Podcast Homostoria (NB 13) + tahap 2 dev (NB 10 homo-all), beam 5 | 8, 1.621.780.627 | `38e628e81934e8f5` | **0,2698** (+0,0043 vs J, +0,0038 vs F; dev stage 1 meramal −0,0221) | [log](logs/id-3473_K-homo-all-beam5_full.txt) |
-| 3516 | 2026-10-03 03:02 | full | L | stage 1 E4-native + TTS Central Javanese (NB 14) + tahap 2 dev (NB 10 tts-all), beam 5 | 8, 1.621.780.627 | `6a2080f69477dcb0` | **0,2497** ← terbaik (−0,0158 vs J, −0,0163 vs F; peringkat 25) | [log](logs/id-3516_L-tts-all-beam5_full.txt) |
+| 3516 | 2026-10-03 03:02 | full | L | stage 1 E4-native + TTS Central Javanese (NB 14) + tahap 2 dev (NB 10 tts-all), beam 5 | 8, 1.621.780.627 | `6a2080f69477dcb0` | **0,2497** ← terbaik (−0,0158 vs J, −0,0163 vs F; peringkat publik 25) | [log](logs/id-3516_L-tts-all-beam5_full.txt) |
 
 Ketiga submission penuh tanggal 24 Sep dikirim dari akun `hamzapratama000`.
 Akun per submission penuh, dibaca dari halaman Submissions tim (disimpan 30 Sep): 2507/2536/2537
 `hamzapratama000`, 2693 dan 2914 `thoriqibrahimfarras`, 3097 `daivafzn`.
 **Kuota ternyata per TIM:** halaman itu menulis "Your team has 2 of 3 submissions left per 7 days".
 Pada 24 Sep, skor 0,3005 berada di peringkat #58. Pada 27 Sep, skor terbaik 0,2901 (tim **Bulu Hidung**) berada di peringkat **#57**; #1 di 0,2096, #10 di 0,2228.
+
+**Hasil akhir (private leaderboard, dibaca 20 Okt):** tim **Bulu Hidung** di peringkat **#18** dengan
+WER private **0,2576** (#1 0,1983, #10 0,2387). Skor di kolom "Skor" di atas adalah skor publik.
+Leaderboard hanya menampilkan skor private terbaik per tim, jadi submission mana yang menghasilkan
+0,2576 tidak tercatat di sini.
 
 ## Dari notebook mana setiap ZIP berasal
 

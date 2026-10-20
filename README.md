@@ -6,7 +6,7 @@ aliases:
 tags:
   - index
 status: closed
-updated: 2026-10-05
+updated: 2026-10-20
 ---
 
 # Mozilla *Lost in Transcription*: Indonesian–Javanese track
@@ -22,11 +22,12 @@ the raw corpora (`Datasets/`) and submission ZIPs are not tracked in git.
 > Most notes in `plan/`, `reports/` and `docs/` are written in Indonesian. Notebook code and
 > comments are mostly in English.
 
-## Final result (3 Oct 2026)
+## Final result (private leaderboard, read 20 Oct 2026)
 
 | | |
 |---|---|
-| Best test WER | **0.2497, rank 25**: arm L = stage 1 E4-native **+ TTS Central Javanese**, then stage 2 on the official dev set, beam 5 (submission `3516`, 3 Oct) |
+| Final standing | **Rank 18, private WER 0.2576** (private leaderboard, the one that decides the competition; #1 0.1983, #10 0.2387). The leaderboard shows the team's best private score only, so which submission produced it is not recorded here |
+| Best public test WER | **0.2497, public rank 25**: arm L = stage 1 E4-native **+ TTS Central Javanese**, then stage 2 on the official dev set, beam 5 (submission `3516`, 3 Oct) |
 | Earlier arms | J 0.2655 (stage 1, two epochs), F 0.2660 (E4-native + stage 2), K 0.2698 (+ Homostoria podcast), D 0.2901 (E4-native, beam 5), E4 beam 5 0.2950, H 0.3088 (no stage 1) |
 | Main findings | (1) A short stage 2 on the official dev set (learning the reference transcription convention) cut test WER by 0.024. (2) Stage 1 is worth about 0.04 (H), but what helped was **Javanese data** (L −0.016), not more epochs (J) or Indonesian conversational speech (K +0.004). (3) The official dev set (4 speakers) could not judge stage-1 changes: it got the sign wrong for H and K and called L a tie. |
 
@@ -98,7 +99,7 @@ name as an alias in its frontmatter; the old → new map is in
 | 11 | `11-large-v3-probe.ipynb` | large-v3 vs turbo zero-shot on dev + T4 VRAM/speed probe | done 30 Sep (17/17): large-v3 zero-shot worse than turbo (+0.0138, CI [+0.005, +0.022]) and full fine-tune OOMs on a T4 → **closed** | `11-large-v3-probe-zeroshot-feasibility` | [nb11](reports/nb11-large-v3-probe-results.md) |
 | 12 | `12-stage1-2epoch.ipynb` | stage 1 E4-native with **2 epochs** (one variable: `NUM_EPOCHS`) | run 1 lost its weights (HF quota); r2 1 Oct (21/21) → arm J, **test 0.2655** (F 0.2660: the second epoch did not help) | `12-stage1-2epoch-*` | [nb11](reports/nb11-large-v3-probe-results.md) (motivation: H test 0.3088) |
 | 13 | `13-stage1-homostoria.ipynb` | stage 1 E4-native **+ Podcast Homostoria** (4,693 segments, 7.67 h Indonesian conversation) | 2 Oct (24/24): dev greedy 0.2096 vs 0.2317 (−0.0221) → arm K, **test 0.2698**: dev got the sign wrong | `13-stage1-homostoria-E4-native-homo` | [nb13](reports/nb13-stage1-homostoria-results.md) |
-| 14 | `14-stage1-tts.ipynb` | stage 1 E4-native **+ TTS Central Javanese** (jv-mix-16k arm E1, 1,368 items / 8.02 h) | 3 Oct (23/23): dev tie (0.2339 vs 0.2317), Javanese-token WER 0.2425 → 0.2065 → arm L, **test 0.2497 (best, rank 25)** | `14-stage1-tts-E4-native-tts` | [nb14](reports/nb14-stage1-tts-results.md) |
+| 14 | `14-stage1-tts.ipynb` | stage 1 E4-native **+ TTS Central Javanese** (jv-mix-16k arm E1, 1,368 items / 8.02 h) | 3 Oct (23/23): dev tie (0.2339 vs 0.2317), Javanese-token WER 0.2425 → 0.2065 → arm L, **public test 0.2497 (best, public rank 25)**; final private 0.2576, rank 18 | `14-stage1-tts-E4-native-tts` | [nb14](reports/nb14-stage1-tts-results.md) |
 
 Utility scripts: `util-audit-mounts.py` (audit Kaggle datasets against the MDC catalogue),
 `util-pack-cv-subset.py` (pack a Common Voice subset for upload),

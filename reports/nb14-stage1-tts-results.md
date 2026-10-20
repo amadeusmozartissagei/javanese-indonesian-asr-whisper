@@ -2,7 +2,7 @@
 title: "NB 14 — stage 1 E4-native + TTS Central Javanese: hasil"
 tags: [report, nb14]
 status: active
-updated: 2026-10-03
+updated: 2026-10-20
 ---
 
 # NB 14 — stage 1 E4-native + TTS Central Javanese
@@ -47,11 +47,14 @@ sha16 `b607116568cfb2e7`. Fit dev (beam 5, data latih, bukan hasil): **2.402 err
 ZIP `submission_L_tts_all_beam5.zip`: 8 entri, 1,619 GB, sha16 `6a2080f69477dcb0` (salinan lokal
 user dicek, sha sama).
 
-## Hasil test arm L (3 Okt): **0,2497** — terbaik, peringkat 25
+## Hasil test arm L (3 Okt): **0,2497** — terbaik, peringkat publik 25
 
 Full 3516, run normal (2.118 klip, 0 gagal, 0 kosong, jalur 2051/67/134, 635 s). ZIP sama dengan
 yang dicek (8 entri, 1.621.780.627 byte). **Test 0,2497 vs J 0,2655 (−0,0158) dan F 0,2660
-(−0,0163).** Peringkat akhir tim: 25. Kompetisi ditutup setelah submission ini.
+(−0,0163).** Peringkat publik saat itu: 25. Kompetisi ditutup setelah submission ini.
+
+**Peringkat akhir (private leaderboard, dibaca 20 Okt): #18, WER private 0,2576.** Leaderboard
+hanya menampilkan skor private terbaik per tim, jadi tidak tercatat submission mana asalnya.
 
 Bacaan:
 - Dev stage 1 menyebut seri (+0,0022, CI melewati 0); test memberi perbaikan terbesar sejak F.
