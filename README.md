@@ -6,7 +6,7 @@ aliases:
 tags:
   - index
 status: closed
-updated: 2026-10-20
+updated: 2026-10-21
 ---
 
 # Mozilla *Lost in Transcription*: Indonesian–Javanese track
@@ -18,6 +18,11 @@ notes and small outputs (CSV/JSON) only. Model weights live on a private Hugging
 the raw corpora (`Datasets/`) and submission ZIPs are not tracked in git.
 
 **The competition is closed.** Metric: WER with the official `score.py` normalizer (case-sensitive).
+
+**Write-up:** the story behind these notebooks, from the zero-shot baseline to the dev set that
+pointed the wrong way, is on Medium:
+[The dev set lied: fine-tuning Whisper for Javanese on a free GPU](https://medium.com/@hamzapratama000/the-dev-set-lied-fine-tuning-whisper-for-javanese-on-a-free-gpu-fad887c18527).
+A shorter case study is on [hamza-pratama.is-a.dev](https://hamza-pratama.is-a.dev/projects/javanese-asr).
 
 > Most notes in `plan/`, `reports/` and `docs/` are written in Indonesian. Notebook code and
 > comments are mostly in English.
